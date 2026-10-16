@@ -1,0 +1,2246 @@
+{
+  "metadata": {
+    "schema_version": "1.0",
+    "timezone": "Europe/Moscow",
+    "last_attempted_refresh": "2026-10-16T13:11:37+00:00",
+    "last_completed_refresh": "2026-10-16T13:09:13+00:00",
+    "last_successful_update": "2026-10-16T13:11:44+00:00",
+    "generated_at": "2026-10-16T13:11:44+00:00",
+    "catalog_updated_on": "2026-10-16",
+    "source_count": 143,
+    "successful_sources_this_run": 1,
+    "event_count": 22,
+    "review_count": 4,
+    "partial": true,
+    "run_status": "partial",
+    "refresh_interval_hours": 72,
+    "scan_options": {
+      "child_pages_per_source": 0,
+      "source_ids": [
+        "SRC_A18D2528A881B6"
+      ]
+    }
+  },
+  "events": [
+    {
+      "title": "«Уходящий зеленый»",
+      "primary_url": "https://cube.moscow/personalnaya-vystavka-kati-ryblovoj-uhodyashhij-zelenyj/",
+      "event_type": "exhibition",
+      "description": "Художница Катя Рыблова исследует феномен ассоциативной синестезии и влияние цвета на внутренний мир человека. Выставка «Уходящий зеленый» — тотальная инсталляция, погружающая в состояние светлой грусти по уходящему лету, ностальгии по детству, которое обязательно заканчивается.",
+      "confidence": "institution_html",
+      "start_date": "2026-09-26",
+      "end_date": "2026-11-01",
+      "start_time": null,
+      "institution_id": "MSK021",
+      "venue_name": "КУБ / Cube.Moscow",
+      "source_id": "SRC_F4397A1C7A1F13",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "young_art"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_3C3A0A429F306F2FA3",
+      "evidence": [
+        {
+          "url": "https://cube.moscow/personalnaya-vystavka-kati-ryblovoj-uhodyashhij-zelenyj/",
+          "source_id": "SRC_F4397A1C7A1F13",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "date"
+    },
+    {
+      "title": "«Фрагменты нового концептуализма»",
+      "primary_url": "https://cube.moscow/kollektivnaya-vystavka-fragmenty-novogo-konczeptualizma/",
+      "event_type": "exhibition",
+      "description": "В большом зале арт-пространства галерея МАРШ представляет групповой проект «Фрагменты нового концептуализма» под кураторством Романа Шалганова . Экспозиция объединяет работы Ивана Симонова, Михаила Рубанкова, Михаила Чулова, Арины Атик, Виктора Осипова и Дениса Горшкова .",
+      "confidence": "institution_html",
+      "start_date": "2026-09-26",
+      "end_date": "2026-11-01",
+      "start_time": null,
+      "institution_id": "MSK021",
+      "venue_name": "КУБ / Cube.Moscow",
+      "source_id": "SRC_F4397A1C7A1F13",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "young_art"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_30183E960271B5D1B1",
+      "evidence": [
+        {
+          "url": "https://cube.moscow/kollektivnaya-vystavka-fragmenty-novogo-konczeptualizma/",
+          "source_id": "SRC_F4397A1C7A1F13",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "date"
+    },
+    {
+      "title": "Принцип серийности",
+      "event_type": "exhibition",
+      "description": "",
+      "primary_url": "https://ges-2.org/projects/seriality-principle",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-01",
+      "end_date": "2026-11-04",
+      "start_time": null,
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_230EDC9E94B43045C0",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/projects/seriality-principle",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "date"
+    },
+    {
+      "title": "«Юдоль. Путь к источнику»",
+      "primary_url": "https://cube.moscow/personalnaya-vystavka-marii-dzhonas-farel-yudol-put-k-istochniku/",
+      "event_type": "exhibition",
+      "description": "«Проходя долиною плача (юдолью), они открывают в ней источники, и дождь покрывает её благословением; приходят от силы в силу, являются пред Богом на Сионе». — Псалом 83:7–8",
+      "confidence": "institution_html",
+      "start_date": "2026-10-07",
+      "end_date": "2026-11-01",
+      "start_time": null,
+      "institution_id": "MSK021",
+      "venue_name": "КУБ / Cube.Moscow",
+      "source_id": "SRC_F4397A1C7A1F13",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "young_art"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_3D7C9FEC3675B787F0",
+      "evidence": [
+        {
+          "url": "https://cube.moscow/personalnaya-vystavka-marii-dzhonas-farel-yudol-put-k-istochniku/",
+          "source_id": "SRC_F4397A1C7A1F13",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "date"
+    },
+    {
+      "title": "Натюрморт. Портрет. Пейзаж. После жанра",
+      "event_type": "exhibition",
+      "description": "",
+      "primary_url": "https://ges-2.org/projects/still-life-portrait-landscape-after-genre",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-15",
+      "end_date": "2027-04-25",
+      "start_time": null,
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_BBDCDDD1493E3EDB6E",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/projects/still-life-portrait-landscape-after-genre",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "date"
+    },
+    {
+      "title": "Вагон пользы и еще тележка",
+      "event_type": "other",
+      "description": "",
+      "primary_url": "https://ges-2.org/loads-of-benefits-and-a-cartload",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "11:15",
+      "end_time": "12:15",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_D026995A92A5FCE3DC",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/loads-of-benefits-and-a-cartload",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Александра Сухарева. Начала",
+      "event_type": "other",
+      "description": "",
+      "primary_url": "https://ges-2.org/alexandra-sukhareva-beginnings",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "13:00",
+      "end_time": "22:00",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_17919E5CC6B2EC0090",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/alexandra-sukhareva-beginnings",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Натюрморт. Портрет. Пейзаж. После жанра",
+      "event_type": "tour",
+      "description": "Медиаторский тур, посвященный нашим взаимоотношениям с предметами, ландшафтами, людьми и самими собой.",
+      "primary_url": "https://ges-2.org/after-genre-medited-tour",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "13:00",
+      "end_time": "15:00",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_0BF715DA0B1E7A8D99",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/after-genre-medited-tour",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Ниже травы. Игровая",
+      "event_type": "other",
+      "description": "",
+      "primary_url": "https://ges-2.org/below-the-grass-playground",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "13:00",
+      "end_time": "14:00",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_EB407C9370E412B465",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/below-the-grass-playground",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Индивидуальный медиаторский тур",
+      "event_type": "tour",
+      "description": "Формат взаимодействия медиатора и организованной группы посетителей в пространстве Дома культуры «ГЭС-2». Вы можете заранее выбрать время, тему и формат тура и посетить его со своими знакомыми, друзьями или коллегами. Посещение индивидуальных туров возможно только при покупке билета.",
+      "primary_url": "https://ges-2.org/mediation/tour/mediated-tours-for-organised-groups",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "14:00",
+      "end_time": "15:30",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_2366B60DE355FCED46",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/mediation/tour/mediated-tours-for-organised-groups",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Ниже травы. Игровая",
+      "event_type": "other",
+      "description": "",
+      "primary_url": "https://ges-2.org/below-the-grass-playground",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "14:30",
+      "end_time": "15:30",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_90E6A096E5B4165949",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/below-the-grass-playground",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Принцип серийности",
+      "event_type": "tour",
+      "description": "Медиаторский тур, посвященный исследованию серии как метода, средства и идеи в искусстве, а также тому, как полнота экспонирования раскрывает замысел художника.",
+      "primary_url": "https://ges-2.org/seriality-principle",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "15:00",
+      "end_time": "16:00",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_8351E5D0EE0EE715B8",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/seriality-principle",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Изгои",
+      "event_type": "screening",
+      "description": "",
+      "primary_url": "https://ges-2.org/the-outsiders",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "16:00",
+      "end_time": "17:30",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_70A3662F707E9FF93A",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/the-outsiders",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Ниже травы. Игровая",
+      "event_type": "other",
+      "description": "",
+      "primary_url": "https://ges-2.org/below-the-grass-playground",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "16:00",
+      "end_time": "17:00",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_56E02B49BF8404236D",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/below-the-grass-playground",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Натюрморт. Портрет. Пейзаж. После жанра",
+      "event_type": "tour",
+      "description": "Медиаторский тур, посвященный нашим взаимоотношениям с предметами, ландшафтами, людьми и самими собой.",
+      "primary_url": "https://ges-2.org/after-genre-medited-tour",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "17:00",
+      "end_time": "19:00",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_1DE156306AA402591F",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/after-genre-medited-tour",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Ниже травы. Игровая",
+      "event_type": "other",
+      "description": "",
+      "primary_url": "https://ges-2.org/below-the-grass-playground",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "17:30",
+      "end_time": "18:30",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_6221FD5FDB64ED8535",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/below-the-grass-playground",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Индивидуальный медиаторский тур",
+      "event_type": "tour",
+      "description": "Формат взаимодействия медиатора и организованной группы посетителей в пространстве Дома культуры «ГЭС-2». Вы можете заранее выбрать время, тему и формат тура и посетить его со своими знакомыми, друзьями или коллегами. Посещение индивидуальных туров возможно только при покупке билета.",
+      "primary_url": "https://ges-2.org/mediation/tour/mediated-tours-for-organised-groups",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "18:00",
+      "end_time": "19:30",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_CD87762225AF8F830F",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/mediation/tour/mediated-tours-for-organised-groups",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Изображая детство",
+      "event_type": "tour",
+      "description": "Медиаторский тур, посвященный общению с внутренним ребенком и «детским» практикам в новой Игровой «Ниже травы».",
+      "primary_url": "https://ges-2.org/portraying-childhood",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "19:00",
+      "end_time": "21:00",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_230015FF245D9A2797",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/portraying-childhood",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "Любовь моя",
+      "event_type": "screening",
+      "description": "",
+      "primary_url": "https://ges-2.org/the-beloved",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "19:00",
+      "end_time": "21:15",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_90663439E11CF721B9",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/the-beloved",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "ТинаНаД",
+      "event_type": "performance",
+      "description": "",
+      "primary_url": "https://ges-2.org/tinanad",
+      "confidence": "institution_structured",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "19:00",
+      "end_time": "20:00",
+      "institution_id": "MSK001",
+      "venue_name": "Дом культуры «ГЭС-2» / V–A–C",
+      "source_id": "SRC_E4BBF3E60D4929",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:09:34+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "video",
+        "sound",
+        "research",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:09:34+00:00",
+      "event_id": "EV_B246A327DDE146603E",
+      "evidence": [
+        {
+          "url": "https://ges-2.org/tinanad",
+          "source_id": "SRC_E4BBF3E60D4929",
+          "checked_at": "2026-10-16T13:09:34+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
+      "title": "«Живопись для Ани»",
+      "primary_url": "https://prpr312.ru/zhivopis-for-anya",
+      "event_type": "opening",
+      "description": "Групповая выставка Куратор: Олег Семёновых",
+      "confidence": "institution_html",
+      "start_date": "2026-10-17",
+      "start_time": "18:00",
+      "end_date": null,
+      "institution_id": "WATCH05",
+      "venue_name": "Пространство пространств",
+      "source_id": "SRC_A18D2528A881B6",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:11:37+00:00",
+      "last_updated_at": "2026-10-16T12:53:14+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "artist_run",
+        "archives",
+        "art_history",
+        "experimental",
+        "material_practices"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:11:37+00:00",
+      "event_id": "EV_CC6FF6666FE72B167B",
+      "evidence": [
+        {
+          "url": "https://prpr312.ru/zhivopis-for-anya",
+          "source_id": "SRC_A18D2528A881B6",
+          "checked_at": "2026-10-16T13:11:37+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "minute",
+      "location_id": "LOC_WATCH05_MAIN",
+      "registration_url": null,
+      "event_status": "scheduled",
+      "end_time": null,
+      "parent_event_id": "EV_B5C54F7B2870667A3F"
+    },
+    {
+      "title": "«Живопись для Ани»",
+      "primary_url": "https://prpr312.ru/zhivopis-for-anya",
+      "event_type": "exhibition",
+      "description": "Групповая выставка Куратор: Олег Семёновых",
+      "confidence": "institution_html",
+      "start_date": "2026-10-17",
+      "end_date": "2026-10-21",
+      "start_time": null,
+      "institution_id": "WATCH05",
+      "venue_name": "Пространство пространств",
+      "source_id": "SRC_A18D2528A881B6",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T13:11:37+00:00",
+      "last_updated_at": "2026-10-16T13:09:34+00:00",
+      "first_detected_at": "2026-10-16T12:53:14+00:00",
+      "tags": [
+        "artist_run",
+        "archives",
+        "art_history",
+        "experimental",
+        "material_practices"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T13:11:37+00:00",
+      "event_id": "EV_B5C54F7B2870667A3F",
+      "evidence": [
+        {
+          "url": "https://prpr312.ru/zhivopis-for-anya",
+          "source_id": "SRC_A18D2528A881B6",
+          "checked_at": "2026-10-16T13:11:37+00:00",
+          "status": "available"
+        }
+      ],
+      "date_precision": "date",
+      "location_id": "LOC_WATCH05_MAIN",
+      "registration_url": null,
+      "event_status": "scheduled",
+      "parent_event_id": null,
+      "end_time": null
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "SRC_003D4C9485F235",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_00F0E2478B5644",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:05:52+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_015AEC582A1F5C",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:06:34+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_01B1D4D94ECBA3",
+      "status": "unavailable",
+      "last_attempted_at": "2026-10-16T13:08:54+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Ошибка соединения: RetryError"
+    },
+    {
+      "source_id": "SRC_08542B404C7FB6",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:06:25+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_0A71747D2DAC8C",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:07:43+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_0AAD319B3EAF91",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:02+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_0AB0055A79F286",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:05+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_0CA5A84726BCF7",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:02:54+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_0D538B01F0C28F",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:58:06+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_1044CB1654D8C7",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:06:18+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_155CE891E98090",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:05:26+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_158D561C07B8D8",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:59:57+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_16829580A5B7A6",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_1998342FE69879",
+      "status": "blocked",
+      "last_attempted_at": "2026-10-16T13:04:59+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Доступ ограничен (HTTP 403)"
+    },
+    {
+      "source_id": "SRC_1A46E615EE30F5",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_1C9F7513F7F426",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:05+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_1DD7E8094EEB4A",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_1EF26702E4BA25",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_21EF43204FAB75",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:59:31+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_220D573C0B5349",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:59:40+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_2300B7886F7150",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:45+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_241EE2703A8E69",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_2787FB37A61D86",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_29A4F37DA5EB8A",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_29E61AF89997C5",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_2A931C9E48F33C",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:02:19+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_2E2A8C376F8373",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:08:43+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_2E4303B8F75084",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:19+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_2EB158B0DE19B4",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_2F19290F50824D",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:05:42+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_31457EBA814860",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_34FAD0D0463110",
+      "status": "working",
+      "last_attempted_at": "2026-10-16T13:10:31+00:00",
+      "last_successful_extraction": "2026-10-16T13:09:34+00:00",
+      "new_events": 0,
+      "detected_events": 2,
+      "error": null,
+      "last_successful_check": "2026-10-16T13:09:34+00:00"
+    },
+    {
+      "source_id": "SRC_366B3397548295",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:27+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_38BDD935F2F119",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:07:01+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_3AB6B92EA8E8C5",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:18+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_3B46C3D541B85A",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:07:04+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_3B9FBD9BBCD7C7",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:02:05+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_3F57625B90B5DA",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:05:08+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_3FF132671DA931",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:59:50+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_41153D2B4FF457",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:59:33+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_42457B7867D0EB",
+      "status": "blocked",
+      "last_attempted_at": "2026-10-16T13:04:51+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Сбор запрещён robots.txt"
+    },
+    {
+      "source_id": "SRC_4769875C885C2F",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:34+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_494401737BD311",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_4C44C7739315C8",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:07:16+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:58:13+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_4C7C6B4155DE3E",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_4E8483536F4E88",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:24+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_513F52C7AEB72C",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:07+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_51ADEC95BC459D",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:02:18+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_51AE30CE3EAD66",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_5294A8A46774E8",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:04+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_52D431888CF0E3",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:08:17+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_5880AC37D4DDF8",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:17+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_5B27CA84F9B674",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_5B5720E85039DC",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:05:28+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_5CD76C962AEC8C",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:07:57+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_5D83754C736310",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:12+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_619A9E7BEF3E4A",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_63B09ACE20751A",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:42+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_63BDD24751DE09",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_64291A35AAD035",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:07:28+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_64F42638DBC3F1",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_6548AD8023B0EF",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:02:35+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_674691C0E8E206",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_68D65015804BD2",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_6BAC48E17047DE",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:05:01+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_6EB4822F372B84",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:17+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_746D65BF9746F4",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:52+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_746F44C3694EF6",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:02:51+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_755B2DB5B47269",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_75F165B1EDBB62",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:58:19+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_7845445DDDDE54",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_7C751C27011454",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_7DB873990538A4",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:43+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_7E11E8ADD080AB",
+      "status": "blocked",
+      "last_attempted_at": "2026-10-16T12:59:48+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Сбор запрещён robots.txt"
+    },
+    {
+      "source_id": "SRC_80BDDE9B1D6886",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_84209B8B23A4A9",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:32+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_8C3CA4CA9A0182",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:25+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_8E105F17E75C10",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_8F2A248C7A9AF1",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:06:43+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_9054CE512EA013",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:58+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_937396C004FDAD",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:08:35+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_9406E32D7CCC72",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_96253B1D76E6E5",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:12+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_97404B8190B63B",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_98CB942A07F66D",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:05:10+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_99C6BCCFDDCD9F",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:48+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_9B054FC9640DA0",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:06:40+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_9C1865CD37492C",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:06:10+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_9E1FB1C9F79230",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:27+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_9ED6948F840601",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:08:24+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_A18D2528A881B6",
+      "status": "working",
+      "last_attempted_at": "2026-10-16T13:11:37+00:00",
+      "last_successful_extraction": "2026-10-16T13:11:37+00:00",
+      "new_events": 0,
+      "detected_events": 2,
+      "error": null,
+      "last_successful_check": "2026-10-16T13:11:37+00:00"
+    },
+    {
+      "source_id": "SRC_A2C88A4AC2E40A",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:20+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_A51081603335E1",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:41+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_A5717383234142",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:05:48+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_A5AD4C8E03E50E",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:51+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_A65F85E6F2CDDF",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:08:46+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_A7A55D3F520E67",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_A84905224D71A0",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:06:01+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_A972780C649842",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:08:11+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_AADBC130CD057D",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_B293E5E56F0318",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:29+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_B2D410CC3726CC",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:18+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_B382FF087DDCEF",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_B601E0B4F45DFD",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:37+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_B65B3A75FB70E5",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:55+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_B6B49CDE6784DF",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:58:02+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_B75A9F751CDA14",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T12:58:19+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_BBCF92F99373BE",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_C01EBDA9815ABD",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:02:11+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_C1A6B4E9554821",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:02:41+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_C917CEC88984AD",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:06:27+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_C9C33591572488",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:06:07+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_CAF0EE6712F80E",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:02:28+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_CC00BEC26016C3",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_CE681AB8D352D7",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:53+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_D07A59447D5C4E",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_D1965622B2B26E",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:05:59+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_D2FC64C8098577",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:33+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_D4DD3DACF7E567",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_D5150479341124",
+      "status": "unavailable",
+      "last_attempted_at": "2026-10-16T13:06:51+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Ошибка соединения: RetryError"
+    },
+    {
+      "source_id": "SRC_D60533E9F9957D",
+      "status": "disabled",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Источник сохранён в каталоге; автоматический сбор отключён"
+    },
+    {
+      "source_id": "SRC_D8C6D562C36EB5",
+      "status": "blocked",
+      "last_attempted_at": "2026-10-16T13:04:57+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Доступ ограничен (HTTP 403)"
+    },
+    {
+      "source_id": "SRC_DA35D20AD639B5",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:12+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_DB32B8ADE4ADE1",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:29+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_DE7378B5521930",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:08:37+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_E278EADDF53B82",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:45+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_E4029C1AE8B3DD",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:09:34+00:00",
+      "last_successful_extraction": "2026-10-16T13:09:34+00:00",
+      "new_events": 0,
+      "detected_events": 17,
+      "error": "Часть страниц или кандидатов требует проверки. Подтверждённые события сохранены.",
+      "last_successful_check": "2026-10-16T13:09:34+00:00"
+    },
+    {
+      "source_id": "SRC_E6AE4F756C706E",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:00:49+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_E6DC9F3DFC4CD3",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:37+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_EB354B7B386699",
+      "status": "unavailable",
+      "last_attempted_at": "2026-10-16T13:07:52+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Ошибка соединения: RetryError"
+    },
+    {
+      "source_id": "SRC_F1720E7F48A0CF",
+      "status": "manual",
+      "last_attempted_at": null,
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+    },
+    {
+      "source_id": "SRC_F1B2C8F168307B",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:07:35+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_F36AE908C38035",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:01:15+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_F4397A1C7A1F13",
+      "status": "working",
+      "last_attempted_at": "2026-10-16T13:10:39+00:00",
+      "last_successful_extraction": "2026-10-16T13:09:34+00:00",
+      "new_events": 0,
+      "detected_events": 3,
+      "error": null,
+      "last_successful_check": "2026-10-16T13:09:34+00:00"
+    },
+    {
+      "source_id": "SRC_F5AAD78263BB63",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:07:45+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_F85201EC317F91",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:30+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_FA141CA6E602B7",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:13+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_FA1D26CD6DF85C",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:07:26+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_FCDA3F5869147C",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:03:22+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    },
+    {
+      "source_id": "SRC_FFA36DA759F1B0",
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T13:04:27+00:00",
+      "last_successful_extraction": null,
+      "new_events": 0,
+      "detected_events": 0,
+      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
+      "last_successful_check": "2026-10-16T12:58:02+00:00"
+    }
+  ]
+}

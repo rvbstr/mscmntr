@@ -1,0 +1,217 @@
+"""Run a partial-failure-safe refresh. Public JSON never contains test fixtures."""
+import argparse
+import json
+import os
+import re
+import tempfile
+from datetime import datetime, timezone, date
+from pathlib import Path
+from urllib.parse import urlsplit
+from bs4 import BeautifulSoup
+from ingestion.import_catalog import ROOT
+from ingestion.http import Client, SourceError
+from ingestion.adapters import parse_jsonld, parse_feed, parse_html, discover_links
+from ingestion.adapters.institutions import parse_institution, institution_links
+from ingestion.models import canonical_url, direct_url, stable_id, deduplicate, link_parents, event_signature, TYPES
+from ingestion.editorial import load_overrides, apply_overrides
+
+
+def now_iso(): return datetime.now(timezone.utc).isoformat(timespec='seconds')
+
+
+def atomic_json(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile('w',dir=path.parent,delete=False,encoding='utf-8') as f:
+        json.dump(data,f,ensure_ascii=False,indent=2); f.write('\n'); tmp=f.name
+    os.replace(tmp,path)
+
+
+def due(metadata,now=None):
+    last=metadata.get('last_completed_refresh')
+    if not last: return True
+    try: return ((now or datetime.now(timezone.utc))-datetime.fromisoformat(last)).total_seconds()>=72*3600
+    except (ValueError,TypeError): return True
+
+
+def valid_event(e):
+    try:
+        start=date.fromisoformat(e['start_date'])
+        if e.get('end_date') and date.fromisoformat(e['end_date'])<start: return False
+        if e.get('start_time') and not re.fullmatch(r'([01]\d|2[0-3]):[0-5]\d',e['start_time']): return False
+        return bool(e.get('title','').strip()) and e.get('event_type') in TYPES and direct_url(e.get('primary_url',''))
+    except (KeyError,ValueError,TypeError): return False
+
+
+def complete_event(candidate,institution,source,timestamp):
+    e=dict(candidate)
+    e.update(institution_id=institution['institution_id'],venue_name=institution['name'],source_id=source['source_id'],
+             source_platform=source['platform'],timezone='Europe/Moscow',review_status='verified',last_seen_at=timestamp,
+             last_updated_at=timestamp,first_detected_at=e.get('first_detected_at') or timestamp,
+             tags=institution.get('tags',[]),link_status='available',link_checked_at=timestamp)
+    e['event_id']=e.get('event_id') or stable_id(e)
+    e['evidence']=[{'url':e['primary_url'],'source_id':source['source_id'],'checked_at':timestamp,'status':'available'}]
+    e['date_precision']='minute' if e.get('start_time') else 'date'
+    return e
+
+
+def seed_candidates(catalog,client,source,institution):
+    """Use catalog URLs for discovery; re-extract content instead of publishing examples."""
+    urls={seed['verification_url'] for seed in catalog.get('seed_events',[])
+          if seed['institution_id']==institution['institution_id']
+          and urlsplit(seed['verification_url']).hostname==urlsplit(source['url']).hostname}
+    result=[]
+    for url in sorted(urls):
+        html,final=client.fetch(url)
+        result.extend(parse_jsonld(html,final) or parse_institution(html,final))
+    return result
+
+
+def refresh(catalog,overrides,previous,client,only=None,max_pages=3):
+    timestamp=now_iso(); institutions={i['institution_id']:dict(i) for i in catalog['institutions']}
+    for iid,priority in overrides['priorities'].items(): institutions[iid]['monitoring_priority']=priority
+    old_health={h['source_id']:h for h in previous.get('sources',[])}
+    old_events=[dict(e,evidence=[dict(x) for x in e.get('evidence',[])]) for e in previous.get('events',[])]; candidates=[]; review=[]; reports=[]; successful=0; checked_successfully=set()
+    priorities={'high':0,'normal':1,'low':2}
+    sources=sorted(catalog['sources'],key=lambda s:min([priorities.get(institutions[i].get('monitoring_priority'),1) for i in s['institution_ids']] or [1]))
+    for source in sources:
+        sid=source['source_id']; old=old_health.get(sid,{})
+        report={**old,'source_id':sid,'status':old.get('status','review'),'last_attempted_at':old.get('last_attempted_at'),
+                'last_successful_extraction':old.get('last_successful_extraction'),'new_events':0,'detected_events':old.get('detected_events',0),'error':old.get('error')}
+        linked=[institutions[i] for i in source['institution_ids']]
+        if only and sid not in only:
+            reports.append(report); continue
+        if sid in overrides['disabled_sources'] or all(i['monitor_state'] in ('excluded','discovery') for i in linked):
+            report.update(status='disabled',error='Источник сохранён в каталоге; автоматический сбор отключён'); reports.append(report); continue
+        if source['platform'] in ('instagram','vk','telegram','linkhub'):
+            report.update(status='manual',error='Автоматический доступ не настроен. Используйте оригинал и редакционные записи.'); reports.append(report); continue
+        report['last_attempted_at']=now_iso()
+        report['detected_events']=0
+        try:
+            html,url=client.fetch(source['url']); extracted=[]; page_errors=[]; review_start=len(review)
+            if source['platform']=='rss' or html.lstrip().startswith(('<?xml','<rss','<feed')):
+                extracted=parse_feed(html,url)
+            else:
+                rule=overrides['parser_rules'].get(sid) or overrides['parser_rules'].get(urlsplit(url).hostname) or source.get('parser_config') or {}
+                if isinstance(rule,str): rule=json.loads(rule)
+                extracted=parse_jsonld(html,url) or parse_institution(html,url) or parse_html(html,url,rule)
+                links=list(dict.fromkeys(institution_links(html,url,max_pages)+discover_links(html,url,max_pages)))[:max_pages]
+                for link in links:
+                    try:
+                        body,final=client.fetch(link); extracted.extend(parse_jsonld(body,final) or parse_institution(body,final) or parse_html(body,final,rule))
+                    except SourceError as exc: page_errors.append(str(exc))
+            successful+=1; checked_successfully.add(sid); accepted=[]; seen=set()
+            # Ambiguous shared website ownership is sent for editorial attribution.
+            relevant=[i for i in linked if any(r['institution_id']==i['institution_id'] and r['source_id']==sid and r.get('role')=='announcements' for r in catalog['institution_sources'])]
+            for item in extracted:
+                if not valid_event(item):
+                    review.append({'source_id':sid,'candidate':item,'reason':'Нужны точная дата и отдельная страница события'}); continue
+                owners=relevant
+                if len(owners)!=1:
+                    # Canonical event/source relationships can resolve a dedicated evidence URL.
+                    owners=[i for i in linked if any(seed['institution_id']==i['institution_id']
+                            and canonical_url(seed['verification_url'])==canonical_url(item['primary_url'])
+                            and event_signature(seed)==event_signature(dict(item,institution_id=i['institution_id']))
+                            for seed in catalog.get('seed_events',[]))]
+                if len(owners)!=1:
+                    review.append({'source_id':sid,'candidate':item,'reason':'Нужно уточнить связь события с пространством'}); continue
+                try:
+                    client.fetch(item['primary_url'])
+                    event=complete_event(item,owners[0],source,timestamp)
+                    if event['event_id'] not in seen: accepted.append(event); seen.add(event['event_id'])
+                except SourceError as exc:
+                    for old_event in old_events:
+                        if canonical_url(old_event['primary_url'])==canonical_url(item['primary_url']):
+                            old_event.update(link_status=exc.status,link_checked_at=now_iso())
+                            for evidence in old_event.get('evidence',[]):
+                                if canonical_url(evidence['url'])==canonical_url(item['primary_url']):evidence.update(status=exc.status,checked_at=now_iso())
+                    review.append({'source_id':sid,'candidate':item,'reason':str(exc),'link_status':exc.status})
+            if len(relevant)==1 and not accepted:
+                try:
+                    for item in seed_candidates(catalog,client,source,relevant[0]):
+                        event=complete_event(item,relevant[0],source,timestamp)
+                        if event['event_id'] not in seen: accepted.append(event); seen.add(event['event_id'])
+                except SourceError as exc:
+                    review.append({'source_id':sid,'reason':'Повторная проверка примера: '+str(exc)})
+            old_keys={event_signature(e) for e in old_events}
+            new=sum(event_signature(e) not in old_keys for e in accepted)
+            incomplete=bool(page_errors or len(review)>review_start)
+            report.update(status='working' if accepted and not incomplete else 'partial',last_successful_check=timestamp,detected_events=len(accepted),new_events=new,
+                          error=('Часть страниц или кандидатов требует проверки. Подтверждённые события сохранены.' if incomplete else None) if accepted else 'Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.')
+            if accepted: report['last_successful_extraction']=timestamp
+            candidates.extend(accepted)
+        except SourceError as exc: report.update(status=exc.status,error=str(exc))
+        except Exception as exc:
+            report.update(status='review',error='Ошибка адаптера: '+type(exc).__name__)
+        reports.append(report)
+        print(f"{sid} {report['status']}: {report.get('detected_events',0)}",flush=True)
+    for item in overrides['manual_events']:
+        source={'source_id':'EDITORIAL','platform':'editorial'}
+        if not valid_event(item): raise ValueError('Неверное ручное событие: '+item['event_id'])
+        try:
+            client.fetch(item['primary_url']); candidates.append(complete_event(item,institutions[item['institution_id']],source,timestamp))
+        except SourceError as exc:
+            if item.get('editor_verified_at'):
+                event=complete_event(item,institutions[item['institution_id']],source,timestamp)
+                event.update(link_status=exc.status,link_checked_at=timestamp,confidence='editorial',verified_at=item['editor_verified_at'])
+                event['evidence'][0]['status']=exc.status; candidates.append(event)
+            else: review.append({'candidate':item,'reason':str(exc)})
+    merged=deduplicate(old_events+candidates)
+    # Preserve first-discovery times, update change timestamps only for substantive changes.
+    by_id={e['event_id']:e for e in old_events}
+    for e in merged:
+        old=by_id.get(e['event_id'])
+        if old and all(old.get(k)==e.get(k) for k in ('title','start_date','end_date','start_time','description','primary_url')):
+            e['last_updated_at']=old.get('last_updated_at',timestamp)
+    for eid,changes in overrides['corrections'].items():
+        if changes.get('primary_url') and any(e['event_id']==eid and e['primary_url']!=changes['primary_url'] for e in merged):
+            try: client.fetch(changes['primary_url'])
+            except SourceError as exc: raise ValueError(f'Исправленный первоисточник {eid} не подтверждён: {exc}')
+    merged=apply_overrides(merged,overrides)
+    if any(not valid_event(e) for e in merged): raise ValueError('Правки создали событие с неверной датой или ссылкой')
+    merged.sort(key=lambda e:(e['start_date'],e.get('start_time') or '23:59',e['title']))
+    merged=link_parents(merged)
+    # Keep unresolved candidates when their source could not be checked this run.
+    checked=checked_successfully
+    retained=[r for r in previous.get('review',[]) if r.get('source_id') not in checked and r.get('source_id')]
+    review=list({json.dumps(r,ensure_ascii=False,sort_keys=True):r for r in retained+review}.values())
+    completed=now_iso()
+    previous_meta=previous.get('metadata',{})
+    metadata={**previous_meta,'schema_version':'1.0','timezone':'Europe/Moscow','last_attempted_refresh':timestamp,
+              'last_completed_refresh':completed if not only else previous_meta.get('last_completed_refresh'),
+              'last_successful_update':completed if successful else previous_meta.get('last_successful_update'),
+              'generated_at':completed,'catalog_updated_on':catalog['metadata']['updated_on'],
+              'source_count':len(sources),'successful_sources_this_run':successful,'event_count':len(merged),
+              'review_count':len(review),'partial':any(s['status'] not in ('working','disabled') for s in reports),
+              'run_status':'partial' if successful else 'blocked','refresh_interval_hours':72,
+              'scan_options':{'child_pages_per_source':max_pages,'source_ids':only or None}}
+    reports.sort(key=lambda s:s['source_id'])
+    return {'metadata':metadata,'events':merged,'sources':reports},review
+
+
+def main():
+    p=argparse.ArgumentParser(description='Проверка публичных источников афиши')
+    p.add_argument('--scheduled',action='store_true'); p.add_argument('--source',action='append')
+    p.add_argument('--max-pages',type=int,default=3); p.add_argument('--timeout',type=int,default=12)
+    args=p.parse_args()
+    catalog_path=ROOT/'catalog/catalog.json'
+    if not catalog_path.exists():
+        print('Каталог отсутствует. Выполните python -m ingestion.import_catalog'); return 2
+    catalog=json.loads(catalog_path.read_text()); output=ROOT/'public/data/events.json'
+    previous=json.loads(output.read_text()) if output.exists() else {'metadata':{},'events':[],'sources':[]}
+    review_path=ROOT/'public/data/review.json'
+    if review_path.exists(): previous['review']=json.loads(review_path.read_text()).get('items',[])
+    if args.scheduled and not due(previous.get('metadata',{})):
+        print('72 часа ещё не прошли; данные сохранены без изменений.'); return 0
+    overrides=load_overrides(ROOT/'editorial/overrides.json',catalog)
+    feed,review=refresh(catalog,overrides,previous,Client(timeout=args.timeout),args.source,args.max_pages)
+    public_catalog={k:v for k,v in catalog.items() if k!='seed_events'}
+    public_catalog['institutions']=[dict(i,monitoring_priority=overrides['priorities'].get(i['institution_id'],i['monitoring_priority'])) for i in catalog['institutions']]
+    atomic_json(ROOT/'public/data/catalog.json',public_catalog)
+    atomic_json(output,feed); atomic_json(ROOT/'public/data/review.json',{'generated_at':now_iso(),'items':review})
+    summary={'metadata':feed['metadata'],'statuses':{s:sum(r['status']==s for r in feed['sources']) for s in {r['status'] for r in feed['sources']}}}
+    atomic_json(ROOT/'public/data/report.json',summary)
+    print(json.dumps(summary,ensure_ascii=False,indent=2))
+    # Visible, actionable failure if no fetch succeeded. Existing data stays intact.
+    return 0 if feed['metadata']['successful_sources_this_run'] else 2
+
+if __name__=='__main__': raise SystemExit(main())

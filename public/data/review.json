@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-10-16T13:11:44+00:00",
+  "items": [
+    {
+      "source_id": "SRC_B75A9F751CDA14",
+      "candidate": {
+        "title": "Букеты и закаты",
+        "start_date": "2026-08-13",
+        "start_time": null,
+        "end_date": "2026-09-09",
+        "end_time": null,
+        "event_type": "other",
+        "description": "Двадцать пять решений, принятых прямо в зале«Букеты и закаты» — первая групповая выставка «Пространства пространств», нового artist-run пространства на улице Уткина. Проект идёт с 13 августа по 9 сентября 2026 […]\\n",
+        "primary_url": "https://ewert.ru/exhibition/bukety-i-zakaty/",
+        "address": "Москва, ул. Уткина, 48 с4, этаж 3, комната 312",
+        "published_at": null,
+        "confidence": "structured",
+        "date_precision": "date"
+      },
+      "reason": "Нужно уточнить связь события с пространством"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-16",
+        "end_date": null,
+        "start_time": "13:00",
+        "end_time": "15:00"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-16",
+        "end_date": null,
+        "start_time": "15:30",
+        "end_time": "17:30"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-16",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": "20:00"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    }
+  ]
+}

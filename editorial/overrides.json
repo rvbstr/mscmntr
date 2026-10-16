@@ -1,0 +1,12 @@
+{
+  "$schema": "./overrides.schema.json",
+  "manual_events": [],
+  "corrections": {},
+  "suppress": [],
+  "duplicates": {},
+  "priorities": {},
+  "disabled_sources": [],
+  "parser_rules": {
+    "prpr312.ru": {"root": "body", "title": "h1", "dates": ".event-dates", "event_type": "exhibition"}
+  }
+}

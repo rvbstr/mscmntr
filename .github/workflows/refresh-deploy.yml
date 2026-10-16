@@ -1,0 +1,116 @@
+name: Проверка источников и публикация
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Daily eligibility check; the collector enforces a rolling 72-hour interval.
+    - cron: '17 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: art-monitor-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: npm ci
+      - run: python -m pip install -r requirements.txt
+      - name: Проверка кода и сборщика
+        run: |
+          python -m pytest tests/test_ingestion.py -q
+          npm test
+      - name: Обновление афиши
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          SCHEDULED: ${{ github.event_name == 'schedule' && 'true' || 'false' }}
+        run: |
+          result=0
+          if [ "$SCHEDULED" = true ]; then
+            python -m ingestion.run --scheduled || result=$?
+          else
+            python -m ingestion.run || result=$?
+          fi
+          if [ "$result" -eq 2 ]; then
+            echo '::warning::Источники недоступны. Прежние события сохранены; журнал ошибок будет опубликован.'
+          elif [ "$result" -ne 0 ]; then
+            exit "$result"
+          fi
+      - name: Сохранение опубликованных данных
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git add public/data
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'data: refresh source monitoring'
+            git push origin HEAD:main
+          fi
+      - name: Настройка GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Production-сборка
+        env:
+          VITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Отчёт о фактическом охвате
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, os
+          from collections import Counter
+          from pathlib import Path
+          path=Path('public/data/events.json')
+          if path.exists():
+            feed=json.loads(path.read_text())
+            with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write('## Мониторинг источников\n\n')
+              f.write(f"Событий в афише: {len(feed['events'])}\n\n")
+              for status,count in sorted(Counter(s['status'] for s in feed['sources']).items()):
+                f.write(f'- {status}: {count}\n')
+              f.write('\nПоследнее успешное обновление: '+str(feed['metadata'].get('last_successful_update'))+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: source-monitoring-report
+          path: |
+            public/data/report.json
+            public/data/review.json
+          if-no-files-found: ignore
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Публикация сайта
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "schema_version": "1.0",
+    "timezone": "Europe/Moscow",
+    "last_attempted_refresh": "2026-10-16T13:11:37+00:00",
+    "last_completed_refresh": "2026-10-16T13:09:13+00:00",
+    "last_successful_update": "2026-10-16T13:11:44+00:00",
+    "generated_at": "2026-10-16T13:11:44+00:00",
+    "catalog_updated_on": "2026-10-16",
+    "source_count": 143,
+    "successful_sources_this_run": 1,
+    "event_count": 22,
+    "review_count": 4,
+    "partial": true,
+    "run_status": "partial",
+    "refresh_interval_hours": 72,
+    "scan_options": {
+      "child_pages_per_source": 0,
+      "source_ids": [
+        "SRC_A18D2528A881B6"
+      ]
+    }
+  },
+  "statuses": {
+    "manual": 23,
+    "blocked": 4,
+    "working": 3,
+    "disabled": 14,
+    "unavailable": 3,
+    "partial": 96
+  }
+}
