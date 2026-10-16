@@ -1,1 +1,31 @@
-<!doctype html><html lang="ru"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="theme-color" content="#f7f7f2"/><meta name="description" content="Независимый мониторинг современного искусства Москвы. Афиша, календарь, каталог пространств и открытые источники."/><title>Арт-календарь Москвы — мониторинг современного искусства</title><link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg"/></head><body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body></html>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="Независимый мониторинг современного искусства Москвы. Афиша, календарь, каталог пространств и открытые источники."
+    />
+    <title>Арт-календарь Москвы — мониторинг современного искусства</title>
+    <link rel="icon" href="data:," />
+    <script>
+      try {
+        var t = localStorage.getItem("art-calendar:theme");
+        if (t !== "light" && t !== "dark")
+          t = matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        document.documentElement.dataset.theme = t;
+        document.documentElement.style.colorScheme = t;
+        document.querySelector('meta[name="theme-color"]').content =
+          t === "dark" ? "#111111" : "#ffffff";
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

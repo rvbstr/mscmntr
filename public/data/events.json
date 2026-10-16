@@ -2,21 +2,23 @@
   "metadata": {
     "schema_version": "1.0",
     "timezone": "Europe/Moscow",
-    "last_attempted_refresh": "2026-10-16T13:39:01+00:00",
+    "last_attempted_refresh": "2026-10-16T14:57:56+00:00",
     "last_completed_refresh": "2026-10-16T13:49:17+00:00",
-    "last_successful_update": "2026-10-16T13:49:17+00:00",
-    "generated_at": "2026-10-16T13:49:17+00:00",
+    "last_successful_update": "2026-10-16T14:58:02+00:00",
+    "generated_at": "2026-10-16T14:58:02+00:00",
     "catalog_updated_on": "2026-10-16",
     "source_count": 143,
-    "successful_sources_this_run": 95,
-    "event_count": 24,
-    "review_count": 23,
+    "successful_sources_this_run": 1,
+    "event_count": 31,
+    "review_count": 70,
     "partial": true,
     "run_status": "partial",
     "refresh_interval_hours": 72,
     "scan_options": {
-      "child_pages_per_source": 3,
-      "source_ids": null
+      "child_pages_per_source": 0,
+      "source_ids": [
+        "SRC_CC00BEC26016C3"
+      ]
     }
   },
   "events": [
@@ -60,6 +62,90 @@
       ]
     },
     {
+      "title": "«Фузия»",
+      "primary_url": "https://t.me/piranesilab/2328",
+      "published_at": "2026-10-14T15:04:32+00:00",
+      "description": "",
+      "confidence": "social_scoped",
+      "date_basis": "explicit_year",
+      "verification_method": "telegram_public_preview",
+      "address": "Переведеновский переулок, 18с4",
+      "geography_scope": "moscow",
+      "city": null,
+      "event_type": "exhibition",
+      "start_date": "2026-09-10",
+      "end_date": "2026-10-25",
+      "start_time": null,
+      "institution_id": "MSK043",
+      "venue_name": "ПиранезиLAB",
+      "source_id": "SRC_1A46E615EE30F5",
+      "source_platform": "telegram",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T14:55:31+00:00",
+      "last_updated_at": "2026-10-16T14:55:31+00:00",
+      "first_detected_at": "2026-10-16T14:55:31+00:00",
+      "tags": [
+        "art_history",
+        "material_practices"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T14:55:31+00:00",
+      "event_id": "EV_D13D8A79E84D30B6B2",
+      "evidence": [
+        {
+          "url": "https://t.me/piranesilab/2328",
+          "source_id": "SRC_1A46E615EE30F5",
+          "checked_at": "2026-10-16T14:55:31+00:00",
+          "status": "available",
+          "verification_method": "telegram_public_preview"
+        }
+      ],
+      "date_precision": "date"
+    },
+    {
+      "title": "«Завесы»",
+      "primary_url": "https://t.me/Arendt_and_Co/477",
+      "published_at": "2026-09-11T15:09:24+00:00",
+      "description": "",
+      "confidence": "social_scoped",
+      "date_basis": "publication_context",
+      "verification_method": "telegram_public_preview",
+      "address": "ул. Верхняя Масловка, д.1, мастерская 9, вход со стороны двора",
+      "geography_scope": "moscow",
+      "city": null,
+      "event_type": "tour",
+      "start_date": "2026-09-15",
+      "end_date": null,
+      "start_time": "19:00",
+      "institution_id": "MSK061",
+      "venue_name": "Мастерская Арендт&Co",
+      "source_id": "SRC_755B2DB5B47269",
+      "source_platform": "telegram",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T14:55:31+00:00",
+      "last_updated_at": "2026-10-16T14:49:42+00:00",
+      "first_detected_at": "2026-10-16T14:49:42+00:00",
+      "tags": [
+        "artist_run",
+        "archives"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T14:55:31+00:00",
+      "event_id": "EV_587A5446A1F5079475",
+      "evidence": [
+        {
+          "url": "https://t.me/Arendt_and_Co/477",
+          "source_id": "SRC_755B2DB5B47269",
+          "checked_at": "2026-10-16T14:55:31+00:00",
+          "status": "available",
+          "verification_method": "telegram_public_preview"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
       "title": "Экскурсии по выставке Стива Маккарри и пространству Галереи Люмьер",
       "start_date": "2026-09-17",
       "start_time": "18:30",
@@ -97,6 +183,52 @@
           "status": "available"
         }
       ]
+    },
+    {
+      "title": "GIANTS",
+      "primary_url": "https://t.me/ivanygallery/339",
+      "published_at": "2026-10-12T12:35:12+00:00",
+      "description": "GIANTS («Гиганты») — проект, исследующий, как статус наблюдателя влияет на восприятие телесности. Выставка представляет собой тотальную партиципаторную инсталляцию, в которой габариты пространства формируют контекст восприятия. Если принять масштаб экспонатов за точку отсчёта, то в отсутствие человека экспозиция выглядит естественной и целостной: работы воспринимаются как произведения среднего формата, размещённые на привычной для галереи высоте относительно стен. Однако появившийся в экспозиции",
+      "confidence": "social_scoped",
+      "date_basis": "explicit_year",
+      "verification_method": "telegram_public_preview",
+      "address": "Россия, Москва, Ленинский проспект, 41/2",
+      "geography_scope": "moscow",
+      "city": "Москва",
+      "event_type": "exhibition",
+      "start_date": "2026-09-26",
+      "end_date": "2026-10-11",
+      "start_time": null,
+      "institution_id": "MSK068",
+      "venue_name": "Иваний галерея / IVANY GALLERY",
+      "source_id": "SRC_A7A55D3F520E67",
+      "source_platform": "telegram",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T14:55:31+00:00",
+      "last_updated_at": "2026-10-16T14:49:42+00:00",
+      "first_detected_at": "2026-10-16T14:49:42+00:00",
+      "tags": [
+        "artist_run",
+        "young_art",
+        "digital",
+        "games",
+        "installation",
+        "institutional_critique"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T14:55:31+00:00",
+      "event_id": "EV_C77C024DBA8C6438A7",
+      "evidence": [
+        {
+          "url": "https://t.me/ivanygallery/339",
+          "source_id": "SRC_A7A55D3F520E67",
+          "checked_at": "2026-10-16T14:55:31+00:00",
+          "status": "available",
+          "verification_method": "telegram_public_preview"
+        }
+      ],
+      "date_precision": "date"
     },
     {
       "title": "«Уходящий зеленый»",
@@ -236,6 +368,48 @@
         }
       ],
       "date_precision": "date"
+    },
+    {
+      "title": "«Фузия»",
+      "primary_url": "https://t.me/piranesilab/2321",
+      "published_at": "2026-10-06T14:10:05+00:00",
+      "description": "",
+      "confidence": "social_scoped",
+      "date_basis": "publication_context",
+      "verification_method": "telegram_public_preview",
+      "address": "Переведеновский переулок, 18с4",
+      "geography_scope": "moscow",
+      "city": null,
+      "event_type": "tour",
+      "start_date": "2026-10-10",
+      "end_date": null,
+      "start_time": "14:00",
+      "institution_id": "MSK043",
+      "venue_name": "ПиранезиLAB",
+      "source_id": "SRC_1A46E615EE30F5",
+      "source_platform": "telegram",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T14:55:31+00:00",
+      "last_updated_at": "2026-10-16T14:49:42+00:00",
+      "first_detected_at": "2026-10-16T14:49:42+00:00",
+      "tags": [
+        "art_history",
+        "material_practices"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T14:55:31+00:00",
+      "event_id": "EV_DD5F52BAD0DE407895",
+      "evidence": [
+        {
+          "url": "https://t.me/piranesilab/2321",
+          "source_id": "SRC_1A46E615EE30F5",
+          "checked_at": "2026-10-16T14:55:31+00:00",
+          "status": "available",
+          "verification_method": "telegram_public_preview"
+        }
+      ],
+      "date_precision": "minute"
     },
     {
       "title": "Натюрморт. Портрет. Пейзаж. После жанра",
@@ -693,6 +867,52 @@
       "date_precision": "minute"
     },
     {
+      "title": "«визуальный шум»",
+      "primary_url": "https://t.me/dniculture/534",
+      "published_at": "2026-10-09T20:02:18+00:00",
+      "description": "основана коллекционером, дизайнером и архитектором в 2024 году. проект призван объединить антиквариат, винтаж, коллекционный дизайн и современное искусство в единую эстетическую систему, которая работает на выражение личности владельца. gallerique развивается в гибридном формате через репрезентацию собственных резидентов-художников в рамках онлайн-каталога, выставочной программы и участия в ярмарках искусства и дизайна, а также как онлайн-пространство для партнеров-галерей",
+      "confidence": "social_scoped",
+      "date_basis": "publication_context",
+      "verification_method": "telegram_public_preview",
+      "address": null,
+      "geography_scope": "moscow",
+      "city": null,
+      "event_type": "tour",
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "start_time": "18:00",
+      "institution_id": "MSK070",
+      "venue_name": "ДНИ / дом независимого искусства",
+      "source_id": "SRC_241EE2703A8E69",
+      "source_platform": "telegram",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T14:55:31+00:00",
+      "last_updated_at": "2026-10-16T14:49:42+00:00",
+      "first_detected_at": "2026-10-16T14:49:42+00:00",
+      "tags": [
+        "independent",
+        "young_art",
+        "sound",
+        "performance",
+        "digital",
+        "interdisciplinary"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T14:55:31+00:00",
+      "event_id": "EV_827709275564C28F14",
+      "evidence": [
+        {
+          "url": "https://t.me/dniculture/534",
+          "source_id": "SRC_241EE2703A8E69",
+          "checked_at": "2026-10-16T14:55:31+00:00",
+          "status": "available",
+          "verification_method": "telegram_public_preview"
+        }
+      ],
+      "date_precision": "minute"
+    },
+    {
       "title": "Индивидуальный медиаторский тур",
       "event_type": "tour",
       "description": "Формат взаимодействия медиатора и организованной группы посетителей в пространстве Дома культуры «ГЭС-2». Вы можете заранее выбрать время, тему и формат тура и посетить его со своими знакомыми, друзьями или коллегами. Посещение индивидуальных туров возможно только при покупке билета.",
@@ -888,6 +1108,53 @@
       "parent_event_id": "EV_B5C54F7B2870667A3F"
     },
     {
+      "title": "ХЛЕБА",
+      "primary_url": "https://t.me/ivanygallery/346",
+      "published_at": "2026-10-13T09:34:37+00:00",
+      "description": "Проект изучает ограничение средств выражения через систему масок. На выставке представлены работы, использующие синтез образов российской действительности: от русского фольклора до современной интернет-культуры",
+      "confidence": "social_scoped",
+      "date_basis": "publication_context",
+      "verification_method": "telegram_public_preview",
+      "address": "Балашиха, Керамическая, 1с9",
+      "geography_scope": "moscow_region",
+      "city": "Балашиха",
+      "event_type": "opening",
+      "start_date": "2026-10-17",
+      "start_time": "18:00",
+      "end_date": null,
+      "institution_id": "MSK068",
+      "venue_name": "Иваний галерея / IVANY GALLERY",
+      "source_id": "SRC_A7A55D3F520E67",
+      "source_platform": "telegram",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T14:55:31+00:00",
+      "last_updated_at": "2026-10-16T14:49:42+00:00",
+      "first_detected_at": "2026-10-16T14:49:42+00:00",
+      "tags": [
+        "artist_run",
+        "young_art",
+        "digital",
+        "games",
+        "installation",
+        "institutional_critique"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T14:55:31+00:00",
+      "event_id": "EV_7C8834ED94E0BEEBD2",
+      "evidence": [
+        {
+          "url": "https://t.me/ivanygallery/346",
+          "source_id": "SRC_A7A55D3F520E67",
+          "checked_at": "2026-10-16T14:55:31+00:00",
+          "status": "available",
+          "verification_method": "telegram_public_preview"
+        }
+      ],
+      "date_precision": "minute",
+      "parent_event_id": "EV_A5CBA083844A32E43C"
+    },
+    {
       "title": "«Живопись для Ани»",
       "primary_url": "https://prpr312.ru/zhivopis-for-anya",
       "event_type": "exhibition",
@@ -929,17 +1196,66 @@
       "event_status": "scheduled",
       "parent_event_id": null,
       "end_time": null
+    },
+    {
+      "title": "ХЛЕБА",
+      "primary_url": "https://t.me/ivanygallery/346",
+      "published_at": "2026-10-13T09:34:37+00:00",
+      "description": "Проект изучает ограничение средств выражения через систему масок. На выставке представлены работы, использующие синтез образов российской действительности: от русского фольклора до современной интернет-культуры",
+      "confidence": "social_scoped",
+      "date_basis": "publication_context",
+      "verification_method": "telegram_public_preview",
+      "address": "Балашиха, Керамическая, 1с9",
+      "geography_scope": "moscow_region",
+      "city": "Балашиха",
+      "event_type": "exhibition",
+      "start_date": "2026-10-17",
+      "end_date": "2026-11-01",
+      "start_time": null,
+      "institution_id": "MSK068",
+      "venue_name": "Иваний галерея / IVANY GALLERY",
+      "source_id": "SRC_A7A55D3F520E67",
+      "source_platform": "telegram",
+      "timezone": "Europe/Moscow",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-16T14:55:31+00:00",
+      "last_updated_at": "2026-10-16T14:49:42+00:00",
+      "first_detected_at": "2026-10-16T14:49:42+00:00",
+      "tags": [
+        "artist_run",
+        "young_art",
+        "digital",
+        "games",
+        "installation",
+        "institutional_critique"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-16T14:55:31+00:00",
+      "event_id": "EV_A5CBA083844A32E43C",
+      "evidence": [
+        {
+          "url": "https://t.me/ivanygallery/346",
+          "source_id": "SRC_A7A55D3F520E67",
+          "checked_at": "2026-10-16T14:55:31+00:00",
+          "status": "available",
+          "verification_method": "telegram_public_preview"
+        }
+      ],
+      "date_precision": "date"
     }
   ],
   "sources": [
     {
       "source_id": "SRC_003D4C9485F235",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:56:10+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 2,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_00F0E2478B5644",
@@ -1062,12 +1378,15 @@
     },
     {
       "source_id": "SRC_16829580A5B7A6",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:55:38+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 7,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_1998342FE69879",
@@ -1080,12 +1399,15 @@
     },
     {
       "source_id": "SRC_1A46E615EE30F5",
-      "status": "manual",
-      "last_attempted_at": null,
-      "last_successful_extraction": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:56:02+00:00",
+      "last_successful_extraction": "2026-10-16T14:55:31+00:00",
       "new_events": 0,
-      "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "detected_events": 2,
+      "error": "Часть страниц или кандидатов требует проверки. Подтверждённые события сохранены.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 7,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_1C9F7513F7F426",
@@ -1147,12 +1469,15 @@
     },
     {
       "source_id": "SRC_241EE2703A8E69",
-      "status": "manual",
-      "last_attempted_at": null,
-      "last_successful_extraction": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:56:05+00:00",
+      "last_successful_extraction": "2026-10-16T14:55:31+00:00",
       "new_events": 0,
-      "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "detected_events": 1,
+      "error": "Часть страниц или кандидатов требует проверки. Подтверждённые события сохранены.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 12,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_2787FB37A61D86",
@@ -1161,7 +1486,7 @@
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Нужен разрешённый Instagram API (токен и ID профессионального аккаунта) или локальный экспорт Instaloader. Анонимный сбор отключён правилами платформы."
     },
     {
       "source_id": "SRC_29A4F37DA5EB8A",
@@ -1174,12 +1499,15 @@
     },
     {
       "source_id": "SRC_29E61AF89997C5",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:56:11+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 5,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_2A931C9E48F33C",
@@ -1350,12 +1678,15 @@
     },
     {
       "source_id": "SRC_494401737BD311",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:56:17+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 4,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_4C44C7739315C8",
@@ -1384,7 +1715,7 @@
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Нужен разрешённый Instagram API (токен и ID профессионального аккаунта) или локальный экспорт Instaloader. Анонимный сбор отключён правилами платформы."
     },
     {
       "source_id": "SRC_4E8483536F4E88",
@@ -1418,12 +1749,15 @@
     },
     {
       "source_id": "SRC_51AE30CE3EAD66",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:56:10+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 12,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_5294A8A46774E8",
@@ -1553,12 +1887,15 @@
     },
     {
       "source_id": "SRC_674691C0E8E206",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:55:51+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 8,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_68D65015804BD2",
@@ -1611,12 +1948,15 @@
     },
     {
       "source_id": "SRC_755B2DB5B47269",
-      "status": "manual",
-      "last_attempted_at": null,
-      "last_successful_extraction": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:55:38+00:00",
+      "last_successful_extraction": "2026-10-16T14:55:31+00:00",
       "new_events": 0,
-      "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "detected_events": 1,
+      "error": "Часть страниц или кандидатов требует проверки. Подтверждённые события сохранены.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 8,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_75F165B1EDBB62",
@@ -1630,12 +1970,15 @@
     },
     {
       "source_id": "SRC_7845445DDDDE54",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:55:45+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 10,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_7C751C27011454",
@@ -1701,7 +2044,7 @@
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Нужен разрешённый Instagram API (токен и ID профессионального аккаунта) или локальный экспорт Instaloader. Анонимный сбор отключён правилами платформы."
     },
     {
       "source_id": "SRC_8F2A248C7A9AF1",
@@ -1740,7 +2083,7 @@
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Нужен разрешённый Instagram API (токен и ID профессионального аккаунта) или локальный экспорт Instaloader. Анонимный сбор отключён правилами платформы."
     },
     {
       "source_id": "SRC_96253B1D76E6E5",
@@ -1754,12 +2097,15 @@
     },
     {
       "source_id": "SRC_97404B8190B63B",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:55:44+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 3,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_98CB942A07F66D",
@@ -1883,12 +2229,15 @@
     },
     {
       "source_id": "SRC_A7A55D3F520E67",
-      "status": "manual",
-      "last_attempted_at": null,
-      "last_successful_extraction": null,
+      "status": "working",
+      "last_attempted_at": "2026-10-16T14:56:04+00:00",
+      "last_successful_extraction": "2026-10-16T14:55:31+00:00",
       "new_events": 0,
-      "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "detected_events": 3,
+      "error": null,
+      "adapter": "telegram_public_preview",
+      "posts_seen": 5,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_A84905224D71A0",
@@ -1917,7 +2266,7 @@
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Нужен разрешённый Instagram API (токен и ID профессионального аккаунта) или локальный экспорт Instaloader. Анонимный сбор отключён правилами платформы."
     },
     {
       "source_id": "SRC_B293E5E56F0318",
@@ -1990,12 +2339,12 @@
     },
     {
       "source_id": "SRC_BBCF92F99373BE",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:55:56+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публичная лента недоступна или не содержит читаемых публикаций. Возможен сбор через авторизованный API."
     },
     {
       "source_id": "SRC_C01EBDA9815ABD",
@@ -2049,12 +2398,15 @@
     },
     {
       "source_id": "SRC_CC00BEC26016C3",
-      "status": "manual",
-      "last_attempted_at": null,
-      "last_successful_extraction": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:57:56+00:00",
+      "last_successful_extraction": "2026-10-16T14:55:31+00:00",
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 5,
+      "last_successful_check": "2026-10-16T14:57:56+00:00"
     },
     {
       "source_id": "SRC_CE681AB8D352D7",
@@ -2068,12 +2420,15 @@
     },
     {
       "source_id": "SRC_D07A59447D5C4E",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:55:31+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 7,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_D1965622B2B26E",
@@ -2178,7 +2533,7 @@
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Нужен разрешённый Instagram API (токен и ID профессионального аккаунта) или локальный экспорт Instaloader. Анонимный сбор отключён правилами платформы."
     },
     {
       "source_id": "SRC_E4BBF3E60D4929",
@@ -2221,19 +2576,22 @@
     },
     {
       "source_id": "SRC_F1720E7F48A0CF",
-      "status": "manual",
-      "last_attempted_at": null,
+      "status": "partial",
+      "last_attempted_at": "2026-10-16T14:56:16+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
-      "error": "Автоматический доступ не настроен. Используйте оригинал и редакционные записи."
+      "error": "Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.",
+      "adapter": "telegram_public_preview",
+      "posts_seen": 7,
+      "last_successful_check": "2026-10-16T14:55:31+00:00"
     },
     {
       "source_id": "SRC_F1B2C8F168307B",
       "status": "working",
       "last_attempted_at": "2026-10-16T13:47:14+00:00",
       "last_successful_extraction": "2026-10-16T13:39:01+00:00",
-      "new_events": 2,
+      "new_events": 0,
       "detected_events": 2,
       "error": null,
       "last_successful_check": "2026-10-16T13:39:01+00:00"
