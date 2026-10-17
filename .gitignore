@@ -11,3 +11,7 @@ test-results/
 !.env.example
 
 *.tsbuildinfo
+.local/
+*.session
+*.session-journal
+*.instaloader

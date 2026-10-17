@@ -33,16 +33,29 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-social.txt
       - run: npm ci
       - run: python -m pip install -r requirements.txt
       - name: Проверка кода и сборщика
         run: |
-          python -m pytest tests/test_ingestion.py -q
+          python -m pytest tests -q
           npm test
       - name: Обновление афиши
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           SCHEDULED: ${{ github.event_name == 'schedule' && 'true' || 'false' }}
+          # Optional authorized API credentials; empty values leave public previews enabled.
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_ACCOUNT_ID: ${{ vars.INSTAGRAM_ACCOUNT_ID }}
+          INSTAGRAM_ACCOUNT_USERNAME: ${{ vars.INSTAGRAM_ACCOUNT_USERNAME }}
+          INSTAGRAM_API_MODE: ${{ vars.INSTAGRAM_API_MODE || 'business_discovery' }}
+          INSTAGRAM_GRAPH_VERSION: ${{ vars.INSTAGRAM_GRAPH_VERSION || 'v24.0' }}
+          TELEGRAM_MODE: ${{ vars.TELEGRAM_MODE || 'preview' }}
+          TELEGRAM_API_ID: ${{ vars.TELEGRAM_API_ID }}
+          TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
+          TELEGRAM_SESSION: ${{ secrets.TELEGRAM_SESSION }}
         run: |
           result=0
           if [ "$SCHEDULED" = true ]; then

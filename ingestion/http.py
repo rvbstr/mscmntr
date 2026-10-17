@@ -11,8 +11,8 @@ USER_AGENT='MoscowArtMonitor/1.0 (+https://github.com/rvbstr/mscmntr; public art
 
 
 class SourceError(Exception):
-    def __init__(self,message,status='unavailable'):
-        super().__init__(message); self.status=status
+    def __init__(self,message,status='unavailable',attempted=True):
+        super().__init__(message); self.status=status; self.attempted=attempted
 
 
 class Client:

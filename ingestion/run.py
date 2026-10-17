@@ -11,6 +11,9 @@ from bs4 import BeautifulSoup
 from ingestion.import_catalog import ROOT
 from ingestion.http import Client, SourceError
 from ingestion.adapters import parse_jsonld, parse_feed, parse_html, discover_links
+from ingestion.adapters.social import parse_post
+from ingestion.adapters.telegram import collect_telegram
+from ingestion.adapters.instagram import collect_instagram, configured_instagram_api
 from ingestion.adapters.institutions import parse_institution, institution_links
 from ingestion.models import canonical_url, direct_url, stable_id, deduplicate, link_parents, event_signature, TYPES
 from ingestion.editorial import load_overrides, apply_overrides
@@ -44,12 +47,19 @@ def valid_event(e):
 
 def complete_event(candidate,institution,source,timestamp):
     e=dict(candidate)
+    if not e.get('geography_scope'):
+        locations=institution.get('locations',[])
+        address=e.get('address') or ''
+        scopes={l.get('geography_scope') for l in locations if l.get('geography_scope')}
+        exact=next((l for l in locations if l.get('city') and l['city'].casefold() in address.casefold()),None)
+        if exact:e['geography_scope']=exact.get('geography_scope');e['city']=exact.get('city')
+        elif len(scopes)==1:e['geography_scope']=next(iter(scopes))
     e.update(institution_id=institution['institution_id'],venue_name=institution['name'],source_id=source['source_id'],
              source_platform=source['platform'],timezone='Europe/Moscow',review_status='verified',last_seen_at=timestamp,
              last_updated_at=timestamp,first_detected_at=e.get('first_detected_at') or timestamp,
              tags=institution.get('tags',[]),link_status='available',link_checked_at=timestamp)
     e['event_id']=e.get('event_id') or stable_id(e)
-    e['evidence']=[{'url':e['primary_url'],'source_id':source['source_id'],'checked_at':timestamp,'status':'available'}]
+    e['evidence']=[{'url':e['primary_url'],'source_id':source['source_id'],'checked_at':timestamp,'status':'available','verification_method':candidate.get('verification_method','http')}]
     e['date_precision']='minute' if e.get('start_time') else 'date'
     return e
 
@@ -66,7 +76,9 @@ def seed_candidates(catalog,client,source,institution):
     return result
 
 
-def refresh(catalog,overrides,previous,client,only=None,max_pages=3):
+def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_options=None):
+    social_options=social_options or {}
+    instagram_api=social_options.get('instagram_api')
     timestamp=now_iso(); institutions={i['institution_id']:dict(i) for i in catalog['institutions']}
     for iid,priority in overrides['priorities'].items(): institutions[iid]['monitoring_priority']=priority
     old_health={h['source_id']:h for h in previous.get('sources',[])}
@@ -82,23 +94,39 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3):
             reports.append(report); continue
         if sid in overrides['disabled_sources'] or all(i['monitor_state'] in ('excluded','discovery') for i in linked):
             report.update(status='disabled',error='Источник сохранён в каталоге; автоматический сбор отключён'); reports.append(report); continue
-        if source['platform'] in ('instagram','vk','telegram','linkhub'):
+        if source['platform'] in ('vk','linkhub'):
             report.update(status='manual',error='Автоматический доступ не настроен. Используйте оригинал и редакционные записи.'); reports.append(report); continue
         report['last_attempted_at']=now_iso()
         report['detected_events']=0
         try:
-            html,url=client.fetch(source['url']); extracted=[]; page_errors=[]; review_start=len(review)
-            if source['platform']=='rss' or html.lstrip().startswith(('<?xml','<rss','<feed')):
-                extracted=parse_feed(html,url)
+            extracted=[]; page_errors=[]; review_start=len(review); collection=None; social_verified=set()
+            if source['platform'] in ('telegram','instagram'):
+                if source['platform']=='telegram':
+                    collection=collect_telegram(source['url'],client,limit=social_options.get('limit',20))
+                else:
+                    if instagram_api is None:instagram_api=configured_instagram_api()
+                    collection=collect_instagram(source['url'],instagram_api,social_options.get('instagram_export_dir') or os.environ.get('INSTAGRAM_EXPORT_DIR',str(ROOT/'.local/instagram')),limit=social_options.get('limit',20))
+                report.update(adapter=collection.adapter,posts_seen=len(collection.posts))
+                if collection.live:social_verified={post.url for post in collection.posts}
+                for post in collection.posts:
+                    parsed,reason=parse_post(post)
+                    if reason:review.append({'source_id':sid,'candidate':{'primary_url':post.url,'published_at':post.published_at,'description':post.text[:700]},'reason':reason})
+                    if collection.live:extracted.extend(parsed)
+                    else:
+                        for item in parsed:review.append({'source_id':sid,'candidate':item,'reason':collection.note})
             else:
-                rule=overrides['parser_rules'].get(sid) or overrides['parser_rules'].get(urlsplit(url).hostname) or source.get('parser_config') or {}
-                if isinstance(rule,str): rule=json.loads(rule)
-                extracted=parse_jsonld(html,url) or parse_institution(html,url) or parse_html(html,url,rule)
-                links=list(dict.fromkeys(institution_links(html,url,max_pages)+discover_links(html,url,max_pages)))[:max_pages]
-                for link in links:
-                    try:
-                        body,final=client.fetch(link); extracted.extend(parse_jsonld(body,final) or parse_institution(body,final) or parse_html(body,final,rule))
-                    except SourceError as exc: page_errors.append(str(exc))
+                html,url=client.fetch(source['url'])
+                if source['platform']=='rss' or html.lstrip().startswith(('<?xml','<rss','<feed')):
+                    extracted=parse_feed(html,url)
+                else:
+                    rule=overrides['parser_rules'].get(sid) or overrides['parser_rules'].get(urlsplit(url).hostname) or source.get('parser_config') or {}
+                    if isinstance(rule,str):rule=json.loads(rule)
+                    extracted=parse_jsonld(html,url) or parse_institution(html,url) or parse_html(html,url,rule)
+                    links=list(dict.fromkeys(institution_links(html,url,max_pages)+discover_links(html,url,max_pages)))[:max_pages]
+                    for link in links:
+                        try:
+                            body,final=client.fetch(link);extracted.extend(parse_jsonld(body,final) or parse_institution(body,final) or parse_html(body,final,rule))
+                        except SourceError as exc:page_errors.append(str(exc))
             successful+=1; checked_successfully.add(sid); accepted=[]; seen=set()
             # Ambiguous shared website ownership is sent for editorial attribution.
             relevant=[i for i in linked if any(r['institution_id']==i['institution_id'] and r['source_id']==sid and r.get('role')=='announcements' for r in catalog['institution_sources'])]
@@ -115,7 +143,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3):
                 if len(owners)!=1:
                     review.append({'source_id':sid,'candidate':item,'reason':'Нужно уточнить связь события с пространством'}); continue
                 try:
-                    client.fetch(item['primary_url'])
+                    if item['primary_url'] not in social_verified:client.fetch(item['primary_url'])
                     event=complete_event(item,owners[0],source,timestamp)
                     if event['event_id'] not in seen: accepted.append(event); seen.add(event['event_id'])
                 except SourceError as exc:
@@ -125,7 +153,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3):
                             for evidence in old_event.get('evidence',[]):
                                 if canonical_url(evidence['url'])==canonical_url(item['primary_url']):evidence.update(status=exc.status,checked_at=now_iso())
                     review.append({'source_id':sid,'candidate':item,'reason':str(exc),'link_status':exc.status})
-            if len(relevant)==1 and not accepted:
+            if len(relevant)==1 and not accepted and source['platform'] not in ('telegram','instagram'):
                 try:
                     for item in seed_candidates(catalog,client,source,relevant[0]):
                         event=complete_event(item,relevant[0],source,timestamp)
@@ -137,9 +165,13 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3):
             incomplete=bool(page_errors or len(review)>review_start)
             report.update(status='working' if accepted and not incomplete else 'partial',last_successful_check=timestamp,detected_events=len(accepted),new_events=new,
                           error=('Часть страниц или кандидатов требует проверки. Подтверждённые события сохранены.' if incomplete else None) if accepted else 'Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.')
+            if collection and not collection.live:report.update(status='review',last_successful_check=old.get('last_successful_check'),error=collection.note)
+            elif collection and not accepted:report['error']='Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.'
             if accepted: report['last_successful_extraction']=timestamp
             candidates.extend(accepted)
-        except SourceError as exc: report.update(status=exc.status,error=str(exc))
+        except SourceError as exc:
+            report.update(status=exc.status,error=str(exc))
+            if not exc.attempted:report['last_attempted_at']=old.get('last_attempted_at')
         except Exception as exc:
             report.update(status='review',error='Ошибка адаптера: '+type(exc).__name__)
         reports.append(report)
@@ -191,7 +223,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3):
 def main():
     p=argparse.ArgumentParser(description='Проверка публичных источников афиши')
     p.add_argument('--scheduled',action='store_true'); p.add_argument('--source',action='append')
-    p.add_argument('--max-pages',type=int,default=3); p.add_argument('--timeout',type=int,default=12)
+    p.add_argument('--social-posts',type=int,default=20);p.add_argument('--instagram-export-dir',type=Path);p.add_argument('--max-pages',type=int,default=3); p.add_argument('--timeout',type=int,default=12)
     args=p.parse_args()
     catalog_path=ROOT/'catalog/catalog.json'
     if not catalog_path.exists():
@@ -203,7 +235,7 @@ def main():
     if args.scheduled and not due(previous.get('metadata',{})):
         print('72 часа ещё не прошли; данные сохранены без изменений.'); return 0
     overrides=load_overrides(ROOT/'editorial/overrides.json',catalog)
-    feed,review=refresh(catalog,overrides,previous,Client(timeout=args.timeout),args.source,args.max_pages)
+    feed,review=refresh(catalog,overrides,previous,Client(timeout=args.timeout),args.source,args.max_pages,{'limit':max(1,min(args.social_posts,50)),'instagram_export_dir':args.instagram_export_dir})
     public_catalog={k:v for k,v in catalog.items() if k!='seed_events'}
     public_catalog['institutions']=[dict(i,monitoring_priority=overrides['priorities'].get(i['institution_id'],i['monitoring_priority'])) for i in catalog['institutions']]
     atomic_json(ROOT/'public/data/catalog.json',public_catalog)
