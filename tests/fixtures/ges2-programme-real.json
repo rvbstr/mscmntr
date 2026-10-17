@@ -1,0 +1,864 @@
+{
+  "props": {
+    "pageProps": {
+      "date": "2026-10-17",
+      "__APOLLO_STATE__": {
+        "ROOT_QUERY": {
+          "_calendarItemsMeta({\"dates\":[\"2026-10-17\",\"2026-12-31\"],\"pageFullPath\":\"ges2/calendar\"})": {
+            "__typename": "CalendarItemsMeta",
+            "lastDate": "2027-04-25",
+            "availabilityByDay": [
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-17",
+                "availability": true
+              },
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-18",
+                "availability": true
+              },
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-19",
+                "availability": true
+              },
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-20",
+                "availability": false
+              },
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-21",
+                "availability": false
+              },
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-22",
+                "availability": true
+              },
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-23",
+                "availability": true
+              },
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-24",
+                "availability": true
+              },
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-25",
+                "availability": true
+              },
+              {
+                "__typename": "DayWithAvailability",
+                "day": "2026-10-26",
+                "availability": true
+              }
+            ]
+          },
+          "calendarItems({\"dates\":[\"2026-10-17\"],\"pageFullPath\":\"ges2/calendar\"})": [
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>11:00–22:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10669"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3131"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>11:00–20:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10665"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3498"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>11:00–22:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [],
+              "material": {
+                "__ref": "Material:727"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>13:00–14:00</time><br /><time>14:30–15:30</time><br /><time>16:00–17:00</time><br /><time>17:30–18:30</time><br /><time>19:00–20:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10218"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3243"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>15:30–17:30</time><br /><time>18:00–20:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10483"
+                }
+              ],
+              "material": {
+                "__ref": "Material:1538"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>11:30–12:30</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10699"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3507"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>11:30–13:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10505"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3069"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>12:00–14:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10696"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3535"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>13:00–14:30</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10145"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3154"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": "Если бы аромат имел форму. <em>День белой трости в «ГЭС-2» — 2026</em>",
+              "calendarHours": "<time>13:00–15:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10688"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3529"
+              },
+              "subtype": {
+                "__typename": "Subtype",
+                "slug": "workshop",
+                "title": "Мастер-класс",
+                "oneTitle": "мастер-класс",
+                "fewTitle": "мастер-класса",
+                "manyTitle": "мастер-классов"
+              }
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>14:00–15:30</time><br /><time>18:00–19:30</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:9365"
+                }
+              ],
+              "material": {
+                "__ref": "Material:2542"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>14:00–16:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10695"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3532"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>14:00–16:00</time><br /><time>18:00–20:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10704"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3534"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>15:00–16:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10682"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3503"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>15:00–17:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [],
+              "material": {
+                "__ref": "Material:3044"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>15:00–17:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10535"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3384"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": "Как звучит «ГЭС-2»? Семейный тур",
+              "calendarHours": "<time>16:00–17:30</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:9880"
+                }
+              ],
+              "material": {
+                "__ref": "Material:867"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": "О себе и от себя. <em>День белой трости в «ГЭС-2» — 2026</em>",
+              "calendarHours": "<time>16:30–18:30</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10692"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3529"
+              },
+              "subtype": {
+                "__typename": "Subtype",
+                "slug": "talk",
+                "title": "Беседа",
+                "oneTitle": "беседа",
+                "fewTitle": "беседы",
+                "manyTitle": "бесед"
+              }
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": "Концерт V. <em>Исторические концерты</em>",
+              "calendarHours": "<time>18:00–22:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": {
+                "main": "https://cdn.v-a-c.org/v-a-c-static/store/calendaritem/10628/image/main-3de0277cace1760257d63598ff371a56.jpeg",
+                "main_width": 729,
+                "main_height": 486
+              },
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10580"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3404"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": null,
+              "calendarHours": "<time>19:00–20:30</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:9943"
+                }
+              ],
+              "material": {
+                "__ref": "Material:750"
+              },
+              "subtype": null
+            },
+            {
+              "__typename": "CalendarItem",
+              "customTitle": "Лудуб, морин хуур и истории. <em>День белой трости в «ГЭС-2» — 2026</em>",
+              "calendarHours": "<time>19:00–21:00</time>",
+              "forDate": "2026-10-17",
+              "description": null,
+              "image": null,
+              "imageAlt": "",
+              "buttons": [
+                {
+                  "__ref": "CalendarItemButton:10690"
+                }
+              ],
+              "material": {
+                "__ref": "Material:3529"
+              },
+              "subtype": {
+                "__typename": "Subtype",
+                "slug": "concert",
+                "title": "Концерт",
+                "oneTitle": "концерт",
+                "fewTitle": "концерта",
+                "manyTitle": "концертов"
+              }
+            }
+          ]
+        },
+        "Subtype:5": {
+          "__typename": "Subtype",
+          "slug": "exhibition",
+          "id": "5",
+          "title": "Выставка",
+          "oneTitle": "выставка",
+          "fewTitle": "выставки",
+          "manyTitle": "выставок"
+        },
+        "Material:3131": {
+          "subtype": {
+            "__ref": "Subtype:5"
+          },
+          "projectStartsAt": "2026-10-15T00:00:00+03:00",
+          "projectEndsAt": "2027-04-25T23:00:00+03:00",
+          "ges2FullPath": "projects/still-life-portrait-landscape-after-genre",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Натюрморт. Портрет. Пейзаж. После жанра",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Material:3498": {
+          "subtype": {
+            "__ref": "Subtype:5"
+          },
+          "projectStartsAt": "2026-10-01T00:00:00+03:00",
+          "projectEndsAt": "2026-11-04T23:00:00+03:00",
+          "ges2FullPath": "projects/seriality-principle",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Принцип серийности",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Subtype:16": {
+          "__typename": "Subtype",
+          "slug": "installation",
+          "id": "16",
+          "title": "Инсталляция",
+          "oneTitle": "инсталляция",
+          "fewTitle": "инсталляции",
+          "manyTitle": "инсталляций"
+        },
+        "Material:727": {
+          "subtype": {
+            "__ref": "Subtype:16"
+          },
+          "projectStartsAt": "2021-12-04T10:00:00+03:00",
+          "projectEndsAt": null,
+          "ges2FullPath": "alexandra-sukhareva-beginnings",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Александра Сухарева. Начала",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Material:3243": {
+          "subtype": null,
+          "projectStartsAt": null,
+          "projectEndsAt": null,
+          "ges2FullPath": "materials/below-the-grass-playground-card",
+          "cardLink": "/below-the-grass-playground",
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": null,
+            "title": "Ниже травы. Игровая",
+            "cardTitle": null,
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Material:1538": {
+          "subtype": null,
+          "projectStartsAt": null,
+          "projectEndsAt": null,
+          "ges2FullPath": "materials/ssylka-masterskaya-svobodnoe-poseschenie",
+          "cardLink": "/ges2/atelier/",
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": null,
+            "title": "Ателье. Самостоятельная работа",
+            "cardTitle": null,
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Subtype:79": {
+          "__typename": "Subtype",
+          "slug": "game",
+          "id": "79",
+          "title": "Игра",
+          "oneTitle": "игра",
+          "fewTitle": "игры",
+          "manyTitle": "игр"
+        },
+        "Material:3507": {
+          "subtype": {
+            "__ref": "Subtype:79"
+          },
+          "projectStartsAt": "2026-10-17T11:30:00+03:00",
+          "projectEndsAt": "2026-10-17T12:30:00+03:00",
+          "ges2FullPath": "a-black-beetle-is-walking-through-the-woods",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "По лесу шагает черный жук",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Subtype:44": {
+          "__typename": "Subtype",
+          "slug": "public-programme",
+          "id": "44",
+          "title": "Публичная программа",
+          "oneTitle": "публичная программа",
+          "fewTitle": "публичные программы",
+          "manyTitle": "публичных программ"
+        },
+        "Material:3069": {
+          "subtype": {
+            "__ref": "Subtype:44"
+          },
+          "projectStartsAt": "2026-09-12T00:00:00+03:00",
+          "projectEndsAt": "2026-11-28T23:00:00+03:00",
+          "ges2FullPath": "weekend-yoga",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Йога выходного дня",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Subtype:73": {
+          "__typename": "Subtype",
+          "slug": "workshop-studio",
+          "id": "73",
+          "title": "Мастерская ",
+          "oneTitle": "мастерская",
+          "fewTitle": "мастерских",
+          "manyTitle": "мастерских"
+        },
+        "Material:3535": {
+          "subtype": {
+            "__ref": "Subtype:73"
+          },
+          "projectStartsAt": "2026-10-17T00:00:00+03:00",
+          "projectEndsAt": "2026-12-19T23:00:00+03:00",
+          "ges2FullPath": "the-cube-workshop-after-genre",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Мастерская «Куб». После жанра",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Subtype:14": {
+          "__typename": "Subtype",
+          "slug": "mediated-tour",
+          "id": "14",
+          "title": "Медиаторский тур",
+          "oneTitle": "медиаторский тур",
+          "fewTitle": "медиаторских тура",
+          "manyTitle": "медиаторских туров"
+        },
+        "Material:3154": {
+          "subtype": {
+            "__ref": "Subtype:14"
+          },
+          "projectStartsAt": "2026-03-21T00:00:00+03:00",
+          "projectEndsAt": null,
+          "ges2FullPath": "how-to-tame-ges-2",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Как приручить «ГЭС-2»? Медиаторский тур-знакомство для семей с детьми",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": "Исследуем все уголки «ГЭС-2», пользуясь специальной игровой картой."
+          }
+        },
+        "Material:3529": {
+          "subtype": {
+            "__ref": "Subtype:44"
+          },
+          "projectStartsAt": "2026-10-17T00:00:00+03:00",
+          "projectEndsAt": "2026-10-18T23:00:00+03:00",
+          "ges2FullPath": "white-cane-day-at-ges-2-2026",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "День белой трости в «ГЭС-2» — 2026",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Material:2542": {
+          "subtype": {
+            "__ref": "Subtype:14"
+          },
+          "projectStartsAt": "2025-03-01T00:00:00+03:00",
+          "projectEndsAt": null,
+          "ges2FullPath": "materials/mediated-tours-for-organised-groups",
+          "cardLink": "/mediation/tour/mediated-tours-for-organised-groups",
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": null,
+            "title": "Индивидуальный медиаторский тур",
+            "cardTitle": null,
+            "subtitle": "",
+            "description": "Формат взаимодействия медиатора и организованной группы посетителей в пространстве Дома культуры «ГЭС-2». Вы можете заранее выбрать время, тему и формат тура и посетить его со своими знакомыми, друзьями или коллегами. Посещение индивидуальных туров возможно только при покупке билета."
+          }
+        },
+        "Subtype:28": {
+          "__typename": "Subtype",
+          "slug": "talk",
+          "id": "28",
+          "title": "Беседа",
+          "oneTitle": "беседа",
+          "fewTitle": "беседы",
+          "manyTitle": "бесед"
+        },
+        "Material:3532": {
+          "subtype": {
+            "__ref": "Subtype:28"
+          },
+          "projectStartsAt": "2026-10-17T14:00:00+03:00",
+          "projectEndsAt": "2026-10-17T16:00:00+03:00",
+          "ges2FullPath": "still-life-portrait-landscape-execution-techniques",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Натюрморт. Портрет. Пейзаж. Техники исполнения",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Material:3534": {
+          "subtype": {
+            "__ref": "Subtype:14"
+          },
+          "projectStartsAt": "2026-10-15T00:00:00+03:00",
+          "projectEndsAt": "2027-04-25T23:00:00+03:00",
+          "ges2FullPath": "after-genre-medited-tour",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Натюрморт. Портрет. Пейзаж. После жанра",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": "Медиаторский тур, посвященный нашим взаимоотношениям с предметами, ландшафтами, людьми и самими собой. \r\n"
+          }
+        },
+        "Material:3503": {
+          "subtype": {
+            "__ref": "Subtype:14"
+          },
+          "projectStartsAt": "2026-10-01T23:00:00+03:00",
+          "projectEndsAt": "2026-11-04T23:00:00+03:00",
+          "ges2FullPath": "seriality-principle",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Принцип серийности",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": "Медиаторский тур, посвященный исследованию серии как метода, средства и идеи в искусстве, а также тому, как полнота экспонирования раскрывает замысел художника.  "
+          }
+        },
+        "Subtype:69": {
+          "__typename": "Subtype",
+          "slug": "laboratory",
+          "id": "69",
+          "title": "Лаборатория",
+          "oneTitle": "лаборатория",
+          "fewTitle": "лаборатории",
+          "manyTitle": "лабораторий"
+        },
+        "Material:3044": {
+          "subtype": {
+            "__ref": "Subtype:69"
+          },
+          "projectStartsAt": "2026-09-12T00:00:00+03:00",
+          "projectEndsAt": "2026-11-29T18:00:00+03:00",
+          "ges2FullPath": "home-theatre",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Домашний театр",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Material:3384": {
+          "subtype": {
+            "__ref": "Subtype:69"
+          },
+          "projectStartsAt": "2026-09-19T00:00:00+03:00",
+          "projectEndsAt": "2026-11-21T23:00:00+03:00",
+          "ges2FullPath": "voice-radiation",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Излучение голоса",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Material:867": {
+          "subtype": {
+            "__ref": "Subtype:14"
+          },
+          "projectStartsAt": "2022-06-19T14:00:00+03:00",
+          "projectEndsAt": "2022-06-19T16:00:00+03:00",
+          "ges2FullPath": "mediation/tour/how-does-ges-2-sound-family-tour",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Как звучит «ГЭС-2»? Семейный тур",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": "Коллективное исследование звука, его влияния на человека и взаимодействия с окружающей средой и архитектурой. "
+          }
+        },
+        "Subtype:117": {
+          "__typename": "Subtype",
+          "slug": "music-programme",
+          "id": "117",
+          "title": "Музыкальная программа",
+          "oneTitle": "музыкальная программа",
+          "fewTitle": "музыкальные программы",
+          "manyTitle": "музыкальных программ"
+        },
+        "Material:3404": {
+          "subtype": {
+            "__ref": "Subtype:117"
+          },
+          "projectStartsAt": "2026-10-03T00:00:00+03:00",
+          "projectEndsAt": "2026-10-19T23:00:00+03:00",
+          "ges2FullPath": "historical-concerts",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Исторические концерты",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": ""
+          }
+        },
+        "Material:750": {
+          "subtype": {
+            "__ref": "Subtype:14"
+          },
+          "projectStartsAt": "2022-03-07T12:00:00+03:00",
+          "projectEndsAt": null,
+          "ges2FullPath": "mediation/tour/meet-ges-2-house-of-culture",
+          "cardLink": null,
+          "translation": {
+            "__typename": "MaterialTranslation",
+            "cardTime": "",
+            "title": "Знакомство с Домом культуры «ГЭС-2»",
+            "cardTitle": "",
+            "subtitle": "",
+            "description": "Тур об устройстве культурной институции, текущих программах и о том, как здание городской электростанции на Болотной набережной превратилось в Дом культуры. "
+          }
+        }
+      }
+    }
+  }
+}

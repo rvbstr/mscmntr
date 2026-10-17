@@ -73,24 +73,6 @@ const PERIODS = [
   { id: "ongoing", label: "Сейчас идут" },
   { id: "archive", label: "Архив" },
 ];
-const SPOTLIGHT = [
-  "MSK068",
-  "MSK069",
-  "MSK070",
-  "MSK071",
-  "WATCH03",
-  "WATCH05",
-  "WATCH06",
-];
-const SMALL_NAMES: Record<string, string> = {
-  MSK068: "IVANY GALLERY",
-  MSK069: "Девятнадцать",
-  MSK070: "ДНИ",
-  MSK071: "VIDEO VIOLENCE",
-  WATCH03: "Корней",
-  WATCH05: "Пространство пространств",
-  WATCH06: "NoNameForNow",
-};
 const pad = (n: number) => String(n).padStart(2, "0");
 const safeExternal = (url: string) => {
   try {
@@ -379,6 +361,7 @@ export default function App() {
     setCalendarDay("");
     setSourceStatus("");
     setDirectoryState("");
+    setVisibleSpaces(18);
   };
   const notify = (message: string) => setToast(message);
   const fetchData = async (initial = false) => {
@@ -547,26 +530,105 @@ export default function App() {
     (eventInstitution?.locations.length === 1
       ? eventInstitution.locations[0].address
       : undefined);
-  const activeCount =
-    Number(!!filters.q) +
-    Number(filters.geography !== "moscow") +
-    filters.types.length +
-    Number(!!filters.institution) +
-    Number(!!filters.district) +
-    Number(!!filters.category) +
-    Number(!!filters.scene) +
-    Number(filters.onlyNew) +
-    Number(filters.onlySaved) +
-    Number(filters.onlyFavorites) +
-    Number(!!filters.from) +
-    Number(!!filters.to);
+  const eventView = view === "agenda" || view === "calendar";
+  const activeFilters: { id: string; label: string; remove: () => void }[] = [];
+  const addFilter = (id: string, label: string, remove: () => void) =>
+    activeFilters.push({ id, label, remove });
+  if (filters.q) addFilter("q", `Поиск: ${filters.q}`, () => patch({ q: "" }));
+  if (filters.scene)
+    addFilter(
+      "scene",
+      filters.scene === "independent"
+        ? "Независимая сцена"
+        : "Институции и музеи",
+      () => patch({ scene: "" }),
+    );
+  if (filters.category)
+    addFilter(
+      "category",
+      `Тип пространства: ${CATEGORIES[filters.category] || filters.category}`,
+      () => patch({ category: "" }),
+    );
+  if (filters.institution)
+    addFilter(
+      "institution",
+      catalog?.institutions.find(
+        (i) => i.institution_id === filters.institution,
+      )?.name || filters.institution,
+      () => patch({ institution: "" }),
+    );
+  if (filters.district)
+    addFilter("district", `Район: ${filters.district}`, () =>
+      patch({ district: "" }),
+    );
+  if (filters.onlyFavorites)
+    addFilter("favorites", "Мои пространства", () =>
+      patch({ onlyFavorites: false }),
+    );
+  if (eventView) {
+    if (filters.geography !== "moscow")
+      addFilter(
+        "geography",
+        filters.geography === "all" ? "Москва и Подмосковье" : "Подмосковье",
+        () => patch({ geography: "moscow" }),
+      );
+    filters.types.forEach((type) =>
+      addFilter(`type:${type}`, EVENT_TYPES[type] || type, () =>
+        patch({ types: filters.types.filter((t) => t !== type) }),
+      ),
+    );
+    if (filters.onlyNew)
+      addFilter("new", "Новые с прошлого визита", () =>
+        patch({ onlyNew: false }),
+      );
+    if (filters.onlySaved)
+      addFilter("saved", "Сохранённые события", () =>
+        patch({ onlySaved: false }),
+      );
+    if (
+      filters.period !== "upcoming" &&
+      !(filters.period === "all" && (filters.from || filters.to))
+    )
+      addFilter(
+        "period",
+        `Период: ${PERIODS.find((p) => p.id === filters.period)?.label || "Все даты"}`,
+        () => {
+          patch({ period: "upcoming" });
+          setCalendarDay("");
+        },
+      );
+    if (filters.from)
+      addFilter("from", `С ${dayLabel(filters.from)}`, () => {
+        patch({ from: "", period: filters.to ? "all" : "upcoming" });
+        setCalendarDay("");
+      });
+    if (filters.to)
+      addFilter("to", `По ${dayLabel(filters.to)}`, () => {
+        patch({ to: "", period: filters.from ? "all" : "upcoming" });
+        setCalendarDay("");
+      });
+    if (filters.sort !== "date")
+      addFilter("sort", "По дате обнаружения", () => patch({ sort: "date" }));
+  }
+  if (view === "spaces" && directoryState)
+    addFilter(
+      "directoryState",
+      `Статус: ${STATES[directoryState] || directoryState}`,
+      () => {
+        setDirectoryState("");
+        setVisibleSpaces(18);
+      },
+    );
+  if (view === "sources" && sourceStatus)
+    addFilter(
+      "sourceStatus",
+      `Статус: ${STATUS[sourceStatus] || sourceStatus}`,
+      () => setSourceStatus(""),
+    );
+  const activeCount = activeFilters.length;
   const monitorCount =
     catalog?.institutions.filter((i) => i.monitor_state === "monitor").length ||
     0;
-  const independentCount =
-    catalog?.institutions.filter(
-      (i) => i.independent && i.monitor_state === "monitor",
-    ).length || 0;
   const checkedCount =
     feed?.sources.filter(
       (s) => s.status === "working" || s.status === "partial",
@@ -587,6 +649,53 @@ export default function App() {
     { ...filters, period: "all", from: "", to: "" },
     personal,
     today,
+  );
+
+  const filterSummary = (
+    <>
+      {(feed?.metadata.run_status === "blocked" || feed?.metadata.partial) && (
+        <div className="coverage-note">
+          <Radio size={15} />
+          <span>
+            {feed.metadata.run_status === "blocked"
+              ? "Афиша ещё не подтверждена."
+              : "Охват неполный."}{" "}
+            {checkedCount} из {catalog?.sources.length} источников доступны для
+            автоматической проверки.
+          </span>
+          {view !== "sources" && (
+            <button onClick={() => navigate("sources")}>
+              Статус источников <ArrowUpRight size={13} />
+            </button>
+          )}
+        </div>
+      )}
+      {activeCount > 0 && (
+        <div
+          className="active-filters"
+          role="region"
+          aria-label="Выбранные фильтры"
+        >
+          <ul>
+            {activeFilters.map((item) => (
+              <li key={item.id}>
+                <button
+                  className="filter-tag"
+                  onClick={item.remove}
+                  aria-label={`Убрать фильтр: ${item.label}`}
+                >
+                  <span>{item.label}</span>
+                  <X size={16} aria-hidden="true" />
+                </button>
+              </li>
+            ))}
+          </ul>
+          <button className="clear-filters" onClick={reset}>
+            Сбросить фильтры
+          </button>
+        </div>
+      )}
+    </>
   );
 
   function renderEvent(e: ArtEvent) {
@@ -1229,22 +1338,7 @@ export default function App() {
                         </div>
                       )}
                     </div>
-                    {(feed.metadata.run_status === "blocked" ||
-                      feed.metadata.partial) && (
-                      <div className="coverage-note">
-                        <Radio size={15} />
-                        <span>
-                          {feed.metadata.run_status === "blocked"
-                            ? "Афиша ещё не подтверждена."
-                            : "Охват неполный."}{" "}
-                          {checkedCount} из {catalog.sources.length} источников
-                          доступны для автоматической проверки.
-                        </span>
-                        <button onClick={() => navigate("sources")}>
-                          Статус источников <ArrowUpRight size={13} />
-                        </button>
-                      </div>
-                    )}
+                    {filterSummary}
                     {view === "calendar" ? (
                       <>
                         <MiniCalendar
@@ -1304,44 +1398,6 @@ export default function App() {
                     ) : (
                       emptyEvents()
                     )}
-                    <section className="independent-section">
-                      <div className="section-label">
-                        <span>
-                          <i className="independent-dot" />
-                          НЕЗАВИСИМАЯ СЦЕНА
-                        </span>
-                        <button
-                          onClick={() => {
-                            navigate("spaces");
-                            patch({ scene: "independent", onlySaved: false });
-                          }}
-                        >
-                          Все пространства <ArrowUpRight size={14} />
-                        </button>
-                      </div>
-                      <p className="spotlight-count">
-                        В мониторинге: {independentCount}
-                      </p>
-                      <div className="spotlight-list">
-                        {SPOTLIGHT.map((id, index) => {
-                          const i = catalog.institutions.find(
-                            (s) => s.institution_id === id,
-                          );
-                          return i ? (
-                            <button key={id} onClick={() => setSpaceId(id)}>
-                              <span className="mono">{pad(index + 1)}</span>
-                              <strong>{SMALL_NAMES[id]}</strong>
-                              <span className="spotlight-tag">
-                                {i.tags.includes("artist_run")
-                                  ? "Самоорганизация"
-                                  : "Независимое пространство"}
-                              </span>
-                              <ArrowUpRight size={18} />
-                            </button>
-                          ) : null;
-                        })}
-                      </div>
-                    </section>
                   </>
                 )}
                 {view === "spaces" && (
@@ -1380,6 +1436,7 @@ export default function App() {
                         <ChevronDown size={12} />
                       </label>
                     </div>
+                    {filterSummary}
                     <div className="directory-note">
                       <span className="tiny-dot" />
                       Независимые пространства — в начале индекса. В каталоге
@@ -1572,6 +1629,7 @@ export default function App() {
                         {stamp(feed.metadata.last_attempted_refresh)}
                       </span>
                     </div>
+                    {filterSummary}
                     <div className="sources-table">
                       <div className="source-table-head">
                         <span>ПРОСТРАНСТВО / ИСТОЧНИК</span>

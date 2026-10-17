@@ -1,5 +1,138 @@
 import { test, expect } from "@playwright/test";
 
+for (const view of ["agenda", "calendar", "spaces", "sources"]) {
+  test(`removable filter tags and reset work in ${view}`, async ({ page }) => {
+    await page.goto(`/?view=${view}&scene=independent&category=gallery`);
+    const tags = page.getByRole("region", { name: "Выбранные фильтры" });
+    await expect(tags).toBeVisible();
+    await expect(
+      tags.getByRole("button", {
+        name: "Убрать фильтр: Независимая сцена",
+        exact: true,
+      }),
+    ).toBeVisible();
+    await expect(page.locator(".coverage-note")).toBeVisible();
+    expect(
+      await tags.evaluate((el) =>
+        el.previousElementSibling?.classList.contains("coverage-note"),
+      ),
+    ).toBe(true);
+    await tags
+      .getByRole("button", {
+        name: "Убрать фильтр: Независимая сцена",
+        exact: true,
+      })
+      .click();
+    await expect(page).not.toHaveURL(/scene=/);
+    await expect(page).toHaveURL(/category=gallery/);
+    await expect(
+      page
+        .locator(".sidebar select")
+        .filter({ has: page.locator('option[value="gallery"]') }),
+    ).toHaveValue("gallery");
+    await tags
+      .getByRole("button", { name: "Сбросить фильтры", exact: true })
+      .click();
+    await expect(tags).toHaveCount(0);
+    await expect(page).not.toHaveURL(/category=|scene=/);
+    await expect(
+      page.locator(".independent-section,.spotlight-list"),
+    ).toHaveCount(0);
+  });
+}
+
+test("event type/date tags clear independently and restore the calendar", async ({
+  page,
+}) => {
+  await page.goto(
+    "/?view=calendar&period=all&type=talk,opening&from=2026-10-17&to=2026-10-31&geography=all",
+  );
+  const tags = page.getByRole("region", { name: "Выбранные фильтры" });
+  await tags
+    .getByRole("button", {
+      name: "Убрать фильтр: Лекция / дискуссия",
+      exact: true,
+    })
+    .click();
+  await expect(page).toHaveURL(/type=opening/);
+  await expect(
+    page.getByRole("checkbox", { name: "Лекция / дискуссия", exact: true }),
+  ).not.toBeChecked();
+  await expect(
+    page.getByRole("checkbox", { name: "Открытие", exact: true }),
+  ).toBeChecked();
+  await tags.getByRole("button", { name: /^Убрать фильтр: С / }).click();
+  await expect(page).not.toHaveURL(/from=/);
+  await expect(page).toHaveURL(/to=2026-10-31/);
+  await tags.getByRole("button", { name: /^Убрать фильтр: По / }).click();
+  await expect(page).not.toHaveURL(/to=|period=/);
+  await page.reload();
+  await expect(
+    tags.getByRole("button", { name: "Убрать фильтр: Открытие", exact: true }),
+  ).toBeVisible();
+  await tags
+    .getByRole("button", { name: "Сбросить фильтры", exact: true })
+    .click();
+  await expect(page.locator(".sidebar input[type=date]").first()).toHaveValue(
+    "",
+  );
+  await expect(page.getByRole("combobox", { name: "География", exact: true })).toHaveValue(
+    "moscow",
+  );
+});
+
+test("status tags work for source and directory statuses", async ({ page }) => {
+  await page.goto("/?view=sources");
+  await page
+    .getByRole("combobox", { name: "Статус источника" })
+    .selectOption("working");
+  const tags = page.getByRole("region", { name: "Выбранные фильтры" });
+  await tags
+    .getByRole("button", {
+      name: "Убрать фильтр: Статус: Работает",
+      exact: true,
+    })
+    .click();
+  await expect(
+    page.getByRole("combobox", { name: "Статус источника" }),
+  ).toHaveValue("");
+  await page
+    .getByRole("navigation", { name: "Основная навигация" })
+    .getByRole("button", { name: /Пространства/ })
+    .click();
+  await page
+    .getByRole("combobox", { name: "Статус пространства" })
+    .selectOption("watchlist");
+  await tags
+    .getByRole("button", {
+      name: "Убрать фильтр: Статус: Наблюдение",
+      exact: true,
+    })
+    .click();
+  await expect(
+    page.getByRole("combobox", { name: "Статус пространства" }),
+  ).toHaveValue("");
+  await expect(tags).toHaveCount(0);
+});
+
+test("long filter tags wrap on mobile in both themes", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto(
+    "/?q=оченьдлинныйпоисковыйзапросбезпробеловдляпроверкипереноса&scene=independent&type=talk",
+  );
+  for (const label of ["Включить тёмную тему", "Включить светлую тему"]) {
+    await expect(
+      page.getByRole("region", { name: "Выбранные фильтры" }),
+    ).toBeVisible();
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.getByRole("button", { name: label }).click();
+  }
+});
+
 test("real catalog, aliases, favorites, persistence and combined filters", async ({
   page,
 }) => {

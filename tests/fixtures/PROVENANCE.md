@@ -9,3 +9,5 @@
 `event.html` и `feed.xml` — явно синтетические тестовые примеры с доменом example.org. Сборщик никогда их не читает при реальном запуске.
 
 `telegram-real.html` и `social-audit-real.json` — текстовые фрагменты публичных Telegram-страниц, реально прочитанных 16 октября 2026. Они используются только тестами; медиаданные не загружались. Включены IVANY (/339, /346), ЗАЙКА Space (/271), Арендт&Co (/477), ДНИ (/534), Пространство пространств (/29) и ПиранезиLAB (/2309, /2321). Тесты проверяют в том числе отклонение анонса из Екатеринбурга и поста с двумя разными датами.
+
+`ruarts-programme-real.html`, `zotov-programme-real.html`, `garage-programme-real.json` и `ges2-programme-real.json` — сокращённые публичные карточки/встроенные состояния, полученные 17 октября 2026 с https://ruarts.foundation/ru/, https://centrezotov.ru/events/, https://garagemca.org/ и https://ges-2.org/calendar. Медиа и служебные поля удалены; оригинальные названия, даты, timestamps, subtype и связи сохранены. Эти файлы не читаются production-сборщиком.

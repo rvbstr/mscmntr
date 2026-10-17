@@ -59,7 +59,7 @@ def deduplicate(events):
 
 def event_type(text):
     text=text.lower()
-    for kind,pattern in [('opening',r'вернисаж|открытие'),('performance',r'перформанс'),('talk',r'лекци|дискусси|встреча'),('screening',r'кинопоказ|показ фильма|кинопрограмм'),('tour',r'экскурси|медиаторск|медиаци|\bтур\b'),('workshop',r'мастер.класс|воркшоп'),('festival',r'фестивал|ярмарк'),('exhibition',r'выставк|экспозици')]:
+    for kind,pattern in [('opening',r'вернисаж|открытие'),('performance',r'перформанс'),('talk',r'лекци|дискусси|встреча|паблик[ -]?ток|круглый стол|диалог|обсуждени|бесед'),('screening',r'кинопоказ|показ фильма|кинопрограмм'),('tour',r'экскурси|медиаторск|медиаци|\bтур\b'),('workshop',r'мастер.класс|воркшоп'),('festival',r'фестивал|ярмарк'),('exhibition',r'выставк|экспозици')]:
         if re.search(pattern,text): return kind
     return 'other'
 

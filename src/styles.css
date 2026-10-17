@@ -690,6 +690,55 @@ sup {
   right: 0;
   pointer-events: none;
 }
+.active-filters {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 0 0 28px;
+}
+.active-filters ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-width: 0;
+  max-width: 100%;
+}
+.active-filters li {
+  min-width: 0;
+  max-width: 100%;
+}
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--ink);
+  font-size: 17px;
+  text-align: left;
+}
+.filter-tag span {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.filter-tag svg {
+  flex-shrink: 0;
+}
+.filter-tag:hover {
+  background: var(--ink);
+  color: var(--page);
+}
+.clear-filters {
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-size: 17px;
+}
 .coverage-note {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);

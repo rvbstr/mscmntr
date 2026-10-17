@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T14:58:02+00:00",
+  "generated_at": "2026-10-17T08:32:56+00:00",
   "items": [
     {
       "source_id": "SRC_0D538B01F0C28F",
@@ -288,54 +288,6 @@
         "date_precision": "date"
       },
       "reason": "Нужно уточнить связь события с пространством"
-    },
-    {
-      "source_id": "SRC_E4BBF3E60D4929",
-      "candidate": {
-        "title": "Ателье. Самостоятельная работа",
-        "event_type": "other",
-        "description": "",
-        "primary_url": "https://ges-2.org/ges2/atelier/",
-        "confidence": "institution_structured",
-        "start_date": "2026-10-16",
-        "end_date": null,
-        "start_time": "13:00",
-        "end_time": "15:00"
-      },
-      "reason": "Страница не найдена (HTTP 404)",
-      "link_status": "broken"
-    },
-    {
-      "source_id": "SRC_E4BBF3E60D4929",
-      "candidate": {
-        "title": "Ателье. Самостоятельная работа",
-        "event_type": "other",
-        "description": "",
-        "primary_url": "https://ges-2.org/ges2/atelier/",
-        "confidence": "institution_structured",
-        "start_date": "2026-10-16",
-        "end_date": null,
-        "start_time": "15:30",
-        "end_time": "17:30"
-      },
-      "reason": "Страница не найдена (HTTP 404)",
-      "link_status": "broken"
-    },
-    {
-      "source_id": "SRC_E4BBF3E60D4929",
-      "candidate": {
-        "title": "Ателье. Самостоятельная работа",
-        "event_type": "other",
-        "description": "",
-        "primary_url": "https://ges-2.org/ges2/atelier/",
-        "confidence": "institution_structured",
-        "start_date": "2026-10-16",
-        "end_date": null,
-        "start_time": "18:00",
-        "end_time": "20:00"
-      },
-      "reason": "Страница не найдена (HTTP 404)",
-      "link_status": "broken"
     },
     {
       "source_id": "SRC_D2FC64C8098577",
@@ -842,6 +794,150 @@
         "description": "На выставке «\nEXTENSION. JP: Отраженные эхо»\nЮ Кавасима и Косукэ Харасава обращаются к традиции нихонга. Художники используют традиционные для японской живописи материалы: японскую бумагу, тушь, минеральные пигменты и металлическую фольгу. Их свойства определяют цвет, свет и фактуру изображения.\nВ работах Кавасимы тушь и серебряная фольга образуют монохромную поверхность. Сквозь нее проступают обезличенные фигуры, а неоднородная фактура усиливает их отстраненность. В городских пейзажах Харасавы минеральные пигменты и металлическая фольга передают сумрачную атмосферу дождливого мегаполиса. Фигуры и архитектура теряют четкость, а тишина соединяется с шумом улиц. Материал становится частью смыс"
       },
       "reason": "Дата начала не определена однозначно"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-17",
+        "end_date": null,
+        "start_time": "15:30",
+        "end_time": "17:30"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-17",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": "20:00"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-18",
+        "end_date": null,
+        "start_time": "13:00",
+        "end_time": "15:00"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-18",
+        "end_date": null,
+        "start_time": "15:30",
+        "end_time": "17:30"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-18",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": "20:00"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-22",
+        "end_date": null,
+        "start_time": "13:00",
+        "end_time": "15:00"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-22",
+        "end_date": null,
+        "start_time": "15:30",
+        "end_time": "17:30"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_E4BBF3E60D4929",
+      "candidate": {
+        "title": "Ателье. Самостоятельная работа",
+        "event_type": "other",
+        "description": "",
+        "primary_url": "https://ges-2.org/ges2/atelier/",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-22",
+        "end_date": null,
+        "start_time": "18:00",
+        "end_time": "20:00"
+      },
+      "reason": "Страница не найдена (HTTP 404)",
+      "link_status": "broken"
+    },
+    {
+      "source_id": "SRC_41153D2B4FF457",
+      "candidate": {
+        "title": "Медиация по открытому хранению с Сашей Башкатовой на французском языке",
+        "primary_url": "https://garagemca.org/event/f461426b-46df-49a3-8def-936b78b74911",
+        "event_type": "tour",
+        "description": "",
+        "confidence": "institution_structured",
+        "start_date": "2026-10-24",
+        "end_date": null,
+        "start_time": "16:30",
+        "end_time": "17:30"
+      },
+      "reason": "Прокси среды ограничил доступ к домену; проверка страницы не выполнена",
+      "link_status": "blocked"
     }
   ]
 }

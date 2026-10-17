@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from ingestion.adapters.structured import _iso
 from ingestion.dates import extract_dates
 from ingestion.models import event_type
+from ingestion.adapters.programmes import parse_garage, parse_ruarts, parse_zotov, next_state
 
 
 def parse_ges2(html,url):
@@ -21,8 +22,10 @@ def parse_ges2(html,url):
             title=item.get('customTitle') or material.get('translation',{}).get('title')
             path=material.get('cardLink') or material.get('ges2FullPath')
             if not title or not path or not item.get('forDate'): continue
-            subtype=state.get((material.get('subtype') or {}).get('__ref'),{}).get('title','')
-            kind=event_type(subtype+' '+title)
+            title=BeautifulSoup(title,'html.parser').get_text(' ',strip=True)
+            subtype=item.get('subtype') or material.get('subtype') or {}
+            if subtype.get('__ref'):subtype=state.get(subtype['__ref'],{})
+            kind={'talk':'talk','lecture':'talk','discussion':'talk','workshop-studio':'workshop','workshop':'workshop'}.get(subtype.get('slug')) or event_type(subtype.get('title','')+' '+title)
             description=BeautifulSoup(material.get('translation',{}).get('description') or '','html.parser').get_text(' ',strip=True)[:500]
             base=dict(title=title,event_type=kind,description=description,primary_url=urljoin('https://ges-2.org/',path),confidence='institution_structured')
             if kind=='exhibition' and material.get('projectStartsAt'):
@@ -72,15 +75,29 @@ def parse_institution(html,url):
     if host=='ges-2.org':return parse_ges2(html,url)
     if host=='prpr312.ru':return parse_prpr(html,url)
     if host=='cube.moscow':return parse_cube(html,url)
+    if host=='garagemca.org':return parse_garage(html,url)
+    if host=='ruarts.foundation':return parse_ruarts(html,url)
+    if host=='centrezotov.ru':return parse_zotov(html,url)
     return []
 
 
 def institution_links(html,url,limit=6):
     soup=BeautifulSoup(html,'html.parser');host=urlsplit(url).hostname;result=[]
+    if host=='ges-2.org' and urlsplit(url).path=='/calendar':
+        props=next_state(soup)
+        for key,value in props.get('__APOLLO_STATE__',{}).get('ROOT_QUERY',{}).items():
+            if key.startswith('_calendarItemsMeta(') and isinstance(value,dict):
+                for day in value.get('availabilityByDay',[]):
+                    if day.get('availability') and day.get('day','')>props.get('date','') and re.fullmatch(r'\d{4}-\d{2}-\d{2}',day.get('day','')):
+                        result.append('https://ges-2.org/calendar?date='+day['day'])
+        return list(dict.fromkeys(result))[:limit]
+    if host=='ruarts.foundation':result.append('https://ruarts.foundation/ru/events')
+    if host=='centrezotov.ru':result.append('https://centrezotov.ru/events/')
+    if host=='garagemca.org':result.append('https://garagemca.org/calendar')
     for a in soup.select('a[href]'):
         target=urljoin(url,a['href']);p=urlsplit(target)
         if p.hostname!=host or not p.path.strip('/'):continue
         if host=='cube.moscow' and ('vystavka-' in p.path or 'vystavki-' in p.path):result.append(target)
         elif host=='prpr312.ru' and p.path.count('/')<=2 and a.get_text(' ',strip=True) and p.path.strip('/') not in ('exhibitions','artists','reviews','texts','about'):
             result.append(target)
-    return list(dict.fromkeys(result))[:limit]
+    return [link for link in dict.fromkeys(result) if link!=url][:limit]

@@ -1,0 +1,1253 @@
+{
+  "props": {
+    "pageProps": {
+      "initialState": {
+        "mainCalendar": {
+          "timeRanges": {
+            "10873": {
+              "attributes": {
+                "title": "Сборные экскурсии по открытому хранению",
+                "startsAt": 1791493200,
+                "endsAt": 1798578000,
+                "eventId": 4787,
+                "wholeDay": true
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/10873/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/10873/kind"
+                  }
+                }
+              }
+            },
+            "12859": {
+              "attributes": {
+                "title": "Адаптированная экскурсия по открытому хранению",
+                "startsAt": 1786525200,
+                "endsAt": 1822298400,
+                "eventId": 4833,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/12859/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/12859/kind"
+                  }
+                }
+              }
+            },
+            "13053": {
+              "attributes": {
+                "title": "Мастер-класс по бумажной анимации «Бумажный “Гараж”»",
+                "startsAt": 1779526800,
+                "endsAt": 1798189200,
+                "eventId": 5538,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13053/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13053/kind"
+                  }
+                }
+              }
+            },
+            "13187": {
+              "attributes": {
+                "title": "Манифест нового быта. Дом Наркомфина (сокращенная экскурсия)",
+                "startsAt": 1768510800,
+                "endsAt": 1801256400,
+                "eventId": 4024,
+                "wholeDay": true
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13187/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13187/kind"
+                  }
+                }
+              }
+            },
+            "13532": {
+              "attributes": {
+                "title": "Встреча с реставратором ",
+                "startsAt": 1792227600,
+                "endsAt": 1792234800,
+                "eventId": 5424,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13532/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13532/kind"
+                  }
+                }
+              }
+            },
+            "13533": {
+              "attributes": {
+                "title": "Встреча с медиатором",
+                "startsAt": 1792832400,
+                "endsAt": 1792839600,
+                "eventId": 5424,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13533/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13533/kind"
+                  }
+                }
+              }
+            },
+            "13577": {
+              "attributes": {
+                "title": "«Открытая люстра» с дизайнером и художницей Марией Степановой",
+                "startsAt": 1792684800,
+                "endsAt": 1792690200,
+                "eventId": 5346,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13577/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13577/kind"
+                  }
+                }
+              }
+            },
+            "13579": {
+              "attributes": {
+                "title": "Кинопоказ «Изгои»",
+                "startsAt": 1792252800,
+                "endsAt": 1792258500,
+                "eventId": 5766,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13579/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13579/kind"
+                  }
+                }
+              }
+            },
+            "13586": {
+              "attributes": {
+                "title": "Экскурсия по архиву Музея современного искусства «Гараж»: «От Всероссийской сельскохозяйственной и кустарно-промышленной выставки 1923 года до «Гаража»: архив архитектора Щусева»",
+                "startsAt": 1792686600,
+                "endsAt": 1792690200,
+                "eventId": 5771,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13586/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13586/kind"
+                  }
+                }
+              }
+            },
+            "13590": {
+              "attributes": {
+                "title": "Кинопоказ «Вкускилл» ",
+                "startsAt": 1792339200,
+                "endsAt": 1792344600,
+                "eventId": 5773,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13590/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13590/kind"
+                  }
+                }
+              }
+            },
+            "13603": {
+              "attributes": {
+                "title": "Кинопоказ «Все закончится» ",
+                "startsAt": 1792328400,
+                "endsAt": 1792333800,
+                "eventId": 5778,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13603/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13603/kind"
+                  }
+                }
+              }
+            },
+            "13606": {
+              "attributes": {
+                "title": "Медиум: Монотипия",
+                "startsAt": 1792238400,
+                "endsAt": 1792245600,
+                "eventId": 5425,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13606/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13606/kind"
+                  }
+                }
+              }
+            },
+            "13610": {
+              "attributes": {
+                "title": "Медиация по проектам Алёны Троицкой и Ксении Маркеловой",
+                "startsAt": 1792231200,
+                "endsAt": 1792234800,
+                "eventId": 5658,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13610/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13610/kind"
+                  }
+                }
+              }
+            },
+            "13611": {
+              "attributes": {
+                "title": "Медиация по проектам Алёны Троицкой и Ксении Маркеловой",
+                "startsAt": 1792238400,
+                "endsAt": 1792242000,
+                "eventId": 5658,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13611/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13611/kind"
+                  }
+                }
+              }
+            },
+            "13612": {
+              "attributes": {
+                "title": "Медиация по проектам Алёны Троицкой и Ксении Маркеловой",
+                "startsAt": 1792317600,
+                "endsAt": 1792321200,
+                "eventId": 5658,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13612/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13612/kind"
+                  }
+                }
+              }
+            },
+            "13613": {
+              "attributes": {
+                "title": "Медиация по проектам Алёны Троицкой и Ксении Маркеловой",
+                "startsAt": 1792324800,
+                "endsAt": 1792328400,
+                "eventId": 5658,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13613/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13613/kind"
+                  }
+                }
+              }
+            },
+            "13615": {
+              "attributes": {
+                "title": "Медиация по открытому хранению",
+                "startsAt": 1792236600,
+                "endsAt": 1792240200,
+                "eventId": 4783,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13615/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13615/kind"
+                  }
+                }
+              }
+            },
+            "13616": {
+              "attributes": {
+                "title": "Медиация по открытому хранению",
+                "startsAt": 1792321200,
+                "endsAt": 1792324800,
+                "eventId": 4783,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13616/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13616/kind"
+                  }
+                }
+              }
+            },
+            "13619": {
+              "attributes": {
+                "title": "Кинопоказ «Любовь моя»",
+                "startsAt": 1792242000,
+                "endsAt": 1792250100,
+                "eventId": 5781,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13619/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13619/kind"
+                  }
+                }
+              }
+            },
+            "13626": {
+              "attributes": {
+                "title": "Встреча с художницей Машей Кашей",
+                "startsAt": 1792242000,
+                "endsAt": 1792247400,
+                "eventId": 4557,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13626/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13626/kind"
+                  }
+                }
+              }
+            },
+            "13627": {
+              "attributes": {
+                "title": "Чтение книги «Атлас народов Сибири и Дальнего Востока» и мастер-класс с искусствоведом Настей Копысовой",
+                "startsAt": 1792324800,
+                "endsAt": 1792330200,
+                "eventId": 5787,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13627/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13627/kind"
+                  }
+                }
+              }
+            },
+            "13628": {
+              "attributes": {
+                "title": "Премьера «Атча-Атча» и обсуждение",
+                "startsAt": 1792857600,
+                "endsAt": 1792863000,
+                "eventId": 5788,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13628/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13628/kind"
+                  }
+                }
+              }
+            },
+            "13630": {
+              "attributes": {
+                "title": "Премьера «Борис Орлов. Пусть будет так» и обсуждение",
+                "startsAt": 1792846800,
+                "endsAt": 1792854000,
+                "eventId": 5789,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13630/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13630/kind"
+                  }
+                }
+              }
+            },
+            "13631": {
+              "attributes": {
+                "title": "Медиация по открытому хранению",
+                "startsAt": 1792686600,
+                "endsAt": 1792690200,
+                "eventId": 4783,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13631/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13631/kind"
+                  }
+                }
+              }
+            },
+            "13632": {
+              "attributes": {
+                "title": "Медиация по открытому хранению",
+                "startsAt": 1792841400,
+                "endsAt": 1792845000,
+                "eventId": 4783,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13632/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13632/kind"
+                  }
+                }
+              }
+            },
+            "13634": {
+              "attributes": {
+                "title": "Медиация по проекту «Пространство печати» ",
+                "startsAt": 1792771200,
+                "endsAt": 1792774800,
+                "eventId": 5743,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13634/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13634/kind"
+                  }
+                }
+              }
+            },
+            "13636": {
+              "attributes": {
+                "title": "Мастер-класс по изготовлению традиционной кыргызской куклы чий куурчак на русском языке",
+                "startsAt": 1792324800,
+                "endsAt": 1792332000,
+                "eventId": 5791,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13636/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13636/kind"
+                  }
+                }
+              }
+            },
+            "13639": {
+              "attributes": {
+                "title": "Архитектура образования и&nbsp;науки в&nbsp;1917&ndash;1941&nbsp;годах. Всеобщее, бесплатное и&nbsp;типовое",
+                "startsAt": 1792686660,
+                "endsAt": 1792692000,
+                "eventId": 5794,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13639/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13639/kind"
+                  }
+                }
+              }
+            },
+            "13642": {
+              "attributes": {
+                "title": "Медиация по открытому хранению с Сашей Башкатовой на французском языке ",
+                "startsAt": 1792848600,
+                "endsAt": 1792852200,
+                "eventId": 5797,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13642/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13642/kind"
+                  }
+                }
+              }
+            },
+            "13643": {
+              "attributes": {
+                "title": "Книжный выходной в Доме Наркомфина",
+                "startsAt": 1792832400,
+                "endsAt": 1792861200,
+                "eventId": 5798,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13643/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13643/kind"
+                  }
+                }
+              }
+            },
+            "13645": {
+              "attributes": {
+                "title": "Седьмая встреча. «Среднерусская возвышенность» ",
+                "startsAt": 1792512000,
+                "endsAt": 1792517400,
+                "eventId": 5683,
+                "wholeDay": false
+              },
+              "relationships": {
+                "kind": {
+                  "data": null,
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/time_ranges/13645/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/time_ranges/13645/kind"
+                  }
+                }
+              }
+            }
+          },
+          "events": {
+            "4024": {
+              "attributes": {
+                "title": "Манифест нового быта. Дом Наркомфина (сокращенная экскурсия)",
+                "slug": "manifesto-for-a-new-life-the-narkomfin-building",
+                "lead": "Дом Наркомфина — манифест нового быта. Строительство дома началось в 1928 году, закончилось в 1930-м — в разгар конструктивизма в архитектуре."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "100",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/4024/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/4024/kind"
+                  }
+                }
+              }
+            },
+            "4557": {
+              "attributes": {
+                "title": "Художники — детям",
+                "slug": "artists-for-children-2024",
+                "lead": "«Художники — детям» — это цикл ежемесячных встреч с современными художниками, который был запущен в 2016 году. На встречах дети и их родители не только узнают о работе современных художников, но также смогут поработать с ними и стать соавторами."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/4557/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/4557/kind"
+                  }
+                }
+              }
+            },
+            "4783": {
+              "attributes": {
+                "title": "Медиации по открытому хранению",
+                "slug": "mediations-of-the-project-open-storage",
+                "lead": "Открытое хранение — это произведения современного российского искусства из коллекции Музея, архивные материалы и документы"
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/4783/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/4783/kind"
+                  }
+                }
+              }
+            },
+            "4787": {
+              "attributes": {
+                "title": "Сборные экскурсии по открытому хранению",
+                "slug": "tours-on-the-project-open-storage-a-prologue",
+                "lead": null
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "100",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/4787/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/4787/kind"
+                  }
+                }
+              }
+            },
+            "4833": {
+              "attributes": {
+                "title": "Адаптированные экскурсии по открытому хранению",
+                "slug": "adapted-tours-of-the-project-open-storage-a-prologue",
+                "lead": "Музей современного искусства «Гараж» приглашает посетителей с ментальными особенностями на адаптированные экскурсии по открытому хранению."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/4833/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/4833/kind"
+                  }
+                }
+              }
+            },
+            "5119": {
+              "attributes": {
+                "title": "Открытое хранение",
+                "slug": "open-storage-web-card",
+                "lead": null
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5119/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5119/kind"
+                  }
+                }
+              }
+            },
+            "5318": {
+              "attributes": {
+                "title": "Гаражные чтения",
+                "slug": "garage-readings-2026",
+                "lead": "Детско-семейная программа в пространстве 0+ Музея «Гараж» — это групповые чтения и обсуждения книг, мастер-классы по созданию визуальных и текстовых повествований. "
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5318/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5318/kind"
+                  }
+                }
+              }
+            },
+            "5346": {
+              "attributes": {
+                "title": "Цикл инклюзивных встреч «Открытая Люстра» ",
+                "slug": "a-series-of-inclusive-meetings-open-chandelier",
+                "lead": "«Открытая Люстра» — это цикл встреч с художниками, доступный для людей с ментальными особенностями."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5346/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5346/kind"
+                  }
+                }
+              }
+            },
+            "5424": {
+              "attributes": {
+                "title": "Научи меня: знакомство с музейными профессиями для подростков ",
+                "slug": "teach-me-an-introduction-to-museum-professions-for-teenagers",
+                "lead": "Музей «Гараж» запускает вторую серию встреч с музейными специалистами для подростков 14–18 лет."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5424/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5424/kind"
+                  }
+                }
+              }
+            },
+            "5425": {
+              "attributes": {
+                "title": "Арт-клуб для подростков и молодых взрослых ",
+                "slug": "art-club-for-teenagers-and-young-adults",
+                "lead": "Музей «Гараж» приглашает подростков и молодых взрослых 14–22 лет принять участие во встречах арт-клуба."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5425/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5425/kind"
+                  }
+                }
+              }
+            },
+            "5452": {
+              "attributes": {
+                "title": "Серия художественных проектов «Тающий дневник»",
+                "slug": "series-of-artistic-projects-the-melting-diary",
+                "lead": "Серия «Тающий дневник» продолжает программу Музея «Гараж» по исследованию истории Дома Наркомфина и включает в себя три сезона парных художественных высказываний. Каждая пара авторов через ассоциации и субъективный опыт стремится понять, как история XX века проживалась в реалиях «опытного дома переходного типа»."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5452/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5452/kind"
+                  }
+                }
+              }
+            },
+            "5538": {
+              "attributes": {
+                "title": "Мастер-класс по бумажной анимации «Бумажный “Гараж”»",
+                "slug": "paper-animation-workshop-paper-garage",
+                "lead": "Музей «Гараж» запускает мастер-классы по бумажной анимации для детей от 6 лет, посвященные зданию «Времена года» и истории Музея. "
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5538/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5538/kind"
+                  }
+                }
+              }
+            },
+            "5594": {
+              "attributes": {
+                "title": "Искусство на частоте 1980-х",
+                "slug": "art-on-the-1980s-wavelength",
+                "lead": "Проект «Искусство на частоте 1980-х» посвящен тому, как в позднесоветскую эпоху искусство оказалось тесно связано с массовой культурой — телевидением, кино, рок-музыкой и поп-культурой."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "241",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5594/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5594/kind"
+                  }
+                }
+              }
+            },
+            "5658": {
+              "attributes": {
+                "title": "Медиация по проектам Алёны Троицкой и Ксении Маркеловой",
+                "slug": "mediations-on-the-projects-of-alena-troitskaya-and-ksenia-markelova-at-the-narkomfin-building",
+                "lead": "В летнем сезоне серии проектов «Тающий дневник» будут представлены инсталляции «Прогресс. Нептун. Остров» Алёны Троицкой и «Теразут» Ксении Маркеловой."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5658/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5658/kind"
+                  }
+                }
+              }
+            },
+            "5683": {
+              "attributes": {
+                "title": "Программа «На волне 80-х» и творческие мастерские для незрячих и слабовидящих посетителей в открытом хранении",
+                "slug": "the-on-the-wave-of-the-80s-program-and-creative-workshops-for-blind-and-visually-impaired-visitors-in-open-storage",
+                "lead": "«На волне 80-х» — это серия групповых бесед, каждая из которых сосредоточена на одной работе из открытого хранения Музея «Гараж»."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5683/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5683/kind"
+                  }
+                }
+              }
+            },
+            "5728": {
+              "attributes": {
+                "title": "Пространство печати",
+                "slug": "the-space-of-print",
+                "lead": "Проект «Пространство печати» обращается к практике малотиражных авторских изданий как к пространству для визуальных экспериментов, коммуникации и обмена. В экспозиции представлено более двухсот изданий российских авторов из библиотеки Музея «Гараж»."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "241",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5728/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5728/kind"
+                  }
+                }
+              }
+            },
+            "5743": {
+              "attributes": {
+                "title": "Медиация по проекту «Пространство печати» ",
+                "slug": "mediation-on-the-project-print-space",
+                "lead": "Проект «Пространство печати» обращается к практике малотиражных авторских изданий — зинов — как к пространству визуальных экспериментов, коммуникации и обмена. В экспозиции представлено более двухсот работ российских авторов из собрания библиотеки Музея «Гараж»."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5743/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5743/kind"
+                  }
+                }
+              }
+            },
+            "5746": {
+              "attributes": {
+                "title": "Цикл лекций «Новая история конструктивизма и всей послереволюционной архитектуры»",
+                "slug": "lecture-series-a-new-history-of-constructivism-and-the-entire-post-revolutionary-architecture",
+                "lead": "Историки Александр Дуднев и Константин Гудков предлагают исследовать архитектуру 1917–1941 годов через призму социальных и гуманитарных наук и цифровые методы анализа."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "142",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5746/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5746/kind"
+                  }
+                }
+              }
+            },
+            "5766": {
+              "attributes": {
+                "title": "Кинопоказ «Изгои»",
+                "slug": "film-screening-the-outsiders",
+                "lead": "Рок-н-ролльная сага Фрэнсиса Форда Копполы о противостоянии хулиганов. В главных ролях — Си Томас Хауэлл, Мэтт Диллон, Патрик Суэйзи и Том Круз. "
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "103",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5766/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5766/kind"
+                  }
+                }
+              }
+            },
+            "5771": {
+              "attributes": {
+                "title": "Экскурсия по&nbsp;архиву Музея современного искусства &laquo;Гараж&raquo;: &laquo;От&nbsp;Всероссийской сельскохозяйственной и&nbsp;кустарно-промышленной выставки 1923 года до&nbsp;&bdquo;Гаража&ldquo;: архив архитектора Щусева&raquo;",
+                "slug": "tour-of-garage-archive-sollection-from-the-1923-all-russian-agricultural-and-handicraft-industries-exhibition-to-garage-the-archive-of-architect-alexey-shchusev",
+                "lead": "В 2018 году Музей современного искусства «Гараж» приобрел архив главного архитектора I Всероссийской сельскохозяйственной и кустарно-промышленной выставки 1923 года Алексея Щусева."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "100",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5771/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5771/kind"
+                  }
+                }
+              }
+            },
+            "5773": {
+              "attributes": {
+                "title": "Кинопоказ «Вкускилл» ",
+                "slug": "film-screening-anymart-10-18",
+                "lead": "Камерный инди-хоррор в сеттинге японского продуктового магазина. Премьера фильма состоялась на Берлинском кинофестивале в 2026 году, где он получил приз «ФИПРЕССИ». "
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "103",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5773/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5773/kind"
+                  }
+                }
+              }
+            },
+            "5778": {
+              "attributes": {
+                "title": "Кинопоказ «Все закончится» ",
+                "slug": "film-screening-it-ends-18-10",
+                "lead": "Экзистенциальный триллер про друзей, застрявших на бесконечной дороге. Мировая премьера фильма состоялась на американском фестивале независимого кино SXSW в 2025 году. \r\n"
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "103",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5778/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5778/kind"
+                  }
+                }
+              }
+            },
+            "5781": {
+              "attributes": {
+                "title": "Кинопоказ «Любовь моя»",
+                "slug": "film-screening-the-beloved",
+                "lead": "Напряженная драма о контроле и творчестве от номинанта на «Оскар» Родриго Сорогойена с Хавьером Бардемом в главной роли."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "103",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5781/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5781/kind"
+                  }
+                }
+              }
+            },
+            "5786": {
+              "attributes": {
+                "title": "Фестиваль фильмов об искусстве The Art Film Festival – 2026",
+                "slug": "the-art-film-festival-2026",
+                "lead": "В лектории Музея современного искусства «Гараж» состоятся показы девятого фестиваля фильмов об искусстве The Art Film Festival, организованного газетой The Art Newspaper Russia.\r\n"
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "140",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5786/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5786/kind"
+                  }
+                }
+              }
+            },
+            "5787": {
+              "attributes": {
+                "title": "Чтение книги «Атлас народов Сибири и Дальнего Востока» и мастер-класс с искусствоведом Настей Копысовой",
+                "slug": "reading-atlas-of-the-peoples-of-siberia-and-the-far-east-and-a-masterclass-with-art-historian-nastya-kopysova",
+                "lead": "Книга Марины Бабанской «Атлас народов Сибири и Дальнего Востока» знакомит детей с историей, культурой и традициями народов, живущих в этих регионах.\r\n"
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5787/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5787/kind"
+                  }
+                }
+              }
+            },
+            "5788": {
+              "attributes": {
+                "title": "Премьера «Атча-Атча» и обсуждение",
+                "slug": "premiere-and-discussion-atcha-atcha",
+                "lead": "В центре повествования — школа École des Sables в Сенегале и танцовщики из разных стран Африки, которые проходят интенсивную программу обучения под руководством легендарного хореографа Жермен Акогни."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "103",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5788/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5788/kind"
+                  }
+                }
+              }
+            },
+            "5789": {
+              "attributes": {
+                "title": "Премьера «Борис Орлов. Пусть будет так» и обсуждение",
+                "slug": "premiere-and-discussion-boris-orlov-let-it-be-so",
+                "lead": "В год своего 85-летия классик российского современного искусства Борис Орлов вспоминает детство, проведенное на Тушинском аэродроме, студенческие годы в Строгановке с однокурсниками Дмитрием Приговым, Леонидом Соковым, Франциско Инфанте, Александром Косолаповым; свое увлечение экзистенциализмом и ренессансным искусством, перестройку и возвращение из Америки, знаковые выставки в новых московских музеях и галереях 1990-х годов и грандиозную ретроспективу в Вене."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "103",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5789/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5789/kind"
+                  }
+                }
+              }
+            },
+            "5791": {
+              "attributes": {
+                "title": "Мастер-класс по изготовлению традиционной кыргызской куклы чий куурчак на русском языке",
+                "slug": "workshop-on-making-a-traditional-kyrgyz-doll-chiy-kuurchak",
+                "lead": "Музей «Гараж» приглашает желающих познакомиться с кыргызской культурой в рамках мастер-класса на русском языке по изготовлению традиционной куклы чий куурчак. \r\n\r\n"
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5791/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5791/kind"
+                  }
+                }
+              }
+            },
+            "5794": {
+              "attributes": {
+                "title": "Архитектура образования и&nbsp;науки в&nbsp;1917&ndash;1941&nbsp;годах. Всеобщее, бесплатное и&nbsp;типовое",
+                "slug": "the-architecture-of-education-and-science-in-1917-1941-universal-free-and-standardized",
+                "lead": "Как идея массового образования воплотилась в массовой архитектуре, а также чему история школьного строительства научила советских архитекторов."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "98",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5794/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5794/kind"
+                  }
+                }
+              }
+            },
+            "5797": {
+              "attributes": {
+                "title": "Медиация по открытому хранению с Сашей Башкатовой на французском языке ",
+                "slug": "f461426b-46df-49a3-8def-936b78b74911",
+                "lead": null
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5797/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5797/kind"
+                  }
+                }
+              }
+            },
+            "5798": {
+              "attributes": {
+                "title": "Книжный выходной в Доме Наркомфина",
+                "slug": "book-day-at-the-narkomfin-building",
+                "lead": "В Коммунальном блоке Дома Наркомфина Музей современного искусства «Гараж» проведет Книжный выходной."
+              },
+              "relationships": {
+                "kind": {
+                  "data": {
+                    "id": "144",
+                    "type": "filterValues"
+                  },
+                  "links": {
+                    "self": "https://api.garagemca.org/api/v1/events/5798/relationships/kind",
+                    "related": "https://api.garagemca.org/api/v1/events/5798/kind"
+                  }
+                }
+              }
+            }
+          },
+          "filterValues": {
+            "24": {
+              "attributes": {
+                "title": "Посетителям, передвигающимся на инвалидной коляске"
+              },
+              "relationships": {}
+            },
+            "98": {
+              "attributes": {
+                "title": "Лекции и дискуссии"
+              },
+              "relationships": {}
+            },
+            "100": {
+              "attributes": {
+                "title": "Экскурсии"
+              },
+              "relationships": {}
+            },
+            "103": {
+              "attributes": {
+                "title": "Кинопоказы"
+              },
+              "relationships": {}
+            },
+            "109": {
+              "attributes": {
+                "title": "18+"
+              },
+              "relationships": {}
+            },
+            "144": {
+              "attributes": {
+                "title": "События"
+              },
+              "relationships": {}
+            },
+            "152": {
+              "attributes": {
+                "title": "0+"
+              },
+              "relationships": {}
+            },
+            "182": {
+              "attributes": {
+                "title": "Тактильные модели"
+              },
+              "relationships": {}
+            },
+            "183": {
+              "attributes": {
+                "title": "Тифлокомментарий"
+              },
+              "relationships": {}
+            },
+            "184": {
+              "attributes": {
+                "title": "Перевод на русский жестовый язык"
+              },
+              "relationships": {}
+            },
+            "186": {
+              "attributes": {
+                "title": "Адаптированные экскурсии"
+              },
+              "relationships": {}
+            },
+            "188": {
+              "attributes": {
+                "title": "Перевод на узбекский, таджикский, кыргызский языки "
+              },
+              "relationships": {}
+            },
+            "189": {
+              "attributes": {
+                "title": "16+"
+              },
+              "relationships": {}
+            },
+            "193": {
+              "attributes": {
+                "title": "6+"
+              },
+              "relationships": {}
+            },
+            "194": {
+              "attributes": {
+                "title": "12+"
+              },
+              "relationships": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
