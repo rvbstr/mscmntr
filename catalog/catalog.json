@@ -1,7 +1,7 @@
 {
   "metadata": {
     "schema_version": "2.0.0",
-    "updated_on": "2026-10-16",
+    "updated_on": "2026-10-17",
     "base_verified_on": "2026-10-15",
     "default_timezone": "Europe/Moscow",
     "is_live_feed": false,
@@ -9,8 +9,8 @@
     "counts": {
       "institutions": 93,
       "locations": 62,
-      "sources": 143,
-      "institution_sources": 164,
+      "sources": 190,
+      "institution_sources": 212,
       "aliases": 19,
       "tags": 22,
       "institution_tags": 202,
@@ -27,7 +27,8 @@
     },
     "new_institutions": 4,
     "promoted_from_watchlist": 3,
-    "notes": "74 записи в редакционном мониторинге. Наследованные записи не перепроверены целиком. Рабочий сборщик и расписание не запущены."
+    "notes": "74 записи в редакционном мониторинге. Наследованные записи не перепроверены целиком. Рабочий сборщик и расписание не запущены.",
+    "additional_sources_count": 47
   },
   "institutions": [
     {
@@ -212,7 +213,9 @@
       ],
       "source_ids": [
         "SRC_41153D2B4FF457",
-        "SRC_220D573C0B5349"
+        "SRC_220D573C0B5349",
+        "SRC_429EED6C80FA1E",
+        "SRC_C7500C45E4C39B"
       ],
       "independent": false,
       "category": "institution",
@@ -317,7 +320,8 @@
         }
       ],
       "source_ids": [
-        "SRC_7E11E8ADD080AB"
+        "SRC_7E11E8ADD080AB",
+        "SRC_2DD5DAD6A186D6"
       ],
       "independent": false,
       "category": "institution",
@@ -385,7 +389,8 @@
       ],
       "source_ids": [
         "SRC_3FF132671DA931",
-        "SRC_158D561C07B8D8"
+        "SRC_158D561C07B8D8",
+        "SRC_72E6183C9343B1"
       ],
       "independent": false,
       "category": "institution",
@@ -453,7 +458,8 @@
       ],
       "source_ids": [
         "SRC_DA35D20AD639B5",
-        "SRC_3AB6B92EA8E8C5"
+        "SRC_3AB6B92EA8E8C5",
+        "SRC_ABE77138AE8F18"
       ],
       "independent": false,
       "category": "institution",
@@ -520,7 +526,8 @@
         }
       ],
       "source_ids": [
-        "SRC_42457B7867D0EB"
+        "SRC_42457B7867D0EB",
+        "SRC_2B5E05E62508AB"
       ],
       "independent": false,
       "category": "institution",
@@ -571,7 +578,8 @@
         }
       ],
       "source_ids": [
-        "SRC_D8C6D562C36EB5"
+        "SRC_D8C6D562C36EB5",
+        "SRC_9555595AE32F90"
       ],
       "independent": false,
       "category": "institution",
@@ -621,7 +629,8 @@
         }
       ],
       "source_ids": [
-        "SRC_A2C88A4AC2E40A"
+        "SRC_A2C88A4AC2E40A",
+        "SRC_915827597A61E8"
       ],
       "independent": false,
       "category": "institution",
@@ -671,7 +680,8 @@
         }
       ],
       "source_ids": [
-        "SRC_366B3397548295"
+        "SRC_366B3397548295",
+        "SRC_53AC8AEB58E03A"
       ],
       "independent": false,
       "category": "institution",
@@ -720,7 +730,8 @@
         }
       ],
       "source_ids": [
-        "SRC_DB32B8ADE4ADE1"
+        "SRC_DB32B8ADE4ADE1",
+        "SRC_32D76B87836E9E"
       ],
       "independent": true,
       "category": "independent",
@@ -788,7 +799,8 @@
         }
       ],
       "source_ids": [
-        "SRC_B601E0B4F45DFD"
+        "SRC_B601E0B4F45DFD",
+        "SRC_C95CF1C2CF630B"
       ],
       "independent": false,
       "category": "institution",
@@ -921,7 +933,8 @@
       ],
       "source_ids": [
         "SRC_6BAC48E17047DE",
-        "SRC_3F57625B90B5DA"
+        "SRC_3F57625B90B5DA",
+        "SRC_D9E6C50B8DD129"
       ],
       "independent": false,
       "category": "institution",
@@ -1037,7 +1050,8 @@
         }
       ],
       "source_ids": [
-        "SRC_2E2A8C376F8373"
+        "SRC_2E2A8C376F8373",
+        "SRC_EAE981D2E65286"
       ],
       "independent": false,
       "category": "institution",
@@ -1104,7 +1118,8 @@
         }
       ],
       "source_ids": [
-        "SRC_155CE891E98090"
+        "SRC_155CE891E98090",
+        "SRC_1E52D2C540FC8E"
       ],
       "independent": false,
       "category": "institution",
@@ -1188,7 +1203,8 @@
       ],
       "source_ids": [
         "SRC_E278EADDF53B82",
-        "SRC_E6AE4F756C706E"
+        "SRC_E6AE4F756C706E",
+        "SRC_1FF4900580EF86"
       ],
       "independent": false,
       "category": "institution",
@@ -1309,7 +1325,8 @@
         }
       ],
       "source_ids": [
-        "SRC_B65B3A75FB70E5"
+        "SRC_B65B3A75FB70E5",
+        "SRC_8F53454CA3497E"
       ],
       "independent": true,
       "category": "artist_run",
@@ -1410,7 +1427,8 @@
       "source_ids": [
         "SRC_9054CE512EA013",
         "SRC_1C9F7513F7F426",
-        "SRC_1C9F7513F7F426"
+        "SRC_1C9F7513F7F426",
+        "SRC_A71513FB7D04E3"
       ],
       "independent": false,
       "category": "institution",
@@ -1511,7 +1529,8 @@
       "source_ids": [
         "SRC_F4397A1C7A1F13",
         "SRC_2F19290F50824D",
-        "SRC_F4397A1C7A1F13"
+        "SRC_F4397A1C7A1F13",
+        "SRC_66AB969564B07A"
       ],
       "independent": false,
       "category": "institution",
@@ -1594,7 +1613,8 @@
       ],
       "source_ids": [
         "SRC_513F52C7AEB72C",
-        "SRC_F36AE908C38035"
+        "SRC_F36AE908C38035",
+        "SRC_4B5CC9999C32D2"
       ],
       "independent": false,
       "category": "institution",
@@ -1661,7 +1681,8 @@
         }
       ],
       "source_ids": [
-        "SRC_A5717383234142"
+        "SRC_A5717383234142",
+        "SRC_B1F80B62869F73"
       ],
       "independent": false,
       "category": "institution",
@@ -1745,7 +1766,8 @@
       ],
       "source_ids": [
         "SRC_99C6BCCFDDCD9F",
-        "SRC_00F0E2478B5644"
+        "SRC_00F0E2478B5644",
+        "SRC_049D34566B796B"
       ],
       "independent": false,
       "category": "institution",
@@ -1831,7 +1853,8 @@
       ],
       "source_ids": [
         "SRC_D1965622B2B26E",
-        "SRC_A84905224D71A0"
+        "SRC_A84905224D71A0",
+        "SRC_F834CD8690C24C"
       ],
       "independent": true,
       "category": "independent",
@@ -1916,7 +1939,8 @@
       ],
       "source_ids": [
         "SRC_6EB4822F372B84",
-        "SRC_75F165B1EDBB62"
+        "SRC_75F165B1EDBB62",
+        "SRC_F23CE41921490B"
       ],
       "independent": false,
       "category": "institution",
@@ -1966,7 +1990,8 @@
         }
       ],
       "source_ids": [
-        "SRC_C9C33591572488"
+        "SRC_C9C33591572488",
+        "SRC_441CB6236032C8"
       ],
       "independent": false,
       "category": "institution",
@@ -2084,7 +2109,8 @@
       ],
       "source_ids": [
         "SRC_8C3CA4CA9A0182",
-        "SRC_9E1FB1C9F79230"
+        "SRC_9E1FB1C9F79230",
+        "SRC_D1AC0E96969420"
       ],
       "independent": false,
       "category": "institution",
@@ -2169,7 +2195,9 @@
       ],
       "source_ids": [
         "SRC_84209B8B23A4A9",
-        "SRC_63B09ACE20751A"
+        "SRC_63B09ACE20751A",
+        "SRC_28DF613953905C",
+        "SRC_233A02AB9CF08E"
       ],
       "independent": false,
       "category": "institution",
@@ -2238,7 +2266,8 @@
         }
       ],
       "source_ids": [
-        "SRC_7DB873990538A4"
+        "SRC_7DB873990538A4",
+        "SRC_B1FBC2F20CA003"
       ],
       "independent": false,
       "category": "institution",
@@ -2306,7 +2335,8 @@
         }
       ],
       "source_ids": [
-        "SRC_7DB873990538A4"
+        "SRC_7DB873990538A4",
+        "SRC_B1FBC2F20CA003"
       ],
       "independent": false,
       "category": "institution",
@@ -2613,7 +2643,8 @@
         }
       ],
       "source_ids": [
-        "SRC_C01EBDA9815ABD"
+        "SRC_C01EBDA9815ABD",
+        "SRC_126E4B4D46979F"
       ],
       "independent": false,
       "category": "institution",
@@ -2714,7 +2745,8 @@
       "source_ids": [
         "SRC_51ADEC95BC459D",
         "SRC_BBCF92F99373BE",
-        "SRC_4C7C6B4155DE3E"
+        "SRC_4C7C6B4155DE3E",
+        "SRC_F8DCE454C27AD1"
       ],
       "independent": false,
       "category": "institution",
@@ -2799,7 +2831,8 @@
       ],
       "source_ids": [
         "SRC_1044CB1654D8C7",
-        "SRC_1C9F7513F7F426"
+        "SRC_1C9F7513F7F426",
+        "SRC_C5C7178B3E28D8"
       ],
       "independent": false,
       "category": "institution",
@@ -2882,7 +2915,8 @@
       ],
       "source_ids": [
         "SRC_2A931C9E48F33C",
-        "SRC_9E1FB1C9F79230"
+        "SRC_9E1FB1C9F79230",
+        "SRC_BD9606E88BC632"
       ],
       "independent": false,
       "category": "institution",
@@ -2967,7 +3001,8 @@
       ],
       "source_ids": [
         "SRC_CAF0EE6712F80E",
-        "SRC_FA141CA6E602B7"
+        "SRC_FA141CA6E602B7",
+        "SRC_9F2EB39DC5253A"
       ],
       "independent": false,
       "category": "institution",
@@ -3150,7 +3185,8 @@
       "source_ids": [
         "SRC_C1A6B4E9554821",
         "SRC_746F44C3694EF6",
-        "SRC_746F44C3694EF6"
+        "SRC_746F44C3694EF6",
+        "SRC_FE7FE2F4F75FD3"
       ],
       "independent": false,
       "category": "institution",
@@ -3366,7 +3402,8 @@
         }
       ],
       "source_ids": [
-        "SRC_08542B404C7FB6"
+        "SRC_08542B404C7FB6",
+        "SRC_5B04A4CFC31B0D"
       ],
       "independent": false,
       "category": "institution",
@@ -3535,7 +3572,8 @@
       ],
       "source_ids": [
         "SRC_9B054FC9640DA0",
-        "SRC_1C9F7513F7F426"
+        "SRC_1C9F7513F7F426",
+        "SRC_DC5EEDBDFAA620"
       ],
       "independent": false,
       "category": "institution",
@@ -4002,7 +4040,8 @@
       ],
       "source_ids": [
         "SRC_3B46C3D541B85A",
-        "SRC_1C9F7513F7F426"
+        "SRC_1C9F7513F7F426",
+        "SRC_853484DE6E46C1"
       ],
       "independent": false,
       "category": "institution",
@@ -4332,7 +4371,8 @@
       ],
       "source_ids": [
         "SRC_F1B2C8F168307B",
-        "SRC_0A71747D2DAC8C"
+        "SRC_0A71747D2DAC8C",
+        "SRC_C40D02465AB0AB"
       ],
       "independent": false,
       "category": "institution",
@@ -4935,7 +4975,8 @@
       ],
       "source_ids": [
         "SRC_A972780C649842",
-        "SRC_52D431888CF0E3"
+        "SRC_52D431888CF0E3",
+        "SRC_11CDA692567828"
       ],
       "independent": false,
       "category": "institution",
@@ -4984,7 +5025,8 @@
         }
       ],
       "source_ids": [
-        "SRC_9ED6948F840601"
+        "SRC_9ED6948F840601",
+        "SRC_FD781312C517DD"
       ],
       "independent": false,
       "category": "institution",
@@ -5730,7 +5772,8 @@
         }
       ],
       "source_ids": [
-        "SRC_4769875C885C2F"
+        "SRC_4769875C885C2F",
+        "SRC_535F9682C323FB"
       ],
       "independent": false,
       "category": "institution",
@@ -5780,7 +5823,8 @@
         }
       ],
       "source_ids": [
-        "SRC_A51081603335E1"
+        "SRC_A51081603335E1",
+        "SRC_97F461CAD0F4DA"
       ],
       "independent": false,
       "category": "institution",
@@ -6345,7 +6389,8 @@
         }
       ],
       "source_ids": [
-        "SRC_64F42638DBC3F1"
+        "SRC_64F42638DBC3F1",
+        "SRC_E2F2739F11E7E0"
       ],
       "independent": false,
       "category": "institution",
@@ -6395,7 +6440,8 @@
         }
       ],
       "source_ids": [
-        "SRC_68D65015804BD2"
+        "SRC_68D65015804BD2",
+        "SRC_93D6191EF7C9BA"
       ],
       "independent": true,
       "category": "independent",
@@ -6494,7 +6540,8 @@
         }
       ],
       "source_ids": [
-        "SRC_B382FF087DDCEF"
+        "SRC_B382FF087DDCEF",
+        "SRC_9757B107D1302C"
       ],
       "independent": false,
       "category": "institution",
@@ -6726,7 +6773,9 @@
         "SRC_FCDA3F5869147C",
         "SRC_B293E5E56F0318",
         "SRC_8E105F17E75C10",
-        "SRC_F85201EC317F91"
+        "SRC_F85201EC317F91",
+        "SRC_40EAC4291DA5B7",
+        "SRC_07CD9C2B72F2D8"
       ],
       "independent": true,
       "category": "artist_run",
@@ -9563,6 +9612,1878 @@
       "roles": [
         "evidence"
       ]
+    },
+    {
+      "source_id": "SRC_40EAC4291DA5B7",
+      "platform": "telegram",
+      "url": "https://t.me/aacademy19",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "AAcademy19",
+        "profile_description": "AAcademy19- образовательная и выставочная платформа от галереи @devyatnadtsat Здесь вы можете не только узнать новые методы и техники, но и освоить навыки совместных проектов и коллаборации. По всем вопросам @aacademy_19 http://aacademy19.com",
+        "verified_at": "2026-10-17T11:07:26.281511+00:00",
+        "latest_post_at": "2026-10-13T15:12:18+00:00",
+        "posts_seen": 4,
+        "evidence": [
+          {
+            "url": "https://t.me/aacademy19",
+            "page_url": "https://aacademy19.com/",
+            "anchor": "TG: @AACademy19",
+            "context": "TG: @AACademy19",
+            "checked_at": "2026-10-17T11:03:06.787266+00:00",
+            "host": "aacademy19.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK069"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_429EED6C80FA1E",
+      "platform": "telegram",
+      "url": "https://t.me/againstthedigital",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Ссылка опубликована на garage.digital и сайте музея; сам канал называет себя неофициальным каналом программы «Новые медиа».",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "⅁‌‌‌‌ garage.digital",
+        "profile_description": "Неофициальный канал программы «Новые медиа» Музея «Гараж». Искусство, теория и философия в связи с техносоциальными проблемами. https://garage.digital | Для связи: @AgainstTheDigital_bot",
+        "verified_at": "2026-10-17T11:02:11.424323+00:00",
+        "latest_post_at": "2026-10-11T13:14:24+00:00",
+        "posts_seen": 10,
+        "evidence": [
+          {
+            "url": "https://t.me/againstthedigital",
+            "page_url": "https://garagemca.org/",
+            "anchor": "",
+            "context": "Встроенная ссылка страницы",
+            "checked_at": "2026-10-17T11:00:12.095444+00:00",
+            "host": "garagemca.org"
+          },
+          {
+            "url": "https://t.me/againstthedigital",
+            "page_url": "https://garage.digital/",
+            "anchor": "Телеграм",
+            "context": "Телеграм",
+            "checked_at": "2026-10-17T11:00:00.150101+00:00",
+            "host": "garage.digital"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK002"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_9757B107D1302C",
+      "platform": "telegram",
+      "url": "https://t.me/artmoscowfair",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "АРТ МОСКВА",
+        "profile_description": "Ярмарка классического, современного и ювелирного искусства. Москва, Гостиный двор, 22-27 апреля 2027.",
+        "verified_at": "2026-10-17T11:07:46.790894+00:00",
+        "latest_post_at": "2026-10-16T15:50:50+00:00",
+        "posts_seen": 3,
+        "evidence": [
+          {
+            "url": "https://t.me/artmoscowfair",
+            "page_url": "https://art-moscow.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:02:56.611125+00:00",
+            "host": "art-moscow.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "NET09"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_C5C7178B3E28D8",
+      "platform": "telegram",
+      "url": "https://t.me/astraartgallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "a—с—t—р—а gallery",
+        "profile_description": "Галерея современного искусства a-s-t-r-a.ru +74952030888 DM @localnanny ЦСИ Винзавод, 4-й Сыромятнический пер., 1/8, стр. 9, подъезд н8",
+        "verified_at": "2026-10-17T11:02:39.192403+00:00",
+        "latest_post_at": "2026-10-15T13:55:28+00:00",
+        "posts_seen": 2,
+        "evidence": [
+          {
+            "url": "https://t.me/astraartgallery",
+            "page_url": "https://a-s-t-r-a.ru/",
+            "anchor": "",
+            "context": "hello@a-s-t-r-a.ru ЦСИ «Винзавод», 4-й Сыромятнический пер., 1/8, стр. 9, подъезд 22 (ВТ – ВС, 12:00 – 20:00) Поделиться Конфиденциальность Публичная оферта Возврат © 2026. a—с—t—р—a gallery. Все права защищены.",
+            "checked_at": "2026-10-17T11:01:30.575584+00:00",
+            "host": "a-s-t-r-a.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK038"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_C95CF1C2CF630B",
+      "platform": "telegram",
+      "url": "https://t.me/azart_moscow",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "AZART",
+        "profile_description": "Центр современного искусства / Арт Магазин / https://azart.moscow Маросейка, 11/4с1 По всем вопросам @azart_moscow_info",
+        "verified_at": "2026-10-17T11:02:49.850916+00:00",
+        "latest_post_at": "2026-10-17T07:52:59+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/azart_moscow",
+            "page_url": "https://azart.moscow/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:20.739832+00:00",
+            "host": "azart.moscow"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK011"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_535F9682C323FB",
+      "platform": "telegram",
+      "url": "https://t.me/bazaeducation",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Б A З A",
+        "profile_description": "Институт современного искусства «БАЗА» закрыт ✉️ bazaeducation@gmail.com",
+        "verified_at": "2026-10-17T11:03:15.945622+00:00",
+        "latest_post_at": "2024-09-07T12:35:44+00:00",
+        "posts_seen": 5,
+        "evidence": [
+          {
+            "url": "https://t.me/bazaeducation",
+            "page_url": "https://bazaeducation.ru/",
+            "anchor": "Телеграм",
+            "context": "Институт Об Институте Программа Преподаватели Как поступить Сотрудничество Проекты Блог Объявляем набор в институт БАЗА на 25/26 учебный год С 3 августа по 20 сентября в институте «БАЗА» открыт прием заявок на следующий учебный год. ... Издательство Контакты Телеграм",
+            "checked_at": "2026-10-17T10:59:35.464858+00:00",
+            "host": "bazaeducation.ru"
+          }
+        ]
+      },
+      "collection_enabled": false,
+      "collection_disabled_reason": "В описании канала указано: институт «БАЗА» закрыт. Канал сохранён как архивный источник; активный сбор отключён.",
+      "institution_ids": [
+        "WATCH07"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_93D6191EF7C9BA",
+      "platform": "telegram",
+      "url": "https://t.me/blazarart",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "blazar young art fair",
+        "profile_description": "Международная ярмарка молодого современного искусства blazar, сателлит ярмарки Сosmoscow. Основана в 2020 году. https://blazar.art",
+        "verified_at": "2026-10-17T11:07:59.646704+00:00",
+        "latest_post_at": "2026-10-15T17:20:01+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/blazarart",
+            "page_url": "https://blazar.art/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:02:47.938410+00:00",
+            "host": "blazar.art"
+          }
+        ]
+      },
+      "institution_ids": [
+        "NET07"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_A71513FB7D04E3",
+      "platform": "telegram",
+      "url": "https://t.me/cca_winzavod",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Подпольный цех ВИНЗАВОДА",
+        "profile_description": "Привет из Подпольного цеха, официального, но неформального канала ЦСИ Винзавод 🌐 winzavod.ru 📨 press@winzavod.ru рубрики #стенывинзавода #артзакладка #вечервернисажей #читалка #дайджест #винзавод_гравитация https://gosuslugi.ru/snet/67a3368",
+        "verified_at": "2026-10-17T11:03:17.280536+00:00",
+        "latest_post_at": "2026-10-15T17:14:36+00:00",
+        "posts_seen": 5,
+        "evidence": [
+          {
+            "url": "https://t.me/cca_winzavod",
+            "page_url": "https://www.winzavod.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:50.476393+00:00",
+            "host": "www.winzavod.ru"
+          },
+          {
+            "url": "https://t.me/cca_winzavod",
+            "page_url": "https://www.winzavod.ru/about/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:56.528067+00:00",
+            "host": "www.winzavod.ru"
+          },
+          {
+            "url": "https://t.me/cca_winzavod",
+            "page_url": "https://www.winzavod.ru/about/faq/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:02.663553+00:00",
+            "host": "www.winzavod.ru"
+          },
+          {
+            "url": "https://t.me/cca_winzavod",
+            "page_url": "https://www.winzavod.ru/residents/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:08.880361+00:00",
+            "host": "www.winzavod.ru"
+          },
+          {
+            "url": "https://t.me/cca_winzavod",
+            "page_url": "https://www.winzavod.ru/residents/gallery/vladey/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:12:18.000462+00:00",
+            "host": "www.winzavod.ru"
+          },
+          {
+            "url": "https://t.me/cca_winzavod",
+            "page_url": "https://www.winzavod.ru/residents/gallery/galereya-xl/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:12:24.040120+00:00",
+            "host": "www.winzavod.ru"
+          },
+          {
+            "url": "https://t.me/cca_winzavod",
+            "page_url": "https://www.winzavod.ru/residents/gallery/11-12-gallery/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:12:18.421474+00:00",
+            "host": "www.winzavod.ru"
+          },
+          {
+            "url": "https://t.me/cca_winzavod",
+            "page_url": "https://www.winzavod.ru/residents/gallery/totibadze-gallery/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:12:25.182928+00:00",
+            "host": "www.winzavod.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK020"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_8F53454CA3497E",
+      "platform": "telegram",
+      "url": "https://t.me/cci_fabrika",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "ЦТИ «ФАБРИКА»",
+        "profile_description": "Выставки, события, мастерские. Переведеновский пер.,18 https://fabrikacci.com PR-отдел fabrikacci.pr@gmail.com",
+        "verified_at": "2026-10-17T11:03:22.792601+00:00",
+        "latest_post_at": "2026-10-16T10:33:29+00:00",
+        "posts_seen": 2,
+        "evidence": [
+          {
+            "url": "https://t.me/cci_fabrika",
+            "page_url": "https://fabrikacci.com/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:48.915834+00:00",
+            "host": "fabrikacci.com"
+          },
+          {
+            "url": "https://t.me/cci_fabrika",
+            "page_url": "https://fabrikacci.com/about.html",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:54.808104+00:00",
+            "host": "fabrikacci.com"
+          },
+          {
+            "url": "https://t.me/cci_fabrika",
+            "page_url": "https://fabrikacci.com/events.html",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:11.706334+00:00",
+            "host": "fabrikacci.com"
+          },
+          {
+            "url": "https://t.me/cci_fabrika",
+            "page_url": "https://fabrikacci.com/residents/galereya-bomba.html",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:05.550666+00:00",
+            "host": "fabrikacci.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK019"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_915827597A61E8",
+      "platform": "telegram",
+      "url": "https://t.me/centrezotov",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Центр «Зотов»",
+        "profile_description": "Выставки, кинопоказы, лекции, концерты и кафе в одном из главных памятников конструктивизма. https://centrezotov.ru Москва, Ходынская улица, 2с1 https://vk.com/centrezotov № 4785417661 https://clck.ru/3FUoF3",
+        "verified_at": "2026-10-17T11:03:28.301204+00:00",
+        "latest_post_at": "2026-10-17T09:48:42+00:00",
+        "posts_seen": 8,
+        "evidence": [
+          {
+            "url": "https://t.me/centrezotov",
+            "page_url": "https://centrezotov.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:18.112058+00:00",
+            "host": "centrezotov.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK008"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_E2F2739F11E7E0",
+      "platform": "telegram",
+      "url": "https://t.me/cosmoscowfair",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Cosmoscow",
+        "profile_description": "Cosmoscow 🔗 https://cosmoscow.com • Ярмарка • Фонд поддержки современного искусства • Клуб Коллекционеров • Онлайн-платформа TEO by Cosmoscow @teobycosmoscow1 • Ярмарка-сателлит blazar @blazarart Запись в РКН: https://shorturl.at/OQhsJ",
+        "verified_at": "2026-10-17T11:03:29.236271+00:00",
+        "latest_post_at": "2026-10-16T12:54:13+00:00",
+        "posts_seen": 3,
+        "evidence": [
+          {
+            "url": "https://t.me/cosmoscowfair",
+            "page_url": "https://www.cosmoscow.com/en/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:04.893812+00:00",
+            "host": "www.cosmoscow.com"
+          },
+          {
+            "url": "https://t.me/cosmoscowfair",
+            "page_url": "https://www.cosmoscow.com/en/about/fair/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:06.762934+00:00",
+            "host": "www.cosmoscow.com"
+          },
+          {
+            "url": "https://t.me/cosmoscowfair",
+            "page_url": "https://www.cosmoscow.com/ru/about/fair//",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:18.243833+00:00",
+            "host": "www.cosmoscow.com"
+          },
+          {
+            "url": "https://t.me/cosmoscowfair",
+            "page_url": "https://www.cosmoscow.com/en/about/fair///",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:25.027372+00:00",
+            "host": "www.cosmoscow.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "NET06"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_66AB969564B07A",
+      "platform": "telegram",
+      "url": "https://t.me/cube_moscow",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Арт-платформа «КУБ»",
+        "profile_description": "▪️ арт-платформа современного искусства ▪️ Тверская ул., 3, -2 этаж ▪️ открыты ежедневно с 12:00 до 21:00 ▪️ кафе «Куратор» и арт-магазин ▪️ taplink.cc/cube.moscow",
+        "verified_at": "2026-10-17T11:03:35.203860+00:00",
+        "latest_post_at": "2026-10-16T14:29:46+00:00",
+        "posts_seen": 7,
+        "evidence": [
+          {
+            "url": "https://t.me/cube_moscow",
+            "page_url": "https://cube.moscow/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:58.246082+00:00",
+            "host": "cube.moscow"
+          },
+          {
+            "url": "https://t.me/cube_moscow",
+            "page_url": "https://cube.moscow/about/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:10.585597+00:00",
+            "host": "cube.moscow"
+          },
+          {
+            "url": "https://t.me/cube_moscow",
+            "page_url": "https://cube.moscow/galleries/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:05:36.005876+00:00",
+            "host": "cube.moscow"
+          },
+          {
+            "url": "https://t.me/cube_moscow",
+            "page_url": "https://cube.moscow/exhibitions/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:05:25.767032+00:00",
+            "host": "cube.moscow"
+          },
+          {
+            "url": "https://t.me/cube_moscow",
+            "page_url": "https://cube.moscow/pressa-o-nas/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:27.189961+00:00",
+            "host": "cube.moscow"
+          },
+          {
+            "url": "https://t.me/cube_moscow",
+            "page_url": "https://cube.moscow/galleries/luch/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:05:51.646966+00:00",
+            "host": "cube.moscow"
+          },
+          {
+            "url": "https://t.me/cube_moscow",
+            "page_url": "https://cube.moscow/galleries/galereya-pa-gallery/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:05:38.374094+00:00",
+            "host": "cube.moscow"
+          },
+          {
+            "url": "https://t.me/cube_moscow",
+            "page_url": "https://cube.moscow/galleries/galereya-kultproekt/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:05:44.180195+00:00",
+            "host": "cube.moscow"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK021"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_D9E6C50B8DD129",
+      "platform": "telegram",
+      "url": "https://t.me/ekaterinafoundation",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Фонд культуры «ЕКАТЕРИНА»",
+        "profile_description": "Основан в 2002 году по инициативе Екатерины и Владимира Семенихиных. Все самые интересные новости от Фонда культуры «ЕКАТЕРИНА» здесь.",
+        "verified_at": "2026-10-17T11:03:41.527296+00:00",
+        "latest_post_at": "2026-05-28T11:50:28+00:00",
+        "posts_seen": 3,
+        "evidence": [
+          {
+            "url": "https://t.me/ekaterinafoundation",
+            "page_url": "https://ekaterina-foundation.ru/rus/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:31.602319+00:00",
+            "host": "ekaterina-foundation.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK013"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_9F2EB39DC5253A",
+      "platform": "telegram",
+      "url": "https://t.me/fabula_gallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "institution_post_reference",
+        "profile_title": "fābula gallery + HQ + radio",
+        "profile_description": "Официальный телеграм-канал галереи fābula и музыкальной программы в HQ и на площадке radio Для связи: @fabula_hq",
+        "verified_at": "2026-10-17T11:12:09.413021+00:00",
+        "latest_post_at": "2026-10-16T09:00:27+00:00",
+        "posts_seen": 5,
+        "evidence": [
+          {
+            "page_url": "https://t.me/ivanygallery/346",
+            "checked_at": "2026-10-17T11:08:27.671553+00:00",
+            "context": "Проект создан при поддержке fābula gallery"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK040"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_DC5EEDBDFAA620",
+      "platform": "telegram",
+      "url": "https://t.me/futuro_gallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence. Публикации допускаются в афишу только при явном подтверждении Москвы/Подмосковья.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Галерея БУДУЩЕЕ/FUTURO",
+        "profile_description": "Галерея современного искусства Павел Гришин C'est Trop 1.09—16.10.2026 Москва, ЦСИ Винзавод Для связи: FUTUROGallery@yandex.ru",
+        "verified_at": "2026-10-17T11:03:42.347334+00:00",
+        "latest_post_at": "2026-10-15T15:05:21+00:00",
+        "posts_seen": 5,
+        "evidence": [
+          {
+            "url": "https://t.me/futuro_gallery",
+            "page_url": "https://futurogallery.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:02:08.657446+00:00",
+            "host": "futurogallery.ru"
+          }
+        ]
+      },
+      "requires_location_confirmation": true,
+      "institution_ids": [
+        "MSK046"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_853484DE6E46C1",
+      "platform": "telegram",
+      "url": "https://t.me/galleryfineart",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "ГАЛЕРЕЯ ФАЙНАРТ",
+        "profile_description": "FINEART GALLERY est. 1992 Вт-Вс | 12.00 – 20.00 pr@galleryfineart.ru ЦСИ ВИНЗАВОД, 4й Сыромятнический пер. 1/8с9, 22 подъезд для связи и просмотра каталога: https://t.me/fineart_contact_bot",
+        "verified_at": "2026-10-17T11:08:12.541516+00:00",
+        "latest_post_at": "2026-10-17T10:44:19+00:00",
+        "posts_seen": 5,
+        "evidence": [
+          {
+            "url": "https://t.me/galleryfineart",
+            "page_url": "https://www.galleryfineart.ru/ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:02:14.947781+00:00",
+            "host": "www.galleryfineart.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK052"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_C7500C45E4C39B",
+      "platform": "telegram",
+      "url": "https://t.me/garagemca",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Музей «Гараж»",
+        "profile_description": "",
+        "verified_at": "2026-10-17T11:03:48.811123+00:00",
+        "latest_post_at": "2026-10-17T08:40:17+00:00",
+        "posts_seen": 3,
+        "evidence": [
+          {
+            "url": "https://t.me/garagemca",
+            "page_url": "https://garagemca.org/",
+            "anchor": "Telegram",
+            "context": "Telegram",
+            "checked_at": "2026-10-17T11:00:12.095444+00:00",
+            "host": "garagemca.org"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK002"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_28DF613953905C",
+      "platform": "telegram",
+      "url": "https://t.me/hseartgallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Галерея Школы дизайна НИУ ВШЭ / HSE ART GALLERY",
+        "profile_description": "Галерея современного искусства на базе @hsedesign По всем вопросам @hseartgallllery Текущие проекты https://art.hse.ru/gallery#current 📍 ЦСИ Винзавод 📍 Малая Пионерская, 12 вт-вс | 12:00–20:00 | вход свободный",
+        "verified_at": "2026-10-17T11:03:54.392746+00:00",
+        "latest_post_at": "2026-10-17T09:09:43+00:00",
+        "posts_seen": 5,
+        "evidence": [
+          {
+            "url": "https://t.me/hseartgallery",
+            "page_url": "https://art.hse.ru/",
+            "anchor": "Telegram",
+            "context": "Telegram",
+            "checked_at": "2026-10-17T11:01:13.127383+00:00",
+            "host": "art.hse.ru"
+          },
+          {
+            "url": "https://t.me/hseartgallery",
+            "page_url": "https://design.hse.ru/",
+            "anchor": "Telegram",
+            "context": "Telegram",
+            "checked_at": "2026-10-17T10:59:30.324972+00:00",
+            "host": "design.hse.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK030"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_233A02AB9CF08E",
+      "platform": "telegram",
+      "url": "https://t.me/hsedesign",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Общий канал образовательной организации. Принадлежность конкретных анонсов галерее требует проверки.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Школа дизайна НИУ ВШЭ",
+        "profile_description": "HSE ART AND DESIGN SCHOOL / design.hse.ru Наши галерея и филиалы: @hseartgallery / @hsedesignspb / @hsedesignnn / @hsedesignkids Наш концепт-стор: @hsedesign_store По вопросам сотрудничества: @smm_hsedesign Заявление №4983757691",
+        "verified_at": "2026-10-17T11:03:55.428967+00:00",
+        "latest_post_at": "2026-10-16T16:30:32+00:00",
+        "posts_seen": 4,
+        "evidence": [
+          {
+            "url": "https://t.me/hsedesign",
+            "page_url": "https://art.hse.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:13.127383+00:00",
+            "host": "art.hse.ru"
+          },
+          {
+            "url": "https://t.me/hsedesign",
+            "page_url": "https://design.hse.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T10:59:30.324972+00:00",
+            "host": "design.hse.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK030"
+      ],
+      "roles": [
+        "secondary_discovery"
+      ]
+    },
+    {
+      "source_id": "SRC_EAE981D2E65286",
+      "platform": "telegram",
+      "url": "https://t.me/inartibus",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "In artibus Foundation",
+        "profile_description": "In artibus Foundation — некоммерческая организация, созданная с целью изучения и популяризации классического и современного искусства. Направления фонда — выставочная и издательская деятельность, поддержка культурных проектов. Сотрудничество- @martajonua",
+        "verified_at": "2026-10-17T11:03:56.374988+00:00",
+        "latest_post_at": "2026-10-15T16:45:35+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/inartibus",
+            "page_url": "https://inartibus.org/",
+            "anchor": "Tg",
+            "context": "Tg Vk",
+            "checked_at": "2026-10-17T11:00:35.904244+00:00",
+            "host": "inartibus.org"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK015"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_97F461CAD0F4DA",
+      "platform": "telegram",
+      "url": "https://t.me/iragui",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Iragui Gallery",
+        "profile_description": "",
+        "verified_at": "2026-10-17T11:04:01.894245+00:00",
+        "latest_post_at": "2022-05-06T14:04:30+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/iragui",
+            "page_url": "https://www.iragui.com/about",
+            "anchor": "Telegram",
+            "context": "Telegram",
+            "checked_at": "2026-10-17T10:59:35.230907+00:00",
+            "host": "www.iragui.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "WATCH08"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_B1F80B62869F73",
+      "platform": "telegram",
+      "url": "https://t.me/khodynkagallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Галерея Ходынка",
+        "profile_description": "Галерея Ходынка — арт-пространство в Северо-Западном округе Москвы. Мы входим в состав Объединения «Выставочные залы Москвы». В коллекции Объединения 26 галерей. События: khodynka.vzmoscow.ru Адрес: м. Октябрьское поле, МЦК Зорге, Ирины Левченко, 2",
+        "verified_at": "2026-10-17T11:04:02.829530+00:00",
+        "latest_post_at": "2026-10-14T11:21:10+00:00",
+        "posts_seen": 13,
+        "evidence": [
+          {
+            "url": "https://t.me/khodynkagallery",
+            "page_url": "https://khodynka.vzmoscow.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:05.675860+00:00",
+            "host": "khodynka.vzmoscow.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK023"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_5B04A4CFC31B0D",
+      "platform": "telegram",
+      "url": "https://t.me/krokingallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Крокин галерея",
+        "profile_description": "Часы работы: Пн – Пт с 12.00 до 19.00, Воскресенье с 14.00 до 19.00, Суббота – выходной. Посещение галереи по предварительному звонку. www.krokingallery.com +7(964)564-0303 Info@krokingallery.com",
+        "verified_at": "2026-10-17T11:04:08.350041+00:00",
+        "latest_post_at": "2026-10-15T15:16:46+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/krokingallery",
+            "page_url": "https://www.krokingallery.com/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:49.516110+00:00",
+            "host": "www.krokingallery.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK044"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_72E6183C9343B1",
+      "platform": "telegram",
+      "url": "https://t.me/multimediaartmuseum",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "MAMM",
+        "profile_description": "Билеты в музей: https://clck.ru/3WUAPg Киноклуб МАММ: https://t.me/mammkino МАММ магазин: https://t.me/mammsouvenir Мультимедиа Арт Музей, Москва / МАММ ул. Остоженка, 16 Первый российский музей современного искусства и фотографии",
+        "verified_at": "2026-10-17T11:04:21.986769+00:00",
+        "latest_post_at": "2026-10-16T16:40:45+00:00",
+        "posts_seen": 7,
+        "evidence": [
+          {
+            "url": "https://t.me/multimediaartmuseum",
+            "page_url": "https://mamm.art/",
+            "anchor": "Телеграм",
+            "context": "Телеграм",
+            "checked_at": "2026-10-17T11:00:40.008058+00:00",
+            "host": "mamm-mdf.ru"
+          },
+          {
+            "url": "https://t.me/multimediaartmuseum",
+            "page_url": "https://mamm.art/",
+            "anchor": "Телеграм",
+            "context": "Телеграм",
+            "checked_at": "2026-10-17T11:00:06.905300+00:00",
+            "host": "mamm.art"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK004"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_32D76B87836E9E",
+      "platform": "telegram",
+      "url": "https://t.me/museumart4",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Веб-сайт ссылается на канал «Закрытый Музей АРТ4». Последний видимый пост: 2026-02-03T08:11:01+00:00. Актуальность работы площадки требует отдельной проверки.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Закрытый Музей АРТ4",
+        "profile_description": "Музей современного искусства Закрыт",
+        "verified_at": "2026-10-17T11:04:22.457705+00:00",
+        "latest_post_at": "2026-02-03T08:11:01+00:00",
+        "posts_seen": 3,
+        "evidence": [
+          {
+            "url": "https://t.me/museumart4",
+            "page_url": "https://art4.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:30.632424+00:00",
+            "host": "art4.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK010"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_441CB6236032C8",
+      "platform": "telegram",
+      "url": "https://t.me/na_shabolovke",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Галерея На Шаболовке",
+        "profile_description": "Галерея На Шаболовке — арт-пространство в Южном округе Москвы. Мы входим в состав Объединения «Выставочные залы Москвы». В Объединения 26 галерей. События: shabolovka.vzmoscow.ru Адрес: м. Шаболовская, м. Тульская, Серпуховский Вал, д. 24, к.",
+        "verified_at": "2026-10-17T11:04:28.068672+00:00",
+        "latest_post_at": "2026-10-17T10:30:57+00:00",
+        "posts_seen": 11,
+        "evidence": [
+          {
+            "url": "https://t.me/na_shabolovke",
+            "page_url": "https://shabolovka.vzmoscow.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:10.279916+00:00",
+            "host": "shabolovka.vzmoscow.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK027"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_BD9606E88BC632",
+      "platform": "telegram",
+      "url": "https://t.me/pennlab",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "PENNLAB",
+        "profile_description": "Наш адрес 📍 ЦСИ Винзавод, подъезд № c-8, 4-й Сыромятнический проезд 1/8 стр.21 Тел. +7 (495) 990 95 95 Часы работы: Вт–Вс: 12:00–20:00 Пн: Выходной Вход свободный",
+        "verified_at": "2026-10-17T11:04:30.047025+00:00",
+        "latest_post_at": "2026-10-16T15:31:06+00:00",
+        "posts_seen": 4,
+        "evidence": [
+          {
+            "url": "https://t.me/pennlab",
+            "page_url": "https://pennlab.shop/",
+            "anchor": "Telegram",
+            "context": "Telegram",
+            "checked_at": "2026-10-17T11:01:36.579954+00:00",
+            "host": "pennlab.shop"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK039"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_F834CD8690C24C",
+      "platform": "telegram",
+      "url": "https://t.me/peresvetovgallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Галерея ПЕРЕСВЕТОВ переулок",
+        "profile_description": "Галерея Пересветов переулок — арт-пространство в Южном округе Москвы. Мы входим в состав Объединения «Выставочные залы Москвы». В Объединении 26 галерей. События: https://peresvetov.vzmoscow.ru/ Адрес: м. Автозаводская, Пересветов переулок, д.",
+        "verified_at": "2026-10-17T11:04:35.491290+00:00",
+        "latest_post_at": "2026-10-16T10:02:16+00:00",
+        "posts_seen": 9,
+        "evidence": [
+          {
+            "url": "https://t.me/peresvetovgallery",
+            "page_url": "https://peresvetov.vzmoscow.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:59.481982+00:00",
+            "host": "peresvetov.vzmoscow.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK025"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_126E4B4D46979F",
+      "platform": "telegram",
+      "url": "https://t.me/pop_off_art",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "pop/off/art gallery",
+        "profile_description": "Галерея основана в 2004 году искусствоведом Сергеем Поповым, представляет российских и европейских художников. pop/off/art – ЦСИ «Винзавод» pop/off/art 2.0 – Большой Палашёвский, 9 www.popoffart.com",
+        "verified_at": "2026-10-17T11:04:42.137825+00:00",
+        "latest_post_at": "2026-10-16T11:33:01+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/pop_off_art",
+            "page_url": "https://www.popoffart.com/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:29.065309+00:00",
+            "host": "www.popoffart.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK036"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_D1AC0E96969420",
+      "platform": "telegram",
+      "url": "https://t.me/rodchenkoartschool",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Школа Родченко официальный канал",
+        "profile_description": "",
+        "verified_at": "2026-10-17T11:04:49.300495+00:00",
+        "latest_post_at": "2026-10-14T13:24:54+00:00",
+        "posts_seen": 3,
+        "evidence": [
+          {
+            "url": "https://t.me/rodchenkoartschool",
+            "page_url": "https://mdfschool.ru/events/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:36.376858+00:00",
+            "host": "mdfschool.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK029"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_049D34566B796B",
+      "platform": "telegram",
+      "url": "https://t.me/rostokino_gallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Галерея Ростокино",
+        "profile_description": "Галерея Ростокино — арт-пространство в Северо-Восточном округе Москвы. Мы входим в состав Объединения «Выставочные залы Москвы». В коллекции Объединения 26 галерей. События: rostokino.vzmoscow.ru Адрес: ул. Ростокинская, д.1. Метро ВДНХ, МЦК Ростокино.",
+        "verified_at": "2026-10-17T11:04:50.447023+00:00",
+        "latest_post_at": "2026-10-14T13:38:34+00:00",
+        "posts_seen": 11,
+        "evidence": [
+          {
+            "url": "https://t.me/rostokino_gallery",
+            "page_url": "https://rostokino.vzmoscow.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T10:59:36.353181+00:00",
+            "host": "rostokino.vzmoscow.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK024"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_53AC8AEB58E03A",
+      "platform": "telegram",
+      "url": "https://t.me/ruartsfoundation",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Фонд Ruarts",
+        "profile_description": "We are open",
+        "verified_at": "2026-10-17T11:04:56.124574+00:00",
+        "latest_post_at": "2026-10-14T17:39:48+00:00",
+        "posts_seen": 8,
+        "evidence": [
+          {
+            "url": "https://t.me/ruartsfoundation",
+            "page_url": "https://ruarts.foundation/en/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:23.836423+00:00",
+            "host": "ruarts.foundation"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK009"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_FD781312C517DD",
+      "platform": "telegram",
+      "url": "https://t.me/sampleart",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "SAMPLE",
+        "profile_description": "Официальный канал галереи SAMPLE. Мы объединяем авторов и коллекционеров, открывая пространство для диалога, вдохновения и новых идей. sample-art.com/tg",
+        "verified_at": "2026-10-17T11:09:41.544870+00:00",
+        "latest_post_at": "2026-10-16T08:25:29+00:00",
+        "posts_seen": 3,
+        "evidence": [
+          {
+            "url": "https://t.me/sampleart",
+            "page_url": "https://sample-art.com/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:02:45.142955+00:00",
+            "host": "sample-art.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK066"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_4B5CC9999C32D2",
+      "platform": "telegram",
+      "url": "https://t.me/solyankagallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Галерея Солянка",
+        "profile_description": "Галерея Солянка — арт-пространство в Центральном округе Москвы. Мы входим в состав Объединения «Выставочные залы Москвы». В коллекции Объединения 26 галерей. События: https://solyanka.vzmoscow.ru/ Адрес: м. Китай-город, ул. Солянка, 1/2с2",
+        "verified_at": "2026-10-17T11:04:57.027496+00:00",
+        "latest_post_at": "2026-10-17T09:01:14+00:00",
+        "posts_seen": 18,
+        "evidence": [
+          {
+            "url": "https://t.me/solyankagallery",
+            "page_url": "https://solyanka.vzmoscow.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:58.252353+00:00",
+            "host": "solyanka.vzmoscow.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK022"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_F23CE41921490B",
+      "platform": "telegram",
+      "url": "https://t.me/soundartist_ru",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "soundartist.ru",
+        "profile_description": "soundartist.ru (aka SA))) — сообщество независимых артистов, занятых в областях экспериментального звука и технологических искусств.",
+        "verified_at": "2026-10-17T11:05:03.053670+00:00",
+        "latest_post_at": "2026-09-22T22:53:04+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/soundartist_ru",
+            "page_url": "https://soundartist.ru/",
+            "anchor": "[ official TG channel ]",
+            "context": "[ official TG channel ] [ official FB page ]",
+            "checked_at": "2026-10-17T10:59:35.706557+00:00",
+            "host": "soundartist.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK026"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_1E52D2C540FC8E",
+      "platform": "telegram",
+      "url": "https://t.me/statedarwinmuseum",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Дарвиновский музей",
+        "profile_description": "Музей об эволюции Жизни 🥚 🐥 🐔 🍗 Весело, познавательно и правдиво – обо всём, что ползает, бегает и летает. Админ: @korovka_tanya Зарегистрировано в РКН А+ https://clck.ru/3FTR2M",
+        "verified_at": "2026-10-17T11:05:03.724608+00:00",
+        "latest_post_at": "2026-10-16T14:43:44+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/statedarwinmuseum",
+            "page_url": "https://www.darwinmuseum.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:00:44.556435+00:00",
+            "host": "www.darwinmuseum.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK016"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_F8DCE454C27AD1",
+      "platform": "telegram",
+      "url": "https://t.me/szenagallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "сцена/szena",
+        "profile_description": "официальный канал галереи сцена/szena здесь мы публикуем новости о работе галереи, ее художниках, выставках, а также делимся нашим видением актуального художественного процесса в россии и 🌐 по любым вопросам: @potamoshnev",
+        "verified_at": "2026-10-17T11:05:20.311862+00:00",
+        "latest_post_at": "2026-10-14T18:46:11+00:00",
+        "posts_seen": 2,
+        "evidence": [
+          {
+            "url": "https://t.me/szenagallery",
+            "page_url": "https://szena-gallery.com/",
+            "anchor": "@szena",
+            "context": "E: hello@szena-gallery.com T: +7 930 967 26 26 @szena",
+            "checked_at": "2026-10-17T11:01:33.097400+00:00",
+            "host": "szena-gallery.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK037"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_11CDA692567828",
+      "platform": "telegram",
+      "url": "https://t.me/texturagallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Textura gallery",
+        "profile_description": "Галерея современного искусства, объединяющая в онлайн и офлайн формате авторов, работающих с текстилем как с художественным медиумом. Работы можно приобрести на нашем сайте https://texturagallery.com Связаться с нами @Anastasiia_Utkina",
+        "verified_at": "2026-10-17T11:09:50.872137+00:00",
+        "latest_post_at": "2026-10-15T09:33:16+00:00",
+        "posts_seen": 2,
+        "evidence": [
+          {
+            "url": "https://t.me/texturagallery",
+            "page_url": "https://texturagallery.com/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:02:41.867440+00:00",
+            "host": "texturagallery.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK065"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_ABE77138AE8F18",
+      "platform": "telegram",
+      "url": "https://t.me/theartsmuseum",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Пушкинский музей",
+        "profile_description": "Официальный Telegram-канал Государственного музея изобразительных искусств имени А.С. Пушкина. Здесь мы рассказываем о жизни музея и главных событиях.№4851367289. Для связи: @PushkinStateMuseumofFineArts_bot",
+        "verified_at": "2026-10-17T11:05:26.666840+00:00",
+        "latest_post_at": "2026-10-17T09:05:11+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/theartsmuseum",
+            "page_url": "https://pushkinmuseum.art/",
+            "anchor": "Telegram",
+            "context": "Telegram",
+            "checked_at": "2026-10-17T11:00:09.275495+00:00",
+            "host": "pushkinmuseum.art"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK005"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_B1FBC2F20CA003",
+      "platform": "telegram",
+      "url": "https://t.me/uumsca",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Общий канал образовательной организации. Принадлежность конкретных анонсов галерее требует проверки.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "MSCA: образование в сфере современного искусства",
+        "profile_description": "Московская школа современного искусства (MSCA). Учим художников и кураторов, делаем выставки и двигаем локальное искусство на международный уровень. 📍 Москва, Центр дизайна Artplay 🌐 https://msca.ru/ 👋 @lizbetthal 📩 info@msca.ru",
+        "verified_at": "2026-10-17T11:05:37.860316+00:00",
+        "latest_post_at": "2026-10-17T08:01:22+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "url": "https://t.me/uumsca",
+            "page_url": "https://msca.ru/",
+            "anchor": "",
+            "context": "",
+            "checked_at": "2026-10-17T11:01:22.245807+00:00",
+            "host": "msca.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK031",
+        "MSK032"
+      ],
+      "roles": [
+        "secondary_discovery"
+      ]
+    },
+    {
+      "source_id": "SRC_1FF4900580EF86",
+      "platform": "telegram",
+      "url": "https://t.me/voznesenskycenter",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "website_link",
+        "profile_title": "Центр Вознесенского",
+        "profile_description": "Культурный центр www.voznesenskycenter.ru ✦ Большая Ордынка, 46/3 ✦ Ежедневно, 13:00–21:00 ✦ Для связи: pr@aav.center",
+        "verified_at": "2026-10-17T11:05:49.855825+00:00",
+        "latest_post_at": "2026-10-17T10:28:21+00:00",
+        "posts_seen": 12,
+        "evidence": [
+          {
+            "url": "https://t.me/voznesenskycenter",
+            "page_url": "https://www.voznesenskycenter.ru/",
+            "anchor": "",
+            "context": "Купить билет",
+            "checked_at": "2026-10-17T11:00:45.187014+00:00",
+            "host": "www.voznesenskycenter.ru"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK017"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_07CD9C2B72F2D8",
+      "platform": "telegram",
+      "url": "https://t.me/devyatnadtsat",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence.",
+      "discovery": {
+        "identity_method": "affiliated_channel_link",
+        "profile_title": "Devyatnadtsat’ Gallery",
+        "profile_description": "💌 19devyatnadtsat@gmail.com",
+        "verified_at": "2026-10-17T11:08:00.957214+00:00",
+        "latest_post_at": "2026-09-08T07:00:03+00:00",
+        "posts_seen": 4,
+        "evidence": [
+          {
+            "page_url": "https://t.me/aacademy19",
+            "checked_at": "2026-10-17T11:07:26.281511+00:00",
+            "context": "AAcademy19- образовательная и выставочная платформа от галереи @devyatnadtsat Здесь вы можете не только узнать новые методы и техники, но и освоить навыки совместных проектов и коллаборации. По всем вопросам @aacademy_19 http://aacademy19.com"
+          }
+        ]
+      },
+      "institution_ids": [
+        "MSK069"
+      ],
+      "roles": [
+        "announcements"
+      ]
+    },
+    {
+      "source_id": "SRC_FE7FE2F4F75FD3",
+      "platform": "telegram",
+      "url": "https://t.me/generativegallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "discovery": {
+        "identity_method": "self_identified",
+        "profile_title": "Generative Gallery",
+        "profile_description": "Uniting media art across the globe powered by radugadesign studio curated by @nefedkin and @annbnn 📍 Москва, ЦСИ Винзавод, строение 8, 2 этаж Вопросы и сотрудничество @annbnn https://generativegallery.taplink.ws",
+        "verified_at": "2026-10-17T11:08:13.800467+00:00",
+        "latest_post_at": "2026-10-16T22:33:43+00:00",
+        "posts_seen": 8,
+        "evidence": [
+          {
+            "page_url": "https://t.me/generativegallery",
+            "checked_at": "2026-10-17T11:08:13.800467+00:00",
+            "context": "Uniting media art across the globe powered by radugadesign studio curated by @nefedkin and @annbnn 📍 Москва, ЦСИ Винзавод, строение 8, 2 этаж Вопросы и сотрудничество @annbnn https://generativegallery.taplink.ws"
+          }
+        ]
+      },
+      "requires_identity_confirmation": true,
+      "institution_ids": [
+        "MSK042"
+      ],
+      "roles": [
+        "secondary_discovery"
+      ]
+    },
+    {
+      "source_id": "SRC_2B5E05E62508AB",
+      "platform": "telegram",
+      "url": "https://t.me/gt_gallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "discovery": {
+        "identity_method": "self_identified",
+        "profile_title": "Третьяковка официально",
+        "profile_description": "Официальный Telegram-канал Государственной Третьяковской галереи. Заявление № 8096499570 Новости, анонсы событий, истории и другая информация о жизни музея. Написать нам: https://t.me/GT_Gallery?direct",
+        "verified_at": "2026-10-17T11:08:26.734429+00:00",
+        "latest_post_at": "2026-10-17T09:04:01+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "page_url": "https://t.me/gt_gallery",
+            "checked_at": "2026-10-17T11:08:26.734429+00:00",
+            "context": "Официальный Telegram-канал Государственной Третьяковской галереи. Заявление № 8096499570 Новости, анонсы событий, истории и другая информация о жизни музея. Написать нам: https://t.me/GT_Gallery?direct"
+          }
+        ]
+      },
+      "requires_identity_confirmation": true,
+      "institution_ids": [
+        "MSK006"
+      ],
+      "roles": [
+        "secondary_discovery"
+      ]
+    },
+    {
+      "source_id": "SRC_2DD5DAD6A186D6",
+      "platform": "telegram",
+      "url": "https://t.me/mmoma",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "discovery": {
+        "identity_method": "self_identified",
+        "profile_title": "MMOMA",
+        "profile_description": "Московский музей современного искусства Первый музей современного искусства в России. Выставки, билеты, больше информации: https://mmoma.ru/ Регистрация: https://knd.gov.ru/license?id=676d12678e552d6b5429427b&registryType=bloggersPermission",
+        "verified_at": "2026-10-17T11:08:54.573326+00:00",
+        "latest_post_at": "2026-10-16T14:30:20+00:00",
+        "posts_seen": 3,
+        "evidence": [
+          {
+            "page_url": "https://t.me/mmoma",
+            "checked_at": "2026-10-17T11:08:54.573326+00:00",
+            "context": "Московский музей современного искусства Первый музей современного искусства в России. Выставки, билеты, больше информации: https://mmoma.ru/ Регистрация: https://knd.gov.ru/license?id=676d12678e552d6b5429427b&registryType=bloggersPermission"
+          }
+        ]
+      },
+      "requires_identity_confirmation": true,
+      "institution_ids": [
+        "MSK003"
+      ],
+      "roles": [
+        "secondary_discovery"
+      ]
+    },
+    {
+      "source_id": "SRC_9555595AE32F90",
+      "platform": "telegram",
+      "url": "https://t.me/mosmuseum",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "discovery": {
+        "identity_method": "self_identified",
+        "profile_title": "Музей Москвы",
+        "profile_description": "Главный музей о Москве вт–вс, 11:00–21:00 билеты, события и информация по ссылке: https://mosmuseum.ru/ № 5104999315",
+        "verified_at": "2026-10-17T11:08:55.391547+00:00",
+        "latest_post_at": "2026-10-16T15:05:01+00:00",
+        "posts_seen": 6,
+        "evidence": [
+          {
+            "page_url": "https://t.me/mosmuseum",
+            "checked_at": "2026-10-17T11:08:55.391547+00:00",
+            "context": "Главный музей о Москве вт–вс, 11:00–21:00 билеты, события и информация по ссылке: https://mosmuseum.ru/ № 5104999315"
+          }
+        ]
+      },
+      "requires_identity_confirmation": true,
+      "institution_ids": [
+        "MSK007"
+      ],
+      "roles": [
+        "secondary_discovery"
+      ]
+    },
+    {
+      "source_id": "SRC_C40D02465AB0AB",
+      "platform": "telegram",
+      "url": "https://t.me/lumiere_gallery",
+      "access_status": "public_preview_verified",
+      "last_checked_on": "2026-10-17",
+      "collector_status": "implemented",
+      "collection_candidate": "telegram_public_preview",
+      "parser_config": null,
+      "recommended_interval_hours": 24,
+      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "discovery": {
+        "identity_method": "self_identified",
+        "profile_title": "Галерея Люмьер",
+        "profile_description": "Первая фотографическая галерея Москвы 📍 Галерея Люмьер, Москва Ул. Большая Полянка, д. 61, стр. 1 Сайт: https://lumiere.ru по вопросам – @assistant_lumiere",
+        "verified_at": "2026-10-17T11:08:45.528916+00:00",
+        "latest_post_at": "2026-10-16T16:52:35+00:00",
+        "posts_seen": 4,
+        "evidence": [
+          {
+            "page_url": "https://t.me/lumiere_gallery",
+            "checked_at": "2026-10-17T11:08:45.528916+00:00",
+            "context": "Первая фотографическая галерея Москвы 📍 Галерея Люмьер, Москва Ул. Большая Полянка, д. 61, стр. 1 Сайт: https://lumiere.ru по вопросам – @assistant_lumiere"
+          }
+        ]
+      },
+      "requires_identity_confirmation": true,
+      "institution_ids": [
+        "MSK057"
+      ],
+      "roles": [
+        "secondary_discovery"
+      ]
     }
   ],
   "institution_sources": [
@@ -11041,6 +12962,438 @@
       "identity_evidence_url": "https://fabrikacci.com/exhibitions/archive/i-posle-agent-kuper-povtoril-net-takogo-mesta-kak-dom.html",
       "identity_checked_on": "2026-10-16",
       "notes": "Датированный русско-нидерландский проект 2026 года с видеоартом и публичной программой."
+    },
+    {
+      "institution_id": "MSK069",
+      "source_id": "SRC_40EAC4291DA5B7",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://aacademy19.com/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK002",
+      "source_id": "SRC_429EED6C80FA1E",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://garagemca.org/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Ссылка опубликована на garage.digital и сайте музея; сам канал называет себя неофициальным каналом программы «Новые медиа»."
+    },
+    {
+      "institution_id": "NET09",
+      "source_id": "SRC_9757B107D1302C",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://art-moscow.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK038",
+      "source_id": "SRC_C5C7178B3E28D8",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://a-s-t-r-a.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK011",
+      "source_id": "SRC_C95CF1C2CF630B",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://azart.moscow/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "WATCH07",
+      "source_id": "SRC_535F9682C323FB",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://bazaeducation.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "NET07",
+      "source_id": "SRC_93D6191EF7C9BA",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://blazar.art/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK020",
+      "source_id": "SRC_A71513FB7D04E3",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://www.winzavod.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK019",
+      "source_id": "SRC_8F53454CA3497E",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://fabrikacci.com/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK008",
+      "source_id": "SRC_915827597A61E8",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://centrezotov.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "NET06",
+      "source_id": "SRC_E2F2739F11E7E0",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://www.cosmoscow.com/en/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK021",
+      "source_id": "SRC_66AB969564B07A",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://cube.moscow/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK013",
+      "source_id": "SRC_D9E6C50B8DD129",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://ekaterina-foundation.ru/rus/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK040",
+      "source_id": "SRC_9F2EB39DC5253A",
+      "role": "announcements",
+      "officiality": "institution_post_reference",
+      "identity_evidence_url": "https://t.me/ivanygallery/346",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK046",
+      "source_id": "SRC_DC5EEDBDFAA620",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://futurogallery.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK052",
+      "source_id": "SRC_853484DE6E46C1",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://www.galleryfineart.ru/ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK002",
+      "source_id": "SRC_C7500C45E4C39B",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://garagemca.org/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK030",
+      "source_id": "SRC_28DF613953905C",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://art.hse.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK030",
+      "source_id": "SRC_233A02AB9CF08E",
+      "role": "secondary_discovery",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://art.hse.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Общий канал образовательной организации. Принадлежность конкретных анонсов галерее требует проверки."
+    },
+    {
+      "institution_id": "MSK015",
+      "source_id": "SRC_EAE981D2E65286",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://inartibus.org/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "WATCH08",
+      "source_id": "SRC_97F461CAD0F4DA",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://www.iragui.com/about",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK023",
+      "source_id": "SRC_B1F80B62869F73",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://khodynka.vzmoscow.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK044",
+      "source_id": "SRC_5B04A4CFC31B0D",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://www.krokingallery.com/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK004",
+      "source_id": "SRC_72E6183C9343B1",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://mamm.art/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK010",
+      "source_id": "SRC_32D76B87836E9E",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://art4.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Веб-сайт ссылается на канал «Закрытый Музей АРТ4». Последний видимый пост: 2026-02-03T08:11:01+00:00. Актуальность работы площадки требует отдельной проверки."
+    },
+    {
+      "institution_id": "MSK027",
+      "source_id": "SRC_441CB6236032C8",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://shabolovka.vzmoscow.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK039",
+      "source_id": "SRC_BD9606E88BC632",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://pennlab.shop/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK025",
+      "source_id": "SRC_F834CD8690C24C",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://peresvetov.vzmoscow.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK036",
+      "source_id": "SRC_126E4B4D46979F",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://www.popoffart.com/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK029",
+      "source_id": "SRC_D1AC0E96969420",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://mdfschool.ru/events/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK024",
+      "source_id": "SRC_049D34566B796B",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://rostokino.vzmoscow.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK009",
+      "source_id": "SRC_53AC8AEB58E03A",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://ruarts.foundation/en/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK066",
+      "source_id": "SRC_FD781312C517DD",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://sample-art.com/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK022",
+      "source_id": "SRC_4B5CC9999C32D2",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://solyanka.vzmoscow.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK026",
+      "source_id": "SRC_F23CE41921490B",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://soundartist.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK016",
+      "source_id": "SRC_1E52D2C540FC8E",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://www.darwinmuseum.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK037",
+      "source_id": "SRC_F8DCE454C27AD1",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://szena-gallery.com/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK065",
+      "source_id": "SRC_11CDA692567828",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://texturagallery.com/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK005",
+      "source_id": "SRC_ABE77138AE8F18",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://pushkinmuseum.art/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK031",
+      "source_id": "SRC_B1FBC2F20CA003",
+      "role": "secondary_discovery",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://msca.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Общий канал образовательной организации. Принадлежность конкретных анонсов галерее требует проверки."
+    },
+    {
+      "institution_id": "MSK032",
+      "source_id": "SRC_B1FBC2F20CA003",
+      "role": "secondary_discovery",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://msca.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Общий канал образовательной организации. Принадлежность конкретных анонсов галерее требует проверки."
+    },
+    {
+      "institution_id": "MSK017",
+      "source_id": "SRC_1FF4900580EF86",
+      "role": "announcements",
+      "officiality": "website_link",
+      "identity_evidence_url": "https://www.voznesenskycenter.ru/",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK069",
+      "source_id": "SRC_07CD9C2B72F2D8",
+      "role": "announcements",
+      "officiality": "affiliated_channel_link",
+      "identity_evidence_url": "https://t.me/aacademy19",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Публичная лента проверена; канал связан с площадкой по указанному evidence."
+    },
+    {
+      "institution_id": "MSK042",
+      "source_id": "SRC_FE7FE2F4F75FD3",
+      "role": "secondary_discovery",
+      "officiality": "self_identified",
+      "identity_evidence_url": "https://t.me/generativegallery",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+    },
+    {
+      "institution_id": "MSK006",
+      "source_id": "SRC_2B5E05E62508AB",
+      "role": "secondary_discovery",
+      "officiality": "self_identified",
+      "identity_evidence_url": "https://t.me/gt_gallery",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+    },
+    {
+      "institution_id": "MSK003",
+      "source_id": "SRC_2DD5DAD6A186D6",
+      "role": "secondary_discovery",
+      "officiality": "self_identified",
+      "identity_evidence_url": "https://t.me/mmoma",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+    },
+    {
+      "institution_id": "MSK007",
+      "source_id": "SRC_9555595AE32F90",
+      "role": "secondary_discovery",
+      "officiality": "self_identified",
+      "identity_evidence_url": "https://t.me/mosmuseum",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+    },
+    {
+      "institution_id": "MSK057",
+      "source_id": "SRC_C40D02465AB0AB",
+      "role": "secondary_discovery",
+      "officiality": "self_identified",
+      "identity_evidence_url": "https://t.me/lumiere_gallery",
+      "identity_checked_on": "2026-10-17",
+      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
     }
   ],
   "tags": [
@@ -11135,7 +13488,8 @@
   ],
   "import_provenance": {
     "json_sha256": "de682c858ee30324bf9a7bfb7e0f5b5bdd3a1eded85b6ff4960937910d79bb91",
-    "workbook_included": true
+    "workbook_included": true,
+    "additional_sources_sha256": "3451d95f0c03b94bb0e9c35de737a49fe06e272808fef596280136eab8a1db31"
   },
   "seed_events": [
     {

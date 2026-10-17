@@ -92,8 +92,8 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
         linked=[institutions[i] for i in source['institution_ids']]
         if only and sid not in only:
             reports.append(report); continue
-        if sid in overrides['disabled_sources'] or all(i['monitor_state'] in ('excluded','discovery') for i in linked):
-            report.update(status='disabled',error='Источник сохранён в каталоге; автоматический сбор отключён'); reports.append(report); continue
+        if source.get('collection_enabled') is False or sid in overrides['disabled_sources'] or all(i['monitor_state'] in ('excluded','discovery') for i in linked):
+            report.update(status='disabled',error=source.get('collection_disabled_reason') or 'Источник сохранён в каталоге; автоматический сбор отключён'); reports.append(report); continue
         if source['platform'] in ('vk','linkhub'):
             report.update(status='manual',error='Автоматический доступ не настроен. Используйте оригинал и редакционные записи.'); reports.append(report); continue
         report['last_attempted_at']=now_iso()
@@ -131,6 +131,10 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
             # Ambiguous shared website ownership is sent for editorial attribution.
             relevant=[i for i in linked if any(r['institution_id']==i['institution_id'] and r['source_id']==sid and r.get('role')=='announcements' for r in catalog['institution_sources'])]
             for item in extracted:
+                if source.get('requires_identity_confirmation'):
+                    review.append({'source_id':sid,'candidate':item,'reason':'Принадлежность канала требует внешнего подтверждения; автоматическая атрибуция отключена'}); continue
+                if source.get('requires_location_confirmation') and item.get('geography_scope') not in ('moscow','moscow_region'):
+                    review.append({'source_id':sid,'candidate':item,'reason':'Канал публикует события разных городов; нужно подтверждение московской площадки'}); continue
                 if not valid_event(item):
                     review.append({'source_id':sid,'candidate':item,'reason':'Нужны точная дата и отдельная страница события'}); continue
                 owners=relevant
@@ -166,6 +170,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
             report.update(status='working' if accepted and not incomplete else 'partial',last_successful_check=timestamp,detected_events=len(accepted),new_events=new,
                           error=('Часть страниц или кандидатов требует проверки. Подтверждённые события сохранены.' if incomplete else None) if accepted else 'Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.')
             if collection and not collection.live:report.update(status='review',last_successful_check=old.get('last_successful_check'),error=collection.note)
+            elif collection and source.get('requires_identity_confirmation'):report.update(status='review',error='Публичная лента прочитана; принадлежность канала требует внешнего подтверждения. События отправляются на проверку.')
             elif collection and not accepted:report['error']='Публикации прочитаны; подтверждённые анонсы не извлечены. Неоднозначные записи отправлены на проверку.'
             if accepted: report['last_successful_extraction']=timestamp
             candidates.extend(accepted)

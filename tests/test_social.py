@@ -148,3 +148,20 @@ def test_telethon_missing_authorization_never_starts_login(monkeypatch):
     for name in ('TELEGRAM_API_ID','TELEGRAM_API_HASH','TELEGRAM_SESSION'):monkeypatch.delenv(name,raising=False)
     with pytest.raises(SourceError) as e:collect_telegram('https://t.me/ivanygallery',object())
     assert e.value.status=='manual';assert not e.value.attempted
+
+
+def test_expanded_real_channel_posts_do_not_publish_promotions_or_artwork_ratios():
+    rows=json.loads((FIX/'telegram-expanded-real.json').read_text())
+    results={row['url']:parse_post(SocialPost(**row)) for row in rows}
+    for url in ['https://t.me/galleryfineart/1179','https://t.me/hseartgallery/4750','https://t.me/rostokino_gallery/2042','https://t.me/khodynkagallery/2608']:
+        assert results[url][0]==[]
+    assert results['https://t.me/khodynkagallery/2589'][0][0]['event_type']=='workshop'
+    assert results['https://t.me/khodynkagallery/2591'][0][0]['event_type']=='screening'
+    assert results['https://t.me/khodynkagallery/2599'][0][0]['event_type']=='screening'
+    mamm=results['https://t.me/multimediaartmuseum/6974'][0][0]
+    assert (mamm['event_type'],mamm['start_date'],mamm['start_time'])==('talk','2026-10-21','19:30')
+
+
+def test_generic_heading_does_not_treat_date_as_event_title():
+    events,reason=parse_post(post('Выставка\n17 октября 2026'))
+    assert not events;assert reason

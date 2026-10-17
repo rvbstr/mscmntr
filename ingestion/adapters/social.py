@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 import re
 from zoneinfo import ZoneInfo
-from ingestion.dates import extract_dates
+from ingestion.dates import extract_dates, MONTH
 from ingestion.models import event_type
 
 
@@ -39,7 +39,9 @@ def _heading(lines, first_date):
         if quoted and EVENT_WORD.search(line[:quoted.start()]): return quoted.group(0)
         if GENERIC_HEADING.fullmatch(line) and n+1<len(header):
             following=header[n+1]
-            if len(following)<=160 and not EVENT_WORD.fullmatch(following):return following
+            quoted_following=re.search(r'[«“"]([^»”"\n]{2,150})[»”"]',following)
+            if quoted_following:return quoted_following.group(0)
+            if len(following)<=160 and not DATE_MARKER.search(following) and not TIME_MARKER.fullmatch(following) and not EVENT_WORD.fullmatch(following):return following
     return None
 
 
@@ -47,8 +49,11 @@ def parse_post(post: SocialPost):
     """Return candidates plus an optional editorial-review reason; never guess a headline."""
     lines=[re.sub(r'\s+',' ',line).strip() for line in post.text.splitlines() if line.strip()]
     if not EVENT_WORD.search(' '.join(lines[:10])):return [],None
-    date_indices=[n for n,line in enumerate(lines[:14]) if DATE_MARKER.search(line) and not re.search(r'адрес|улица|проспект|переулок|^Москва[, ]|^Балашиха[, ]',line,re.I)]
+    if re.search(r'разыгрыва|розыгрыш',' '.join(lines[:6]),re.I):return [],'Розыгрыш билетов: нужно разделить упомянутые события и даты'
+    date_indices=[n for n,line in enumerate(lines[:14]) if DATE_MARKER.search(re.sub(r'[«“"][^»”"]*[»”"]','',line)) and not re.search(r'адрес|улица|проспект|переулок|^Москва[, ]|^Балашиха[, ]',line,re.I)]
     if not date_indices:return [],None
+    if any(re.search(rf'(?<!\d)\d{{1,2}}\s*(?:и|,)\s*\d{{1,2}}\s+{MONTH}',lines[n],re.I) for n in date_indices):
+        return [],'В публикации несколько дат; нужна разбивка на события'
     # Closing-only notices and artist biographies do not establish a start date.
     if any(re.search(r'участни[кц].*выставки',line,re.I) for line in lines[:4]):return [],None
     if re.search(r'(?:принял[аи]? участие|участвует|участвуют)\s+в\s+выставк',' '.join(lines[:4]),re.I):
@@ -87,9 +92,13 @@ def parse_post(post: SocialPost):
         if re.search(r'вернисаж|открыти[ея]',lines[n],re.I):
             opening=extract_dates(lines[n],int(dates['start_date'][:4]));clock=TIME_MARKER.search(lines[n])
             if opening['start_date']:dates['opening_date']=opening['start_date'];dates['opening_time']=clock.group() if clock else opening['start_time']
-    header=' '.join(lines[:date_indices[0]+1])
-    kind='exhibition' if dates['end_date'] and re.search(r'выставк',header,re.I) else event_type(header)
+    title_line=next((n for n,line in enumerate(lines[:date_indices[0]+1]) if title in line),0)
+    context=lines[title_line]
+    if title_line and GENERIC_HEADING.fullmatch(lines[title_line-1]):context=lines[title_line-1]+' '+context
+    kind='exhibition' if dates['end_date'] and re.search(r'выставк',context,re.I) else 'screening' if re.search(r'кинопоказ|показ фильма',context,re.I) else 'workshop' if re.search(r'мастер.класс|воркшоп',context,re.I) else event_type(context)
     if kind=='other':return [],'Нужно уточнить тип события'
+    if kind=='exhibition' and not dates['end_date']:
+        return [],'Нужен подтверждённый период выставки; дата посещения не является датой открытия'
     address=next((re.sub(r'^Адрес\s*:\s*','',line,flags=re.I) for line in lines if re.search(r'^(?:Адрес\s*:|(?:📍\s*)?(?:Россия,\s*)?(?:Москва|Балашиха)[,\s])|(?:^|\s)ул\.\s|улица|проспект|переулок',line,re.I) and re.search(r'\d',line)),None)
     if address:address=address.removeprefix('📍').strip()
     geography=None;city=None
