@@ -42,6 +42,9 @@ jobs:
         run: |
           python -m pytest tests -q
           npm test
+      - name: Импорт обновлённого каталога
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python -m ingestion.import_catalog
       - name: Обновление афиши
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
@@ -71,7 +74,7 @@ jobs:
       - name: Сохранение опубликованных данных
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
-          git add public/data
+          git add catalog/catalog.json catalog/normalized.json public/data
           if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

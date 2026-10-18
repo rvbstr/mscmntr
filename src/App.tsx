@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
+import { Ext } from "./ExternalLink";
+import { ReviewQueue } from "./ReviewQueue";
 import { useTheme } from "./useTheme";
 import {
   ArrowUpRight,
@@ -34,6 +36,7 @@ import type {
   Filters,
   Institution,
   Personal,
+  ReviewData,
 } from "./types";
 import {
   CONFIG,
@@ -64,6 +67,7 @@ const NAV = [
   { id: "calendar", label: "Календарь" },
   { id: "spaces", label: "Пространства" },
   { id: "sources", label: "Источники" },
+  { id: "review", label: "На проверке" },
 ];
 const PERIODS = [
   { id: "upcoming", label: "Предстоящие" },
@@ -74,42 +78,6 @@ const PERIODS = [
   { id: "archive", label: "Архив" },
 ];
 const pad = (n: number) => String(n).padStart(2, "0");
-const safeExternal = (url: string) => {
-  try {
-    const p = new URL(url);
-    return ["https:", "http:"].includes(p.protocol) &&
-      !p.username &&
-      !p.password
-      ? url
-      : "#";
-  } catch {
-    return "#";
-  }
-};
-
-function Ext({
-  href,
-  children,
-  className = "",
-  ...props
-}: {
-  href: string;
-  children: ReactNode;
-  className?: string;
-  title?: string;
-}) {
-  return (
-    <a
-      href={safeExternal(href)}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={className}
-      {...props}
-    >
-      {children}
-    </a>
-  );
-}
 function Toggle({
   checked,
   onChange,
@@ -319,6 +287,9 @@ export default function App() {
   const { theme, toggleTheme } = useTheme();
   const [catalog, setCatalog] = useState<Catalog | null>(null);
   const [feed, setFeed] = useState<Feed | null>(null);
+  const [review, setReview] = useState<ReviewData | null>(null);
+  const [reviewError, setReviewError] = useState("");
+  const [reviewReason, setReviewReason] = useState("");
   const [error, setError] = useState("");
   const [refreshing, setRefreshing] = useState(false);
   const [toast, setToast] = useState("");
@@ -360,6 +331,7 @@ export default function App() {
     setFilters({ ...DEFAULT_FILTERS });
     setCalendarDay("");
     setSourceStatus("");
+    setReviewReason("");
     setDirectoryState("");
     setVisibleSpaces(18);
   };
@@ -368,13 +340,23 @@ export default function App() {
     setRefreshing(true);
     try {
       const nonce = Date.now();
-      const [cr, fr] = await Promise.all([
+      const [cr, fr, rr] = await Promise.all([
         fetch(`${import.meta.env.BASE_URL}data/catalog.json?t=${nonce}`, {
           cache: "no-store",
         }),
         fetch(`${import.meta.env.BASE_URL}data/events.json?t=${nonce}`, {
           cache: "no-store",
         }),
+        fetch(`${import.meta.env.BASE_URL}data/review.json?t=${nonce}`, {
+          cache: "no-store",
+        })
+          .then(async (response) => {
+            if (!response.ok) throw new Error("queue unavailable");
+            const data = await response.json();
+            if (!Array.isArray(data.items)) throw new Error("invalid queue");
+            return data as ReviewData;
+          })
+          .catch(() => null),
       ]);
       if (!cr.ok || !fr.ok)
         throw new Error(
@@ -390,6 +372,12 @@ export default function App() {
         throw new Error("Формат опубликованных данных не распознан.");
       setCatalog(c);
       setFeed(f);
+      setReview(rr);
+      setReviewError(
+        rr
+          ? ""
+          : "Не удалось загрузить очередь проверки. Афиша и каталог доступны.",
+      );
       setError("");
       if (!initial)
         notify(
@@ -625,6 +613,10 @@ export default function App() {
       `Статус: ${STATUS[sourceStatus] || sourceStatus}`,
       () => setSourceStatus(""),
     );
+  if (view === "review" && reviewReason)
+    addFilter("reviewReason", `Причина: ${reviewReason}`, () =>
+      setReviewReason(""),
+    );
   const activeCount = activeFilters.length;
   const monitorCount =
     catalog?.institutions.filter((i) => i.monitor_state === "monitor").length ||
@@ -650,6 +642,17 @@ export default function App() {
     personal,
     today,
   );
+
+  const hiddenRegionalCount =
+    eventView && filters.geography === "moscow"
+      ? filterEvents(
+          feed?.events || [],
+          catalog?.institutions || [],
+          { ...filters, geography: "moscow_region" },
+          personal,
+          today,
+        ).length
+      : 0;
 
   const filterSummary = (
     <>
@@ -693,6 +696,29 @@ export default function App() {
           <button className="clear-filters" onClick={reset}>
             Сбросить фильтры
           </button>
+        </div>
+      )}
+      {eventView && (
+        <div className="geography-note">
+          <span>
+            География:{" "}
+            {filters.geography === "moscow"
+              ? "только Москва"
+              : filters.geography === "all"
+                ? "Москва и Подмосковье"
+                : "только Подмосковье"}
+            .
+            {hiddenRegionalCount > 0 &&
+              ` По остальным фильтрам в Подмосковье найдено ещё: ${hiddenRegionalCount}.`}
+          </span>
+          {filters.geography === "moscow" && (
+            <button
+              className="text-link"
+              onClick={() => patch({ geography: "all" })}
+            >
+              Включить Подмосковье <ArrowRight size={16} />
+            </button>
+          )}
         </div>
       )}
     </>
@@ -984,11 +1010,13 @@ export default function App() {
               <input
                 aria-label="Поиск по афише и каталогу"
                 placeholder={
-                  view === "sources"
-                    ? "Найти источник или пространство"
-                    : view === "spaces"
-                      ? "Найти пространство, имя или практику"
-                      : "Найти событие, пространство или имя"
+                  view === "review"
+                    ? "Найти публикацию, канал или пространство"
+                    : view === "sources"
+                      ? "Найти источник или пространство"
+                      : view === "spaces"
+                        ? "Найти пространство, имя или практику"
+                        : "Найти событие, пространство или имя"
                 }
                 value={filters.q}
                 onChange={(e) => patch({ q: e.target.value })}
@@ -1562,6 +1590,19 @@ export default function App() {
                     )}
                   </>
                 )}
+                {view === "review" && (
+                  <ReviewQueue
+                    catalog={catalog}
+                    data={review}
+                    error={reviewError}
+                    filters={filters}
+                    personal={personal}
+                    reason={reviewReason}
+                    setReason={setReviewReason}
+                    filterSummary={filterSummary}
+                    onRetry={() => void fetchData()}
+                  />
+                )}
                 {view === "sources" && (
                   <>
                     <div className="section-heading directory-heading">
@@ -1671,6 +1712,12 @@ export default function App() {
                                 {STATUS[h?.status || "review"] ||
                                   "Требует проверки"}
                               </span>
+                              {s.requires_identity_confirmation && (
+                                <p className="source-error">
+                                  Кандидат: принадлежность канала пока не
+                                  подтверждена.
+                                </p>
+                              )}
                               {h?.error && (
                                 <p className="source-error">{h.error}</p>
                               )}
@@ -1707,6 +1754,18 @@ export default function App() {
                           </button>
                         </div>
                       )}
+                    </div>
+                    <div className="queue-entry">
+                      <p>
+                        Неподтверждённые публикации и источники-кандидаты
+                        вынесены в отдельный раздел.
+                      </p>
+                      <button
+                        className="outline-button"
+                        onClick={() => navigate("review")}
+                      >
+                        Открыть очередь проверки <ArrowRight size={16} />
+                      </button>
                     </div>
                     <div className="owner-panel">
                       <div>
@@ -1992,10 +2051,21 @@ export default function App() {
                 <h3>От первоисточника к событию</h3>
                 <p>
                   В афишу попадают анонсы с подтверждённой датой и отдельной
-                  страницей события. Неуверенные результаты остаются в
-                  редакционной очереди. Два примера из исходного каталога не
-                  публикуются без повторной проверки.
+                  страницей события. Неуверенные результаты остаются в разделе
+                  «На проверке»: там видны исходный текст, ссылка и причина
+                  остановки. Это список для ручного разбора; публикация требует
+                  редакторской правки в репозитории. Автоматического одобрения и
+                  назначенного редактора сейчас нет.
                 </p>
+                <button
+                  className="text-link"
+                  onClick={() => {
+                    setMethod(false);
+                    navigate("review");
+                  }}
+                >
+                  Открыть очередь проверки <ArrowRight size={16} />
+                </button>
               </div>
             </section>
             <section>

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-for (const view of ["agenda", "calendar", "spaces", "sources"]) {
+for (const view of ["agenda", "calendar", "spaces", "sources", "review"]) {
   test(`removable filter tags and reset work in ${view}`, async ({ page }) => {
     await page.goto(`/?view=${view}&scene=independent&category=gallery`);
     const tags = page.getByRole("region", { name: "Выбранные фильтры" });
@@ -76,9 +76,9 @@ test("event type/date tags clear independently and restore the calendar", async 
   await expect(page.locator(".sidebar input[type=date]").first()).toHaveValue(
     "",
   );
-  await expect(page.getByRole("combobox", { name: "География", exact: true })).toHaveValue(
-    "moscow",
-  );
+  await expect(
+    page.getByRole("combobox", { name: "География", exact: true }),
+  ).toHaveValue("moscow");
 });
 
 test("status tags work for source and directory statuses", async ({ page }) => {
@@ -358,4 +358,146 @@ test("system theme and mobile source/calendar views stay usable at larger sizes"
   await page.getByRole("button", { name: "Включить светлую тему" }).click();
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+});
+
+test("IVANY regional exhibition can be revealed without losing other filters", async ({
+  page,
+}) => {
+  await page.clock.setFixedTime(new Date("2026-10-18T12:00:00+03:00"));
+  await page.goto("/?institution=MSK068&period=ongoing");
+  await expect(page.locator(".event-row")).toHaveCount(0);
+  await expect(page.locator(".geography-note")).toContainText(
+    "в Подмосковье найдено ещё: 1",
+  );
+  await page
+    .getByRole("button", { name: "Включить Подмосковье", exact: true })
+    .click();
+  await expect(page).toHaveURL(/geography=all/);
+  await expect(page).toHaveURL(/institution=MSK068/);
+  await expect(page.locator(".event-row")).toHaveCount(1);
+  await expect(page.locator(".event-row")).toContainText("ХЛЕБА");
+  await expect(page.locator(".event-row")).toContainText("Подмосковье");
+  await page.reload();
+  await expect(page.locator(".event-row")).toHaveCount(1);
+  await page.getByRole("button", { name: "Архив", exact: true }).click();
+  await expect(
+    page.locator(".event-row").filter({ hasText: "ХЛЕБА" }),
+  ).toHaveCount(1);
+  await expect(
+    page.locator(".event-row").filter({ hasText: "ХЛЕБА" }),
+  ).toContainText("18:00");
+});
+
+test("review queue exposes candidates, source text, reasons and filters", async ({
+  page,
+}) => {
+  await page.goto("/?view=review");
+  const candidates = page.getByRole("region", {
+    name: "Источники-кандидаты",
+    exact: true,
+    includeHidden: true,
+  });
+  const posts = page.getByRole("region", {
+    name: "Публикации на проверке",
+    exact: true,
+  });
+  await expect(candidates.locator(".review-card")).toHaveCount(5);
+  await expect(posts).toBeVisible();
+  await page.getByRole("button", { name: /^Источники-кандидаты/ }).click();
+  await expect(candidates).toBeVisible();
+  await expect(posts).toBeHidden();
+  await page.getByRole("button", { name: /^Публикации/ }).click();
+  await expect(posts.locator(".review-card")).toHaveCount(25);
+  await page.getByRole("button", { name: /^Показать ещё · осталось/ }).click();
+  await expect(posts.locator(".review-card")).toHaveCount(50);
+  await page.getByText("Как разобрать очередь", { exact: true }).click();
+  await expect(
+    page.getByRole("link", { name: "Пошаговая инструкция" }),
+  ).toHaveAttribute("href", /docs\/editorial-review.md$/);
+  await page
+    .getByRole("combobox", { name: "Причина остановки публикации" })
+    .selectOption("В публикации несколько дат; нужна разбивка на события");
+  await page
+    .getByRole("textbox", { name: "Поиск по афише и каталогу" })
+    .fill("unovis2");
+  expect(await posts.locator(".review-card").count()).toBeGreaterThan(0);
+  await expect(posts.locator(".review-card").first()).toContainText(
+    "В публикации несколько дат",
+  );
+  await posts
+    .locator(".review-card")
+    .first()
+    .getByText("Прочитать извлечённый текст", { exact: true })
+    .click();
+  await expect(posts.locator(".review-text").first()).toBeVisible();
+  await expect(
+    posts
+      .getByRole("link", { name: "Оригинальная публикация", exact: true })
+      .first(),
+  ).toHaveAttribute("href", /^https:\/\/t.me\/unovis2\//);
+  await page.getByRole("button", { name: /^Убрать фильтр: Причина:/ }).click();
+  await expect(
+    page.getByRole("combobox", { name: "Причина остановки публикации" }),
+  ).toHaveValue("");
+  await page
+    .getByRole("region", { name: "Выбранные фильтры" })
+    .getByRole("button", { name: "Сбросить фильтры", exact: true })
+    .click();
+  await page.getByRole("button", { name: /^Источники-кандидаты/ }).click();
+  await page
+    .getByRole("textbox", { name: "Поиск по афише и каталогу" })
+    .fill("Третьяков");
+  await expect(candidates.locator(".review-card")).toHaveCount(1);
+  await page.reload();
+  await expect(candidates.locator(".review-card")).toHaveCount(1);
+});
+
+test("missing review snapshot does not block the agenda and can be retried", async ({
+  page,
+}) => {
+  await page.route("**/data/review.json?*", (route) =>
+    route.fulfill({ status: 503, body: "Unavailable" }),
+  );
+  await page.goto("/");
+  await expect(page.locator(".event-row").first()).toBeVisible();
+  await page
+    .getByRole("navigation", { name: "Основная навигация" })
+    .getByRole("button", { name: /На проверке/ })
+    .click();
+  await expect(page.getByRole("alert")).toContainText(
+    "Не удалось загрузить очередь",
+  );
+  await page.unroute("**/data/review.json?*");
+  await page
+    .getByRole("button", { name: "Повторить загрузку очереди", exact: true })
+    .click();
+  await expect(page.getByRole("alert")).toHaveCount(0);
+  await expect(
+    page
+      .getByRole("region", { name: "Публикации на проверке" })
+      .locator(".review-card"),
+  ).toHaveCount(25);
+});
+
+test("review and geography notices fit mobile in both themes", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 844 });
+  for (const view of ["agenda", "review"]) {
+    await page.goto(
+      view === "agenda" ? "/?institution=MSK068" : "/?view=review",
+    );
+    await expect(page.locator(".workspace-layout")).toBeVisible();
+    for (const theme of ["light", "dark"]) {
+      await page.evaluate(
+        (value) => (document.documentElement.dataset.theme = value),
+        theme,
+      );
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+    }
+  }
 });

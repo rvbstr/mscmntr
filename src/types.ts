@@ -29,6 +29,13 @@ export interface Source {
   platform: string;
   institution_ids: string[];
   roles: string[];
+  requires_identity_confirmation?: boolean;
+  access_notes?: string;
+  discovery?: {
+    profile_title?: string;
+    verified_at?: string;
+    evidence?: { page_url?: string; context?: string; checked_at?: string }[];
+  };
 }
 export interface Health {
   source_id: string;
@@ -112,4 +119,15 @@ export interface Personal {
   saved: string[];
   read: string[];
   previousVisit: string;
+}
+
+export interface ReviewItem {
+  source_id?: string;
+  candidate?: Partial<ArtEvent>;
+  reason: string;
+  link_status?: string;
+}
+export interface ReviewData {
+  generated_at: string;
+  items: ReviewItem[];
 }

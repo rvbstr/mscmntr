@@ -2378,3 +2378,125 @@ sup {
     font-size: 14px;
   }
 }
+
+/* Published review snapshot and explicit geography coverage. */
+.geography-note,
+.queue-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.geography-note {
+  font-size: 18px;
+}
+.geography-note > span {
+  flex: 1 1 220px;
+}
+.review-guide {
+  margin: 24px 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+}
+.review-guide summary,
+.review-card summary {
+  cursor: pointer;
+}
+.review-guide p,
+.review-guide li {
+  margin: 14px 0;
+}
+.review-guide ol {
+  padding-left: 24px;
+}
+.review-section {
+  margin: 40px 0;
+}
+.review-section h3 {
+  font-size: 28px;
+  font-weight: 500;
+}
+.review-card {
+  border-bottom: 1px solid var(--line);
+  padding: 26px 0;
+  overflow-wrap: anywhere;
+}
+.review-card h4 {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 12px 0;
+}
+.review-card p {
+  margin: 12px 0;
+}
+.review-reason {
+  font-weight: 500;
+}
+.review-text {
+  display: block;
+  white-space: pre-wrap;
+}
+.review-card details {
+  margin: 18px 0;
+}
+.review-id {
+  display: block;
+  color: var(--muted);
+  margin-top: 18px;
+  font-size: 15px;
+}
+.review-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  margin: 18px 0;
+}
+.review-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: underline;
+}
+.review-guide,
+.review-card,
+.source-toolbar .select-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.source-toolbar .select-label {
+  flex: 1 1 240px;
+}
+.source-toolbar .select-label select {
+  width: 100%;
+}
+.main-nav > div {
+  flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  .review-guide {
+    padding: 16px;
+  }
+  .source-toolbar {
+    flex-wrap: wrap;
+  }
+}
+.review-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  border-bottom: 1px solid var(--line);
+}
+.review-tabs button {
+  padding: 12px 0;
+  font-size: 22px;
+  border-bottom: 3px solid transparent;
+}
+.review-tabs button[aria-pressed="true"] {
+  border-bottom-color: var(--ink);
+}
+.review-tabs sup {
+  font: 15px var(--mono);
+}
