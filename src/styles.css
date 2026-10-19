@@ -2500,3 +2500,29 @@ sup {
 .review-tabs sup {
   font: 15px var(--mono);
 }
+
+.uncertainty-note {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--ink);
+  background: var(--soft);
+  font-size: 17px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.uncertainty-note strong {
+  font-weight: 600;
+}
+.uncertainty-note p,
+.event-body .uncertainty-note p {
+  margin: 6px 0 0;
+  font-size: inherit;
+}
+.tentative-badge {
+  border: 1px solid var(--line);
+  padding: 2px 6px;
+}
+.tentative-calendar-count {
+  display: block;
+  font-size: 14px;
+}

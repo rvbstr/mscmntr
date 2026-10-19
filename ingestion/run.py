@@ -15,7 +15,7 @@ from ingestion.adapters.social import parse_post
 from ingestion.adapters.telegram import collect_telegram
 from ingestion.adapters.instagram import collect_instagram, configured_instagram_api
 from ingestion.adapters.institutions import parse_institution, institution_links
-from ingestion.models import canonical_url, direct_url, stable_id, deduplicate, link_parents, event_signature, TYPES
+from ingestion.models import canonical_url, direct_url, stable_id, deduplicate, link_parents, event_signature, TYPES, valid_event, complete_event
 from ingestion.editorial import load_overrides, apply_overrides
 
 
@@ -36,34 +36,6 @@ def due(metadata,now=None):
     except (ValueError,TypeError): return True
 
 
-def valid_event(e):
-    try:
-        start=date.fromisoformat(e['start_date'])
-        if e.get('end_date') and date.fromisoformat(e['end_date'])<start: return False
-        if e.get('start_time') and not re.fullmatch(r'([01]\d|2[0-3]):[0-5]\d',e['start_time']): return False
-        return bool(e.get('title','').strip()) and e.get('event_type') in TYPES and direct_url(e.get('primary_url',''))
-    except (KeyError,ValueError,TypeError): return False
-
-
-def complete_event(candidate,institution,source,timestamp):
-    e=dict(candidate)
-    if not e.get('geography_scope'):
-        locations=institution.get('locations',[])
-        address=e.get('address') or ''
-        scopes={l.get('geography_scope') for l in locations if l.get('geography_scope')}
-        exact=next((l for l in locations if l.get('city') and l['city'].casefold() in address.casefold()),None)
-        if exact:e['geography_scope']=exact.get('geography_scope');e['city']=exact.get('city')
-        elif len(scopes)==1:e['geography_scope']=next(iter(scopes))
-    e.update(institution_id=institution['institution_id'],venue_name=institution['name'],source_id=source['source_id'],
-             source_platform=source['platform'],timezone='Europe/Moscow',review_status='verified',last_seen_at=timestamp,
-             last_updated_at=timestamp,first_detected_at=e.get('first_detected_at') or timestamp,
-             tags=institution.get('tags',[]),link_status='available',link_checked_at=timestamp)
-    e['event_id']=e.get('event_id') or stable_id(e)
-    e['evidence']=[{'url':e['primary_url'],'source_id':source['source_id'],'checked_at':timestamp,'status':'available','verification_method':candidate.get('verification_method','http')}]
-    e['date_precision']='minute' if e.get('start_time') else 'date'
-    return e
-
-
 def seed_candidates(catalog,client,source,institution):
     """Use catalog URLs for discovery; re-extract content instead of publishing examples."""
     urls={seed['verification_url'] for seed in catalog.get('seed_events',[])
@@ -82,7 +54,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
     timestamp=now_iso(); institutions={i['institution_id']:dict(i) for i in catalog['institutions']}
     for iid,priority in overrides['priorities'].items(): institutions[iid]['monitoring_priority']=priority
     old_health={h['source_id']:h for h in previous.get('sources',[])}
-    old_events=[dict(e,evidence=[dict(x) for x in e.get('evidence',[])]) for e in previous.get('events',[])]; candidates=[]; review=[]; reports=[]; successful=0; checked_successfully=set()
+    old_events=[dict(e,evidence=[dict(x) for x in e.get('evidence',[])]) for e in previous.get('events',[]) if e['institution_id'] in institutions and (overrides.get('publication_policy')=='include_tentative' or e.get('review_status')!='tentative')]; candidates=[]; review=[]; reports=[]; successful=0; checked_successfully=set(); refreshed_urls=set()
     priorities={'high':0,'normal':1,'low':2}
     sources=sorted(catalog['sources'],key=lambda s:min([priorities.get(institutions[i].get('monitoring_priority'),1) for i in s['institution_ids']] or [1]))
     for source in sources:
@@ -107,10 +79,12 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
                     if instagram_api is None:instagram_api=configured_instagram_api()
                     collection=collect_instagram(source['url'],instagram_api,social_options.get('instagram_export_dir') or os.environ.get('INSTAGRAM_EXPORT_DIR',str(ROOT/'.local/instagram')),limit=social_options.get('limit',20))
                 report.update(adapter=collection.adapter,posts_seen=len(collection.posts))
-                if collection.live:social_verified={post.url for post in collection.posts}
+                if collection.live:
+                    social_verified={post.url for post in collection.posts}
+                    refreshed_urls.update(social_verified)
                 for post in collection.posts:
                     parsed,reason=parse_post(post)
-                    if reason:review.append({'source_id':sid,'candidate':{'primary_url':post.url,'published_at':post.published_at,'description':post.text[:700]},'reason':reason})
+                    if reason:review.append({'source_id':sid,'candidate':{'primary_url':post.url,'published_at':post.published_at,'description':post.text[:16000]},'reason':reason})
                     if collection.live:extracted.extend(parsed)
                     else:
                         for item in parsed:review.append({'source_id':sid,'candidate':item,'reason':collection.note})
@@ -192,6 +166,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
                 event.update(link_status=exc.status,link_checked_at=timestamp,confidence='editorial',verified_at=item['editor_verified_at'])
                 event['evidence'][0]['status']=exc.status; candidates.append(event)
             else: review.append({'candidate':item,'reason':str(exc)})
+    old_events=[e for e in old_events if not (e.get('review_status')=='tentative' and e['primary_url'] in refreshed_urls)]
     merged=deduplicate(old_events+candidates)
     # Preserve first-discovery times, update change timestamps only for substantive changes.
     by_id={e['event_id']:e for e in old_events}
@@ -203,14 +178,20 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
         if changes.get('primary_url') and any(e['event_id']==eid and e['primary_url']!=changes['primary_url'] for e in merged):
             try: client.fetch(changes['primary_url'])
             except SourceError as exc: raise ValueError(f'Исправленный первоисточник {eid} не подтверждён: {exc}')
+    # Keep unresolved candidates when their source could not be checked this run.
+    checked=checked_successfully
+    retained=[r for r in previous.get('review',[]) if r.get('source_id') not in checked and r.get('source_id') in {s['source_id'] for s in sources}]
+    review=list({json.dumps(r,ensure_ascii=False,sort_keys=True):r for r in retained+review}.values())
+    if overrides.get('publication_policy') == 'include_tentative':
+        from ingestion.provisional import publish_review
+        tentative, review = publish_review(catalog, review, reports, timestamp)
+        merged = deduplicate(merged + tentative)
     merged=apply_overrides(merged,overrides)
     if any(not valid_event(e) for e in merged): raise ValueError('Правки создали событие с неверной датой или ссылкой')
     merged.sort(key=lambda e:(e['start_date'],e.get('start_time') or '23:59',e['title']))
     merged=link_parents(merged)
-    # Keep unresolved candidates when their source could not be checked this run.
-    checked=checked_successfully
-    retained=[r for r in previous.get('review',[]) if r.get('source_id') not in checked and r.get('source_id')]
-    review=list({json.dumps(r,ensure_ascii=False,sort_keys=True):r for r in retained+review}.values())
+    from ingestion.provisional import annotate_reports
+    annotate_reports(reports, merged)
     completed=now_iso()
     previous_meta=previous.get('metadata',{})
     metadata={**previous_meta,'schema_version':'1.0','timezone':'Europe/Moscow','last_attempted_refresh':timestamp,
@@ -218,7 +199,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
               'last_successful_update':completed if successful else previous_meta.get('last_successful_update'),
               'generated_at':completed,'catalog_updated_on':catalog['metadata']['updated_on'],
               'source_count':len(sources),'successful_sources_this_run':successful,'event_count':len(merged),
-              'review_count':len(review),'partial':any(s['status'] not in ('working','disabled') for s in reports),
+              'review_count':len(review),'publication_policy':overrides.get('publication_policy','verified_only'),'tentative_count':sum(e.get('review_status')=='tentative' for e in merged),'partial':any(s['status'] not in ('working','disabled') for s in reports),
               'run_status':'partial' if successful else 'blocked','refresh_interval_hours':72,
               'scan_options':{'child_pages_per_source':max_pages,'source_ids':only or None}}
     reports.sort(key=lambda s:s['source_id'])
@@ -227,7 +208,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
 
 def main():
     p=argparse.ArgumentParser(description='Проверка публичных источников афиши')
-    p.add_argument('--scheduled',action='store_true'); p.add_argument('--source',action='append')
+    p.add_argument('--publish-review',action='store_true',help='Опубликовать текущую очередь без сетевого сбора'); p.add_argument('--scheduled',action='store_true'); p.add_argument('--source',action='append')
     p.add_argument('--social-posts',type=int,default=20);p.add_argument('--instagram-export-dir',type=Path);p.add_argument('--max-pages',type=int,default=3); p.add_argument('--timeout',type=int,default=12)
     args=p.parse_args()
     catalog_path=ROOT/'catalog/catalog.json'
@@ -240,7 +221,11 @@ def main():
     if args.scheduled and not due(previous.get('metadata',{})):
         print('72 часа ещё не прошли; данные сохранены без изменений.'); return 0
     overrides=load_overrides(ROOT/'editorial/overrides.json',catalog)
-    feed,review=refresh(catalog,overrides,previous,Client(timeout=args.timeout),args.source,args.max_pages,{'limit':max(1,min(args.social_posts,50)),'instagram_export_dir':args.instagram_export_dir})
+    if args.publish_review:
+        from ingestion.provisional import publish_snapshot
+        feed,review=publish_snapshot(catalog,overrides,previous,now_iso())
+    else:
+        feed,review=refresh(catalog,overrides,previous,Client(timeout=args.timeout),args.source,args.max_pages,{'limit':max(1,min(args.social_posts,50)),'instagram_export_dir':args.instagram_export_dir})
     public_catalog={k:v for k,v in catalog.items() if k!='seed_events'}
     public_catalog['institutions']=[dict(i,monitoring_priority=overrides['priorities'].get(i['institution_id'],i['monitoring_priority'])) for i in catalog['institutions']]
     atomic_json(ROOT/'public/data/catalog.json',public_catalog)
@@ -249,6 +234,6 @@ def main():
     atomic_json(ROOT/'public/data/report.json',summary)
     print(json.dumps(summary,ensure_ascii=False,indent=2))
     # Visible, actionable failure if no fetch succeeded. Existing data stays intact.
-    return 0 if feed['metadata']['successful_sources_this_run'] else 2
+    return 0 if args.publish_review or feed['metadata']['successful_sources_this_run'] else 2
 
 if __name__=='__main__': raise SystemExit(main())

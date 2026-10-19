@@ -80,6 +80,11 @@ def import_data(json_path, workbook=None, output=ROOT, additional_path=None):
     for relation in relations:
         if relation['institution_id'] not in ids or relation['source_id'] not in sources:
             raise ValueError('Нарушена связь institution_sources')
+    excluded = set(additional.get('excluded_institution_ids', [])) if additional else set()
+    if excluded - set(ids): raise ValueError('Неизвестная исключённая площадка')
+    relations = [r for r in relations if r['institution_id'] not in excluded]
+    used_sources = {r['source_id'] for r in relations}
+    sources = {sid: source for sid, source in sources.items() if sid in used_sources}
     for s in sources.values():
         if urlsplit(s['url']).scheme not in ('https','http') or not urlsplit(s['url']).hostname or urlsplit(s['url']).username or urlsplit(s['url']).password or any(ord(c)<32 for c in s['url']):
             raise ValueError(f"Неверный URL: {s['source_id']}")
@@ -88,6 +93,7 @@ def import_data(json_path, workbook=None, output=ROOT, additional_path=None):
         s['roles'] = list(dict.fromkeys(r.get('role') for r in relations if r['source_id'] == s['source_id']))
     institutions = []
     for original in raw['institutions']:
+        if original['institution_id'] in excluded: continue
         i = dict(original)
         i['source_ids'] = [r['source_id'] for r in relations if r['institution_id'] == i['institution_id']]
         i['independent'] = bool(set(i.get('tags', [])) & {'artist_run','independent'})
@@ -98,11 +104,11 @@ def import_data(json_path, workbook=None, output=ROOT, additional_path=None):
     catalog = dict(metadata=raw['metadata'], institutions=institutions, sources=list(sources.values()),
                    institution_sources=relations, tags=normalized.get('tags', []),
                    import_provenance={'json_sha256':hashlib.sha256(Path(json_path).read_bytes()).hexdigest(),
-                                      'workbook_included':bool(workbook)}, seed_events=raw.get('events',[]))
+                                      'workbook_included':bool(workbook)}, seed_events=[e for e in raw.get('events',[]) if e['institution_id'] not in excluded])
     if additional:
         catalog['import_provenance']['additional_sources_sha256'] = hashlib.sha256(Path(additional_path).read_bytes()).hexdigest()
         catalog['metadata'] = {**raw['metadata'], 'updated_on': max(raw['metadata']['updated_on'], additional['updated_on']),
-            'counts': {**raw['metadata'].get('counts', {}), 'sources': len(sources), 'institution_sources': len(relations)},
+            'counts': {**raw['metadata'].get('counts', {}), 'institutions': len(institutions), 'sources': len(sources), 'institution_sources': len(relations)},
             'additional_sources_count': len(additional.get('sources', []))}
     if normalized: (output/'catalog'/'normalized.json').write_text(json.dumps(normalized, ensure_ascii=False, indent=2, default=str)+'\n')
     (output/'catalog'/'catalog.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2)+'\n')

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "updated_on": "2026-10-17",
-  "notes": "Дополнительные Telegram-источники. Исходные JSON/XLSX не изменены. Самоописания без внешнего evidence требуют подтверждения и не дают автоматических событий.",
+  "updated_on": "2026-10-19",
+  "notes": "Дополнительные Telegram-источники и исключения из публичного каталога. Пять каналов приняты владельцем 19.10.2026; предварительные сведения публикуются с пометками. Исходные JSON/XLSX сохранены.",
   "sources": [
     {
       "source_id": "SRC_40EAC4291DA5B7",
@@ -1462,9 +1462,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "Generative Gallery",
         "profile_description": "Uniting media art across the globe powered by radugadesign studio curated by @nefedkin and @annbnn 📍 Москва, ЦСИ Винзавод, строение 8, 2 этаж Вопросы и сотрудничество @annbnn https://generativegallery.taplink.ws",
         "verified_at": "2026-10-17T11:08:13.800467+00:00",
@@ -1478,7 +1478,8 @@
           }
         ]
       },
-      "requires_identity_confirmation": true
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19"
     },
     {
       "source_id": "SRC_2B5E05E62508AB",
@@ -1490,9 +1491,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "Третьяковка официально",
         "profile_description": "Официальный Telegram-канал Государственной Третьяковской галереи. Заявление № 8096499570 Новости, анонсы событий, истории и другая информация о жизни музея. Написать нам: https://t.me/GT_Gallery?direct",
         "verified_at": "2026-10-17T11:08:26.734429+00:00",
@@ -1506,7 +1507,8 @@
           }
         ]
       },
-      "requires_identity_confirmation": true
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19"
     },
     {
       "source_id": "SRC_2DD5DAD6A186D6",
@@ -1518,9 +1520,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "MMOMA",
         "profile_description": "Московский музей современного искусства Первый музей современного искусства в России. Выставки, билеты, больше информации: https://mmoma.ru/ Регистрация: https://knd.gov.ru/license?id=676d12678e552d6b5429427b&registryType=bloggersPermission",
         "verified_at": "2026-10-17T11:08:54.573326+00:00",
@@ -1534,7 +1536,8 @@
           }
         ]
       },
-      "requires_identity_confirmation": true
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19"
     },
     {
       "source_id": "SRC_9555595AE32F90",
@@ -1546,9 +1549,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "Музей Москвы",
         "profile_description": "Главный музей о Москве вт–вс, 11:00–21:00 билеты, события и информация по ссылке: https://mosmuseum.ru/ № 5104999315",
         "verified_at": "2026-10-17T11:08:55.391547+00:00",
@@ -1562,7 +1565,8 @@
           }
         ]
       },
-      "requires_identity_confirmation": true
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19"
     },
     {
       "source_id": "SRC_C40D02465AB0AB",
@@ -1574,9 +1578,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "Галерея Люмьер",
         "profile_description": "Первая фотографическая галерея Москвы 📍 Галерея Люмьер, Москва Ул. Большая Полянка, д. 61, стр. 1 Сайт: https://lumiere.ru по вопросам – @assistant_lumiere",
         "verified_at": "2026-10-17T11:08:45.528916+00:00",
@@ -1590,7 +1594,8 @@
           }
         ]
       },
-      "requires_identity_confirmation": true
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19"
     }
   ],
   "institution_sources": [
@@ -1984,47 +1989,54 @@
     {
       "institution_id": "MSK042",
       "source_id": "SRC_FE7FE2F4F75FD3",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/generativegallery",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     },
     {
       "institution_id": "MSK006",
       "source_id": "SRC_2B5E05E62508AB",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/gt_gallery",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     },
     {
       "institution_id": "MSK003",
       "source_id": "SRC_2DD5DAD6A186D6",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/mmoma",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     },
     {
       "institution_id": "MSK007",
       "source_id": "SRC_9555595AE32F90",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/mosmuseum",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     },
     {
       "institution_id": "MSK057",
       "source_id": "SRC_C40D02465AB0AB",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/lumiere_gallery",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     }
-  ]
+  ],
+  "excluded_institution_ids": [
+    "WATCH02"
+  ],
+  "editorial_decisions": {
+    "approved_on": "2026-10-19",
+    "basis": "Решение владельца: убрать УНОВИС² и публиковать предварительные даты и места с пометками."
+  }
 }

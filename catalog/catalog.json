@@ -1,16 +1,16 @@
 {
   "metadata": {
     "schema_version": "2.0.0",
-    "updated_on": "2026-10-17",
+    "updated_on": "2026-10-19",
     "base_verified_on": "2026-10-15",
     "default_timezone": "Europe/Moscow",
     "is_live_feed": false,
     "seed_events_only": true,
     "counts": {
-      "institutions": 93,
+      "institutions": 92,
       "locations": 62,
-      "sources": 190,
-      "institution_sources": 212,
+      "sources": 189,
+      "institution_sources": 209,
       "aliases": 19,
       "tags": 22,
       "institution_tags": 202,
@@ -5200,88 +5200,6 @@
       "districts": []
     },
     {
-      "institution_id": "WATCH02",
-      "name": "УНОВИС² / UNOVIS2",
-      "entity_type": "review_candidate",
-      "monitor_state": "watchlist",
-      "priority": "A",
-      "operating_status": "unconfirmed",
-      "city_scope": "unknown",
-      "focus": "Художническая самоорганизация, обучение и экспериментальные выставки",
-      "watch_for": null,
-      "location_notes": null,
-      "verification_level": "profile_only",
-      "evidence_note": "Профиль Telegram с названием УНОВИС² открылся. Полная лента и свежая программа в этой проверке не подтверждены; запись оставлена в перепроверке.",
-      "evidence_url": "https://t.me/unovis2",
-      "last_verified_on": "2026-10-16",
-      "verified_in_this_revision": true,
-      "monitor_notes": "Следить как за организатором и сообществом; конкретный зал и доступ подтверждать по анонсу",
-      "record_updated_on": "2026-10-16",
-      "related_institution_id": null,
-      "aliases": [],
-      "tags": [
-        "artist_run",
-        "experimental"
-      ],
-      "locations": [],
-      "sources": [
-        {
-          "source_id": "SRC_D07A59447D5C4E",
-          "platform": "telegram",
-          "url": "https://t.me/unovis2",
-          "access_status": "profile_only",
-          "last_checked_on": "2026-10-16",
-          "collector_status": "not_implemented",
-          "collection_candidate": "manual_or_authorized_connector",
-          "parser_config": null,
-          "recommended_interval_hours": 24,
-          "access_notes": "Прочитан только профиль; принадлежность по внешней официальной ссылке и свежий анонс требуют проверки.",
-          "role": "evidence",
-          "officiality": "legacy_claim",
-          "identity_evidence_url": null
-        },
-        {
-          "source_id": "SRC_0D538B01F0C28F",
-          "platform": "website",
-          "url": "https://ewert.ru/exhibitions/zti-fabrika/",
-          "access_status": "not_rechecked",
-          "last_checked_on": "2026-10-15",
-          "collector_status": "not_implemented",
-          "collection_candidate": "html_candidate",
-          "parser_config": null,
-          "recommended_interval_hours": 48,
-          "access_notes": "Следить как за организатором и сообществом; конкретный зал и доступ подтверждать по анонсу",
-          "role": "secondary_discovery",
-          "officiality": "legacy_claim",
-          "identity_evidence_url": null
-        },
-        {
-          "source_id": "SRC_D07A59447D5C4E",
-          "platform": "telegram",
-          "url": "https://t.me/unovis2",
-          "access_status": "profile_only",
-          "last_checked_on": "2026-10-16",
-          "collector_status": "not_implemented",
-          "collection_candidate": "manual_or_authorized_connector",
-          "parser_config": null,
-          "recommended_interval_hours": 24,
-          "access_notes": "Прочитан только профиль; принадлежность по внешней официальной ссылке и свежий анонс требуют проверки.",
-          "role": "announcements",
-          "officiality": "unconfirmed",
-          "identity_evidence_url": "https://t.me/unovis2"
-        }
-      ],
-      "source_ids": [
-        "SRC_D07A59447D5C4E",
-        "SRC_0D538B01F0C28F",
-        "SRC_D07A59447D5C4E"
-      ],
-      "independent": true,
-      "category": "artist_run",
-      "monitoring_priority": "high",
-      "districts": []
-    },
-    {
       "institution_id": "WATCH03",
       "name": "Галерея «Корней»",
       "entity_type": "artist_run",
@@ -7052,25 +6970,6 @@
       ]
     },
     {
-      "source_id": "SRC_D07A59447D5C4E",
-      "platform": "telegram",
-      "url": "https://t.me/unovis2",
-      "access_status": "profile_only",
-      "last_checked_on": "2026-10-16",
-      "collector_status": "not_implemented",
-      "collection_candidate": "manual_or_authorized_connector",
-      "parser_config": null,
-      "recommended_interval_hours": 24,
-      "access_notes": "Прочитан только профиль; принадлежность по внешней официальной ссылке и свежий анонс требуют проверки.",
-      "institution_ids": [
-        "WATCH02"
-      ],
-      "roles": [
-        "evidence",
-        "announcements"
-      ]
-    },
-    {
       "source_id": "SRC_0D538B01F0C28F",
       "platform": "website",
       "url": "https://ewert.ru/exhibitions/zti-fabrika/",
@@ -7082,11 +6981,9 @@
       "recommended_interval_hours": 48,
       "access_notes": "Следить как за организатором и сообществом; конкретный зал и доступ подтверждать по анонсу",
       "institution_ids": [
-        "WATCH02",
         "WATCH06"
       ],
       "roles": [
-        "secondary_discovery",
         "evidence"
       ]
     },
@@ -11325,9 +11222,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "Generative Gallery",
         "profile_description": "Uniting media art across the globe powered by radugadesign studio curated by @nefedkin and @annbnn 📍 Москва, ЦСИ Винзавод, строение 8, 2 этаж Вопросы и сотрудничество @annbnn https://generativegallery.taplink.ws",
         "verified_at": "2026-10-17T11:08:13.800467+00:00",
@@ -11341,12 +11238,13 @@
           }
         ]
       },
-      "requires_identity_confirmation": true,
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19",
       "institution_ids": [
         "MSK042"
       ],
       "roles": [
-        "secondary_discovery"
+        "announcements"
       ]
     },
     {
@@ -11359,9 +11257,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "Третьяковка официально",
         "profile_description": "Официальный Telegram-канал Государственной Третьяковской галереи. Заявление № 8096499570 Новости, анонсы событий, истории и другая информация о жизни музея. Написать нам: https://t.me/GT_Gallery?direct",
         "verified_at": "2026-10-17T11:08:26.734429+00:00",
@@ -11375,12 +11273,13 @@
           }
         ]
       },
-      "requires_identity_confirmation": true,
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19",
       "institution_ids": [
         "MSK006"
       ],
       "roles": [
-        "secondary_discovery"
+        "announcements"
       ]
     },
     {
@@ -11393,9 +11292,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "MMOMA",
         "profile_description": "Московский музей современного искусства Первый музей современного искусства в России. Выставки, билеты, больше информации: https://mmoma.ru/ Регистрация: https://knd.gov.ru/license?id=676d12678e552d6b5429427b&registryType=bloggersPermission",
         "verified_at": "2026-10-17T11:08:54.573326+00:00",
@@ -11409,12 +11308,13 @@
           }
         ]
       },
-      "requires_identity_confirmation": true,
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19",
       "institution_ids": [
         "MSK003"
       ],
       "roles": [
-        "secondary_discovery"
+        "announcements"
       ]
     },
     {
@@ -11427,9 +11327,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "Музей Москвы",
         "profile_description": "Главный музей о Москве вт–вс, 11:00–21:00 билеты, события и информация по ссылке: https://mosmuseum.ru/ № 5104999315",
         "verified_at": "2026-10-17T11:08:55.391547+00:00",
@@ -11443,12 +11343,13 @@
           }
         ]
       },
-      "requires_identity_confirmation": true,
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19",
       "institution_ids": [
         "MSK007"
       ],
       "roles": [
-        "secondary_discovery"
+        "announcements"
       ]
     },
     {
@@ -11461,9 +11362,9 @@
       "collection_candidate": "telegram_public_preview",
       "parser_config": null,
       "recommended_interval_hours": 24,
-      "access_notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена.",
+      "access_notes": "Канал принят владельцем 19.10.2026 для публикации анонсов. Внешняя принадлежность отдельно не подтверждена; исходное самоописание сохранено.",
       "discovery": {
-        "identity_method": "self_identified",
+        "identity_method": "editor_approved",
         "profile_title": "Галерея Люмьер",
         "profile_description": "Первая фотографическая галерея Москвы 📍 Галерея Люмьер, Москва Ул. Большая Полянка, д. 61, стр. 1 Сайт: https://lumiere.ru по вопросам – @assistant_lumiere",
         "verified_at": "2026-10-17T11:08:45.528916+00:00",
@@ -11477,12 +11378,13 @@
           }
         ]
       },
-      "requires_identity_confirmation": true,
+      "requires_identity_confirmation": false,
+      "editor_approved_on": "2026-10-19",
       "institution_ids": [
         "MSK057"
       ],
       "roles": [
-        "secondary_discovery"
+        "announcements"
       ]
     }
   ],
@@ -11504,24 +11406,6 @@
       "identity_evidence_url": null,
       "identity_checked_on": "2026-10-15",
       "notes": "Спросить текущую площадку и подписаться на новые анонсы; не использовать старый квартирный адрес автоматически"
-    },
-    {
-      "institution_id": "WATCH02",
-      "source_id": "SRC_D07A59447D5C4E",
-      "role": "evidence",
-      "officiality": "legacy_claim",
-      "identity_evidence_url": null,
-      "identity_checked_on": "2026-10-15",
-      "notes": "Канал существует; проекты 2026 встречаются в афише Фабрики/Эверта; свежая лента не прочитана полностью"
-    },
-    {
-      "institution_id": "WATCH02",
-      "source_id": "SRC_0D538B01F0C28F",
-      "role": "secondary_discovery",
-      "officiality": "legacy_claim",
-      "identity_evidence_url": null,
-      "identity_checked_on": "2026-10-15",
-      "notes": "Следить как за организатором и сообществом; конкретный зал и доступ подтверждать по анонсу"
     },
     {
       "institution_id": "WATCH03",
@@ -12739,15 +12623,6 @@
       "notes": "Перспективная площадка; уточнить текущую программу | Кандидат; первичный анонс 2025 | Аккаунт идентифицирован по публикации о площадке; события 2026 не подтверждены"
     },
     {
-      "institution_id": "WATCH02",
-      "source_id": "SRC_D07A59447D5C4E",
-      "role": "announcements",
-      "officiality": "unconfirmed",
-      "identity_evidence_url": "https://t.me/unovis2",
-      "identity_checked_on": "2026-10-16",
-      "notes": "Прочитан только профиль; принадлежность по внешней официальной ссылке и свежий анонс требуют проверки."
-    },
-    {
       "institution_id": "MSK068",
       "source_id": "SRC_2E4303B8F75084",
       "role": "announcements",
@@ -13353,47 +13228,47 @@
     {
       "institution_id": "MSK042",
       "source_id": "SRC_FE7FE2F4F75FD3",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/generativegallery",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     },
     {
       "institution_id": "MSK006",
       "source_id": "SRC_2B5E05E62508AB",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/gt_gallery",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     },
     {
       "institution_id": "MSK003",
       "source_id": "SRC_2DD5DAD6A186D6",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/mmoma",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     },
     {
       "institution_id": "MSK007",
       "source_id": "SRC_9555595AE32F90",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/mosmuseum",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     },
     {
       "institution_id": "MSK057",
       "source_id": "SRC_C40D02465AB0AB",
-      "role": "secondary_discovery",
-      "officiality": "self_identified",
+      "role": "announcements",
+      "officiality": "editor_approved",
       "identity_evidence_url": "https://t.me/lumiere_gallery",
-      "identity_checked_on": "2026-10-17",
-      "notes": "Канал читается и соответствует самоописанию площадки; внешнее подтверждение принадлежности пока отсутствует. Автоматическая атрибуция отключена."
+      "identity_checked_on": "2026-10-19",
+      "notes": "Принято владельцем сайта; это редакторское решение, не внешняя проверка принадлежности."
     }
   ],
   "tags": [
@@ -13489,7 +13364,7 @@
   "import_provenance": {
     "json_sha256": "de682c858ee30324bf9a7bfb7e0f5b5bdd3a1eded85b6ff4960937910d79bb91",
     "workbook_included": true,
-    "additional_sources_sha256": "3451d95f0c03b94bb0e9c35de737a49fe06e272808fef596280136eab8a1db31"
+    "additional_sources_sha256": "52c9df29e38c2f51ff93c71127911eefbc2457eda5b85a08ad5ee371632b88cb"
   },
   "seed_events": [
     {

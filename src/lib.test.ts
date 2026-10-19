@@ -168,3 +168,19 @@ describe("geography of public announcements", () => {
     ).toHaveLength(0);
   });
 });
+
+it("exports provisional dates and places explicitly as tentative in iCalendar", () => {
+  const output = eventICS(
+    {
+      ...event,
+      review_status: "tentative",
+      venue_is_tentative: true,
+      uncertainties: ["Дата начала предположительная"],
+    },
+    institution,
+  ).replaceAll("\r\n ", "");
+  expect(output).toContain("STATUS:TENTATIVE");
+  expect(output).toContain("SUMMARY:[Предварительно]");
+  expect(output).toContain("LOCATION:Место уточняется");
+  expect(output).toContain("Дата начала предположительная");
+});

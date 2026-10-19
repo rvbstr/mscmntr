@@ -6,13 +6,22 @@ export const normalize = (value: string) =>
     .replaceAll("ё", "е")
     .normalize("NFKC")
     .replace(/[’'«»—–-]/g, " ");
+const todayFormatter = new Intl.DateTimeFormat("en-CA", {
+  timeZone: CONFIG.timezone,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+const timestampFormatter = new Intl.DateTimeFormat("ru-RU", {
+  timeZone: CONFIG.timezone,
+  day: "numeric",
+  month: "long",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+const dayFormatters = new Map<string, Intl.DateTimeFormat>();
 export function moscowToday(now = new Date()) {
-  return new Intl.DateTimeFormat("en-CA", {
-    timeZone: CONFIG.timezone,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(now);
+  return todayFormatter.format(now);
 }
 export function plusDays(day: string, n: number) {
   const d = new Date(`${day}T12:00:00Z`);
@@ -23,21 +32,19 @@ export function dayLabel(
   day: string,
   options: Intl.DateTimeFormatOptions = { day: "numeric", month: "long" },
 ) {
-  return new Intl.DateTimeFormat("ru-RU", {
-    ...options,
-    timeZone: CONFIG.timezone,
-  }).format(new Date(`${day}T12:00:00+03:00`));
+  const key = JSON.stringify(options);
+  let formatter = dayFormatters.get(key);
+  if (!formatter) {
+    formatter = new Intl.DateTimeFormat("ru-RU", {
+      ...options,
+      timeZone: CONFIG.timezone,
+    });
+    dayFormatters.set(key, formatter);
+  }
+  return formatter.format(new Date(`${day}T12:00:00+03:00`));
 }
 export function stamp(iso?: string | null) {
-  return iso
-    ? new Intl.DateTimeFormat("ru-RU", {
-        timeZone: CONFIG.timezone,
-        day: "numeric",
-        month: "long",
-        hour: "2-digit",
-        minute: "2-digit",
-      }).format(new Date(iso))
-    : "Пока не было";
+  return iso ? timestampFormatter.format(new Date(iso)) : "Пока не было";
 }
 export const isOngoing = (e: ArtEvent, today: string) =>
   e.event_type === "exhibition" &&
@@ -235,9 +242,10 @@ export function eventICS(e: ArtEvent, institution: Institution) {
       `DTEND;VALUE=DATE:${compact(plusDays(e.end_date || e.start_date, 1))}`,
     );
   lines.push(
-    `SUMMARY:${escape(e.title)}`,
-    `LOCATION:${escape(e.address || institution.locations[0]?.address || institution.name)}`,
-    `DESCRIPTION:${escape((e.description || "") + "\n" + e.primary_url)}`,
+    ...(e.review_status === "tentative" ? ["STATUS:TENTATIVE"] : []),
+    `SUMMARY:${escape((e.review_status === "tentative" ? "[Предварительно] " : "") + e.title)}`,
+    `LOCATION:${escape(e.address || (e.venue_is_tentative ? "Место уточняется" : institution.locations[0]?.address || e.venue_name || institution.name))}`,
+    `DESCRIPTION:${escape((e.review_status === "tentative" ? "Предварительные данные. " + (e.uncertainties || []).join(" ") + "\n" : "") + (e.description || "") + "\n" + e.primary_url)}`,
     `URL:${e.primary_url.replace(/[\r\n]/g, "")}`,
     "END:VEVENT",
     "END:VCALENDAR",

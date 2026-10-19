@@ -3,6 +3,7 @@
   "required":["manual_events","corrections","suppress","duplicates","priorities","disabled_sources","parser_rules"],
   "properties": {
     "$schema":{"type":"string"},
+    "publication_policy":{"enum":["verified_only","include_tentative"]},
     "manual_events":{"type":"array","items":{"$ref":"#/$defs/event"}},
     "corrections":{"type":"object","additionalProperties":{"type":"object","additionalProperties":false,"properties":{"title":{"type":"string","minLength":1},"start_date":{"type":"string","format":"date"},"end_date":{"type":["string","null"],"format":"date"},"start_time":{"type":["string","null"],"pattern":"^([01][0-9]|2[0-3]):[0-5][0-9]$"},"event_type":{"$ref":"#/$defs/type"},"description":{"type":"string"},"primary_url":{"type":"string","format":"uri"},"address":{"type":["string","null"]}}}},
     "suppress":{"type":"array","items":{"type":"string"},"uniqueItems":true},

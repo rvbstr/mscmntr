@@ -30,6 +30,7 @@ export interface Source {
   institution_ids: string[];
   roles: string[];
   requires_identity_confirmation?: boolean;
+  editor_approved_on?: string;
   access_notes?: string;
   discovery?: {
     profile_title?: string;
@@ -45,6 +46,7 @@ export interface Health {
   last_attempted_at?: string;
   last_successful_extraction?: string;
   last_successful_check?: string;
+  tentative_events?: number;
   detected_events: number;
   new_events: number;
   error?: string;
@@ -53,6 +55,10 @@ export interface ArtEvent {
   event_id: string;
   institution_id: string;
   title: string;
+  venue_name?: string;
+  venue_is_tentative?: boolean;
+  review_status?: "verified" | "tentative";
+  uncertainties?: string[];
   event_type: string;
   start_date: string;
   end_date?: string | null;
@@ -91,6 +97,8 @@ export interface Feed {
     source_count: number;
     event_count: number;
     review_count: number;
+    tentative_count?: number;
+    last_editorial_update?: string;
     partial: boolean;
     run_status: string;
     successful_sources_this_run: number;

@@ -78,6 +78,22 @@ const PERIODS = [
   { id: "archive", label: "Архив" },
 ];
 const pad = (n: number) => String(n).padStart(2, "0");
+function UncertaintyNote({ event }: { event: ArtEvent }) {
+  if (event.review_status !== "tentative") return null;
+  return (
+    <aside className="uncertainty-note" aria-label="Предварительные данные">
+      <strong>Предварительные данные</strong>
+      {(
+        event.uncertainties || [
+          "Даты и место требуют уточнения по оригинальному анонсу.",
+        ]
+      ).map((note) => (
+        <p key={note}>{note}</p>
+      ))}
+    </aside>
+  );
+}
+
 function Toggle({
   checked,
   onChange,
@@ -254,18 +270,29 @@ function MiniCalendar({
           const count = events.filter(
             (e) => e.start_date <= day && (e.end_date || e.start_date) >= day,
           ).length;
+          const tentative = events.filter(
+            (e) =>
+              e.review_status === "tentative" &&
+              e.start_date <= day &&
+              (e.end_date || e.start_date) >= day,
+          ).length;
           return (
             <button
               key={day}
               className={`${day.slice(0, 7) !== month.slice(0, 7) && !week ? "outside" : ""} ${day === moscowToday() ? "is-today" : ""} ${selected === day ? "selected" : ""}`}
               onClick={() => onSelect(day)}
-              aria-label={`${dayLabel(day)}, событий: ${count}`}
+              aria-label={`${dayLabel(day)}, событий: ${count}${tentative ? `, предварительных: ${tentative}` : ""}`}
               aria-pressed={selected === day}
             >
               <span>{Number(day.slice(-2))}</span>
               {large && count > 0 ? (
                 <small>
                   {count} {count === 1 ? "событие" : "события"}
+                  {tentative > 0 && (
+                    <span className="tentative-calendar-count">
+                      ≈ {tentative}
+                    </span>
+                  )}
                 </small>
               ) : count > 0 ? (
                 <i />
@@ -515,9 +542,11 @@ export default function App() {
   );
   const eventAddress =
     selectedEvent?.address ||
-    (eventInstitution?.locations.length === 1
-      ? eventInstitution.locations[0].address
-      : undefined);
+    (selectedEvent?.venue_is_tentative
+      ? undefined
+      : eventInstitution?.locations.length === 1
+        ? eventInstitution.locations[0].address
+        : undefined);
   const eventView = view === "agenda" || view === "calendar";
   const activeFilters: { id: string; label: string; remove: () => void }[] = [];
   const addFilter = (id: string, label: string, remove: () => void) =>
@@ -755,6 +784,9 @@ export default function App() {
         <div className="event-body">
           <div className="event-kicker">
             <span>{EVENT_TYPES[e.event_type] || "Другое"}</span>
+            {e.review_status === "tentative" && (
+              <span className="tentative-badge">Предварительно</span>
+            )}
             {e.geography_scope === "moscow_region" && <span>Подмосковье</span>}
             {isNew && <span className="new-label">Новое</span>}
             {personal.read.includes(e.event_id) && (
@@ -768,7 +800,7 @@ export default function App() {
             className="venue-link"
             onClick={() => setSpaceId(i.institution_id)}
           >
-            {i.name}
+            {e.venue_name || i.name}
             {i.independent && (
               <span
                 className="independent-dot"
@@ -776,7 +808,14 @@ export default function App() {
               />
             )}
           </button>
-          {e.description && <p>{e.description}</p>}
+          <UncertaintyNote event={e} />
+          {e.description && (
+            <p>
+              {e.description.length > 500
+                ? e.description.slice(0, 500) + "…"
+                : e.description}
+            </p>
+          )}
         </div>
         <div className="event-actions">
           <button
@@ -1712,6 +1751,12 @@ export default function App() {
                                 {STATUS[h?.status || "review"] ||
                                   "Требует проверки"}
                               </span>
+                              {s.editor_approved_on && (
+                                <p className="source-error">
+                                  Источник принят редактором{" "}
+                                  {dayLabel(s.editor_approved_on)}.
+                                </p>
+                              )}
                               {s.requires_identity_confirmation && (
                                 <p className="source-error">
                                   Кандидат: принадлежность канала пока не
@@ -1736,6 +1781,11 @@ export default function App() {
                               <small>
                                 Подтверждено: {h?.detected_events || 0}
                               </small>
+                              {!!h?.tentative_events && (
+                                <small>
+                                  Предварительно: {h.tentative_events}
+                                </small>
+                              )}
                               {h?.last_successful_extraction && (
                                 <small>
                                   Извлечено:{" "}
@@ -1809,6 +1859,7 @@ export default function App() {
             {selectedEvent.end_date &&
               ` — ${dayLabel(selectedEvent.end_date, { day: "numeric", month: "long", year: "numeric" })}`}
           </div>
+          <UncertaintyNote event={selectedEvent} />
           <button
             className="detail-venue"
             onClick={() => {
@@ -1816,11 +1867,10 @@ export default function App() {
               setSpaceId(selectedEvent.institution_id);
             }}
           >
-            {
+            {selectedEvent.venue_name ||
               catalog.institutions.find(
                 (i) => i.institution_id === selectedEvent.institution_id,
-              )?.name
-            }
+              )?.name}
             <ArrowUpRight size={17} />
           </button>
           {selectedEvent.date_basis === "publication_context" && (
@@ -2050,12 +2100,15 @@ export default function App() {
               <div>
                 <h3>От первоисточника к событию</h3>
                 <p>
-                  В афишу попадают анонсы с подтверждённой датой и отдельной
-                  страницей события. Неуверенные результаты остаются в разделе
-                  «На проверке»: там видны исходный текст, ссылка и причина
-                  остановки. Это список для ручного разбора; публикация требует
-                  редакторской правки в репозитории. Автоматического одобрения и
-                  назначенного редактора сейчас нет.
+                  В афишу попадают подтверждённые и предварительные анонсы с
+                  отдельной ссылкой на источник. У предварительных записей
+                  заметно указано, какие даты или места требуют уточнения. Если
+                  известно только завершение выставки, период в календаре может
+                  начинаться с даты публикации анонса — это отмечено на карточке
+                  и не означает дату открытия. Тексты, из которых не удалось
+                  выделить событие и календарную дату, остаются в разделе «На
+                  проверке». Точечные исправления дат и мест вносятся редактором
+                  через репозиторий.
                 </p>
                 <button
                   className="text-link"

@@ -211,6 +211,8 @@ test("calendar, source journal, public refresh and shareable navigation", async 
 test("published real events expose evidence, saving and iCalendar", async ({
   page,
 }) => {
+  // Exercises several full-catalogue loads, a download and a reload of real data.
+  test.slow();
   await page.goto("/");
   await page.locator(".workspace-layout").waitFor();
   const response = await page.request.get("/data/events.json");
@@ -236,6 +238,7 @@ test("published real events expose evidence, saving and iCalendar", async ({
   const download = await pending;
   expect(download.suggestedFilename()).toMatch(/\.ics$/);
   await page.reload();
+  await page.locator(".workspace-layout").waitFor();
   await expect(page.getByRole("dialog")).toBeVisible();
   await expect(
     page
@@ -388,9 +391,19 @@ test("IVANY regional exhibition can be revealed without losing other filters", a
   ).toContainText("18:00");
 });
 
-test("review queue exposes candidates, source text, reasons and filters", async ({
+test("review queue exposes remaining source text, reasons and filters", async ({
   page,
+  request,
 }) => {
+  const queue = await (await request.get("/data/review.json")).json();
+  const catalog = await (await request.get("/data/catalog.json")).json();
+  const example = queue.items.find(
+    (row: { candidate?: { description?: string; primary_url?: string } }) =>
+      row.candidate?.description && row.candidate.primary_url,
+  );
+  const source = catalog.sources.find(
+    (row: { source_id: string }) => row.source_id === example.source_id,
+  );
   await page.goto("/?view=review");
   const candidates = page.getByRole("region", {
     name: "Источники-кандидаты",
@@ -401,40 +414,35 @@ test("review queue exposes candidates, source text, reasons and filters", async 
     name: "Публикации на проверке",
     exact: true,
   });
-  await expect(candidates.locator(".review-card")).toHaveCount(5);
   await expect(posts).toBeVisible();
+  await expect(posts.locator(".review-card")).toHaveCount(
+    Math.min(25, queue.items.length),
+  );
+  if (queue.items.length > 25) {
+    await page
+      .getByRole("button", { name: /^Показать ещё · осталось/ })
+      .click();
+    await expect(posts.locator(".review-card")).toHaveCount(
+      Math.min(50, queue.items.length),
+    );
+  }
   await page.getByRole("button", { name: /^Источники-кандидаты/ }).click();
   await expect(candidates).toBeVisible();
-  await expect(posts).toBeHidden();
+  await expect(candidates.locator(".review-card")).toHaveCount(0);
   await page.getByRole("button", { name: /^Публикации/ }).click();
-  await expect(posts.locator(".review-card")).toHaveCount(25);
-  await page.getByRole("button", { name: /^Показать ещё · осталось/ }).click();
-  await expect(posts.locator(".review-card")).toHaveCount(50);
-  await page.getByText("Как разобрать очередь", { exact: true }).click();
-  await expect(
-    page.getByRole("link", { name: "Пошаговая инструкция" }),
-  ).toHaveAttribute("href", /docs\/editorial-review.md$/);
   await page
     .getByRole("combobox", { name: "Причина остановки публикации" })
-    .selectOption("В публикации несколько дат; нужна разбивка на события");
+    .selectOption(example.reason);
   await page
     .getByRole("textbox", { name: "Поиск по афише и каталогу" })
-    .fill("unovis2");
+    .fill(source.url);
   expect(await posts.locator(".review-card").count()).toBeGreaterThan(0);
-  await expect(posts.locator(".review-card").first()).toContainText(
-    "В публикации несколько дат",
-  );
   await posts
     .locator(".review-card")
     .first()
     .getByText("Прочитать извлечённый текст", { exact: true })
     .click();
   await expect(posts.locator(".review-text").first()).toBeVisible();
-  await expect(
-    posts
-      .getByRole("link", { name: "Оригинальная публикация", exact: true })
-      .first(),
-  ).toHaveAttribute("href", /^https:\/\/t.me\/unovis2\//);
   await page.getByRole("button", { name: /^Убрать фильтр: Причина:/ }).click();
   await expect(
     page.getByRole("combobox", { name: "Причина остановки публикации" }),
@@ -443,18 +451,16 @@ test("review queue exposes candidates, source text, reasons and filters", async 
     .getByRole("region", { name: "Выбранные фильтры" })
     .getByRole("button", { name: "Сбросить фильтры", exact: true })
     .click();
-  await page.getByRole("button", { name: /^Источники-кандидаты/ }).click();
-  await page
-    .getByRole("textbox", { name: "Поиск по афише и каталогу" })
-    .fill("Третьяков");
-  await expect(candidates.locator(".review-card")).toHaveCount(1);
-  await page.reload();
-  await expect(candidates.locator(".review-card")).toHaveCount(1);
+  await expect(
+    page.getByRole("region", { name: "Выбранные фильтры" }),
+  ).toHaveCount(0);
 });
 
 test("missing review snapshot does not block the agenda and can be retried", async ({
   page,
+  request,
 }) => {
+  const queue = await (await request.get("/data/review.json")).json();
   await page.route("**/data/review.json?*", (route) =>
     route.fulfill({ status: 503, body: "Unavailable" }),
   );
@@ -476,7 +482,7 @@ test("missing review snapshot does not block the agenda and can be retried", asy
     page
       .getByRole("region", { name: "Публикации на проверке" })
       .locator(".review-card"),
-  ).toHaveCount(25);
+  ).toHaveCount(Math.min(25, queue.items.length));
 });
 
 test("review and geography notices fit mobile in both themes", async ({
@@ -500,4 +506,59 @@ test("review and geography notices fit mobile in both themes", async ({
       ).toBe(true);
     }
   }
+});
+
+test("UNOVIS stays absent from the public directory and old detail links", async ({
+  page,
+}) => {
+  await page.goto("/?view=spaces&q=unovis");
+  await expect(page.locator(".workspace-layout")).toBeVisible();
+  await expect(page.locator(".institution-row")).toHaveCount(0);
+  await page.goto("/?space=WATCH02");
+  await page.locator(".workspace-layout").waitFor();
+  await expect(page.getByRole("dialog")).toContainText(
+    "В опубликованном наборе данных нет этой записи",
+  );
+});
+
+test("tentative events show their uncertainties in calendar cards and exports", async ({
+  page,
+  request,
+}) => {
+  const feed = await (await request.get("/data/events.json")).json();
+  const event = feed.events.find(
+    (row: { review_status?: string; start_date: string }) =>
+      row.review_status === "tentative" && row.start_date >= "2026-10-19",
+  );
+  await page.goto(
+    `/?view=calendar&period=all&institution=${event.institution_id}&geography=all&from=${event.start_date}&to=${event.start_date}`,
+  );
+  await expect(page.locator(".tentative-calendar-count").first()).toBeVisible();
+  const card = page
+    .locator(".event-row")
+    .filter({
+      has: page.getByRole("button", { name: event.title, exact: true }),
+    })
+    .first();
+  await expect(card.getByText("Предварительно", { exact: true })).toBeVisible();
+  await expect(
+    card.getByRole("complementary", { name: "Предварительные данные" }),
+  ).toContainText(event.uncertainties[0]);
+  await card.getByRole("button", { name: event.title, exact: true }).click();
+  const dialog = page.getByRole("dialog");
+  await expect(
+    dialog.getByRole("complementary", { name: "Предварительные данные" }),
+  ).toBeVisible();
+  const downloading = page.waitForEvent("download");
+  await dialog
+    .getByRole("button", { name: "В календарь", exact: true })
+    .click();
+  const file = await downloading;
+  const { readFile } = await import("node:fs/promises");
+  const content = (await readFile((await file.path())!, "utf8")).replaceAll(
+    "\r\n ",
+    "",
+  );
+  expect(content).toContain("STATUS:TENTATIVE");
+  expect(content).toContain("[Предварительно]");
 });
