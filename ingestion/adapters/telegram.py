@@ -1,9 +1,10 @@
 """Public Telegram previews, with an optional authorized Telethon API transport."""
 import asyncio
+from html import unescape
 from datetime import timezone
 import os
 import re
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urljoin
 from bs4 import BeautifulSoup
 from ingestion.http import SourceError
 from ingestion.adapters.social import SocialPost,SocialCollection
@@ -30,7 +31,8 @@ def parse_preview(html,channel,post_id=None,limit=20):
         body=node.select_one('.tgme_widget_message_text');time=node.select_one('time[datetime]')
         if body is None or time is None:continue
         if node.select_one('.tgme_widget_message_service_photo'):continue
-        posts.append(SocialPost(body.get_text('\n',strip=True),'https://t.me/'+identifier,time['datetime'],'telegram','telegram_public_preview',channel))
+        links=tuple(dict.fromkeys(unescape(urljoin('https://t.me/',a['href'])) for a in body.select('a[href]') if urlsplit(urljoin('https://t.me/',a['href'])).scheme in ('http','https')))
+        posts.append(SocialPost(body.get_text('\n',strip=True),'https://t.me/'+identifier,time['datetime'],'telegram','telegram_public_preview',channel,links))
     return list({p.url:p for p in posts}.values())[-limit:]
 
 
@@ -63,8 +65,18 @@ async def _api_posts(channel,post_id,limit):
         # Resolve only publicly named channels, not private invitations or contact histories.
         if not getattr(entity,'username',None) or entity.username.casefold()!=channel.casefold():raise SourceError('Публичное имя канала не подтверждено','review')
         messages=await client.get_messages(entity,ids=[post_id]) if post_id else [m async for m in client.iter_messages(entity,limit=limit)]
-        return [SocialPost(m.message,f'https://t.me/{channel}/{m.id}',m.date.astimezone(timezone.utc).isoformat(),
-                           'telegram','telegram_authorized_api',channel) for m in messages if m and m.message and not m.fwd_from]
+        from telethon.tl.types import MessageEntityTextUrl, MessageEntityUrl
+        posts=[]
+        for m in messages:
+            if not m or not m.message or m.fwd_from: continue
+            links=[]
+            for entity in m.entities or []:
+                if isinstance(entity,MessageEntityTextUrl): links.append(entity.url)
+                elif isinstance(entity,MessageEntityUrl):
+                    links.append(m.message.encode('utf-16-le')[entity.offset*2:(entity.offset+entity.length)*2].decode('utf-16-le'))
+            posts.append(SocialPost(m.message,f'https://t.me/{channel}/{m.id}',m.date.astimezone(timezone.utc).isoformat(),
+                'telegram','telegram_authorized_api',channel,tuple(u for u in links if urlsplit(u).scheme in ('http','https'))))
+        return posts
     except FloodWaitError:raise SourceError('Телеграм ограничил частоту запросов; сбор остановлен до следующего запуска','blocked')
     except (ChannelPrivateError,UnauthorizedError):raise SourceError('Для канала или сессии недостаточно разрешённого доступа','manual')
     finally:await client.disconnect()

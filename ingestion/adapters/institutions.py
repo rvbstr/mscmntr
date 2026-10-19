@@ -7,6 +7,7 @@ from ingestion.adapters.structured import _iso
 from ingestion.dates import extract_dates
 from ingestion.models import event_type
 from ingestion.adapters.programmes import parse_garage, parse_ruarts, parse_zotov, next_state
+from ingestion.adapters.hse import parse_hse
 
 
 def parse_ges2(html,url):
@@ -78,6 +79,7 @@ def parse_institution(html,url):
     if host=='garagemca.org':return parse_garage(html,url)
     if host=='ruarts.foundation':return parse_ruarts(html,url)
     if host=='centrezotov.ru':return parse_zotov(html,url)
+    if host=='art.hse.ru':return parse_hse(html,url)
     return []
 
 
@@ -98,6 +100,7 @@ def institution_links(html,url,limit=6):
         target=urljoin(url,a['href']);p=urlsplit(target)
         if p.hostname!=host or not p.path.strip('/'):continue
         if host=='cube.moscow' and ('vystavka-' in p.path or 'vystavki-' in p.path):result.append(target)
+        elif host=='art.hse.ru' and re.match(r'^/gallery/[^/]+/?$',p.path):result.append(target)
         elif host=='prpr312.ru' and p.path.count('/')<=2 and a.get_text(' ',strip=True) and p.path.strip('/') not in ('exhibitions','artists','reviews','texts','about'):
             result.append(target)
     return [link for link in dict.fromkeys(result) if link!=url][:limit]

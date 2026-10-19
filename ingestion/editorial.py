@@ -32,4 +32,7 @@ def apply_overrides(events, overrides):
         target=new
         while target in overrides['duplicates']: target=overrides['duplicates'][target]
         events[target]['evidence']=list({x['url']:x for x in events[target].get('evidence',[])+events[old].get('evidence',[])}.values())
+        aliases=set(events[target].get('merged_event_ids',[])+events[old].get('merged_event_ids',[])+[old])
+        aliases.discard(target)
+        events[target]['merged_event_ids']=sorted(aliases)
     return [e for eid,e in events.items() if eid not in overrides['suppress'] and eid not in overrides['duplicates']]

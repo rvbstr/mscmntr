@@ -78,7 +78,7 @@ test("event type/date tags clear independently and restore the calendar", async 
   );
   await expect(
     page.getByRole("combobox", { name: "География", exact: true }),
-  ).toHaveValue("moscow");
+  ).toHaveCount(0);
 });
 
 test("status tags work for source and directory statuses", async ({ page }) => {
@@ -198,12 +198,13 @@ test("calendar, source journal, public refresh and shareable navigation", async 
     .getByRole("button", { name: /Источники/ })
     .click();
   await expect(page.locator(".source-row").first()).toBeVisible();
-  await page
-    .getByRole("button", { name: "Обновить данные", exact: true })
-    .click();
-  await expect(page.getByRole("status")).toContainText(
-    "Новая проверка источников не запускалась",
-  );
+  await Promise.all([
+    expect(page.getByRole("status")).toContainText(
+      "Новая проверка источников не запускалась",
+      { timeout: 15000 },
+    ),
+    page.getByRole("button", { name: "Обновить данные", exact: true }).click(),
+  ]);
   await expect(
     page.getByRole("link", { name: /Запустить проверку источников/ }),
   ).toHaveAttribute("href", /actions\/workflows\/refresh-deploy.yml/);
@@ -365,23 +366,16 @@ test("system theme and mobile source/calendar views stay usable at larger sizes"
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
 });
 
-test("IVANY regional exhibition can be revealed without losing other filters", async ({
+test("all catalogued locations are visible without a geography filter", async ({
   page,
 }) => {
   await page.clock.setFixedTime(new Date("2026-10-18T12:00:00+03:00"));
-  await page.goto("/?institution=MSK068&period=ongoing");
-  await expect(page.locator(".event-row")).toHaveCount(0);
-  await expect(page.locator(".geography-note")).toContainText(
-    "в Подмосковье найдено ещё: 1",
-  );
-  await page
-    .getByRole("button", { name: "Включить Подмосковье", exact: true })
-    .click();
-  await expect(page).toHaveURL(/geography=all/);
-  await expect(page).toHaveURL(/institution=MSK068/);
+  await page.goto("/?institution=MSK068&period=ongoing&geography=moscow");
   await expect(page.locator(".event-row")).toHaveCount(1);
   await expect(page.locator(".event-row")).toContainText("ХЛЕБА");
-  await expect(page.locator(".event-row")).toContainText("Подмосковье");
+  await expect(page.getByLabel("География", { exact: true })).toHaveCount(0);
+  await expect(page.locator(".geography-note")).toHaveCount(0);
+  await expect(page).not.toHaveURL(/geography=/);
   await page.reload();
   await expect(page.locator(".event-row")).toHaveCount(1);
   await page.getByRole("button", { name: "Архив", exact: true }).click();
@@ -488,9 +482,7 @@ test("missing review snapshot does not block the agenda and can be retried", asy
   ).toHaveCount(Math.min(25, queue.items.length));
 });
 
-test("review and geography notices fit mobile in both themes", async ({
-  page,
-}) => {
+test("review and agenda fit mobile in both themes", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 844 });
   for (const view of ["agenda", "review"]) {
     await page.goto(
@@ -670,4 +662,66 @@ test("XL opening appears in tomorrow's openings and keeps the original link", as
   await expect(dialog.locator(".uncertainty-note")).toContainText(
     "Отдельное время вернисажа на сайте не указано",
   );
+});
+
+test("HSE exhibition combines site and Telegram evidence with its complete title", async ({
+  page,
+}) => {
+  await page.clock.setFixedTime(new Date("2026-10-19T12:00:00+03:00"));
+  await page.goto(
+    "/?institution=MSK030&type=exhibition&event=EV_55B3AA4B71B6B10528",
+  );
+  const dialog = page.getByRole("dialog");
+  await expect(
+    dialog.getByRole("heading", {
+      name: "Что ты сделал для хип-хопа в свои годы",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(dialog).toContainText("1 декабря");
+  await expect(dialog.locator(".evidence-source")).toHaveCount(3);
+  await expect(dialog).toContainText(
+    "Заголовок в источнике: Что ты сделал для хип-хопа в свои годы?",
+  );
+  await expect(
+    dialog.getByRole("link", { name: /Оригинальный анонс/ }),
+  ).toHaveAttribute(
+    "href",
+    "https://art.hse.ru/gallery/what_have_you_done_for_hip-hop_at_your_age",
+  );
+  await page.getByRole("button", { name: "Закрыть", exact: true }).click();
+  await expect(page.locator(".event-row")).toHaveCount(1);
+  await expect(page.locator(".event-row")).toContainText(
+    "Что ты сделал для хип-хопа в свои годы",
+  );
+});
+
+test("merged event links and locally saved events resolve to the remaining card", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    localStorage.setItem(
+      "art-monitor:personal",
+      JSON.stringify({
+        saved: ["EV_CD1C4364E5F755BA34"],
+        read: [],
+        favorites: [],
+      }),
+    );
+  });
+  await page.goto("/?saved=1&type=exhibition&event=EV_CD1C4364E5F755BA34");
+  await expect(
+    page.getByRole("dialog").getByRole("heading", {
+      name: "Что ты сделал для хип-хопа в свои годы",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(page).toHaveURL(/event=EV_55B3AA4B71B6B10528/);
+  await page.getByRole("button", { name: "Закрыть", exact: true }).click();
+  await expect(page.locator(".event-row")).toHaveCount(1);
+  const saved = await page.evaluate(
+    () =>
+      JSON.parse(localStorage.getItem("art-monitor:personal") || "{}").saved,
+  );
+  expect(saved).toEqual(["EV_55B3AA4B71B6B10528"]);
 });

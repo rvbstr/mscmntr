@@ -3,13 +3,17 @@ from datetime import datetime
 import re
 from zoneinfo import ZoneInfo
 from difflib import SequenceMatcher
-from ingestion.adapters.social import DATE_MARKER, EVENT_WORD, TIME_MARKER
+from ingestion.adapters.social import DATE_MARKER, EVENT_WORD, TIME_MARKER, _heading
 from ingestion.dates import extract_dates, MONTH
-from ingestion.models import complete_event, valid_event, deduplicate, link_parents, event_type
+from ingestion.models import complete_event, valid_event, deduplicate, link_parents, event_type, preserve_event_ids
 from ingestion.editorial import apply_overrides
 
 
 def _title(text, fallback):
+    lines=[line.strip() for line in text.splitlines() if line.strip()]
+    first_date=next((n for n,line in enumerate(lines) if DATE_MARKER.search(line)),len(lines)-1)
+    heading=_heading(lines,first_date)
+    if heading: return heading.strip('«»“”" ')
     flat = re.sub(r'\s+', ' ', text).strip()
     match = re.search(r'(?:выставк\w*|экскурси\w*|лекци\w*|дискусси\w*|воркшоп\w*|мастер.класс\w*)[^«“"]{0,100}[«“"]([^»”"]{3,150})[»”"]', flat, re.I)
     if match: return match[1].strip()
@@ -72,7 +76,7 @@ def tentative_post(candidate):
             if kind == 'other': kind = event_type(flat)
             if kind == 'other' and re.search(r'встреч|разговор', context, re.I): kind = 'talk'
             if kind == 'other': continue
-            title = _title(flat, next((value for value in lines if EVENT_WORD.search(value)), heading))
+            title = _title(text, next((value for value in lines if EVENT_WORD.search(value)), heading))
             if not title or len(title) < 3: continue
             clock = TIME_MARKER.search(' '.join(lines[n:min(len(lines), n+2)]))
             if kind == 'exhibition' and not end:
@@ -81,7 +85,7 @@ def tentative_post(candidate):
             item = dict(candidate, title=title, event_type=kind, start_date=start, end_date=end,
                 start_time=(clock.group().zfill(5) if clock and kind != 'exhibition' else None),
                 address=address, date_basis=basis, uncertainties=notes,
-                title_is_tentative=True)
+                title_is_tentative=True, title_basis='post_heading' if (_heading(lines, n) or '').strip('«»“”" ') == title else 'fallback')
             if address and re.search(r'\bМосква\b', address, re.I): item.update(geography_scope='moscow', city='Москва')
             elif address and re.search(r'\bБалашиха\b', address, re.I): item.update(geography_scope='moscow_region', city='Балашиха')
             results.append(item)
@@ -148,7 +152,7 @@ def publish_review(catalog, review, reports, timestamp):
                 venue_is_tentative=inferred_owner or not item.get('address'),
                 venue_name=('Площадка уточняется' if inferred_owner else owner['name']),
                 link_status=status, link_checked_at=checked,
-                evidence=[{'url':item['primary_url'], 'source_id':source['source_id'], 'status':status, 'checked_at':checked}],
+                evidence=[{**e,'status':status,'checked_at':checked} for e in event['evidence']],
                 publication_basis='owner_authorized_tentative')
             events.append(event); published = True
         if not published: remaining.append(row)
@@ -168,10 +172,11 @@ def publish_snapshot(catalog, overrides, previous, timestamp):
             key = (event['source_id'], event['primary_url'])
             raw[key] = {'source_id':event['source_id'], 'candidate':{k:event[k] for k in ('description','published_at','primary_url','first_detected_at') if k in event},
                 'reason':'Неоднозначный анонс; опубликован предварительно', 'link_status':event['link_status'], 'link_checked_at':event.get('link_checked_at')}
+            raw[key]['candidate']['related_urls']=event.get('related_urls',[])
         else: kept.append(event)
     added, review = publish_review(catalog, list(raw.values()) + previous.get('review', []), reports, timestamp)
     events = deduplicate(kept + added)
-    events = link_parents(apply_overrides(events, overrides))
+    events = link_parents(apply_overrides(preserve_event_ids(events,previous.get('events',[])),overrides))
     events.sort(key=lambda e:(e['start_date'], e.get('start_time') or '23:59', e['title']))
     annotate_reports(reports, events)
     metadata = {**previous.get('metadata', {}), 'generated_at':timestamp, 'last_editorial_update':timestamp,

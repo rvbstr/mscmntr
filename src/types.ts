@@ -53,6 +53,7 @@ export interface Health {
 }
 export interface ArtEvent {
   event_id: string;
+  merged_event_ids?: string[];
   institution_id: string;
   title: string;
   venue_name?: string;
@@ -80,7 +81,16 @@ export interface ArtEvent {
   link_status: string;
   link_checked_at?: string;
   parent_event_id?: string;
-  evidence: { url: string; status: string; checked_at?: string }[];
+  evidence: {
+    url: string;
+    status: string;
+    checked_at?: string;
+    title?: string;
+    title_basis?: string;
+    start_date?: string;
+    end_date?: string | null;
+    start_time?: string | null;
+  }[];
 }
 export interface Catalog {
   institutions: Institution[];
@@ -109,7 +119,6 @@ export interface Feed {
 export interface Filters {
   q: string;
   period: string;
-  geography: string;
   types: string[];
   institution: string;
   district: string;

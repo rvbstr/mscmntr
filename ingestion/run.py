@@ -16,7 +16,7 @@ from ingestion.adapters.social import parse_post
 from ingestion.adapters.telegram import collect_telegram
 from ingestion.adapters.instagram import collect_instagram, configured_instagram_api
 from ingestion.adapters.institutions import parse_institution, institution_links
-from ingestion.models import canonical_url, direct_url, stable_id, deduplicate, link_parents, event_signature, TYPES, valid_event, complete_event
+from ingestion.models import canonical_url, direct_url, stable_id, deduplicate, link_parents, event_signature, TYPES, valid_event, complete_event, preserve_event_ids
 from ingestion.editorial import load_overrides, apply_overrides
 
 
@@ -85,7 +85,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
                     refreshed_urls.update(social_verified)
                 for post in collection.posts:
                     parsed,reason=parse_post(post)
-                    if reason:review.append({'source_id':sid,'candidate':{'primary_url':post.url,'published_at':post.published_at,'description':post.text[:16000]},'reason':reason})
+                    if reason:review.append({'source_id':sid,'candidate':{'primary_url':post.url,'published_at':post.published_at,'description':post.text[:16000],'related_urls':list(post.related_urls)},'reason':reason})
                     if collection.live:extracted.extend(parsed)
                     else:
                         for item in parsed:review.append({'source_id':sid,'candidate':item,'reason':collection.note})
@@ -192,6 +192,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
         from ingestion.provisional import publish_review
         tentative, review = publish_review(catalog, review, reports, timestamp)
         merged = deduplicate(merged + tentative)
+    merged=preserve_event_ids(merged,previous.get('events',[]))
     merged=apply_overrides(merged,overrides)
     if any(not valid_event(e) for e in merged): raise ValueError('Правки создали событие с неверной датой или ссылкой')
     merged.sort(key=lambda e:(e['start_date'],e.get('start_time') or '23:59',e['title']))

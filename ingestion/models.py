@@ -32,6 +32,74 @@ def normalized_title(title):
     return re.sub(r'[^\w]+',' ',unicodedata.normalize('NFKC',title).casefold().replace('ё','е')).strip()
 
 
+def identity_title(event):
+    value=normalized_title(event['title'])
+    if event['event_type']=='opening':value=re.sub(r'^(?:открытие|вернисаж)\s+','',value)
+    if event['event_type'] in ('exhibition','opening'):
+        value=re.sub(r'^(?:(?:персональная|групповая)\s+)?выставк[аи]\s+','',value)
+    return value
+
+
+def _urls(event, related=False):
+    urls=[event.get('primary_url')]+[x.get('url') for x in event.get('evidence',[])]
+    if related: urls+=event.get('related_urls',[])
+    return {canonical_url(u) for u in urls if u and direct_url(u)}
+
+
+def _same_day_or_period(a,b):
+    if a.get('start_date')==b.get('start_date'):return True
+    return (a['event_type']=='exhibition' and 'publication_bound' in (a.get('date_basis'),b.get('date_basis'))
+        and a.get('end_date') and a.get('end_date')==b.get('end_date')
+        and max(a['start_date'],b['start_date'])<=a['end_date'])
+
+
+def same_event(a,b):
+    """Require venue, type and day; explicit different sessions always stay separate."""
+    if any(a.get(k)!=b.get(k) for k in ('institution_id','event_type')) or not _same_day_or_period(a,b): return False
+    if a.get('start_time') != b.get('start_time'):
+        if a.get('start_time') and b.get('start_time'): return False
+        if a['event_type'] not in ('exhibition','opening'): return False
+    x,y=identity_title(a),identity_title(b)
+    if x==y or (min(len(x),len(y))>18 and SequenceMatcher(None,x,y).ratio()>=.97): return True
+    # A shared event URL can resolve a fallback/marketing heading, but two named
+    # events in a digest are not merged just because they share a programme link.
+    shared=(_urls(a)&_urls(b)) or (_urls(a)&_urls(b,True)) or (_urls(b)&_urls(a,True))
+    weak=any(e.get('title_is_tentative') or e.get('title_basis')=='fallback' for e in (a,b))
+    return bool(shared and (weak or x in y or y in x))
+
+
+def _quality(event):
+    return (event.get('review_status')!='tentative', not event.get('title_is_tentative'),
+        event.get('title_basis') in ('event_heading','post_heading'),
+        event.get('source_platform')=='website', bool(event.get('end_date')),bool(event.get('start_time')))
+
+
+def _merge(found,event):
+    evidence={canonical_url(x['url']):dict(x) for x in found.get('evidence',[])}
+    for item in event.get('evidence',[]):
+        key=canonical_url(item['url']);old=evidence.get(key,{})
+        evidence[key]={**old,**item}
+    original_id=found['event_id']
+    aliases=set(found.get('merged_event_ids',[])+event.get('merged_event_ids',[])+[event['event_id']])
+    timestamps=[e.get('first_detected_at') for e in (found,event) if e.get('first_detected_at')]
+    related=list(dict.fromkeys(found.get('related_urls',[])+event.get('related_urls',[])))
+    winner,other=(event,dict(found)) if _quality(event)>=_quality(found) else (dict(found),event)
+    found.clear();found.update(winner)
+    if found.get('date_basis')==other.get('date_basis')=='publication_bound':
+        found['start_date']=min(found['start_date'],other['start_date'])
+    # Fill missing useful facts without downgrading an explicit event record.
+    for field in ('end_date','start_time','end_time','address','description'):
+        if field!='description' and other.get('review_status')=='tentative' and found.get('review_status')!='tentative': continue
+        if not found.get(field) and other.get(field): found[field]=other[field]
+    if found.get('review_status')!='tentative':
+        for field in ('uncertainties','venue_is_tentative','publication_basis','title_is_tentative'): found.pop(field,None)
+    aliases.discard(original_id)
+    found.update(event_id=original_id,evidence=list(evidence.values()),related_urls=related)
+    if timestamps: found['first_detected_at']=min(timestamps)
+    if aliases: found['merged_event_ids']=sorted(aliases)
+    found['date_precision']='minute' if found.get('start_time') else 'date'
+
+
 def stable_id(event):
     key='|'.join(str(event.get(k) or '') for k in ('institution_id','title','event_type','start_date','start_time'))
     return 'EV_'+hashlib.sha256(key.encode()).hexdigest()[:18].upper()
@@ -39,31 +107,42 @@ def stable_id(event):
 
 def deduplicate(events):
     result=[]
+    ambiguous={e['event_id'] for e in events if not e.get('start_time') and
+        len({other.get('start_time') for other in events if other.get('start_time') and same_event(e,other)})>1}
     for event in events:
-        found=None
-        for other in result:
-            same=all(event.get(k)==other.get(k) for k in ('institution_id','start_date','event_type','start_time'))
-            if not same: continue
-            a,b=normalized_title(event['title']),normalized_title(other['title'])
-            if event.get('event_type')=='opening':
-                a=re.sub(r'^(?:вернисаж|открытие)\s+','',a); b=re.sub(r'^(?:вернисаж|открытие)\s+','',b)
-            if a==b or (min(len(a),len(b))>18 and SequenceMatcher(None,a,b).ratio()>=0.97):
-                found=other; break
-        if found:
-            evidence={canonical_url(x['url']):x for x in found.get('evidence',[])}
-            evidence.update({canonical_url(x['url']):x for x in event.get('evidence',[])})
-            first=found.get('first_detected_at') or event.get('first_detected_at')
-            original_id=found['event_id']
-            # A provisional reparse cannot downgrade an already confirmed event.
-            replace = event.get('review_status') != 'tentative' or found.get('review_status') == 'tentative'
-            if replace:
-                if event.get('review_status') != 'tentative':
-                    for field in ('uncertainties', 'venue_is_tentative', 'publication_basis', 'title_is_tentative'):
-                        found.pop(field, None)
-                found.update(event)
-            found.update(event_id=original_id, evidence=list(evidence.values()), first_detected_at=first)
+        matches=[other for other in result if event['event_id'] not in ambiguous and other['event_id'] not in ambiguous and same_event(event,other)]
+        # An undated clock cannot choose between two separately scheduled sessions.
+        clocks={e.get('start_time') for e in matches+[event] if e.get('start_time')}
+        if matches and len(clocks)<=1:
+            found=matches[0]
+            _merge(found,event)
+            for other in matches[1:]:
+                _merge(found,other);result.remove(other)
         else: result.append(dict(event))
     return result
+
+
+def preserve_event_ids(events,previous):
+    """Keep old shared links working when a reparse fixes the headline."""
+    for event in events:
+        matches=[old for old in previous if all(event.get(k)==old.get(k) for k in ('institution_id','event_type')) and _same_day_or_period(event,old)
+            and not (event.get('start_time') and old.get('start_time') and event['start_time']!=old['start_time'])
+            and _urls(event)&_urls(old)]
+        if not matches: continue
+        # Never transfer one clockless old ID into multiple explicit sessions.
+        matches=[old for old in matches if sum(bool(_urls(e)&_urls(old)) and all(e.get(k)==old.get(k) for k in ('institution_id','event_type')) and bool(_same_day_or_period(e,old)) for e in events)==1]
+        if not matches: continue
+        canonical=next((old for old in matches if old['event_id']==event['event_id']),None) or min(matches,key=lambda e:(e.get('first_detected_at') or '',e['event_id']))
+        aliases=set(event.get('merged_event_ids',[])+[event['event_id']])
+        for old in matches: aliases.update([old['event_id']]+old.get('merged_event_ids',[]))
+        event['event_id']=canonical['event_id'];aliases.discard(event['event_id'])
+        if aliases:event['merged_event_ids']=sorted(aliases)
+        evidence={canonical_url(x['url']):dict(x) for old in matches for x in old.get('evidence',[])}
+        evidence.update({canonical_url(x['url']):dict(x) for x in event.get('evidence',[])})
+        event['evidence']=list(evidence.values())
+        timestamps=[e.get('first_detected_at') for e in [event]+matches if e.get('first_detected_at')]
+        if timestamps:event['first_detected_at']=min(timestamps)
+    return events
 
 
 def event_type(text):
@@ -77,8 +156,7 @@ def link_parents(events):
     """Resolve exhibition IDs after deduplication without retaining dangling seed IDs."""
     by_id={e['event_id']:e for e in events}
     def title(e):
-        value=normalized_title(e['title'])
-        return re.sub(r'^(?:вернисаж|открытие)\s+','',value) if e['event_type']=='opening' else value
+        return identity_title(e)
     for e in events:
         if e['event_type']!='opening': continue
         old=by_id.get(e.get('parent_event_id'))
@@ -119,6 +197,7 @@ def complete_event(candidate,institution,source,timestamp):
              last_updated_at=timestamp,first_detected_at=e.get('first_detected_at') or timestamp,
              tags=institution.get('tags',[]),link_status='available',link_checked_at=timestamp)
     e['event_id']=e.get('event_id') or stable_id(e)
-    e['evidence']=[{'url':e['primary_url'],'source_id':source['source_id'],'checked_at':timestamp,'status':'available','verification_method':candidate.get('verification_method','http')}]
+    e['evidence']=[{'url':e['primary_url'],'source_id':source['source_id'],'checked_at':timestamp,'status':'available','verification_method':candidate.get('verification_method','http'),
+        **{k:e[k] for k in ('title','start_date','end_date','start_time','date_evidence','title_basis') if e.get(k) is not None}}]
     e['date_precision']='minute' if e.get('start_time') else 'date'
     return e

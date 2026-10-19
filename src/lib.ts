@@ -65,9 +65,6 @@ export function filtersFromURL(): Filters {
   const p = new URLSearchParams(location.search);
   return {
     q: p.get("q") || "",
-    geography: ["all", "moscow_region"].includes(p.get("geography") || "")
-      ? p.get("geography")!
-      : "moscow",
     period: [
       "upcoming",
       "today",
@@ -94,7 +91,6 @@ export function filtersFromURL(): Filters {
 }
 export const DEFAULT_FILTERS: Filters = {
   q: "",
-  geography: "moscow",
   period: "upcoming",
   types: [],
   institution: "",
@@ -122,13 +118,6 @@ export function filterEvents(
       const i = byId.get(e.institution_id);
       const last = e.end_date || e.start_date;
       if (!i) return false;
-      if (f.geography === "moscow" && e.geography_scope === "moscow_region")
-        return false;
-      if (
-        f.geography === "moscow_region" &&
-        e.geography_scope !== "moscow_region"
-      )
-        return false;
       if (
         f.q &&
         !normalize(

@@ -15,6 +15,7 @@ class SocialPost:
     platform: str
     verification: str
     owner: str
+    related_urls: tuple[str, ...] = ()
 
 
 @dataclass
@@ -32,16 +33,42 @@ TIME_MARKER = re.compile(r'(?<!\d)(?:[01]?\d|2[0-3]):[0-5]\d(?!\d)')
 GENERIC_HEADING = re.compile(r'^(?:персональная|групповая|коллективная|новая|открытие|экспозиция)?\s*(?:выставка|выставки|вернисаж|перформанс|лекция|дискуссия|кинопоказ|фестиваль|медиация по выставке)\s*[:.!—–-]?$',re.I)
 
 
+def quoted_title(text):
+    """Keep nested quotation marks inside Russian event titles intact."""
+    for opening,closing in [('«','»'),('“','”'),('"','"')]:
+        start=text.find(opening)
+        if start<0: continue
+        depth=1
+        for index in range(start+1,len(text)):
+            char=text[index]
+            if opening!=closing and char==opening: depth+=1
+            elif char==closing:
+                depth-=1
+                if depth==0:
+                    value=text[start:index+1]
+                    if 2<=len(value)<=190:return value
+                    break
+    return None
+
+
 def _heading(lines, first_date):
-    header=lines[:first_date+1]
+    header=lines[:first_date+3]
     for n,line in enumerate(header):
-        quoted=re.search(r'[«“"]([^»”"\n]{2,150})[»”"]',line)
-        if quoted and EVENT_WORD.search(line[:quoted.start()]): return quoted.group(0)
+        quoted=quoted_title(line)
+        if quoted and (EVENT_WORD.search(line[:line.index(quoted)]) or
+                (line.startswith(quoted) and n and EVENT_WORD.search(header[n-1]))): return quoted
         if GENERIC_HEADING.fullmatch(line) and n+1<len(header):
             following=header[n+1]
-            quoted_following=re.search(r'[«“"]([^»”"\n]{2,150})[»”"]',following)
-            if quoted_following:return quoted_following.group(0)
-            if len(following)<=160 and not DATE_MARKER.search(following) and not TIME_MARKER.fullmatch(following) and not EVENT_WORD.fullmatch(following):return following
+            quoted_following=quoted_title(following)
+            if quoted_following:return quoted_following
+            if 3<=len(following)<=160 and not DATE_MARKER.search(following) and not TIME_MARKER.fullmatch(following) and not EVENT_WORD.fullmatch(following):return following
+    # Telegram headings are often unquoted and separated from the date by emoji.
+    first = next((line for line in header if re.search(r'[\wА-Яа-я]', line)), '')
+    if (3 <= len(first) <= 120 and first_date<=4 and re.match(r'[A-Za-zА-Яа-яЁё]',first)
+            and EVENT_WORD.search(' '.join(lines[:4])) and not DATE_MARKER.search(first)
+            and not GENERIC_HEADING.fullmatch(first)
+            and not re.search(r'^(?:сегодня|завтра|приглашаем|жд[её]м|успейте|напоминаем|осталось|разыгрываем|открывается|открытие|друзья|дорогие|открылся|делимся|на выставке|в рамках|в работах|обратите внимание|работы участников|музей|рбк)\b', first, re.I)):
+        return first
     return None
 
 
@@ -95,6 +122,7 @@ def parse_post(post: SocialPost):
     title_line=next((n for n,line in enumerate(lines[:date_indices[0]+1]) if title in line),0)
     context=lines[title_line]
     if title_line and GENERIC_HEADING.fullmatch(lines[title_line-1]):context=lines[title_line-1]+' '+context
+    if event_type(context)=='other': context += ' ' + ' '.join(lines[:min(len(lines),date_indices[0]+4)])
     kind='exhibition' if dates['end_date'] and re.search(r'выставк',context,re.I) else 'screening' if re.search(r'кинопоказ|показ фильма',context,re.I) else 'workshop' if re.search(r'мастер.класс|воркшоп',context,re.I) else event_type(context)
     if kind=='other':return [],'Нужно уточнить тип события'
     if kind=='exhibition' and not dates['end_date']:
@@ -117,7 +145,8 @@ def parse_post(post: SocialPost):
     base=dict(title=title,primary_url=post.url,published_at=post.published_at,
               description=' '.join(excerpt)[:500],confidence='social_scoped',
               date_basis='explicit_year' if explicit_year else 'publication_context',
-              verification_method=post.verification,address=address,geography_scope=geography,city=city)
+              verification_method=post.verification,address=address,geography_scope=geography,city=city,
+              related_urls=list(post.related_urls),title_basis='post_heading')
     result=[dict(base,event_type=kind,start_date=dates['start_date'],end_date=dates['end_date'],
                  start_time=None if kind=='exhibition' else dates['start_time'])]
     if dates['opening_date'] and kind=='exhibition':

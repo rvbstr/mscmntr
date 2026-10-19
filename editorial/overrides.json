@@ -3,7 +3,9 @@
   "manual_events": [],
   "corrections": {},
   "suppress": [],
-  "duplicates": {},
+  "duplicates": {
+    "EV_CB9C55BEEBF1AECAAB": "EV_CC6FF6666FE72B167B"
+  },
   "priorities": {},
   "disabled_sources": [],
   "parser_rules": {

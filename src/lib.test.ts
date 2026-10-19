@@ -137,35 +137,21 @@ describe("filters and dates", () => {
 });
 
 describe("geography of public announcements", () => {
-  it("keeps the Moscow default separate from explicitly regional events", () => {
-    const regional = { ...event, geography_scope: "moscow_region" as const };
+  it("shows all catalogued locations together by default", () => {
+    const regional = {
+      ...event,
+      event_id: "regional",
+      geography_scope: "moscow_region" as const,
+    };
     expect(
       filterEvents(
-        [regional],
+        [event, regional],
         [institution],
         { ...DEFAULT_FILTERS },
         personal,
         "2026-10-16",
       ),
-    ).toHaveLength(0);
-    expect(
-      filterEvents(
-        [regional],
-        [institution],
-        { ...DEFAULT_FILTERS, geography: "all" },
-        personal,
-        "2026-10-16",
-      ),
-    ).toHaveLength(1);
-    expect(
-      filterEvents(
-        [event],
-        [institution],
-        { ...DEFAULT_FILTERS, geography: "moscow_region" },
-        personal,
-        "2026-10-16",
-      ),
-    ).toHaveLength(0);
+    ).toHaveLength(2);
   });
 });
 

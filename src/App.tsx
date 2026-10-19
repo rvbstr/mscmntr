@@ -463,6 +463,21 @@ export default function App() {
     }
   }, [personal]);
   useEffect(() => {
+    if (!feed) return;
+    const aliases = new Map(
+      feed.events.flatMap((e) =>
+        (e.merged_event_ids || []).map((id) => [id, e.event_id] as const),
+      ),
+    );
+    if (!aliases.size) return;
+    setPersonal((old) => ({
+      ...old,
+      saved: [...new Set(old.saved.map((id) => aliases.get(id) || id))],
+      read: [...new Set(old.read.map((id) => aliases.get(id) || id))],
+    }));
+    setEventId((id) => aliases.get(id) || id);
+  }, [feed]);
+  useEffect(() => {
     if (eventId && feed?.events.some((e) => e.event_id === eventId))
       setPersonal((p) =>
         p.read.includes(eventId) ? p : { ...p, read: [...p.read, eventId] },
@@ -478,7 +493,6 @@ export default function App() {
     if (view !== "agenda") p.set("view", view);
     const map: Record<string, string> = {
       q: filters.q,
-      geography: filters.geography === "moscow" ? "" : filters.geography,
       period: filters.period === "upcoming" ? "" : filters.period,
       type: filters.types.join(","),
       institution: filters.institution,
@@ -547,7 +561,9 @@ export default function App() {
         ),
     [catalog, filters, personal, directoryState],
   );
-  const selectedEvent = feed?.events.find((e) => e.event_id === eventId);
+  const selectedEvent = feed?.events.find(
+    (e) => e.event_id === eventId || e.merged_event_ids?.includes(eventId),
+  );
   const selectedSpace = catalog?.institutions.find(
     (i) => i.institution_id === spaceId,
   );
@@ -597,12 +613,6 @@ export default function App() {
       patch({ onlyFavorites: false }),
     );
   if (eventView) {
-    if (filters.geography !== "moscow")
-      addFilter(
-        "geography",
-        filters.geography === "all" ? "Москва и Подмосковье" : "Подмосковье",
-        () => patch({ geography: "moscow" }),
-      );
     filters.types.forEach((type) =>
       addFilter(`type:${type}`, EVENT_TYPES[type] || type, () =>
         patch({ types: filters.types.filter((t) => t !== type) }),
@@ -686,17 +696,6 @@ export default function App() {
     today,
   );
 
-  const hiddenRegionalCount =
-    eventView && filters.geography === "moscow"
-      ? filterEvents(
-          feed?.events || [],
-          catalog?.institutions || [],
-          { ...filters, geography: "moscow_region" },
-          personal,
-          today,
-        ).length
-      : 0;
-
   const filterSummary = (
     <>
       {(feed?.metadata.run_status === "blocked" || feed?.metadata.partial) && (
@@ -739,29 +738,6 @@ export default function App() {
           <button className="clear-filters" onClick={reset}>
             Сбросить фильтры
           </button>
-        </div>
-      )}
-      {eventView && (
-        <div className="geography-note">
-          <span>
-            География:{" "}
-            {filters.geography === "moscow"
-              ? "только Москва"
-              : filters.geography === "all"
-                ? "Москва и Подмосковье"
-                : "только Подмосковье"}
-            .
-            {hiddenRegionalCount > 0 &&
-              ` По остальным фильтрам в Подмосковье найдено ещё: ${hiddenRegionalCount}.`}
-          </span>
-          {filters.geography === "moscow" && (
-            <button
-              className="text-link"
-              onClick={() => patch({ geography: "all" })}
-            >
-              Включить Подмосковье <ArrowRight size={16} />
-            </button>
-          )}
         </div>
       )}
     </>
@@ -1176,19 +1152,6 @@ export default function App() {
                 </button>
                 {(view === "agenda" || view === "calendar") && (
                   <>
-                    {(view === "agenda" || view === "calendar") && (
-                      <label className="select-label">
-                        География
-                        <select
-                          value={filters.geography}
-                          onChange={(e) => patch({ geography: e.target.value })}
-                        >
-                          <option value="moscow">Москва</option>
-                          <option value="all">Москва и Подмосковье</option>
-                          <option value="moscow_region">Подмосковье</option>
-                        </select>
-                      </label>
-                    )}
                     <div className="filter-section">
                       <div className="eyebrow">ТИП СОБЫТИЯ</div>
                       {Object.entries(EVENT_TYPES).map(([id, label]) => (
@@ -1999,10 +1962,22 @@ export default function App() {
           <div className="evidence-block">
             <span className="eyebrow">ИСТОЧНИКИ И ПРОВЕРКА</span>
             {selectedEvent.evidence.map((e, index) => (
-              <Ext href={e.url} key={index}>
-                {e.url}
-                <ArrowUpRight size={13} />
-              </Ext>
+              <div className="evidence-source" key={e.url || index}>
+                <Ext href={e.url}>
+                  {e.url}
+                  <ArrowUpRight size={13} />
+                </Ext>
+                {e.title && e.title_basis && e.title_basis !== "fallback" && (
+                  <p>Заголовок в источнике: {e.title}</p>
+                )}
+                {e.start_date && (
+                  <p>
+                    Даты: {dayLabel(e.start_date)}
+                    {e.end_date && ` — ${dayLabel(e.end_date)}`}
+                    {e.start_time && `, ${e.start_time}`}
+                  </p>
+                )}
+              </div>
             ))}
             <p>
               Обнаружено: {stamp(selectedEvent.first_detected_at)}

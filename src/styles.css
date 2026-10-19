@@ -2379,8 +2379,13 @@ sup {
   }
 }
 
-/* Published review snapshot and explicit geography coverage. */
-.geography-note,
+/* Published review snapshot. */
+.evidence-source {
+  margin: 18px 0;
+}
+.evidence-source p {
+  margin: 6px 0;
+}
 .queue-entry {
   display: flex;
   align-items: center;
@@ -2389,12 +2394,6 @@ sup {
   gap: 8px 24px;
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
-}
-.geography-note {
-  font-size: 18px;
-}
-.geography-note > span {
-  flex: 1 1 220px;
 }
 .review-guide {
   margin: 24px 0;
