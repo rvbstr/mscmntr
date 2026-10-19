@@ -341,6 +341,7 @@ test("system theme and mobile source/calendar views stay usable at larger sizes"
   await page.emulateMedia({ colorScheme: "dark" });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/?view=sources");
+  await page.locator(".workspace-layout").waitFor();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expect(page.locator(".source-row").first()).toBeVisible();
   expect(
@@ -465,6 +466,7 @@ test("missing review snapshot does not block the agenda and can be retried", asy
     route.fulfill({ status: 503, body: "Unavailable" }),
   );
   await page.goto("/");
+  await page.locator(".workspace-layout").waitFor();
   await expect(page.locator(".event-row").first()).toBeVisible();
   await page
     .getByRole("navigation", { name: "Основная навигация" })
