@@ -2526,3 +2526,39 @@ sup {
   display: block;
   font-size: 14px;
 }
+
+.uncertainty-note summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+.uncertainty-note details[open] summary {
+  margin-bottom: 10px;
+}
+.calendar-disclosure-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px 0;
+  text-align: left;
+  font-size: 18px;
+}
+.calendar-disclosure-button > svg:last-child {
+  margin-left: auto;
+}
+.calendar-disclosure-button[aria-expanded="true"] > svg:last-child {
+  transform: rotate(180deg);
+}
+.sidebar.mobile-open .agenda-calendar-disclosure .mini-calendar {
+  display: block;
+}
+.load-more > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.sidebar.mobile-open .agenda-calendar-disclosure,
+.sidebar.mobile-open .calendar-disclosure-button {
+  column-span: all;
+}

@@ -10,6 +10,10 @@ def discover_links(html,url,limit=4):
     for anchor in soup.select('a[href]'):
         target=urljoin(url,anchor['href']); p=urlsplit(target)
         if p.hostname != urlsplit(url).hostname or not direct_url(target): continue
+        if p.path.rstrip('/') == urlsplit(url).path.rstrip('/'): continue
+        language = urlsplit(url).path.strip('/').split('/')[0]
+        other = p.path.strip('/').split('/')[0]
+        if language in ('ru','en') and other in ('ru','en') and language != other: continue
         if re.search(r'\.(jpg|png|webp|pdf|mp4|zip|svg)$',p.path,re.I): continue
         if re.search(r'(exhibition|event|vystavk|vystav|afisha|/news/|/programme/|/projects/)',p.path,re.I):
             if target not in links: links.append(target)

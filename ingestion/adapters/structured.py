@@ -25,7 +25,8 @@ def parse_jsonld(html, url):
             for n in node: walk(n)
         elif isinstance(node,dict):
             types=node.get('@type',[]); types=[types] if isinstance(types,str) else types
-            if any(t.split('/')[-1].endswith('Event') for t in types):
+            types=[t.rsplit('/',1)[-1].rsplit('#',1)[-1] for t in types if isinstance(t,str)]
+            if any(t.endswith('Event') for t in types):
                 start,time=_iso(node.get('startDate')); end,endtime=_iso(node.get('endDate'))
                 if start and isinstance(node.get('name'),str):
                     loc=node.get('location') or {}; loc=loc[0] if isinstance(loc,list) and loc else loc

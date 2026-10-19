@@ -23,6 +23,7 @@ def direct_url(url):
         if p.hostname in ('t.me','tg.me','telegram.me'): return bool(re.fullmatch(r'(?:s/)?[\w]+/\d+',path))
         if 'instagram.com' in p.hostname: return path.startswith(('p/','reel/'))
         if p.hostname in ('vk.com','vk.ru'): return 'wall' in path or 'wall' in p.query
+        if path.split('/')[0].lower() in ('ru','en') and '/' in path: path=path.split('/',1)[1]
         return bool(path) and path.lower() not in {'ru','en','events','exhibitions','calendar','news','ru/events','ru/exhibitions','ru/news','about','events.html','index.html','programme','ru/programme'}
     except ValueError: return False
 
@@ -114,7 +115,7 @@ def complete_event(candidate,institution,source,timestamp):
         if exact:e['geography_scope']=exact.get('geography_scope');e['city']=exact.get('city')
         elif len(scopes)==1:e['geography_scope']=next(iter(scopes))
     e.update(institution_id=institution['institution_id'],venue_name=institution['name'],source_id=source['source_id'],
-             source_platform=source['platform'],timezone='Europe/Moscow',review_status='verified',last_seen_at=timestamp,
+             source_platform=source['platform'],timezone='Europe/Moscow',review_status=candidate.get('review_status','verified'),last_seen_at=timestamp,
              last_updated_at=timestamp,first_detected_at=e.get('first_detected_at') or timestamp,
              tags=institution.get('tags',[]),link_status='available',link_checked_at=timestamp)
     e['event_id']=e.get('event_id') or stable_id(e)

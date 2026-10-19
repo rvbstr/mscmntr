@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 from ingestion.import_catalog import ROOT
 from ingestion.http import Client, SourceError
 from ingestion.adapters import parse_jsonld, parse_feed, parse_html, discover_links
+from ingestion.adapters.advanced import parse_advanced, russian_version
 from ingestion.adapters.social import parse_post
 from ingestion.adapters.telegram import collect_telegram
 from ingestion.adapters.instagram import collect_instagram, configured_instagram_api
@@ -90,17 +91,20 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
                         for item in parsed:review.append({'source_id':sid,'candidate':item,'reason':collection.note})
             else:
                 html,url=client.fetch(source['url'])
+                localized=russian_version(html,url) if source['platform']=='website' else None
+                if localized: html,url=client.fetch(localized)
                 if source['platform']=='rss' or html.lstrip().startswith(('<?xml','<rss','<feed')):
                     extracted=parse_feed(html,url)
                 else:
                     rule=overrides['parser_rules'].get(sid) or overrides['parser_rules'].get(urlsplit(url).hostname) or source.get('parser_config') or {}
                     if isinstance(rule,str):rule=json.loads(rule)
-                    extracted=parse_jsonld(html,url) or parse_institution(html,url) or parse_html(html,url,rule)
+                    extracted=parse_jsonld(html,url) or parse_institution(html,url) or parse_html(html,url,rule) or parse_advanced(html,url)
                     links=list(dict.fromkeys(institution_links(html,url,max_pages)+discover_links(html,url,max_pages)))[:max_pages]
                     for link in links:
                         try:
-                            body,final=client.fetch(link);extracted.extend(parse_jsonld(body,final) or parse_institution(body,final) or parse_html(body,final,rule))
+                            body,final=client.fetch(link);extracted.extend(parse_jsonld(body,final) or parse_institution(body,final) or parse_html(body,final,rule) or parse_advanced(body,final))
                         except SourceError as exc:page_errors.append(str(exc))
+            if any(e.get('confidence') in ('readable_html','rich_metadata','inferred_opening') for e in extracted): report['adapter']='trafilatura_extruct'
             successful+=1; checked_successfully.add(sid); accepted=[]; seen=set()
             # Ambiguous shared website ownership is sent for editorial attribution.
             relevant=[i for i in linked if any(r['institution_id']==i['institution_id'] and r['source_id']==sid and r.get('role')=='announcements' for r in catalog['institution_sources'])]
@@ -109,6 +113,8 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
                     review.append({'source_id':sid,'candidate':item,'reason':'Принадлежность канала требует внешнего подтверждения; автоматическая атрибуция отключена'}); continue
                 if source.get('requires_location_confirmation') and item.get('geography_scope') not in ('moscow','moscow_region'):
                     review.append({'source_id':sid,'candidate':item,'reason':'Канал публикует события разных городов; нужно подтверждение московской площадки'}); continue
+                if item.get('review_status')=='tentative' and overrides.get('publication_policy')!='include_tentative':
+                    review.append({'source_id':sid,'candidate':item,'reason':'Первый день выставки: время и формат открытия требуют уточнения'}); continue
                 if not valid_event(item):
                     review.append({'source_id':sid,'candidate':item,'reason':'Нужны точная дата и отдельная страница события'}); continue
                 owners=relevant
@@ -141,7 +147,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
             old_keys={event_signature(e) for e in old_events}
             new=sum(event_signature(e) not in old_keys for e in accepted)
             incomplete=bool(page_errors or len(review)>review_start)
-            report.update(status='working' if accepted and not incomplete else 'partial',last_successful_check=timestamp,detected_events=len(accepted),new_events=new,
+            report.update(status='working' if accepted and not incomplete else 'partial',last_successful_check=timestamp,detected_events=sum(e.get('review_status')!='tentative' for e in accepted),new_events=new,
                           error=('Часть страниц или кандидатов требует проверки. Подтверждённые события сохранены.' if incomplete else None) if accepted else 'Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.')
             if collection and not collection.live:report.update(status='review',last_successful_check=old.get('last_successful_check'),error=collection.note)
             elif collection and source.get('requires_identity_confirmation'):report.update(status='review',error='Публичная лента прочитана; принадлежность канала требует внешнего подтверждения. События отправляются на проверку.')

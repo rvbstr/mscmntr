@@ -83,6 +83,7 @@ test("event type/date tags clear independently and restore the calendar", async 
 
 test("status tags work for source and directory statuses", async ({ page }) => {
   await page.goto("/?view=sources");
+  await page.locator(".workspace-layout").waitFor();
   await page
     .getByRole("combobox", { name: "Статус источника" })
     .selectOption("working");
@@ -543,14 +544,24 @@ test("tentative events show their uncertainties in calendar cards and exports", 
     })
     .first();
   await expect(card.getByText("Предварительно", { exact: true })).toBeVisible();
-  await expect(
-    card.getByRole("complementary", { name: "Предварительные данные" }),
-  ).toContainText(event.uncertainties[0]);
+  const explanation = card.getByRole("complementary", {
+    name: "Предварительные данные",
+  });
+  await expect(explanation.locator("p").first()).toBeHidden();
+  await explanation.locator("summary").click();
+  await expect(explanation.locator("p").first()).toBeVisible();
+  await expect(explanation).toContainText(event.uncertainties[0]);
   await card.getByRole("button", { name: event.title, exact: true }).click();
   const dialog = page.getByRole("dialog");
   await expect(
     dialog.getByRole("complementary", { name: "Предварительные данные" }),
   ).toBeVisible();
+  const dialogExplanation = dialog.getByRole("complementary", {
+    name: "Предварительные данные",
+  });
+  await expect(dialogExplanation.locator("p").first()).toBeHidden();
+  await dialogExplanation.locator("summary").click();
+  await expect(dialogExplanation.locator("p").first()).toBeVisible();
   const downloading = page.waitForEvent("download");
   await dialog
     .getByRole("button", { name: "В календарь", exact: true })
@@ -563,4 +574,100 @@ test("tentative events show their uncertainties in calendar cards and exports", 
   );
   expect(content).toContain("STATUS:TENTATIVE");
   expect(content).toContain("[Предварительно]");
+});
+
+test("agenda loads another page in display order and resets after filtering", async ({
+  page,
+}) => {
+  await page.goto("/?period=all&geography=all");
+  await page.locator(".workspace-layout").waitFor();
+  const rows = page.locator(".event-row");
+  await expect(rows).toHaveCount(24);
+  const first = await rows.locator(".event-title").allTextContents();
+  await page
+    .getByRole("button", { name: "Смотреть ещё события", exact: true })
+    .click();
+  await expect(rows).toHaveCount(48);
+  expect(
+    (await rows.locator(".event-title").allTextContents()).slice(0, 24),
+  ).toEqual(first);
+  await rows.locator(".event-title").last().click();
+  await page.getByRole("button", { name: "Закрыть", exact: true }).click();
+  await expect(rows).toHaveCount(48);
+  await page
+    .getByRole("combobox", { name: "Сортировка", exact: true })
+    .selectOption("new");
+  await expect(rows).toHaveCount(24);
+  await page
+    .getByRole("button", { name: "Смотреть ещё события", exact: true })
+    .click();
+  await expect(rows).toHaveCount(48);
+  await page
+    .getByRole("textbox", { name: "Поиск по афише и каталогу" })
+    .fill("Сапожников Сергей. 10 - 26");
+  await expect(rows).toHaveCount(2);
+  await expect(
+    page.getByRole("button", { name: "Смотреть ещё события", exact: true }),
+  ).toHaveCount(0);
+});
+
+test("only the agenda mini calendar collapses, including on mobile", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.locator(".workspace-layout").waitFor();
+  await expect(page.locator(".mini-calendar")).toHaveCount(0);
+  await page
+    .getByRole("button", { name: "Показать календарь", exact: true })
+    .click();
+  await expect(page.locator(".mini-calendar")).toBeVisible();
+  await page
+    .getByRole("button", { name: "Скрыть календарь", exact: true })
+    .click();
+  await expect(page.locator(".mini-calendar")).toHaveCount(0);
+  await page
+    .getByRole("navigation", { name: "Основная навигация" })
+    .getByRole("button", { name: /Календарь/ })
+    .click();
+  await expect(page.locator(".full-calendar")).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Показать календарь", exact: true }),
+  ).toHaveCount(0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page
+    .getByRole("navigation", { name: "Основная навигация" })
+    .getByRole("button", { name: /Афиша/ })
+    .click();
+  await page.getByRole("button", { name: "Фильтры", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Показать календарь", exact: true })
+    .click();
+  await expect(page.locator(".mini-calendar")).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+});
+
+test("XL opening appears in tomorrow's openings and keeps the original link", async ({
+  page,
+}) => {
+  await page.clock.setFixedTime(new Date("2026-10-19T12:00:00+03:00"));
+  await page.goto("/?institution=MSK034&type=opening&period=tomorrow");
+  await page.locator(".workspace-layout").waitFor();
+  await expect(page.locator(".event-row")).toHaveCount(1);
+  await expect(page.locator(".event-row")).toContainText(
+    "Сапожников Сергей. 10 - 26",
+  );
+  await page.locator(".event-title").click();
+  const dialog = page.getByRole("dialog");
+  await expect(
+    dialog.getByRole("link", { name: /Оригинальный анонс/ }),
+  ).toHaveAttribute("href", "https://xl.gallery/ru/exhibition/10-26-287");
+  await expect(dialog).toContainText("20 октября 2026");
+  await dialog.locator(".uncertainty-note summary").click();
+  await expect(dialog.locator(".uncertainty-note")).toContainText(
+    "Отдельное время вернисажа на сайте не указано",
+  );
 });

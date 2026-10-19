@@ -77,19 +77,30 @@ const PERIODS = [
   { id: "ongoing", label: "Сейчас идут" },
   { id: "archive", label: "Архив" },
 ];
+const EVENT_PAGE_SIZE = 24;
+const EVENT_GROUPS = [
+  "Сегодня",
+  "Завтра",
+  "На этой неделе",
+  "Позже",
+  "Сейчас идут",
+  "Архив",
+];
 const pad = (n: number) => String(n).padStart(2, "0");
 function UncertaintyNote({ event }: { event: ArtEvent }) {
   if (event.review_status !== "tentative") return null;
   return (
     <aside className="uncertainty-note" aria-label="Предварительные данные">
-      <strong>Предварительные данные</strong>
-      {(
-        event.uncertainties || [
-          "Даты и место требуют уточнения по оригинальному анонсу.",
-        ]
-      ).map((note) => (
-        <p key={note}>{note}</p>
-      ))}
+      <details>
+        <summary>Предварительные данные: пояснение</summary>
+        {(
+          event.uncertainties || [
+            "Даты и место требуют уточнения по оригинальному анонсу.",
+          ]
+        ).map((note) => (
+          <p key={note}>{note}</p>
+        ))}
+      </details>
     </aside>
   );
 }
@@ -345,6 +356,9 @@ export default function App() {
   const [sourceStatus, setSourceStatus] = useState("");
   const [directoryState, setDirectoryState] = useState("");
   const [visibleSpaces, setVisibleSpaces] = useState(18);
+  const [visibleEvents, setVisibleEvents] = useState(EVENT_PAGE_SIZE);
+  const [agendaCalendarOpen, setAgendaCalendarOpen] = useState(false);
+  useEffect(() => setVisibleEvents(EVENT_PAGE_SIZE), [filters, view, feed]);
   const today = moscowToday();
   const sourceMap = useMemo(
     () => new Map(feed?.sources.map((s) => [s.source_id, s])),
@@ -927,6 +941,15 @@ export default function App() {
     (grouped[label] ??= []).push(e);
   }
 
+  const agendaEvents =
+    filters.sort === "new"
+      ? events
+      : EVENT_GROUPS.flatMap((label) => grouped[label] || []);
+  const visibleAgendaEvents = agendaEvents.slice(0, visibleEvents);
+  const visibleAgendaIds = new Set(
+    visibleAgendaEvents.map((event) => event.event_id),
+  );
+
   return (
     <>
       <a className="skip-link" href="#main">
@@ -1300,16 +1323,39 @@ export default function App() {
                           </p>
                         )}
                     </details>
-                    <MiniCalendar
-                      month={month}
-                      setMonth={setMonth}
-                      selected={calendarDay || filters.from}
-                      onSelect={(day) => {
-                        setCalendarDay(day);
-                        patch({ period: "all", from: day, to: day });
-                      }}
-                      events={feed.events}
-                    />
+                    {view === "agenda" && (
+                      <button
+                        className="calendar-disclosure-button"
+                        aria-expanded={agendaCalendarOpen}
+                        aria-controls="agenda-calendar"
+                        onClick={() => setAgendaCalendarOpen((open) => !open)}
+                      >
+                        <CalendarDays size={18} />
+                        {agendaCalendarOpen
+                          ? "Скрыть календарь"
+                          : "Показать календарь"}
+                        <ChevronDown size={16} />
+                      </button>
+                    )}
+                    {(view === "calendar" || agendaCalendarOpen) && (
+                      <div
+                        id={view === "agenda" ? "agenda-calendar" : undefined}
+                        className={
+                          view === "agenda" ? "agenda-calendar-disclosure" : ""
+                        }
+                      >
+                        <MiniCalendar
+                          month={month}
+                          setMonth={setMonth}
+                          selected={calendarDay || filters.from}
+                          onSelect={(day) => {
+                            setCalendarDay(day);
+                            patch({ period: "all", from: day, to: day });
+                          }}
+                          events={feed.events}
+                        />
+                      </div>
+                    )}
                   </>
                 )}
                 {activeCount > 0 && (
@@ -1439,31 +1485,47 @@ export default function App() {
                       </>
                     ) : events.length ? (
                       filters.sort === "new" ? (
-                        events.map(renderEvent)
+                        visibleAgendaEvents.map(renderEvent)
                       ) : (
                         <div className="event-groups">
-                          {[
-                            "Сегодня",
-                            "Завтра",
-                            "На этой неделе",
-                            "Позже",
-                            "Сейчас идут",
-                            "Архив",
-                          ]
-                            .filter((k) => grouped[k])
-                            .map((k) => (
-                              <section className="event-group" key={k}>
-                                <h3>
-                                  {k}
-                                  <span>{grouped[k].length}</span>
-                                </h3>
-                                {grouped[k].map(renderEvent)}
-                              </section>
-                            ))}
+                          {EVENT_GROUPS.filter((k) =>
+                            grouped[k]?.some((event) =>
+                              visibleAgendaIds.has(event.event_id),
+                            ),
+                          ).map((k) => (
+                            <section className="event-group" key={k}>
+                              <h3>
+                                {k}
+                                <span>{grouped[k].length}</span>
+                              </h3>
+                              {grouped[k]
+                                .filter((event) =>
+                                  visibleAgendaIds.has(event.event_id),
+                                )
+                                .map(renderEvent)}
+                            </section>
+                          ))}
                         </div>
                       )
                     ) : (
                       emptyEvents()
+                    )}
+                    {view === "agenda" && events.length > visibleEvents && (
+                      <button
+                        className="load-more"
+                        aria-label="Смотреть ещё события"
+                        onClick={() =>
+                          setVisibleEvents((count) => count + EVENT_PAGE_SIZE)
+                        }
+                      >
+                        <span>
+                          Смотреть ещё <Plus size={18} />
+                        </span>
+                        <small>
+                          Показано {visibleAgendaEvents.length} из{" "}
+                          {events.length}
+                        </small>
+                      </button>
                     )}
                   </>
                 )}

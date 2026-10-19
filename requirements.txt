@@ -5,3 +5,5 @@ openpyxl==3.1.5
 pytest==8.4.2
 
 -r requirements-social.txt
+trafilatura==2.3.1
+extruct==0.18.0
