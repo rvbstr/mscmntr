@@ -2,27 +2,26 @@
   "metadata": {
     "schema_version": "1.0",
     "timezone": "Europe/Moscow",
-    "last_attempted_refresh": "2026-10-19T11:21:31+00:00",
+    "last_attempted_refresh": "2026-10-20T08:28:53+00:00",
     "last_completed_refresh": "2026-10-17T12:19:28+00:00",
-    "last_successful_update": "2026-10-19T11:22:00+00:00",
-    "generated_at": "2026-10-19T11:22:00+00:00",
+    "last_successful_update": "2026-10-20T08:29:19+00:00",
+    "generated_at": "2026-10-20T08:29:19+00:00",
     "catalog_updated_on": "2026-10-19",
     "source_count": 189,
-    "successful_sources_this_run": 2,
-    "event_count": 324,
-    "review_count": 6,
+    "successful_sources_this_run": 1,
+    "event_count": 309,
+    "review_count": 23,
     "partial": true,
     "run_status": "partial",
     "refresh_interval_hours": 72,
     "scan_options": {
-      "child_pages_per_source": 3,
+      "child_pages_per_source": 1,
       "source_ids": [
-        "SRC_84209B8B23A4A9",
-        "SRC_28DF613953905C"
+        "SRC_38BDD935F2F119"
       ]
     },
     "last_editorial_update": "2026-10-19T11:19:15+00:00",
-    "tentative_count": 138,
+    "tentative_count": 122,
     "publication_policy": "include_tentative"
   },
   "events": [
@@ -182,57 +181,6 @@
       "date_precision": "date"
     },
     {
-      "title": "Африканское искусство: боги, предки, жизнь",
-      "start_date": "2025-12-02",
-      "start_time": null,
-      "end_date": "2027-01-17",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Карта континента из масок и фетишейСо 2 декабря 2025 по 17 января 2027 года музей «ЗИЛАРТ» показывает на четвёртом этаже собрание африканского искусства — более 800 предметов, которые почти тридцать лет, начиная с 1980-х, собирал ленинградско-нью-йоркский художник и скульптор Михаил Звягин. Коллекция охватывает народы и цивилизации Западной и Центральной Африки: бронзу и терракоту правителей Нигерии […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/afrikanskoe-iskusstvo-bogi-predki-zhizn/",
-      "address": "Москва, бульвар Братьев Весниных, 3",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "video",
-        "digital",
-        "education",
-        "research",
-        "international"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_F5CBAC914D6D15CB1A",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/afrikanskoe-iskusstvo-bogi-predki-zhizn/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
       "title": "Переживание радости",
       "primary_url": "https://ruarts.foundation/ru/projects/archive/75",
       "event_type": "exhibition",
@@ -267,57 +215,6 @@
         }
       ],
       "date_precision": "date"
-    },
-    {
-      "title": "Неистовый конец",
-      "start_date": "2026-01-31",
-      "start_time": null,
-      "end_date": "2026-12-31",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Двадцать лет спустя, на своих же руинах«Неистовый конец» — проект Михаила Сидлина, запущенный 31 января, в день рождения кластера, и устроенный как растянутое прощание: экспозиция дополняется по мере того, как территория пустеет. Название взято из пастернаковского перевода «Ромео и Джульетты». Участники — пятнадцать художников первой сессии, от старожилов «Фабрики» до тех, кто попал сюда впервые; […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/neistovyj-konecz/",
-      "address": "Москва, Переведеновский переулок, д. 18",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "video",
-        "digital",
-        "education",
-        "research",
-        "international"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_5F3641089B40578E7F",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/neistovyj-konecz/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
     },
     {
       "description": "Зайки, мы продолжаем серию авторских экскурсий с куратором и основательницей проекта\nГоворящая Копия Юлией Картошкиной\n! На этой неделе экскурсии пройдут в четверг (12 марта) и субботу (14 марта). Записаться можно через личные сообщения. Всех ждем!",
@@ -402,41 +299,53 @@
       "date_precision": "date"
     },
     {
+      "event_id": "EV_DE2271B26A3D8F837E",
+      "institution_id": "MSK003",
       "title": "Вадим Сидур. Карта мифа. Постоянная экспозиция",
-      "start_date": "2026-04-16",
-      "start_time": null,
-      "end_date": "2027-03-27",
-      "end_time": null,
       "event_type": "exhibition",
-      "description": "Пластика памяти: тело как след катастрофы Обновлённая постоянная экспозиция Музея Вадима Сидура (открыта с 16 апреля 2026, площадка входит в состав ММОМА) охватывает эволюцию мастера — от ранних станковых форм 1950-х до ассамбляжей из найденных предметов 1970–1980-х. В центре — «Памятник оставшимся без погребения» (модель установленного в Перово монумента «Скорбящие матери»), а также «Причёсывающаяся девушка» […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/vadim-sidur-karta-mifa-postoyannaya-ekspozicziya/",
-      "address": "Москва, Новогиреевская ул., 37А",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
+      "start_date": "2026-04-16",
+      "end_date": "2027-03-28",
+      "primary_url": "https://mmoma.ru/visit/gallery/cartography_of_myth/description",
+      "address": "Москва, Новогиреевская улица, 37А",
+      "venue_name": "Музей Вадима Сидура · ММОМА",
+      "description": "Обновлённая постоянная экспозиция Музея Вадима Сидура, филиала ММОМА. Скульптура и ассамбляжи Вадима Сидура.",
+      "editor_verified_at": "2026-10-20T08:23:52+00:00",
+      "verification_method": "editorial_public_page",
+      "source_authority": "official",
+      "title_basis": "event_heading",
+      "date_basis": "explicit_date_block",
+      "date_evidence": "16.04.2026–28.03.2027",
       "geography_scope": "moscow",
       "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
+      "source_id": "EDITORIAL",
+      "source_platform": "editorial",
       "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
+      "review_status": "verified",
+      "last_seen_at": "2026-10-20T08:28:53+00:00",
+      "last_updated_at": "2026-10-20T08:23:54+00:00",
       "first_detected_at": "2026-10-19T10:10:35+00:00",
       "tags": [
-        "artist_run",
+        "young_art",
         "video",
-        "digital",
-        "education",
-        "research",
-        "international"
+        "art_history",
+        "institutional_critique",
+        "nomadic"
       ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_DE2271B26A3D8F837E",
+      "link_status": "available",
+      "link_checked_at": "2026-10-20T08:23:52+00:00",
       "evidence": [
+        {
+          "url": "https://mmoma.ru/visit/gallery/cartography_of_myth/description",
+          "source_id": "EDITORIAL",
+          "checked_at": "2026-10-20T08:23:52+00:00",
+          "status": "available",
+          "verification_method": "editorial_public_page",
+          "title": "Вадим Сидур. Карта мифа. Постоянная экспозиция",
+          "start_date": "2026-04-16",
+          "end_date": "2027-03-28",
+          "date_evidence": "16.04.2026–28.03.2027",
+          "title_basis": "event_heading"
+        },
         {
           "url": "https://ewert.ru/exhibition/vadim-sidur-karta-mifa-postoyannaya-ekspozicziya/",
           "source_id": "SRC_0D538B01F0C28F",
@@ -444,13 +353,11 @@
           "checked_at": "2026-10-17T12:05:36+00:00"
         }
       ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
+      "date_precision": "date",
+      "confidence": "editorial",
+      "verified_at": "2026-10-20T08:23:52+00:00",
+      "automatic_link_status": "blocked",
+      "related_urls": []
     },
     {
       "title": "Гриша | Вадим Сидур. Театр отсутствия",
@@ -584,57 +491,6 @@
       "publication_basis": "owner_authorized_tentative"
     },
     {
-      "title": "Феномены. Современная московская живопись и пересборка реального",
-      "start_date": "2026-04-24",
-      "start_time": null,
-      "end_date": "2026-11-04",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Академическая школа на территории совриска «Феномены» (24 апреля — 4 ноября 2026, ММОМА на Петровке) — проект кураторов Анны Арутюнян и Андрея Егорова о поколении живописцев, учившихся в начале 2000-х в Суриковском и Строгановском институтах. Одиннадцать авторов — от гиперреализма до беспредметности — показывают, как классический метод отвечает на технологические и экзистенциальные вызовы. Каждому отведён […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/fenomeny-sovremennaya-moskovskaya-zhivopis-i-peresborka-realnogo/",
-      "address": "Москва, ул. Петровка, 25",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "video",
-        "digital",
-        "education",
-        "research",
-        "international"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_CD438DD3E7D673068E",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/fenomeny-sovremennaya-moskovskaya-zhivopis-i-peresborka-realnogo/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
       "description": "Экскурсия по выставке\n«Строгость и красота»\n16 мая 2026 года в 18-00\n.\nЭкспозиция даёт возможность увидеть современное искусство в особом ракурсе – неразрывного диалога с прошлым и стремления принести и оставить семена вдохновения для будущих поколений художников и ценителей прекрасного.\nВыставка в значительной степени связана с «Новой Академией» Тимура Новикова. Вместе с тем, многие произведения экспонированы здесь скорее по причине безупречного исполнения или прекрасного образа, запечатлённого в них.\nВошедшие в историю искусства художники-концептуалисты, новое поколение молодых художников разных направлений и течений, обративших свой взор к прекрасному, чьи отдельные картины ничем не противоречат идее строгости и красоты, дополняют экспозицию, расширяя представление зрителя о стремлении к идеалу, и являются примером того, что стремление к возвышенному присуще каждому.\nЭкскурсию проведёт Дмитрий Гайков, член кураторской группы выставки.\nВход на экскурсию свободный.\n*Георгий Гурьянов \"\nАвиатор\n\" (1999)",
       "published_at": "2026-05-14T12:00:03+00:00",
       "primary_url": "https://t.me/ekaterinafoundation/673",
@@ -678,51 +534,6 @@
       "date_precision": "date",
       "confidence": "tentative",
       "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Уловить стиль эпохи. Графика Николая Кузьмина",
-      "start_date": "2026-05-28",
-      "start_time": null,
-      "end_date": "2026-11-14",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Рисовальщик из «тринадцати»Фокус-выставка в 19-м зале на Крымском Валу собрана вокруг наследия Николая Кузьмина (1890–1987) — графика, книжного художника и одного из организаторов группы «13». Показаны акварели, входившие в выставки объединения, книжная графика и городские пейзажи из фондов музея, многие из которых поступили в собрание непосредственно от автора.Зачем идтиАкварели 1950-х годов, переданные наследниками художника в […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/ulovit-stil-epohi-grafika-nikolaya-kuzmina/",
-      "address": "улица Крымский Вал, 10, Москва",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "MSK006",
-      "venue_name": "Новая Третьяковка / Третьяковская галерея",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "art_history"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_E3E0B5126AB509E1C5",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/ulovit-stil-epohi-grafika-nikolaya-kuzmina/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": false,
       "publication_basis": "owner_authorized_tentative"
     },
     {
@@ -812,207 +623,6 @@
       "publication_basis": "owner_authorized_tentative"
     },
     {
-      "title": "Ненаивное наивное",
-      "start_date": "2026-06-02",
-      "start_time": null,
-      "end_date": "2027-02-07",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Искусство вне правил: как примитив стал новаторством С 2 июня 2026 по 7 февраля 2027 в музее-заповеднике «Царицыно» пройдет выставка «Ненаивное наивное». Экспозиция объединит почти 500 произведений художников, чье творчество не вписывалось в академические каноны, но сформировало особое направление XX века. Посетители увидят работы, редко покидающие частные собрания и музейные запасники: фантасмагорические полотна Павла Леонова, […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/nenaivnoe-naivnoe/",
-      "address": "Москва, ул. Дольская, 1",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "video",
-        "digital",
-        "education",
-        "research",
-        "international"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_922646E347966F952F",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/nenaivnoe-naivnoe/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Открытие выставки и экскурсия",
-      "start_date": "2026-06-12",
-      "start_time": "19:00",
-      "end_date": "2026-06-12",
-      "end_time": "20:00",
-      "event_type": "opening",
-      "description": "12 июня в 19:00 в галерее Корней состоится открытие выставки «Все останется между домами». Куратор Татьяна Якушева проведёт экскурсию по экспозиции, расскажет о концепции проекта и работах участников. Вход свободный.\\n",
-      "primary_url": "https://ewert.ru/exhibition/otkrytie-vystavki-i-ekskursiya/",
-      "address": "Москва, Большая Никитская ул., 22/2, 3 подъезд, 2 этаж",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "minute",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH03",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_4C493AEF5B1B5F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "installation",
-        "video",
-        "conceptual",
-        "young_art"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_492A909526CF3026F8",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/otkrytie-vystavki-i-ekskursiya/",
-          "source_id": "SRC_4C493AEF5B1B5F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Все останется между домами",
-      "start_date": "2026-06-12",
-      "start_time": null,
-      "end_date": "2026-06-14",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Двор как вселенная: повседневные практики в пространстве гаражей С 12 по 14 июня в галерее Корней (при поддержке галереи Шапито) пройдёт выставка «Все останется между домами» (куратор Татьяна Якушева). Проект […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/vse-ostanetsya-mezhdu-domami/",
-      "address": "Москва, Большая Никитская ул., 22/2, 3 подъезд, 2 этаж",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH03",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_4C493AEF5B1B5F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "installation",
-        "video",
-        "conceptual",
-        "young_art"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_93D7DFADF44AD8F282",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/vse-ostanetsya-mezhdu-domami/",
-          "source_id": "SRC_4C493AEF5B1B5F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Перформанс Дарьи Чермяниной «Clean Girl»",
-      "start_date": "2026-06-13",
-      "start_time": "19:00",
-      "end_date": "2026-06-13",
-      "end_time": "20:00",
-      "event_type": "performance",
-      "description": "13 июня в 19:00 Дарья Чермянина представит перформанс «Clean Girl» — исследование ритуалов чистоты, гигиенических норм и их связи с повседневными практиками в городском районе. Вход свободный.\\n",
-      "primary_url": "https://ewert.ru/exhibition/performans-dari-chermyaninoj-clean-girl/",
-      "address": "Москва, Большая Никитская ул., 22/2, 3 подъезд, 2 этаж",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "minute",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH03",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_4C493AEF5B1B5F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "installation",
-        "video",
-        "conceptual",
-        "young_art"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_D067BC0B9762A67345",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/performans-dari-chermyaninoj-clean-girl/",
-          "source_id": "SRC_4C493AEF5B1B5F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
       "description": "Ира Конюхова и Павел Сохацкий приглашают вас на чайную церемонию «Пересечение циклов печали и радости», посвящённую завершению выставки «Прерванный диалог» в галерее Devyatnadtsat’. Во время церемонии Ира прочтёт неформальную лекцию о найденных архивных материалах в центре Вали Экспорт, о городе сигарет и его безупречных газонах.\nЦеремония состоится 17 июня в 18:00. Будем рады предварительной регистрации — для понимания необходимого количества чайных сервизов.r",
       "published_at": "2026-06-13T14:50:08+00:00",
       "primary_url": "https://t.me/devyatnadtsat/890",
@@ -1060,159 +670,6 @@
       ],
       "date_precision": "minute",
       "confidence": "tentative",
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Георгий Ечеистов: мастер графики и чувств",
-      "start_date": "2026-06-18",
-      "start_time": null,
-      "end_date": "2026-10-25",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Линия и чувство: переоткрытие Георгия Ечеистова С 18 июня по 25 октября в Доме Остроухова пройдёт выставка «Георгий Ечеистов: мастер графики и чувств». Проект, разделённый на два зала, впервые столь полно представляет наследие ученика Владимира Фаворского. Первая часть посвящена раннему, футуристическому периоду (1918–1920-е): рукописные книги, манифесты и макеты объединения МАСТАРТЧУВ («Артель Чувствующих»). Во втором зале […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/georgij-echeistov-master-grafiki-i-chuvstv/",
-      "address": "Москва, Трубниковский переулок, 17, строение 1",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "video",
-        "digital",
-        "education",
-        "research",
-        "international"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_F5E6237E5C6FC2FBA3",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/georgij-echeistov-master-grafiki-i-chuvstv/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Торжество меланхолии",
-      "start_date": "2026-06-26",
-      "start_time": null,
-      "end_date": "2027-01-10",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Победа без жеста: почему меланхолия — это тихая форма торжества С 26 июня 2026 по 10 января 2027 в Фонде Ruarts проходит философско-художественный проект «Торжество меланхолии» (куратор Нина Гомиашвили). Выставка возвращает меланхолии её подлинную глубину, превращая оксюморон в концептуальный ключ. Более 30 современных художников — от Ольги Божко и Валерия Кошлякова до Георгия Гурьянова и […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/torzhestvo-melanholii/",
-      "address": "Москва, Трубниковский переулок, 6",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "video",
-        "digital",
-        "education",
-        "research",
-        "international"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_BEB0B8D49BE15FC9C6",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/torzhestvo-melanholii/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Тающий дневник. Летний сезон",
-      "start_date": "2026-07-03",
-      "start_time": null,
-      "end_date": "2026-10-18",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Дом, который диктует условия жизни Летний сезон «Тающего дневника» — серии проектов Музея «Гараж» в Доме Наркомфина — занял коммунальный блок здания и продлится до 18 октября 2026 года. Алёна Троицкая и Ксения Маркелова делали свои работы, живя в самом доме, и обе пришли к схожему выводу: архитектура, обещавшая освобождение быта, оказалась сводом предписаний, которым […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/tayushhij-dnevnik-letnij-sezon/",
-      "address": "Москва, Новинский бульвар, д. 25, корп. 1",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "video",
-        "digital",
-        "education",
-        "research",
-        "international"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_68577080C74E2C3BB4",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/tayushhij-dnevnik-letnij-sezon/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
       "venue_is_tentative": true,
       "publication_basis": "owner_authorized_tentative"
     },
@@ -1432,57 +889,6 @@
       "publication_basis": "owner_authorized_tentative"
     },
     {
-      "title": "Восхождение",
-      "start_date": "2026-07-30",
-      "start_time": null,
-      "end_date": "2027-01-31",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Осетия, отлитая в бронзеПерсональная выставка Владимира Соскиева «Восхождение» (30 июля 2026 — 31 января 2027, Музей нонконформизма) представляет пластику одного из значительных отечественных скульпторов. В его работах постоянно проступают традиции древней осетинской культуры: мысли о родном крае, историческая память о светлых и драматических событиях этой земли и судьбах её людей. Ключевые для художника категории — […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/voshozhdenie/",
-      "address": "улица Мясницкая, 24/7, строение 2, Москва",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "video",
-        "digital",
-        "education",
-        "research",
-        "international"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_64BB3C835186AADFFE",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/voshozhdenie/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
       "description": "31 июля открывается проект\n«Гистерезис»\n, который объединяет работы выпускников 12-й версии курса «Экспериментальный звук и мультимедиа технологии».\nВ физике и биологии гистерезис описывает состояние системы, зависящее не только от внешнего воздействия, но и от памяти о прошлом. Проект обращается к звуку, памяти и присутствию как к нестабильным процессам, которые формируются через сопротивление материи, обратные связи и нелинейные скачки.\nАвторы: Анастасия Абисалова, Ян Воробьев, Юлия Демьянова, Роман Колесников, Георгий Ларин, Елизавета Лобан, Анастасия Пестинова, Елизавета Савина.\nВыставка проходит в пространстве звуковой галереи галереи и включает восьмиканальные звуковые работы и два объекта.\nВернисаж стартует в 19:00 в галерее «Краснохолмская», вход свободный.",
       "published_at": "2026-07-29T21:25:47+00:00",
       "primary_url": "https://t.me/soundartist_ru/687",
@@ -1527,153 +933,6 @@
       ],
       "date_precision": "date",
       "confidence": "tentative",
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Лужники. Есть место истории",
-      "start_date": "2026-07-31",
-      "start_time": null,
-      "end_date": "2026-11-29",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Стадион как сюжет русского искусстваК семидесятилетию Олимпийского комплекса ММОМА на Гоголевском собрал выставку, где биография стадиона рассказана не хроникой, а произведениями: русский авангард начала XX века, советская и постсоветская пластика, работы молодых авторов, сделанные специально для проекта. Архитектуру экспозиции разработало бюро «Мастерская Б». Отдельный зал занимает серия фотографа Сергея Сапожникова, снятая к юбилею.Зачем идтиУвидеть архив […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/luzhniki-est-mesto-istorii/",
-      "address": "Москва, Гоголевский бул., 10, стр. 1–2",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH06",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "video",
-        "digital",
-        "education",
-        "research",
-        "international"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_005061D69B4E87307D",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/luzhniki-est-mesto-istorii/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Режим ожидания",
-      "start_date": "2026-08-07",
-      "start_time": null,
-      "end_date": "2026-10-31",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Пауза, у которой есть содержание «Режим ожидания» открывается 7 августа в pop/off/art 2.0 — втором пространстве галереи в Большом Палашёвском переулке — и продлится до 31 октября. Куратор проекта Элина Губайдуллина собрала десять авторов вокруг состояния, которое культура привыкла списывать в потерянное время. Состав намеренно разновозрастный: рядом оказываются классики независимой сцены и художники, чья практика […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/rezhim-ozhidaniya/",
-      "address": "Большой Палашёвский переулок, 9, Москва",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "MSK036",
-      "venue_name": "pop/off/art + pop/off/art 2.0",
-      "source_id": "SRC_0D538B01F0C28F",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "archives",
-        "conceptual"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_B9912CAED7F5C6B0BD",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/rezhim-ozhidaniya/",
-          "source_id": "SRC_0D538B01F0C28F",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": false,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
-      "title": "Букеты и закаты",
-      "start_date": "2026-08-13",
-      "start_time": null,
-      "end_date": "2026-09-09",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Двадцать пять решений, принятых прямо в зале«Букеты и закаты» — первая групповая выставка «Пространства пространств», нового artist-run пространства на улице Уткина. Проект идёт с 13 августа по 9 сентября 2026 […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/bukety-i-zakaty/",
-      "address": "Москва, ул. Уткина, 48 с4, этаж 3, комната 312",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "geography_scope": "moscow",
-      "city": "Москва",
-      "institution_id": "WATCH05",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_B75A9F751CDA14",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run",
-        "archives",
-        "art_history",
-        "experimental",
-        "material_practices"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_5ACA649843246049C2",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/bukety-i-zakaty/",
-          "source_id": "SRC_B75A9F751CDA14",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
       "venue_is_tentative": true,
       "publication_basis": "owner_authorized_tentative"
     },
@@ -2916,50 +2175,6 @@
       "publication_basis": "owner_authorized_tentative"
     },
     {
-      "title": "Открытие выставки «Среда обитания XXVIII 6-28»",
-      "start_date": "2026-09-30",
-      "start_time": "19:00",
-      "end_date": "2026-09-30",
-      "end_time": "19:00",
-      "event_type": "opening",
-      "description": "Вечер открытия проекта о заселении бывшего технического помещения: участники и куратор Алексей Шиханцов встречают первых зрителей накануне официального старта выставки. Точные координаты можно уточнить у куратора в соцсетях.\\n",
-      "primary_url": "https://ewert.ru/exhibition/otkrytie-vystavki-sreda-obitaniya-xxviii-6-28/",
-      "address": "Москва, ул. 7-я Кожуховская, 15А",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "minute",
-      "institution_id": "WATCH04",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_D2FC64C8098577",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_78ABC752C49940E2B5",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/otkrytie-vystavki-sreda-obitaniya-xxviii-6-28/",
-          "source_id": "SRC_D2FC64C8098577",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
-    },
-    {
       "description": "Художник галереи «Триумф» Сергей Филатов принял участие в выставке 7 Московской Арт Премии, которая откроется 1 октября в арт-пространстве «Паркинг Галерея» парка «Зарядье».\nВыставка объединяет проекты последних полутора лет, связанные с культурной жизнью Москвы, — от изобразительного искусства и архитектуры до музыки, кино, театра и литературы.\nВыставка продлится до 8 марта 2027 года.\nРаботы Сергея Филатова, вошедшие в экспозицию, были представлены в этом году на его персональной выставке «\nРядом с вами мне свойственно звучать\n» в галерее «Триумф».",
       "published_at": "2026-09-30T16:06:18+00:00",
       "primary_url": "https://t.me/triumphgallery/4346",
@@ -3090,50 +2305,6 @@
       ],
       "date_precision": "date",
       "geography_scope": "moscow"
-    },
-    {
-      "title": "Среда обитания XXVIII 6-28",
-      "start_date": "2026-10-01",
-      "start_time": null,
-      "end_date": "2026-10-22",
-      "end_time": null,
-      "event_type": "other",
-      "description": "Терраформирование бывшего гаража: заселение как конфликтВыставка «Среда обитания XXVIII 6-28» идёт с 1 по 22 октября в ±space — новом самоорганизованном пространстве на 7-й Кожуховской. Куратор — Алексей Шиханцов, он […]\\n",
-      "primary_url": "https://ewert.ru/exhibition/sreda-obitaniya-xxviii-6-28/",
-      "address": "Москва, ул. 7-я Кожуховская, 15А",
-      "published_at": null,
-      "confidence": "tentative",
-      "date_precision": "date",
-      "institution_id": "WATCH04",
-      "venue_name": "Площадка уточняется",
-      "source_id": "SRC_D2FC64C8098577",
-      "source_platform": "website",
-      "timezone": "Europe/Moscow",
-      "review_status": "tentative",
-      "last_seen_at": "2026-10-19T10:10:35+00:00",
-      "last_updated_at": "2026-10-19T10:10:35+00:00",
-      "first_detected_at": "2026-10-19T10:10:35+00:00",
-      "tags": [
-        "artist_run"
-      ],
-      "link_status": "not_checked",
-      "link_checked_at": "2026-10-17T12:05:36+00:00",
-      "event_id": "EV_144601F8EDEDECD110",
-      "evidence": [
-        {
-          "url": "https://ewert.ru/exhibition/sreda-obitaniya-xxviii-6-28/",
-          "source_id": "SRC_D2FC64C8098577",
-          "status": "not_checked",
-          "checked_at": "2026-10-17T12:05:36+00:00"
-        }
-      ],
-      "uncertainties": [
-        "Нужно уточнить связь события с пространством",
-        "Связь с площадкой предположительная; адрес события уточняйте в оригинале.",
-        "Доступность ссылки на анонс не подтверждена; проверьте её перед посещением."
-      ],
-      "venue_is_tentative": true,
-      "publication_basis": "owner_authorized_tentative"
     },
     {
       "description": "Выставка победителей грантовой программы 2025 современных художников Игоря Елукова, Полины Тимофеевой и антрополога Макара Терёшина –\n«Поля падения»\nофициально открыта!\nВ экспозиции представлены объекты из космического металла, собранного художниками в полях падения, видео-арт и серия архивных, документальных и постановочных фотографий. «Основная часть объектов – это так называемые «разрывы» – куски обшивки, искореженные при падении и затем деформированные временем и техногенным воздействием. Это создает большое количество различных вариаций форм. И мы, подчиняясь естественной пластике материала, сохраняем эту специфику, минимально вмешиваясь в обработку», – комментируют художники.\nВыставка будет работать до 1 ноября. Подробности и билеты по\nссылке\n.",
@@ -11444,6 +10615,102 @@
       "publication_basis": "owner_authorized_tentative"
     },
     {
+      "title": "Дамир Муратов. Неполное собрание сочинений",
+      "title_basis": "event_heading",
+      "event_type": "exhibition",
+      "primary_url": "https://11-12gallery.com/exhibitions/nepolnoe-sobranie-sochinenij/",
+      "start_date": "2026-10-20",
+      "end_date": "2026-12-05",
+      "start_time": null,
+      "date_evidence": "20 октября  - 5 декабря",
+      "confidence": "institution_html",
+      "source_authority": "official",
+      "date_basis": "current_project_context",
+      "review_status": "tentative",
+      "uncertainties": [
+        "Год не указан на странице; определён по периоду проекта, отмеченного галереей как текущий."
+      ],
+      "geography_scope": "moscow",
+      "institution_id": "MSK051",
+      "venue_name": "11.12 Gallery",
+      "source_id": "SRC_38BDD935F2F119",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "last_seen_at": "2026-10-20T08:28:53+00:00",
+      "last_updated_at": "2026-10-20T08:28:53+00:00",
+      "first_detected_at": "2026-10-20T08:28:53+00:00",
+      "tags": [
+        "nomadic"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-20T08:28:53+00:00",
+      "event_id": "EV_2C10EFA7B479B71377",
+      "evidence": [
+        {
+          "url": "https://11-12gallery.com/exhibitions/nepolnoe-sobranie-sochinenij/",
+          "source_id": "SRC_38BDD935F2F119",
+          "checked_at": "2026-10-20T08:28:53+00:00",
+          "status": "available",
+          "verification_method": "http",
+          "title": "Дамир Муратов. Неполное собрание сочинений",
+          "start_date": "2026-10-20",
+          "end_date": "2026-12-05",
+          "date_evidence": "20 октября  - 5 декабря",
+          "title_basis": "event_heading"
+        }
+      ],
+      "date_precision": "date"
+    },
+    {
+      "title": "Дамир Муратов. Неполное собрание сочинений",
+      "title_basis": "event_heading",
+      "event_type": "opening",
+      "primary_url": "https://11-12gallery.com/exhibitions/nepolnoe-sobranie-sochinenij/",
+      "start_date": "2026-10-20",
+      "end_date": null,
+      "start_time": null,
+      "date_evidence": "20 октября  - 5 декабря",
+      "confidence": "inferred_opening",
+      "source_authority": "official",
+      "date_basis": "exhibition_start",
+      "review_status": "tentative",
+      "uncertainties": [
+        "Год не указан на странице; определён по периоду проекта, отмеченного галереей как текущий.",
+        "Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано."
+      ],
+      "end_time": null,
+      "geography_scope": "moscow",
+      "institution_id": "MSK051",
+      "venue_name": "11.12 Gallery",
+      "source_id": "SRC_38BDD935F2F119",
+      "source_platform": "website",
+      "timezone": "Europe/Moscow",
+      "last_seen_at": "2026-10-20T08:28:53+00:00",
+      "last_updated_at": "2026-10-20T08:28:53+00:00",
+      "first_detected_at": "2026-10-20T08:28:53+00:00",
+      "tags": [
+        "nomadic"
+      ],
+      "link_status": "available",
+      "link_checked_at": "2026-10-20T08:28:53+00:00",
+      "event_id": "EV_D6BF39E5A057388BB0",
+      "evidence": [
+        {
+          "url": "https://11-12gallery.com/exhibitions/nepolnoe-sobranie-sochinenij/",
+          "source_id": "SRC_38BDD935F2F119",
+          "checked_at": "2026-10-20T08:28:53+00:00",
+          "status": "available",
+          "verification_method": "http",
+          "title": "Дамир Муратов. Неполное собрание сочинений",
+          "start_date": "2026-10-20",
+          "date_evidence": "20 октября  - 5 декабря",
+          "title_basis": "event_heading"
+        }
+      ],
+      "date_precision": "date",
+      "parent_event_id": "EV_2C10EFA7B479B71377"
+    },
+    {
       "description": "В ПиранезиLAB 20 октября откроется персональная выставка Елены Самородовой-Сониной «Дикие камни».\nНа время кабинет печатного искусства преобразится в кабинет минералогии, представив серию офортов — изящных «портретов» камней, раскрашенных минеральными пигментами. Тонкий рисунок Елены Самородовой-Сониной фиксирует восемь валунов в разных обстоятельствах пейзажа, собирая их в собственную версию естественнонаучного атласа.\nГётит / Хлорит / Амфиболит / Гематит кровавик / Селадонит / Пиролюзит / Горный хрусталь / Глауконит / Волконскоит / Ладожская серая / Охра розовая / Охра светлая / Охра санкирная / Лазурит Байкальский / Болюс / Кобальт / Мумия бокситовая жжёная / Яшма красная / Сидерит / Ярозит / Новгородская красная\n____\nЕлена Самородова-Сонина\n«Дикие камни»\n20.10. — 06.12.2026\nКабинет печатного искусства ПиранезиLAB\n4-й Сыромятнический переулок, 1/8с21\nЦСИ Винзавод, С1",
       "published_at": "2026-10-15T12:50:09+00:00",
       "primary_url": "https://t.me/piranesilab/2329",
@@ -14393,7 +13660,7 @@
       "detected_events": 0,
       "error": "Есть предварительные события; даты и места требуют уточнения по пометкам на карточках.",
       "last_successful_check": "2026-10-17T12:05:36+00:00",
-      "tentative_events": 12
+      "tentative_events": 0
     },
     {
       "source_id": "SRC_1044CB1654D8C7",
@@ -14780,13 +14047,14 @@
     {
       "source_id": "SRC_38BDD935F2F119",
       "status": "partial",
-      "last_attempted_at": "2026-10-17T12:15:55+00:00",
-      "last_successful_extraction": null,
-      "new_events": 0,
+      "last_attempted_at": "2026-10-20T08:28:53+00:00",
+      "last_successful_extraction": "2026-10-20T08:28:53+00:00",
+      "new_events": 2,
       "detected_events": 0,
-      "error": "Страница доступна; подтверждённые события не извлечены. Нужен точный адаптер или редакционная проверка.",
-      "last_successful_check": "2026-10-17T12:05:36+00:00",
-      "tentative_events": 0
+      "error": "Есть предварительные события; даты и места требуют уточнения по пометкам на карточках.",
+      "last_successful_check": "2026-10-20T08:28:53+00:00",
+      "tentative_events": 2,
+      "adapter": "trafilatura_extruct"
     },
     {
       "source_id": "SRC_3AB6B92EA8E8C5",
@@ -14960,7 +14228,7 @@
       "detected_events": 0,
       "error": "Есть предварительные события; даты и места требуют уточнения по пометкам на карточках.",
       "last_successful_check": "2026-10-17T12:05:36+00:00",
-      "tentative_events": 3
+      "tentative_events": 0
     },
     {
       "source_id": "SRC_4C7C6B4155DE3E",
@@ -15347,7 +14615,7 @@
     {
       "source_id": "SRC_7E11E8ADD080AB",
       "status": "blocked",
-      "last_attempted_at": "2026-10-17T12:08:13+00:00",
+      "last_attempted_at": "2026-10-20T08:23:54+00:00",
       "last_successful_extraction": null,
       "new_events": 0,
       "detected_events": 0,
@@ -15864,7 +15132,7 @@
       "detected_events": 0,
       "error": "Есть предварительные события; даты и места требуют уточнения по пометкам на карточках.",
       "last_successful_check": "2026-10-17T12:05:36+00:00",
-      "tentative_events": 1
+      "tentative_events": 0
     },
     {
       "source_id": "SRC_BBCF92F99373BE",
@@ -16054,7 +15322,7 @@
       "detected_events": 0,
       "error": "Есть предварительные события; даты и места требуют уточнения по пометкам на карточках.",
       "last_successful_check": "2026-10-17T12:05:36+00:00",
-      "tentative_events": 2
+      "tentative_events": 0
     },
     {
       "source_id": "SRC_D4DD3DACF7E567",

@@ -6,8 +6,23 @@ import {
   filterInstitutions,
   moscowToday,
   safeDay,
+  filtersFromURL,
 } from "./lib";
 import type { ArtEvent, Institution, Personal } from "./types";
+import { vi } from "vitest";
+
+it("selects openings initially and preserves explicit all-types and exhibition URLs", () => {
+  for (const [search, types] of [
+    ["", ["opening"]],
+    ["?type=all", []],
+    ["?type=", []],
+    ["?type=exhibition", ["exhibition"]],
+  ] as const) {
+    vi.stubGlobal("location", { search });
+    expect(filtersFromURL().types).toEqual(types);
+  }
+  vi.unstubAllGlobals();
+});
 const institution = {
   institution_id: "A",
   name: "Иваний галерея",

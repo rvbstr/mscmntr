@@ -7,6 +7,7 @@ from ingestion.adapters.social import DATE_MARKER, EVENT_WORD, TIME_MARKER, _hea
 from ingestion.dates import extract_dates, MONTH
 from ingestion.models import complete_event, valid_event, deduplicate, link_parents, event_type, preserve_event_ids
 from ingestion.editorial import apply_overrides
+from ingestion.primary import is_aggregator, require_primary_sources
 
 
 def _title(text, fallback):
@@ -131,6 +132,8 @@ def publish_review(catalog, review, reports, timestamp):
             if not row.get('source_id'): remaining.append(row)
             continue  # Removed institutions and their orphaned sources stay removed.
         candidate = row.get('candidate') or {}
+        if is_aggregator(candidate.get('primary_url')):
+            remaining.append(row);continue
         if 'за пределами Москвы' in row['reason']:
             remaining.append(row); continue
         items = [candidate] if valid_event(candidate) else tentative_post(candidate)
@@ -177,6 +180,7 @@ def publish_snapshot(catalog, overrides, previous, timestamp):
     added, review = publish_review(catalog, list(raw.values()) + previous.get('review', []), reports, timestamp)
     events = deduplicate(kept + added)
     events = link_parents(apply_overrides(preserve_event_ids(events,previous.get('events',[])),overrides))
+    events,review=require_primary_sources(events,review)
     events.sort(key=lambda e:(e['start_date'], e.get('start_time') or '23:59', e['title']))
     annotate_reports(reports, events)
     metadata = {**previous.get('metadata', {}), 'generated_at':timestamp, 'last_editorial_update':timestamp,

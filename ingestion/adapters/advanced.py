@@ -41,7 +41,7 @@ def _first_days(events):
         if any(e['event_type'] == 'opening' and e['start_date'] == event['start_date'] and e['primary_url'] == event['primary_url'] for e in events): continue
         result.append(dict(event, event_type='opening', end_date=None, start_time=event.get('start_time'), end_time=None,
             review_status='tentative', confidence='inferred_opening', date_basis='exhibition_start',
-            uncertainties=['Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано.' if not event.get('start_time') else 'Отмечены дата и время начала выставки из разметки сайта; отдельный вернисаж не подтверждён.']))
+            uncertainties=list(event.get('uncertainties',[]))+['Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано.' if not event.get('start_time') else 'Отмечены дата и время начала выставки из разметки сайта; отдельный вернисаж не подтверждён.']))
     return result
 
 

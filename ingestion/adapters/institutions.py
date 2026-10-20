@@ -8,6 +8,8 @@ from ingestion.dates import extract_dates
 from ingestion.models import event_type
 from ingestion.adapters.programmes import parse_garage, parse_ruarts, parse_zotov, next_state
 from ingestion.adapters.hse import parse_hse
+from ingestion.adapters.mmoma import parse_mmoma
+from ingestion.adapters.gallery1112 import parse_1112
 
 
 def parse_ges2(html,url):
@@ -71,7 +73,7 @@ def parse_cube(html,url):
     return [dict(title=heading.get_text(' ',strip=True),primary_url=url,event_type='exhibition',description=description,confidence='institution_html',start_date=dates['start_date'],end_date=dates['end_date'],start_time=None)]
 
 
-def parse_institution(html,url):
+def parse_institution(html,url,context=None):
     host=urlsplit(url).hostname
     if host=='ges-2.org':return parse_ges2(html,url)
     if host=='prpr312.ru':return parse_prpr(html,url)
@@ -80,6 +82,8 @@ def parse_institution(html,url):
     if host=='ruarts.foundation':return parse_ruarts(html,url)
     if host=='centrezotov.ru':return parse_zotov(html,url)
     if host=='art.hse.ru':return parse_hse(html,url)
+    if host=='mmoma.ru':return parse_mmoma(html,url)
+    if host=='11-12gallery.com':return parse_1112(html,url,context)
     return []
 
 
@@ -101,6 +105,7 @@ def institution_links(html,url,limit=6):
         if p.hostname!=host or not p.path.strip('/'):continue
         if host=='cube.moscow' and ('vystavka-' in p.path or 'vystavki-' in p.path):result.append(target)
         elif host=='art.hse.ru' and re.match(r'^/gallery/[^/]+/?$',p.path):result.append(target)
+        elif host=='mmoma.ru' and re.match(r'^/visit/gallery/[^/]+(?:/description)?/?$',p.path):result.append(target)
         elif host=='prpr312.ru' and p.path.count('/')<=2 and a.get_text(' ',strip=True) and p.path.strip('/') not in ('exhibitions','artists','reviews','texts','about'):
             result.append(target)
     return [link for link in dict.fromkeys(result) if link!=url][:limit]

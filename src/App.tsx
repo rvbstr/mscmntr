@@ -494,7 +494,7 @@ export default function App() {
     const map: Record<string, string> = {
       q: filters.q,
       period: filters.period === "upcoming" ? "" : filters.period,
-      type: filters.types.join(","),
+      type: filters.types.join(",") || "all",
       institution: filters.institution,
       district: filters.district,
       category: filters.category,
@@ -799,13 +799,6 @@ export default function App() {
             )}
           </button>
           <UncertaintyNote event={e} />
-          {e.description && (
-            <p>
-              {e.description.length > 500
-                ? e.description.slice(0, 500) + "…"
-                : e.description}
-            </p>
-          )}
         </div>
         <div className="event-actions">
           <button

@@ -76,7 +76,11 @@ export function filtersFromURL(): Filters {
     ].includes(p.get("period") || "")
       ? p.get("period")!
       : "upcoming",
-    types: (p.get("type") || "").split(",").filter(Boolean),
+    types: p.has("type")
+      ? (p.get("type") || "")
+          .split(",")
+          .filter((type) => !!type && type !== "all")
+      : ["opening"],
     institution: p.get("institution") || "",
     district: p.get("district") || "",
     category: p.get("category") || "",

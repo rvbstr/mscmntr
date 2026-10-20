@@ -1,6 +1,25 @@
 {
   "$schema": "./overrides.schema.json",
-  "manual_events": [],
+  "manual_events": [
+    {
+      "event_id": "EV_DE2271B26A3D8F837E",
+      "institution_id": "MSK003",
+      "title": "Вадим Сидур. Карта мифа. Постоянная экспозиция",
+      "event_type": "exhibition",
+      "start_date": "2026-04-16",
+      "end_date": "2027-03-28",
+      "primary_url": "https://mmoma.ru/visit/gallery/cartography_of_myth/description",
+      "address": "Москва, Новогиреевская улица, 37А",
+      "venue_name": "Музей Вадима Сидура · ММОМА",
+      "description": "Обновлённая постоянная экспозиция Музея Вадима Сидура, филиала ММОМА. Скульптура и ассамбляжи Вадима Сидура.",
+      "editor_verified_at": "2026-10-20T08:23:52+00:00",
+      "verification_method": "editorial_public_page",
+      "source_authority": "official",
+      "title_basis": "event_heading",
+      "date_basis": "explicit_date_block",
+      "date_evidence": "16.04.2026–28.03.2027"
+    }
+  ],
   "corrections": {},
   "suppress": [],
   "duplicates": {

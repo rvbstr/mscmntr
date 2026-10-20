@@ -1,5 +1,95 @@
 import { test, expect } from "@playwright/test";
 
+test("11.12 opening appears today with its official page and no invented clock", async ({
+  page,
+}) => {
+  await page.clock.setFixedTime(new Date("2026-10-20T12:00:00+03:00"));
+  await page.goto("/?institution=MSK051&period=today");
+  const row = page.locator(".event-row");
+  await expect(row).toHaveCount(1);
+  await expect(row).toContainText("Дамир Муратов. Неполное собрание сочинений");
+  await expect(row.locator(".event-kicker")).toContainText("Открытие");
+  await row.locator(".event-title").click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toContainText("20 октября 2026");
+  await expect(
+    dialog.getByRole("link", { name: /Оригинальный анонс/ }),
+  ).toHaveAttribute(
+    "href",
+    "https://11-12gallery.com/exhibitions/nepolnoe-sobranie-sochinenij/",
+  );
+  await dialog.locator(".uncertainty-note summary").click();
+  await expect(dialog).toContainText(
+    "Отдельное время вернисажа на сайте не указано",
+  );
+});
+
+test("openings start selected and clearing the type persists after reload", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.locator(".workspace-layout").waitFor();
+  await expect(
+    page.getByRole("checkbox", { name: "Открытие", exact: true }),
+  ).toBeChecked();
+  await expect(page).toHaveURL(/type=opening/);
+  await page
+    .getByRole("button", { name: "Убрать фильтр: Открытие", exact: true })
+    .click();
+  await expect(page).toHaveURL(/type=all/);
+  await page.reload();
+  await expect(
+    page.getByRole("checkbox", { name: "Открытие", exact: true }),
+  ).not.toBeChecked();
+  await page.goto("/?type=exhibition");
+  await expect(
+    page.getByRole("checkbox", { name: "Выставка", exact: true }),
+  ).toBeChecked();
+  await expect(
+    page.getByRole("checkbox", { name: "Открытие", exact: true }),
+  ).not.toBeChecked();
+});
+
+test("Sidur uses MMOMA and descriptions appear only in the opened card", async ({
+  page,
+}) => {
+  await page.goto(
+    "/?institution=MSK003&type=exhibition&period=all&event=EV_DE2271B26A3D8F837E",
+  );
+  const dialog = page.getByRole("dialog");
+  await expect(
+    dialog.getByRole("heading", {
+      name: "Вадим Сидур. Карта мифа. Постоянная экспозиция",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(dialog.locator(".detail-venue")).toContainText(
+    "Музей Вадима Сидура · ММОМА",
+  );
+  await expect(dialog).toContainText("28 марта 2027");
+  await expect(dialog.locator(".detail-description")).toContainText(
+    "Обновлённая постоянная экспозиция",
+  );
+  await expect(
+    dialog.getByRole("link", { name: /Оригинальный анонс/ }),
+  ).toHaveAttribute(
+    "href",
+    "https://mmoma.ru/visit/gallery/cartography_of_myth/description",
+  );
+  await page.getByRole("button", { name: "Закрыть", exact: true }).click();
+  const row = page
+    .locator(".event-row")
+    .filter({ hasText: "Вадим Сидур. Карта мифа" });
+  await expect(row).toHaveCount(1);
+  await expect(row).not.toContainText("Обновлённая постоянная экспозиция");
+  await expect(
+    row.getByRole("link", { name: /Первоисточник:/ }),
+  ).toHaveAttribute(
+    "href",
+    "https://mmoma.ru/visit/gallery/cartography_of_myth/description",
+  );
+});
+
 for (const view of ["agenda", "calendar", "spaces", "sources", "review"]) {
   test(`removable filter tags and reset work in ${view}`, async ({ page }) => {
     await page.goto(`/?view=${view}&scene=independent&category=gallery`);
@@ -370,7 +460,9 @@ test("all catalogued locations are visible without a geography filter", async ({
   page,
 }) => {
   await page.clock.setFixedTime(new Date("2026-10-18T12:00:00+03:00"));
-  await page.goto("/?institution=MSK068&period=ongoing&geography=moscow");
+  await page.goto(
+    "/?institution=MSK068&period=ongoing&type=all&geography=moscow",
+  );
   await expect(page.locator(".event-row")).toHaveCount(1);
   await expect(page.locator(".event-row")).toContainText("ХЛЕБА");
   await expect(page.getByLabel("География", { exact: true })).toHaveCount(0);
@@ -526,7 +618,7 @@ test("tentative events show their uncertainties in calendar cards and exports", 
       row.review_status === "tentative" && row.start_date >= "2026-10-19",
   );
   await page.goto(
-    `/?view=calendar&period=all&institution=${event.institution_id}&geography=all&from=${event.start_date}&to=${event.start_date}`,
+    `/?view=calendar&period=all&type=all&institution=${event.institution_id}&geography=all&from=${event.start_date}&to=${event.start_date}`,
   );
   await expect(page.locator(".tentative-calendar-count").first()).toBeVisible();
   const card = page
@@ -571,7 +663,7 @@ test("tentative events show their uncertainties in calendar cards and exports", 
 test("agenda loads another page in display order and resets after filtering", async ({
   page,
 }) => {
-  await page.goto("/?period=all&geography=all");
+  await page.goto("/?period=all&type=all&geography=all");
   await page.locator(".workspace-layout").waitFor();
   const rows = page.locator(".event-row");
   await expect(rows).toHaveCount(24);

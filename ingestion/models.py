@@ -69,7 +69,9 @@ def same_event(a,b):
 
 
 def _quality(event):
-    return (event.get('review_status')!='tentative', not event.get('title_is_tentative'),
+    from ingestion.primary import is_aggregator
+    authority=0 if is_aggregator(event.get('primary_url')) else {'official':3,'partner':2}.get(event.get('source_authority'),1)
+    return (authority,event.get('review_status')!='tentative', not event.get('title_is_tentative'),
         event.get('title_basis') in ('event_heading','post_heading'),
         event.get('source_platform')=='website', bool(event.get('end_date')),bool(event.get('start_time')))
 
@@ -192,7 +194,7 @@ def complete_event(candidate,institution,source,timestamp):
         exact=next((l for l in locations if l.get('city') and l['city'].casefold() in address.casefold()),None)
         if exact:e['geography_scope']=exact.get('geography_scope');e['city']=exact.get('city')
         elif len(scopes)==1:e['geography_scope']=next(iter(scopes))
-    e.update(institution_id=institution['institution_id'],venue_name=institution['name'],source_id=source['source_id'],
+    e.update(institution_id=institution['institution_id'],venue_name=candidate.get('venue_name') or institution['name'],source_id=source['source_id'],
              source_platform=source['platform'],timezone='Europe/Moscow',review_status=candidate.get('review_status','verified'),last_seen_at=timestamp,
              last_updated_at=timestamp,first_detected_at=e.get('first_detected_at') or timestamp,
              tags=institution.get('tags',[]),link_status='available',link_checked_at=timestamp)
