@@ -1,5 +1,31 @@
 import { test, expect } from "@playwright/test";
 
+test("calendar paginates its list and resets it when filters change", async ({ page }) => {
+  await page.goto("/?view=calendar&period=all&type=all");
+  const rows = page.locator(".event-row");
+  const more = page.getByRole("button", { name: "Смотреть ещё события", exact: true });
+  await expect(rows).toHaveCount(24);
+  const grid = page.locator(".calendar-days").first();
+  const counts = await grid.locator("button").evaluateAll(nodes => nodes.map(n => n.getAttribute("aria-label")));
+  await more.click();
+  await expect(rows).toHaveCount(48);
+  expect(await grid.locator("button").evaluateAll(nodes => nodes.map(n => n.getAttribute("aria-label")))).toEqual(counts);
+  await page.getByRole("checkbox", { name: "Выставка", exact: true }).check();
+  await expect(rows).toHaveCount(24);
+});
+
+test("Ivany opening is one day and its exhibition continues through November 1", async ({ page }) => {
+  await page.goto("/?view=calendar&period=all&type=opening&from=2026-10-29&to=2026-10-29&event=EV_472C9AC7CA5F6FA8A2");
+  const dialog = page.getByRole("dialog");
+  await expect(dialog.getByRole("heading", { name: "ХЛЕБА", exact: true })).toBeVisible();
+  await expect(dialog.locator(".detail-kicker")).toContainText("17 октября 2026");
+  await expect(dialog.locator(".detail-kicker")).not.toContainText("ноября");
+  await page.getByRole("button", { name: "Закрыть", exact: true }).click();
+  await expect(page.locator(".event-row").filter({ hasText: "ХЛЕБА" })).toHaveCount(0);
+  await page.goto("/?view=calendar&period=all&type=exhibition&institution=MSK068&from=2026-10-29&to=2026-10-29");
+  await expect(page.locator(".event-row").filter({ hasText: "ХЛЕБА" })).toHaveCount(1);
+});
+
 test("11.12 opening appears today with its official page and no invented clock", async ({
   page,
 }) => {

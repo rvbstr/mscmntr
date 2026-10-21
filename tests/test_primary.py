@@ -32,7 +32,7 @@ def test_mmoma_real_header_keeps_full_period_and_does_not_treat_hours_as_opening
     assert len(parsed)==1
     assert parsed[0]['start_date']=='2026-04-16' and parsed[0]['end_date']=='2027-03-28'
     assert parsed[0]['start_time'] is None and parsed[0]['event_type']=='exhibition'
-    assert parsed[0]['venue_name']=='Музей Вадима Сидура'
+    assert parsed[0]['venue_name']=='Музей Вадима Сидура · ММОМА'
     assert parse_mmoma((FIX/'mmoma-sidur-real.html').read_text(),'https://mmoma.ru/visit/gallery')==[]
 
 

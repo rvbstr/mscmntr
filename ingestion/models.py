@@ -24,6 +24,7 @@ def direct_url(url):
         if 'instagram.com' in p.hostname: return path.startswith(('p/','reel/'))
         if p.hostname in ('vk.com','vk.ru'): return 'wall' in path or 'wall' in p.query
         if path.split('/')[0].lower() in ('ru','en') and '/' in path: path=path.split('/',1)[1]
+        if path.split('/')[-1].lower() in {'events','exhibitions','calendar','afisha','schedule','gallery','news','programme','program','projects','exhibitions-list'}:return False
         return bool(path) and path.lower() not in {'ru','en','events','exhibitions','calendar','news','ru/events','ru/exhibitions','ru/news','about','events.html','index.html','programme','ru/programme'}
     except ValueError: return False
 
@@ -100,6 +101,7 @@ def _merge(found,event):
     if timestamps: found['first_detected_at']=min(timestamps)
     if aliases: found['merged_event_ids']=sorted(aliases)
     found['date_precision']='minute' if found.get('start_time') else 'date'
+    if found['event_type']=='opening':found['end_date']=None
 
 
 def stable_id(event):
@@ -126,13 +128,21 @@ def deduplicate(events):
 
 def preserve_event_ids(events,previous):
     """Keep old shared links working when a reparse fixes the headline."""
+    # Cache URL sets and compare only records from the same institution/type.
+    # Refresh a set after merging evidence so alias handling keeps its semantics.
+    from collections import defaultdict
+    previous_groups=defaultdict(list);current_groups=defaultdict(list)
+    urls={id(e):_urls(e) for e in events+previous}
+    for old in previous:previous_groups[(old.get('institution_id'),old.get('event_type'))].append(old)
+    for event in events:current_groups[(event.get('institution_id'),event.get('event_type'))].append(event)
     for event in events:
-        matches=[old for old in previous if all(event.get(k)==old.get(k) for k in ('institution_id','event_type')) and _same_day_or_period(event,old)
+        group=(event.get('institution_id'),event.get('event_type'))
+        matches=[old for old in previous_groups[group] if _same_day_or_period(event,old)
             and not (event.get('start_time') and old.get('start_time') and event['start_time']!=old['start_time'])
-            and _urls(event)&_urls(old)]
+            and urls[id(event)]&urls[id(old)]]
         if not matches: continue
         # Never transfer one clockless old ID into multiple explicit sessions.
-        matches=[old for old in matches if sum(bool(_urls(e)&_urls(old)) and all(e.get(k)==old.get(k) for k in ('institution_id','event_type')) and bool(_same_day_or_period(e,old)) for e in events)==1]
+        matches=[old for old in matches if sum(bool(_same_day_or_period(e,old)) and bool(urls[id(e)]&urls[id(old)]) for e in current_groups[group])==1]
         if not matches: continue
         canonical=next((old for old in matches if old['event_id']==event['event_id']),None) or min(matches,key=lambda e:(e.get('first_detected_at') or '',e['event_id']))
         aliases=set(event.get('merged_event_ids',[])+[event['event_id']])
@@ -142,6 +152,7 @@ def preserve_event_ids(events,previous):
         evidence={canonical_url(x['url']):dict(x) for old in matches for x in old.get('evidence',[])}
         evidence.update({canonical_url(x['url']):dict(x) for x in event.get('evidence',[])})
         event['evidence']=list(evidence.values())
+        urls[id(event)]=_urls(event)
         timestamps=[e.get('first_detected_at') for e in [event]+matches if e.get('first_detected_at')]
         if timestamps:event['first_detected_at']=min(timestamps)
     return events
@@ -149,7 +160,7 @@ def preserve_event_ids(events,previous):
 
 def event_type(text):
     text=text.lower()
-    for kind,pattern in [('opening',r'вернисаж|открытие'),('performance',r'перформанс'),('talk',r'лекци|дискусси|встреча|паблик[ -]?ток|круглый стол|диалог|обсуждени|бесед'),('screening',r'кинопоказ|показ фильма|кинопрограмм'),('tour',r'экскурси|медиаторск|медиаци|\bтур\b'),('workshop',r'мастер.класс|воркшоп'),('festival',r'фестивал|ярмарк'),('exhibition',r'выставк|экспозици')]:
+    for kind,pattern in [('opening',r'вернисаж|открытие'),('performance',r'перформанс|перформатив'),('talk',r'лекци|дискусси|встреча|паблик[ -]?ток|круглый стол|диалог|обсуждени|бесед'),('screening',r'кинопоказ|показ(?:\s+[\w-]+){0,2}\s+фильм|кинопрограмм'),('tour',r'экскурси|медиаторск|медиаци|\bтур\b'),('workshop',r'мастер[\s–—-]?класс|воркшоп'),('festival',r'фестивал|ярмарк'),('exhibition',r'выставк|экспозици')]:
         if re.search(pattern,text): return kind
     return 'other'
 
@@ -185,8 +196,25 @@ def valid_event(e):
     except (KeyError,ValueError,TypeError): return False
 
 
+def normalize_openings(events):
+    """An opening occupies one day; an announced exhibition keeps its own period."""
+    result=[]
+    for event in events:
+        if event.get('event_type')!='opening' or not event.get('end_date'):
+            result.append(event);continue
+        end=event['end_date']
+        if end>event['start_date'] and re.search(r'выставк|экспозици',event.get('title','')+' '+event.get('description',''),re.I):
+            exhibition=dict(event,event_type='exhibition',start_time=None,end_time=None,date_precision='date')
+            for key in ('event_id','merged_event_ids','parent_event_id'):exhibition.pop(key,None)
+            if event.get('event_id'):exhibition['event_id']=stable_id(exhibition)
+            result.append(exhibition)
+        result.append(dict(event,end_date=None))
+    return result
+
+
 def complete_event(candidate,institution,source,timestamp):
     e=dict(candidate)
+    if e.get('event_type')=='opening':e['end_date']=None
     if not e.get('geography_scope'):
         locations=institution.get('locations',[])
         address=e.get('address') or ''
@@ -201,5 +229,6 @@ def complete_event(candidate,institution,source,timestamp):
     e['event_id']=e.get('event_id') or stable_id(e)
     e['evidence']=[{'url':e['primary_url'],'source_id':source['source_id'],'checked_at':timestamp,'status':'available','verification_method':candidate.get('verification_method','http'),
         **{k:e[k] for k in ('title','start_date','end_date','start_time','date_evidence','title_basis') if e.get(k) is not None}}]
+    if candidate.get('source_title'):e['evidence'][0]['title']=candidate['source_title']
     e['date_precision']='minute' if e.get('start_time') else 'date'
     return e

@@ -3,9 +3,9 @@ from datetime import datetime
 import re
 from zoneinfo import ZoneInfo
 from difflib import SequenceMatcher
-from ingestion.adapters.social import DATE_MARKER, EVENT_WORD, TIME_MARKER, _heading
+from ingestion.adapters.social import DATE_MARKER, EVENT_WORD, TIME_MARKER, _heading, foreign_event_location
 from ingestion.dates import extract_dates, MONTH
-from ingestion.models import complete_event, valid_event, deduplicate, link_parents, event_type, preserve_event_ids
+from ingestion.models import complete_event, valid_event, deduplicate, link_parents, event_type, preserve_event_ids, normalize_openings
 from ingestion.editorial import apply_overrides
 from ingestion.primary import is_aggregator, require_primary_sources
 
@@ -16,8 +16,10 @@ def _title(text, fallback):
     heading=_heading(lines,first_date)
     if heading: return heading.strip('«»“”" ')
     flat = re.sub(r'\s+', ' ', text).strip()
-    match = re.search(r'(?:выставк\w*|экскурси\w*|лекци\w*|дискусси\w*|воркшоп\w*|мастер.класс\w*)[^«“"]{0,100}[«“"]([^»”"]{3,150})[»”"]', flat, re.I)
+    match = re.search(r'(?:выставк\w*|экскурси\w*|лекци\w*|дискусси\w*|воркшоп\w*|мастер[\s–—-]?класс\w*)[^«“"]{0,100}[«“"]([^»”"]{3,150})[»”"]', flat, re.I)
     if match: return match[1].strip()
+    unquoted=re.search(r'(?:персональн\w*|группов\w*|коллективн\w*)\s+выставк[аи]\s+(.{3,100}?)\s+(?=\d{1,2}[./]\d{1,2}\b)',flat,re.I)
+    if unquoted and not re.search(r'художник|куратор|будет|состоится',unquoted[1],re.I):return unquoted[1].strip('«»\" ')
     return re.sub(r'^[\W_]+', '', fallback).strip()[:150]
 
 
@@ -26,6 +28,7 @@ def tentative_post(candidate):
     text = candidate.get('description') or ''
     flat = re.sub(r'\s+', ' ', text)
     if not EVENT_WORD.search(text): return []
+    if foreign_event_location(text):return []
     if re.search(r'день рождения', ' '.join(text.splitlines()[:4]), re.I): return []
     if re.search(r'розыгрыш|разыгрыва', ' '.join(text.splitlines()[:4]), re.I):
         # Giveaway rules are not events; a separately dated public programme can be.
@@ -76,6 +79,7 @@ def tentative_post(candidate):
             kind = event_type(context)
             if kind == 'other': kind = event_type(flat)
             if kind == 'other' and re.search(r'встреч|разговор', context, re.I): kind = 'talk'
+            if kind=='opening' and end and re.search(r'выставк',flat,re.I):kind='exhibition'
             if kind == 'other': continue
             title = _title(text, next((value for value in lines if EVENT_WORD.search(value)), heading))
             if not title or len(title) < 3: continue
@@ -87,6 +91,8 @@ def tentative_post(candidate):
                 start_time=(clock.group().zfill(5) if clock and kind != 'exhibition' else None),
                 address=address, date_basis=basis, uncertainties=notes,
                 title_is_tentative=True, title_basis='post_heading' if (_heading(lines, n) or '').strip('«»“”" ') == title else 'fallback')
+            if end and end!=start and kind not in ('exhibition','festival'):
+                item.update(event_type='other',title='Программа: '+title,start_time=None,date_basis='programme_period',uncertainties=notes+['Указан общий период программы; даты отдельных сеансов уточняйте в анонсе.'])
             if address and re.search(r'\bМосква\b', address, re.I): item.update(geography_scope='moscow', city='Москва')
             elif address and re.search(r'\bБалашиха\b', address, re.I): item.update(geography_scope='moscow_region', city='Балашиха')
             results.append(item)
@@ -101,7 +107,13 @@ def tentative_post(candidate):
             end_date=end if end != start else None, start_time=None,
             uncertainties=['В анонсе несколько дат и мероприятий: в календаре показан общий период программы. Даты отдельных пунктов и места уточняйте по оригиналу.'])
         return [first]
-    return results[:1]
+    result=results[:1]
+    if result and result[0]['event_type']=='exhibition':
+        opening=extract_dates(flat,int(result[0]['start_date'][:4]))
+        if opening['opening_date']:
+            result.append(dict(result[0],event_type='opening',start_date=opening['opening_date'],end_date=None,
+                start_time=opening['opening_time'],end_time=None,date_basis='explicit_opening'))
+    return result
 
 
 def _address(value):
@@ -138,7 +150,7 @@ def publish_review(catalog, review, reports, timestamp):
             remaining.append(row); continue
         items = [candidate] if valid_event(candidate) else tentative_post(candidate)
         published = False
-        for item in items:
+        for item in normalize_openings(items):
             if not valid_event(item): continue
             owner, inferred_owner = _owner(item, source, institutions)
             if not owner: continue

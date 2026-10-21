@@ -51,6 +51,7 @@ import {
   DEFAULT_FILTERS,
   dayLabel,
   downloadICS,
+  eventLastDay,
   filterEvents,
   filterInstitutions,
   filtersFromURL,
@@ -279,13 +280,13 @@ function MiniCalendar({
       <div className="calendar-days">
         {cells.map((day) => {
           const count = events.filter(
-            (e) => e.start_date <= day && (e.end_date || e.start_date) >= day,
+            (e) => e.start_date <= day && eventLastDay(e) >= day,
           ).length;
           const tentative = events.filter(
             (e) =>
               e.review_status === "tentative" &&
               e.start_date <= day &&
-              (e.end_date || e.start_date) >= day,
+              eventLastDay(e) >= day,
           ).length;
           return (
             <button
@@ -412,6 +413,10 @@ export default function App() {
       )
         throw new Error("Формат опубликованных данных не распознан.");
       setCatalog(c);
+      // Older published snapshots may still carry an exhibition range on an opening.
+      f.events = f.events.map((event: ArtEvent) =>
+        event.event_type === "opening" ? { ...event, end_date: null } : event,
+      );
       setFeed(f);
       setReview(rr);
       setReviewError(
@@ -1436,7 +1441,7 @@ export default function App() {
                           <b>{events.length}</b>
                         </div>
                         {events.length
-                          ? events.map(renderEvent)
+                          ? events.slice(0, visibleEvents).map(renderEvent)
                           : emptyEvents(calendarDay)}
                       </>
                     ) : events.length ? (
@@ -1466,7 +1471,7 @@ export default function App() {
                     ) : (
                       emptyEvents()
                     )}
-                    {view === "agenda" && events.length > visibleEvents && (
+                    {events.length > visibleEvents && (
                       <button
                         className="load-more"
                         aria-label="Смотреть ещё события"
@@ -1707,6 +1712,13 @@ export default function App() {
                       </div>
                     </div>
                     <div className="source-toolbar">
+                      <a
+                        className="text-link"
+                        href={`${import.meta.env.BASE_URL}data/coverage.csv`}
+                        download
+                      >
+                        Аудит всех источников · 20 октября (CSV)
+                      </a>
                       <label className="sort-select">
                         <span className="sr-only">Статус источника</span>
                         <select

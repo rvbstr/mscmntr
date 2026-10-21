@@ -9,15 +9,26 @@ def discover_links(html,url,limit=4):
     soup=BeautifulSoup(html,'html.parser'); links=[]
     for anchor in soup.select('a[href]'):
         target=urljoin(url,anchor['href']); p=urlsplit(target)
-        if p.hostname != urlsplit(url).hostname or not direct_url(target): continue
+        if p.hostname != urlsplit(url).hostname or p.scheme not in ('http','https') or not p.path.strip('/'): continue
         if p.path.rstrip('/') == urlsplit(url).path.rstrip('/'): continue
         language = urlsplit(url).path.strip('/').split('/')[0]
         other = p.path.strip('/').split('/')[0]
         if language in ('ru','en') and other in ('ru','en') and language != other: continue
         if re.search(r'\.(jpg|png|webp|pdf|mp4|zip|svg)$',p.path,re.I): continue
-        if re.search(r'(exhibition|event|vystavk|vystav|afisha|/news/|/programme/|/projects/)',p.path,re.I):
-            if target not in links: links.append(target)
-    return links[:limit]
+        label=anchor.get_text(' ',strip=True)
+        dated=False
+        for parent in list(anchor.parents)[:4]:
+            if parent.name in ('body','html','main','header','footer','nav'):break
+            surrounding=parent.get_text(' ',strip=True)
+            if len(surrounding)>1200:break
+            if re.search(r'20\d{2}|\d{1,2}/\d{1,2}/2\d\b',surrounding) and re.search(r'выстав|exhibition|вернисаж',surrounding,re.I):dated=True;break
+        if re.search(r'(exhibition|event|vystav|afisha|schedule|calendar|/news/|/programme?/|/projects?/|/gallery/)',p.path,re.I) or re.search(r'афиша|расписание|выставки|события|текущий проект|календарь',label,re.I) or dated:
+            if re.search(r'/artists?/|/participants?/|/contacts?/?$|/about/?$|/museum/|/authors?/|/shop/|/product/|/cart/?$|/checkout/?$|/katalog/?$|/catalog/?$',p.path,re.I):continue
+            if target not in [x[0] for x in links]:
+                score=4 if re.search(r'афиша|расписание|текущ|события|календарь|current|schedule|calendar',label,re.I) else (2 if direct_url(target) else 0)
+                if re.search(r'[-/]en(?:/|#|$)',p.path) and re.search('[а-яА-Я]',soup.get_text(' ',strip=True)[:2000]):score-=2
+                links.append((target,score))
+    return [url for url,_ in sorted(links,key=lambda x:-x[1])][:limit]
 
 
 def parse_html(html,url,config=None):

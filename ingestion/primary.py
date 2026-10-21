@@ -3,7 +3,7 @@ from urllib.parse import urlsplit, urljoin
 from bs4 import BeautifulSoup
 from ingestion.models import canonical_url, direct_url
 
-AGGREGATOR_DOMAINS={'ewert.ru'}
+AGGREGATOR_DOMAINS={'ewert.ru','afisha.ru'}
 PRIMARY_REASON='Нужен первоисточник институции; агрегатор используется только для поиска.'
 
 

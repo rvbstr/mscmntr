@@ -45,6 +45,9 @@ jobs:
       - name: Импорт обновлённого каталога
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python -m ingestion.import_catalog
+      - name: Chromium для публичных страниц с JavaScript
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: npx playwright install --with-deps chromium
       - name: Обновление афиши
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:

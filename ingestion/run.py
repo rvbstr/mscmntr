@@ -11,14 +11,13 @@ from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
 from ingestion.import_catalog import ROOT
 from ingestion.http import Client, SourceError
-from ingestion.adapters import parse_jsonld, parse_feed, parse_html, discover_links
-from ingestion.adapters.advanced import parse_advanced, russian_version
+from ingestion.extraction import collect_website
+from ingestion.adapters import parse_jsonld
 from ingestion.adapters.social import parse_post
 from ingestion.adapters.telegram import collect_telegram
 from ingestion.adapters.instagram import collect_instagram, configured_instagram_api
-from ingestion.adapters.institutions import parse_institution, institution_links
-from ingestion.adapters.gallery1112 import current_project
-from ingestion.models import canonical_url, direct_url, stable_id, deduplicate, link_parents, event_signature, TYPES, valid_event, complete_event, preserve_event_ids
+from ingestion.adapters.institutions import parse_institution
+from ingestion.models import canonical_url, direct_url, stable_id, deduplicate, link_parents, event_signature, TYPES, valid_event, complete_event, preserve_event_ids, normalize_openings
 from ingestion.editorial import load_overrides, apply_overrides
 from ingestion.primary import is_aggregator, source_authority, official_links, require_primary_sources, PRIMARY_REASON
 
@@ -52,6 +51,17 @@ def seed_candidates(catalog,client,source,institution):
     return result
 
 
+def programme_period(item,min_days=0):
+    if not isinstance(item.get('title'),str) or not item['title'].strip():return item
+    if item.get('event_type') in ('exhibition','festival','other') or not item.get('start_date') or not item.get('end_date'):return item
+    try:days=(date.fromisoformat(item['end_date'])-date.fromisoformat(item['start_date'])).days
+    except (TypeError,ValueError):return item
+    if days<=min_days:return item
+    return dict(item,event_type='other',title=item['title'] if item['title'].startswith('Программа: ') else 'Программа: '+item['title'],
+        source_title=item.get('source_title') or item['title'],title_basis='programme_heading',start_time=None,end_time=None,date_precision='date',review_status='tentative',date_basis='programme_period',
+        uncertainties=list(dict.fromkeys(item.get('uncertainties',[])+['Указан общий период программы. Даты отдельных сеансов нужно уточнить в анонсе.'])))
+
+
 def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_options=None):
     social_options=social_options or {}
     instagram_api=social_options.get('instagram_api')
@@ -59,6 +69,12 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
     for iid,priority in overrides['priorities'].items(): institutions[iid]['monitoring_priority']=priority
     old_health={h['source_id']:h for h in previous.get('sources',[])}
     old_events=[dict(e,evidence=[dict(x) for x in e.get('evidence',[])]) for e in previous.get('events',[]) if e['institution_id'] in institutions and (overrides.get('publication_policy')=='include_tentative' or e.get('review_status')!='tentative')]; candidates=[]; review=[]; reports=[]; successful=0; checked_successfully=set(); refreshed_urls=set()
+    normalized_old=[]
+    for old_event in normalize_openings(old_events):
+        normalized=programme_period(old_event,7) if old_event.get('source_platform')!='editorial' else old_event
+        if normalized is not old_event:normalized['last_updated_at']=timestamp
+        normalized_old.append(normalized)
+    old_events=normalized_old
     priorities={'high':0,'normal':1,'low':2}
     sources=sorted(catalog['sources'],key=lambda s:min([priorities.get(institutions[i].get('monitoring_priority'),1) for i in s['institution_ids']] or [1]))
     for source in sources:
@@ -78,11 +94,12 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
             extracted=[]; page_errors=[]; review_start=len(review); collection=None; social_verified=set()
             if source['platform'] in ('telegram','instagram'):
                 if source['platform']=='telegram':
-                    collection=collect_telegram(source['url'],client,limit=social_options.get('limit',20))
+                    collection=collect_telegram(source['url'],client,limit=social_options.get('limit',20),pages=social_options.get('pages',1))
                 else:
                     if instagram_api is None:instagram_api=configured_instagram_api()
                     collection=collect_instagram(source['url'],instagram_api,social_options.get('instagram_export_dir') or os.environ.get('INSTAGRAM_EXPORT_DIR',str(ROOT/'.local/instagram')),limit=social_options.get('limit',20))
                 report.update(adapter=collection.adapter,posts_seen=len(collection.posts))
+                if collection.note:page_errors.append(collection.note)
                 if collection.live:
                     social_verified={post.url for post in collection.posts}
                     refreshed_urls.update(social_verified)
@@ -93,21 +110,14 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
                     else:
                         for item in parsed:review.append({'source_id':sid,'candidate':item,'reason':collection.note})
             else:
-                html,url=client.fetch(source['url'])
-                localized=russian_version(html,url) if source['platform']=='website' else None
-                if localized: html,url=client.fetch(localized)
-                if source['platform']=='rss' or html.lstrip().startswith(('<?xml','<rss','<feed')):
-                    extracted=parse_feed(html,url)
-                else:
-                    context={'current_project_url':current_project(html,url),'observed_on':datetime.now(ZoneInfo('Europe/Moscow')).date().isoformat()}
-                    rule=overrides['parser_rules'].get(sid) or overrides['parser_rules'].get(urlsplit(url).hostname) or source.get('parser_config') or {}
-                    if isinstance(rule,str):rule=json.loads(rule)
-                    extracted=parse_jsonld(html,url) or parse_institution(html,url,context=context) or parse_html(html,url,rule) or parse_advanced(html,url)
-                    links=list(dict.fromkeys(institution_links(html,url,max_pages)+discover_links(html,url,max_pages)))[:max_pages]
-                    for link in links:
-                        try:
-                            body,final=client.fetch(link);extracted.extend(parse_jsonld(body,final) or parse_institution(body,final,context=context) or parse_html(body,final,rule) or parse_advanced(body,final))
-                        except SourceError as exc:page_errors.append(str(exc))
+                rule=overrides['parser_rules'].get(sid) or overrides['parser_rules'].get(urlsplit(source['url']).hostname) or source.get('parser_config') or {}
+                if isinstance(rule,str):rule=json.loads(rule)
+                extracted,pages,issues,html,url=collect_website(source,client,rule,max_pages,datetime.now(ZoneInfo('Europe/Moscow')).date().isoformat())
+                report['pages']=pages
+                report['access']=getattr(client,'access_notes',{}).get(source['url'],{})
+                report['adapters']=sorted({p['adapter'] for p in pages if p.get('adapter')})
+                report['page_issues']=issues
+                page_errors=[i['reason'] for i in issues]
                 if is_aggregator(source['url']):
                     hints=official_links(html,url,catalog)
                     for item in extracted:item['suggested_primary_urls']=hints
@@ -115,7 +125,8 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
             successful+=1; checked_successfully.add(sid); accepted=[]; seen=set()
             # Ambiguous shared website ownership is sent for editorial attribution.
             relevant=[i for i in linked if any(r['institution_id']==i['institution_id'] and r['source_id']==sid and r.get('role')=='announcements' for r in catalog['institution_sources'])]
-            for item in extracted:
+            for item in normalize_openings(extracted):
+                item=programme_period(item)
                 if is_aggregator(item.get('primary_url')):
                     review.append({'source_id':sid,'candidate':item,'reason':PRIMARY_REASON});continue
                 if source.get('requires_identity_confirmation'):
@@ -212,7 +223,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
         tentative, review = publish_review(catalog, review, reports, timestamp)
         merged = deduplicate(merged + tentative)
     merged=preserve_event_ids(merged,previous.get('events',[]))
-    merged=apply_overrides(merged,overrides)
+    merged=deduplicate(normalize_openings(apply_overrides(merged,overrides)))
     merged,review=require_primary_sources(merged,review)
     if any(not valid_event(e) for e in merged): raise ValueError('Правки создали событие с неверной датой или ссылкой')
     merged.sort(key=lambda e:(e['start_date'],e.get('start_time') or '23:59',e['title']))
@@ -236,7 +247,7 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
 def main():
     p=argparse.ArgumentParser(description='Проверка публичных источников афиши')
     p.add_argument('--publish-review',action='store_true',help='Опубликовать текущую очередь без сетевого сбора'); p.add_argument('--scheduled',action='store_true'); p.add_argument('--source',action='append')
-    p.add_argument('--social-posts',type=int,default=20);p.add_argument('--instagram-export-dir',type=Path);p.add_argument('--max-pages',type=int,default=3); p.add_argument('--timeout',type=int,default=12)
+    p.add_argument('--social-pages',type=int,default=2);p.add_argument('--social-posts',type=int,default=40);p.add_argument('--instagram-export-dir',type=Path);p.add_argument('--max-pages',type=int,default=6); p.add_argument('--timeout',type=int,default=12)
     args=p.parse_args()
     catalog_path=ROOT/'catalog/catalog.json'
     if not catalog_path.exists():
@@ -252,7 +263,7 @@ def main():
         from ingestion.provisional import publish_snapshot
         feed,review=publish_snapshot(catalog,overrides,previous,now_iso())
     else:
-        feed,review=refresh(catalog,overrides,previous,Client(timeout=args.timeout),args.source,args.max_pages,{'limit':max(1,min(args.social_posts,50)),'instagram_export_dir':args.instagram_export_dir})
+        feed,review=refresh(catalog,overrides,previous,Client(timeout=args.timeout),args.source,args.max_pages,{'limit':max(1,min(args.social_posts,100)),'pages':max(1,min(args.social_pages,5)),'instagram_export_dir':args.instagram_export_dir})
     public_catalog={k:v for k,v in catalog.items() if k!='seed_events'}
     public_catalog['institutions']=[dict(i,monitoring_priority=overrides['priorities'].get(i['institution_id'],i['monitoring_priority'])) for i in catalog['institutions']]
     atomic_json(ROOT/'public/data/catalog.json',public_catalog)

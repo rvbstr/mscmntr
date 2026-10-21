@@ -51,6 +51,8 @@ export const isOngoing = (e: ArtEvent, today: string) =>
   e.start_date <= today &&
   !!e.end_date &&
   e.end_date >= today;
+export const eventLastDay = (e: ArtEvent) =>
+  e.event_type === "opening" ? e.start_date : e.end_date || e.start_date;
 export function safeDay(value: string | null): string {
   if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return "";
   try {
@@ -120,7 +122,7 @@ export function filterEvents(
   return events
     .filter((e) => {
       const i = byId.get(e.institution_id);
-      const last = e.end_date || e.start_date;
+      const last = eventLastDay(e);
       if (!i) return false;
       if (
         f.q &&
@@ -223,7 +225,7 @@ export function eventICS(e: ArtEvent, institution: Institution) {
     if (e.end_time)
       lines.push(
         `DTEND:${new Date(
-          `${e.end_date || e.start_date}T${e.end_time}:00+03:00`,
+          `${eventLastDay(e)}T${e.end_time}:00+03:00`,
         )
           .toISOString()
           .replace(/[-:]/g, "")
@@ -232,12 +234,12 @@ export function eventICS(e: ArtEvent, institution: Institution) {
   } else
     lines.push(
       `DTSTART;VALUE=DATE:${compact(e.start_date)}`,
-      `DTEND;VALUE=DATE:${compact(plusDays(e.end_date || e.start_date, 1))}`,
+      `DTEND;VALUE=DATE:${compact(plusDays(eventLastDay(e), 1))}`,
     );
   lines.push(
     ...(e.review_status === "tentative" ? ["STATUS:TENTATIVE"] : []),
     `SUMMARY:${escape((e.review_status === "tentative" ? "[Предварительно] " : "") + e.title)}`,
-    `LOCATION:${escape(e.address || (e.venue_is_tentative ? "Место уточняется" : institution.locations[0]?.address || e.venue_name || institution.name))}`,
+    `LOCATION:${escape(e.address || (e.venue_is_tentative ? "Место уточняется" : (institution.locations.length === 1 ? institution.locations[0]?.address : undefined) || e.venue_name || institution.name))}`,
     `DESCRIPTION:${escape((e.review_status === "tentative" ? "Предварительные данные. " + (e.uncertainties || []).join(" ") + "\n" : "") + (e.description || "") + "\n" + e.primary_url)}`,
     `URL:${e.primary_url.replace(/[\r\n]/g, "")}`,
     "END:VEVENT",

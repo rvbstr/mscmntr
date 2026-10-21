@@ -82,7 +82,7 @@ def parse_institution(html,url,context=None):
     if host=='ruarts.foundation':return parse_ruarts(html,url)
     if host=='centrezotov.ru':return parse_zotov(html,url)
     if host=='art.hse.ru':return parse_hse(html,url)
-    if host=='mmoma.ru':return parse_mmoma(html,url)
+    if host=='mmoma.ru':return parse_mmoma(html,url,context)
     if host=='11-12gallery.com':return parse_1112(html,url,context)
     return []
 
@@ -100,6 +100,7 @@ def institution_links(html,url,limit=6):
     if host=='ruarts.foundation':result.append('https://ruarts.foundation/ru/events')
     if host=='centrezotov.ru':result.append('https://centrezotov.ru/events/')
     if host=='garagemca.org':result.append('https://garagemca.org/calendar')
+    if host=='mmoma.ru' and urlsplit(url).path.rstrip('/')=='/visit/events':result.append('https://mmoma.ru/visit/gallery')
     for a in soup.select('a[href]'):
         target=urljoin(url,a['href']);p=urlsplit(target)
         if p.hostname!=host or not p.path.strip('/'):continue

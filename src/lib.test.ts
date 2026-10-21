@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   DEFAULT_FILTERS,
   eventICS,
+  eventLastDay,
   filterEvents,
   filterInstitutions,
   moscowToday,
@@ -48,6 +49,15 @@ const event = {
   primary_url: "https://example.org/exhibitions/a",
   first_detected_at: "2026-10-16T12:00:00Z",
 } as ArtEvent;
+it("opening ranges affect only their first day, while the exhibition remains ongoing", () => {
+  const opening = { ...event, event_type: "opening" } as ArtEvent;
+  const day = { ...DEFAULT_FILTERS, period: "all", from: "2026-10-20", to: "2026-10-20" };
+  expect(eventLastDay(opening)).toBe("2026-10-17");
+  expect(filterEvents([opening, event], [institution], day, personal)).toEqual([event]);
+  expect(filterEvents([opening], [institution], { ...day, from: "2026-10-17", to: "2026-10-17" }, personal)).toHaveLength(1);
+  expect(eventICS(opening, institution)).toContain("DTEND;VALUE=DATE:20261018");
+  expect(eventICS(event, institution)).toContain("DTEND;VALUE=DATE:20261022");
+});
 describe("filters and dates", () => {
   it("rejects malformed dates in shared URLs", () => {
     expect(safeDay("nonsense")).toBe("");
@@ -184,4 +194,20 @@ it("exports provisional dates and places explicitly as tentative in iCalendar", 
   expect(output).toContain("SUMMARY:[Предварительно]");
   expect(output).toContain("LOCATION:Место уточняется");
   expect(output).toContain("Дата начала предположительная");
+});
+
+it("exports the event's branch instead of the first address of a multi-site museum", () => {
+  const museum = {
+    ...institution,
+    locations: [
+      { address: "Петровка, 25" },
+      { address: "Гоголевский бульвар, 10" },
+    ],
+  } as unknown as Institution;
+  const output = eventICS(
+    { ...event, venue_name: "ММОМА, Гоголевский 10" },
+    museum,
+  ).replaceAll("\r\n ", "");
+  expect(output).toContain("Гоголевский 10");
+  expect(output).not.toContain("Петровка");
 });

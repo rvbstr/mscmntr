@@ -36,13 +36,25 @@ def parse_preview(html,channel,post_id=None,limit=20):
     return list({p.url:p for p in posts}.values())[-limit:]
 
 
-def collect_preview(url,client,limit=20):
+def collect_preview(url,client,limit=20,pages=1):
     channel,post_id=telegram_identity(url)
     preview=f'https://t.me/s/{channel}'+(f'/{post_id}' if post_id else '')
-    html,final=client.fetch(preview)
-    posts=parse_preview(html,channel,post_id,limit)
+    posts=[];before=None;note=None
+    for _ in range(1 if post_id else max(1,min(pages,5))):
+        try:html,final=client.fetch(preview+(f'?before={before}' if before else ''))
+        except SourceError as exc:
+            if not posts:raise
+            note='Прочитана часть ленты; следующая страница: '+str(exc)
+            break
+        posts+=parse_preview(html,channel,post_id,limit)
+        posts=list({p.url:p for p in posts}.values())
+        ids=[int(n['data-post'].split('/')[-1]) for n in BeautifulSoup(html,'html.parser').select('.tgme_widget_message[data-post]') if re.fullmatch(re.escape(channel)+r'/\d+',n['data-post'],re.I)]
+        cursor=min(ids) if ids else None
+        if not cursor or cursor==before or len(posts)>=limit:break
+        before=cursor
     if not posts:raise SourceError('Публичная лента недоступна или не содержит читаемых публикаций. Возможен сбор через авторизованный API.','partial')
-    return SocialCollection(posts,'telegram_public_preview')
+    posts.sort(key=lambda p:int(p.url.rsplit('/',1)[-1]),reverse=True)
+    return SocialCollection(posts[:limit],'telegram_public_preview',note=note)
 
 
 async def _api_posts(channel,post_id,limit):
@@ -82,8 +94,8 @@ async def _api_posts(channel,post_id,limit):
     finally:await client.disconnect()
 
 
-def collect_telegram(url,client,limit=20):
-    if os.environ.get('TELEGRAM_MODE','preview')!='api':return collect_preview(url,client,limit)
+def collect_telegram(url,client,limit=20,pages=1):
+    if os.environ.get('TELEGRAM_MODE','preview')!='api':return collect_preview(url,client,limit,pages)
     channel,post_id=telegram_identity(url)
     try:posts=asyncio.run(asyncio.wait_for(_api_posts(channel,post_id,limit),timeout=45))
     except SourceError:raise

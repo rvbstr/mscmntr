@@ -28,7 +28,7 @@ class SocialCollection:
 
 
 DATE_MARKER = re.compile(r'(?<!\d)\d{1,2}(?:[./](?:1[0-2]|0?[1-9])(?:[./]20\d{2})?|\s+(?:янв|фев|мар|апр|ма[йя]|ию[нл]|авг|сен|окт|ноя|дек))',re.I)
-EVENT_WORD = re.compile(r'выставк|вернисаж|открыти[ея]|перформанс|лекци|дискусси|медиаци|кинопоказ|показ\s+фильма|экскурси|медиаторск|мастер.класс|фестивал|ярмарк|воркшоп',re.I)
+EVENT_WORD = re.compile(r'выставк|вернисаж|открыти[ея]|перформанс|лекци|дискусси|медиаци|кинопоказ|показ\s+фильма|экскурси|медиаторск|мастер[\s–—-]?класс|фестивал|ярмарк|воркшоп',re.I)
 TIME_MARKER = re.compile(r'(?<!\d)(?:[01]?\d|2[0-3]):[0-5]\d(?!\d)')
 GENERIC_HEADING = re.compile(r'^(?:персональная|групповая|коллективная|новая|открытие|экспозиция)?\s*(?:выставка|выставки|вернисаж|перформанс|лекция|дискуссия|кинопоказ|фестиваль|медиация по выставке)\s*[:.!—–-]?$',re.I)
 
@@ -72,10 +72,20 @@ def _heading(lines, first_date):
     return None
 
 
+def foreign_event_location(text):
+    # Require a location next to an event verb; an artist's foreign biography
+    # or the title of a Moscow lecture about another city is not a venue.
+    city=r'(?:Лондоне|лондонск\w*|Париже|парижск\w*|Берлине|берлинск\w*|Дубае|Шанхае|Петербурге|петербургск\w*|Екатеринбурге|Нижнем Новгороде|Ташкенте)'
+    verb=r'(?:пройд[её]т|пройдут|проходит|проходят|откроется|откроются|открылась|открылся|открылось|открылись|состоится|состоятся)'
+    head=' '.join(text.splitlines()[:3])[:600]
+    return bool(re.search(r'\bв\s+'+city+r'[^.!?\n]{0,70}'+verb,head,re.I) or re.search(verb+r'[^.!?\n]{0,90}\bв\s+'+city,head,re.I))
+
+
 def parse_post(post: SocialPost):
     """Return candidates plus an optional editorial-review reason; never guess a headline."""
     lines=[re.sub(r'\s+',' ',line).strip() for line in post.text.splitlines() if line.strip()]
     if not EVENT_WORD.search(' '.join(lines[:10])):return [],None
+    if foreign_event_location(post.text):return [],'Событие за пределами Москвы и Подмосковья; требуется отдельная атрибуция'
     if re.search(r'разыгрыва|розыгрыш',' '.join(lines[:6]),re.I):return [],'Розыгрыш билетов: нужно разделить упомянутые события и даты'
     date_indices=[n for n,line in enumerate(lines[:14]) if DATE_MARKER.search(re.sub(r'[«“"][^»”"]*[»”"]','',line)) and not re.search(r'адрес|улица|проспект|переулок|^Москва[, ]|^Балашиха[, ]',line,re.I)]
     if not date_indices:return [],None
@@ -123,8 +133,10 @@ def parse_post(post: SocialPost):
     context=lines[title_line]
     if title_line and GENERIC_HEADING.fullmatch(lines[title_line-1]):context=lines[title_line-1]+' '+context
     if event_type(context)=='other': context += ' ' + ' '.join(lines[:min(len(lines),date_indices[0]+4)])
-    kind='exhibition' if dates['end_date'] and re.search(r'выставк',context,re.I) else 'screening' if re.search(r'кинопоказ|показ фильма',context,re.I) else 'workshop' if re.search(r'мастер.класс|воркшоп',context,re.I) else event_type(context)
+    kind='exhibition' if dates['end_date'] and re.search(r'выставк',context,re.I) else 'screening' if re.search(r'кинопоказ|показ фильма',context,re.I) else 'workshop' if re.search(r'мастер[\s–—-]?класс|воркшоп',context,re.I) else event_type(context)
     if kind=='other':return [],'Нужно уточнить тип события'
+    if dates['end_date'] and dates['end_date']!=dates['start_date'] and kind not in ('exhibition','festival'):
+        return [],'Указан общий период программы; нужны даты отдельных сеансов'
     if kind=='exhibition' and not dates['end_date']:
         return [],'Нужен подтверждённый период выставки; дата посещения не является датой открытия'
     address=next((re.sub(r'^Адрес\s*:\s*','',line,flags=re.I) for line in lines if re.search(r'^(?:Адрес\s*:|(?:📍\s*)?(?:Россия,\s*)?(?:Москва|Балашиха)[,\s])|(?:^|\s)ул\.\s|улица|проспект|переулок',line,re.I) and re.search(r'\d',line)),None)

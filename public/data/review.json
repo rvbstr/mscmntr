@@ -1,268 +1,19 @@
 {
-  "generated_at": "2026-10-20T13:01:56+00:00",
+  "generated_at": "2026-10-20T10:05:36+00:00",
   "items": [
     {
-      "source_id": "SRC_0D538B01F0C28F",
+      "source_id": "SRC_4C493AEF5B1B5F",
       "candidate": {
-        "title": "Африканское искусство: боги, предки, жизнь",
-        "start_date": "2025-12-02",
-        "start_time": null,
-        "end_date": "2027-01-17",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Карта континента из масок и фетишейСо 2 декабря 2025 по 17 января 2027 года музей «ЗИЛАРТ» показывает на четвёртом этаже собрание африканского искусства — более 800 предметов, которые почти тридцать лет, начиная с 1980-х, собирал ленинградско-нью-йоркский художник и скульптор Михаил Звягин. Коллекция охватывает народы и цивилизации Западной и Центральной Африки: бронзу и терракоту правителей Нигерии […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/afrikanskoe-iskusstvo-bogi-predki-zhizn/",
-        "address": "Москва, бульвар Братьев Весниных, 3",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Неистовый конец",
-        "start_date": "2026-01-31",
-        "start_time": null,
-        "end_date": "2026-12-31",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Двадцать лет спустя, на своих же руинах«Неистовый конец» — проект Михаила Сидлина, запущенный 31 января, в день рождения кластера, и устроенный как растянутое прощание: экспозиция дополняется по мере того, как территория пустеет. Название взято из пастернаковского перевода «Ромео и Джульетты». Участники — пятнадцать художников первой сессии, от старожилов «Фабрики» до тех, кто попал сюда впервые; […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/neistovyj-konecz/",
-        "address": "Москва, Переведеновский переулок, д. 18",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Вадим Сидур. Карта мифа. Постоянная экспозиция",
-        "start_date": "2026-04-16",
-        "start_time": null,
-        "end_date": "2027-03-27",
-        "end_time": null,
+        "title": "АрхеологиЯ личного",
         "event_type": "exhibition",
-        "description": "Пластика памяти: тело как след катастрофы Обновлённая постоянная экспозиция Музея Вадима Сидура (открыта с 16 апреля 2026, площадка входит в состав ММОМА) охватывает эволюцию мастера — от ранних станковых форм 1950-х до ассамбляжей из найденных предметов 1970–1980-х. В центре — «Памятник оставшимся без погребения» (модель установленного в Перово монумента «Скорбящие матери»), а также «Причёсывающаяся девушка» […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/vadim-sidur-karta-mifa-postoyannaya-ekspozicziya/",
-        "address": "Москва, Новогиреевская ул., 37А",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Феномены. Современная московская живопись и пересборка реального",
-        "start_date": "2026-04-24",
+        "primary_url": "https://ewert.ru/exhibition/arheologiya-lichnogo/",
+        "start_date": "2026-07-24",
+        "end_date": "2026-07-29",
         "start_time": null,
-        "end_date": "2026-11-04",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Академическая школа на территории совриска «Феномены» (24 апреля — 4 ноября 2026, ММОМА на Петровке) — проект кураторов Анны Арутюнян и Андрея Егорова о поколении живописцев, учившихся в начале 2000-х в Суриковском и Строгановском институтах. Одиннадцать авторов — от гиперреализма до беспредметности — показывают, как классический метод отвечает на технологические и экзистенциальные вызовы. Каждому отведён […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/fenomeny-sovremennaya-moskovskaya-zhivopis-i-peresborka-realnogo/",
-        "address": "Москва, ул. Петровка, 25",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Уловить стиль эпохи. Графика Николая Кузьмина",
-        "start_date": "2026-05-28",
-        "start_time": null,
-        "end_date": "2026-11-14",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Рисовальщик из «тринадцати»Фокус-выставка в 19-м зале на Крымском Валу собрана вокруг наследия Николая Кузьмина (1890–1987) — графика, книжного художника и одного из организаторов группы «13». Показаны акварели, входившие в выставки объединения, книжная графика и городские пейзажи из фондов музея, многие из которых поступили в собрание непосредственно от автора.Зачем идтиАкварели 1950-х годов, переданные наследниками художника в […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/ulovit-stil-epohi-grafika-nikolaya-kuzmina/",
-        "address": "улица Крымский Вал, 10, Москва",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Ненаивное наивное",
-        "start_date": "2026-06-02",
-        "start_time": null,
-        "end_date": "2027-02-07",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Искусство вне правил: как примитив стал новаторством С 2 июня 2026 по 7 февраля 2027 в музее-заповеднике «Царицыно» пройдет выставка «Ненаивное наивное». Экспозиция объединит почти 500 произведений художников, чье творчество не вписывалось в академические каноны, но сформировало особое направление XX века. Посетители увидят работы, редко покидающие частные собрания и музейные запасники: фантасмагорические полотна Павла Леонова, […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/nenaivnoe-naivnoe/",
-        "address": "Москва, ул. Дольская, 1",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Георгий Ечеистов: мастер графики и чувств",
-        "start_date": "2026-06-18",
-        "start_time": null,
-        "end_date": "2026-10-25",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Линия и чувство: переоткрытие Георгия Ечеистова С 18 июня по 25 октября в Доме Остроухова пройдёт выставка «Георгий Ечеистов: мастер графики и чувств». Проект, разделённый на два зала, впервые столь полно представляет наследие ученика Владимира Фаворского. Первая часть посвящена раннему, футуристическому периоду (1918–1920-е): рукописные книги, манифесты и макеты объединения МАСТАРТЧУВ («Артель Чувствующих»). Во втором зале […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/georgij-echeistov-master-grafiki-i-chuvstv/",
-        "address": "Москва, Трубниковский переулок, 17, строение 1",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Торжество меланхолии",
-        "start_date": "2026-06-26",
-        "start_time": null,
-        "end_date": "2027-01-10",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Победа без жеста: почему меланхолия — это тихая форма торжества С 26 июня 2026 по 10 января 2027 в Фонде Ruarts проходит философско-художественный проект «Торжество меланхолии» (куратор Нина Гомиашвили). Выставка возвращает меланхолии её подлинную глубину, превращая оксюморон в концептуальный ключ. Более 30 современных художников — от Ольги Божко и Валерия Кошлякова до Георгия Гурьянова и […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/torzhestvo-melanholii/",
-        "address": "Москва, Трубниковский переулок, 6",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Восхождение",
-        "start_date": "2026-07-30",
-        "start_time": null,
-        "end_date": "2027-01-31",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Осетия, отлитая в бронзеПерсональная выставка Владимира Соскиева «Восхождение» (30 июля 2026 — 31 января 2027, Музей нонконформизма) представляет пластику одного из значительных отечественных скульпторов. В его работах постоянно проступают традиции древней осетинской культуры: мысли о родном крае, историческая память о светлых и драматических событиях этой земли и судьбах её людей. Ключевые для художника категории — […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/voshozhdenie/",
-        "address": "улица Мясницкая, 24/7, строение 2, Москва",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Лужники. Есть место истории",
-        "start_date": "2026-07-31",
-        "start_time": null,
-        "end_date": "2026-11-29",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Стадион как сюжет русского искусстваК семидесятилетию Олимпийского комплекса ММОМА на Гоголевском собрал выставку, где биография стадиона рассказана не хроникой, а произведениями: русский авангард начала XX века, советская и постсоветская пластика, работы молодых авторов, сделанные специально для проекта. Архитектуру экспозиции разработало бюро «Мастерская Б». Отдельный зал занимает серия фотографа Сергея Сапожникова, снятая к юбилею.Зачем идтиУвидеть архив […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/luzhniki-est-mesto-istorii/",
-        "address": "Москва, Гоголевский бул., 10, стр. 1–2",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Режим ожидания",
-        "start_date": "2026-08-07",
-        "start_time": null,
-        "end_date": "2026-10-31",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Пауза, у которой есть содержание «Режим ожидания» открывается 7 августа в pop/off/art 2.0 — втором пространстве галереи в Большом Палашёвском переулке — и продлится до 31 октября. Куратор проекта Элина Губайдуллина собрала десять авторов вокруг состояния, которое культура привыкла списывать в потерянное время. Состав намеренно разновозрастный: рядом оказываются классики независимой сцены и художники, чья практика […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/rezhim-ozhidaniya/",
-        "address": "Большой Палашёвский переулок, 9, Москва",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Следуй за мной",
-        "start_date": "2026-08-15",
-        "start_time": null,
-        "end_date": "2026-11-01",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Проводники, которые заводят не тудаГрупповой проект под кураторством Жанны Бобраковой собирает четыре самостоятельные художественные вселенные и выстраивает между ними маршрут. Экспозиционная логика построена не на общей теме, а на переходах: работы сцеплены линиями притяжения, которые заставляют переводить взгляд с одной на другую. Персонажи, населяющие эти миры, выступают проводниками — но проводниками ненадёжными.Зачем идтиПроследить, как кураторская […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/sleduj-za-mnoj/",
-        "address": "Москва, ул. Тверская, д. 3 (здание отеля The Carlton, -2 этаж, арт-пространство КУБ)",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Неистовый конец",
-        "start_date": "2026-01-31",
-        "start_time": null,
-        "end_date": "2026-12-31",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Двадцать лет спустя, на своих же руинах«Неистовый конец» — проект Михаила Сидлина, запущенный 31 января, в день рождения кластера, и устроенный как растянутое прощание: экспозиция дополняется по мере того, как […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/neistovyj-konecz/",
-        "address": "Москва, Переведеновский переулок, д. 18",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
-      },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
-    },
-    {
-      "source_id": "SRC_0D538B01F0C28F",
-      "candidate": {
-        "title": "Пейзаж как предчувствие",
-        "start_date": "2026-10-15",
-        "start_time": null,
-        "end_date": "2026-11-15",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Ландшафт в режиме ожиданияВыставка видеоарта «Пейзаж как предчувствие» работает в Цехе отделки Центра творческих индустрий «Фабрика» с 15 октября по 15 ноября 2026 года. Куратор — видеохудожница Марина Фоменко, она […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/pejzazh-kak-predchuvstvie/",
-        "address": "Москва, Переведеновский переулок, д. 18",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "АрхеологиЯ личного 24 июля — 29 июля 2026",
+        "title_basis": "event_heading",
         "suggested_primary_urls": []
       },
       "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
@@ -270,18 +21,16 @@
     {
       "source_id": "SRC_4C493AEF5B1B5F",
       "candidate": {
-        "title": "Все останется между домами",
-        "start_date": "2026-06-12",
+        "title": "Вечность пахнет супом",
+        "event_type": "exhibition",
+        "primary_url": "https://ewert.ru/exhibition/vechnost-pahnet-supom/",
+        "start_date": "2026-08-10",
+        "end_date": "2026-08-15",
         "start_time": null,
-        "end_date": "2026-06-14",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Двор как вселенная: повседневные практики в пространстве гаражей С 12 по 14 июня в галерее Корней (при поддержке галереи Шапито) пройдёт выставка «Все останется между домами» (куратор Татьяна Якушева). Проект […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/vse-ostanetsya-mezhdu-domami/",
-        "address": "Москва, Большая Никитская ул., 22/2, 3 подъезд, 2 этаж",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Вечность пахнет супом 10 августа — 15 августа 2026",
+        "title_basis": "event_heading",
         "suggested_primary_urls": []
       },
       "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
@@ -289,18 +38,16 @@
     {
       "source_id": "SRC_4C493AEF5B1B5F",
       "candidate": {
-        "title": "Открытие выставки и экскурсия",
-        "start_date": "2026-06-12",
-        "start_time": "19:00",
-        "end_date": "2026-06-12",
-        "end_time": "20:00",
+        "title": "Открытие выставки «Вечность пахнет супом»",
         "event_type": "opening",
-        "description": "12 июня в 19:00 в галерее Корней состоится открытие выставки «Все останется между домами». Куратор Татьяна Якушева проведёт экскурсию по экспозиции, расскажет о концепции проекта и работах участников. Вход свободный.\\n",
-        "primary_url": "https://ewert.ru/exhibition/otkrytie-vystavki-i-ekskursiya/",
-        "address": "Москва, Большая Никитская ул., 22/2, 3 подъезд, 2 этаж",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "minute",
+        "primary_url": "https://ewert.ru/exhibition/otkrytie-vystavki-%c2%abvechnost-pahnet-supom%c2%bb/",
+        "start_date": "2026-08-10",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Открытие выставки «Вечность пахнет супом» 10 августа 2026, 19:00",
+        "title_basis": "event_heading",
         "suggested_primary_urls": []
       },
       "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
@@ -308,18 +55,233 @@
     {
       "source_id": "SRC_4C493AEF5B1B5F",
       "candidate": {
-        "title": "Перформанс Дарьи Чермяниной «Clean Girl»",
-        "start_date": "2026-06-13",
-        "start_time": "19:00",
-        "end_date": "2026-06-13",
-        "end_time": "20:00",
-        "event_type": "performance",
-        "description": "13 июня в 19:00 Дарья Чермянина представит перформанс «Clean Girl» — исследование ритуалов чистоты, гигиенических норм и их связи с повседневными практиками в городском районе. Вход свободный.\\n",
-        "primary_url": "https://ewert.ru/exhibition/performans-dari-chermyaninoj-clean-girl/",
-        "address": "Москва, Большая Никитская ул., 22/2, 3 подъезд, 2 этаж",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "minute",
+        "title": "Помоги мне выжить среди этой смертной любви",
+        "event_type": "exhibition",
+        "primary_url": "https://ewert.ru/exhibition/pomogi-mne-vyzhit-sredi-etoj-smertnoj-lyubvi/",
+        "start_date": "2026-08-23",
+        "end_date": "2026-08-25",
+        "start_time": null,
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Помоги мне выжить среди этой смертной любви 23 августа — 25 августа 2026",
+        "title_basis": "event_heading",
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Наитие",
+        "event_type": "exhibition",
+        "primary_url": "https://ewert.ru/exhibition/naitie/",
+        "start_date": "2026-08-30",
+        "end_date": "2026-09-03",
+        "start_time": null,
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Наитие 30 августа — 3 сентября 2026",
+        "title_basis": "event_heading",
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Вернисаж выставки «Наитие»",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/vernisazh-vystavki-naitie/",
+        "start_date": "2026-08-30",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Вернисаж выставки «Наитие» 30 августа 2026, 18:00",
+        "title_basis": "event_heading",
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Не подходите к окнам",
+        "event_type": "exhibition",
+        "primary_url": "https://ewert.ru/exhibition/ne-podhodite-k-oknam/",
+        "start_date": "2026-09-04",
+        "end_date": "2026-09-05",
+        "start_time": null,
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Не подходите к окнам 4 сентября — 5 сентября 2026",
+        "title_basis": "event_heading",
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Рассказ",
+        "event_type": "exhibition",
+        "primary_url": "https://ewert.ru/exhibition/rasskaz/",
+        "start_date": "2026-10-01",
+        "end_date": "2026-10-15",
+        "start_time": null,
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Рассказ 1 октября — 15 октября 2026",
+        "title_basis": "event_heading",
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Открытие выставки «Рассказ»",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/otkrytie-vystavki-rasskaz/",
+        "start_date": "2026-10-01",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Открытие выставки «Рассказ» 1 октября 2026, 19:00",
+        "title_basis": "event_heading",
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "АрхеологиЯ личного",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/arheologiya-lichnogo/",
+        "start_date": "2026-07-24",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "inferred_opening",
+        "date_basis": "exhibition_start",
+        "date_evidence": "АрхеологиЯ личного 24 июля — 29 июля 2026",
+        "title_basis": "event_heading",
+        "end_time": null,
+        "review_status": "tentative",
+        "uncertainties": [
+          "Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано."
+        ],
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Вечность пахнет супом",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/vechnost-pahnet-supom/",
+        "start_date": "2026-08-10",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "inferred_opening",
+        "date_basis": "exhibition_start",
+        "date_evidence": "Вечность пахнет супом 10 августа — 15 августа 2026",
+        "title_basis": "event_heading",
+        "end_time": null,
+        "review_status": "tentative",
+        "uncertainties": [
+          "Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано."
+        ],
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Помоги мне выжить среди этой смертной любви",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/pomogi-mne-vyzhit-sredi-etoj-smertnoj-lyubvi/",
+        "start_date": "2026-08-23",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "inferred_opening",
+        "date_basis": "exhibition_start",
+        "date_evidence": "Помоги мне выжить среди этой смертной любви 23 августа — 25 августа 2026",
+        "title_basis": "event_heading",
+        "end_time": null,
+        "review_status": "tentative",
+        "uncertainties": [
+          "Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано."
+        ],
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Наитие",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/naitie/",
+        "start_date": "2026-08-30",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "inferred_opening",
+        "date_basis": "exhibition_start",
+        "date_evidence": "Наитие 30 августа — 3 сентября 2026",
+        "title_basis": "event_heading",
+        "end_time": null,
+        "review_status": "tentative",
+        "uncertainties": [
+          "Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано."
+        ],
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Не подходите к окнам",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/ne-podhodite-k-oknam/",
+        "start_date": "2026-09-04",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "inferred_opening",
+        "date_basis": "exhibition_start",
+        "date_evidence": "Не подходите к окнам 4 сентября — 5 сентября 2026",
+        "title_basis": "event_heading",
+        "end_time": null,
+        "review_status": "tentative",
+        "uncertainties": [
+          "Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано."
+        ],
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_4C493AEF5B1B5F",
+      "candidate": {
+        "title": "Рассказ",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/rasskaz/",
+        "start_date": "2026-10-01",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "inferred_opening",
+        "date_basis": "exhibition_start",
+        "date_evidence": "Рассказ 1 октября — 15 октября 2026",
+        "title_basis": "event_heading",
+        "end_time": null,
+        "review_status": "tentative",
+        "uncertainties": [
+          "Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано."
+        ],
         "suggested_primary_urls": []
       },
       "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
@@ -344,16 +306,60 @@
       "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
     },
     {
-      "source_id": "SRC_755B2DB5B47269",
+      "source_id": "SRC_D2FC64C8098577",
       "candidate": {
-        "primary_url": "https://t.me/Arendt_and_Co/483",
-        "published_at": "2026-09-12T12:19:20+00:00",
-        "description": "12 сентября - день рождения\nЮрия Арендта\n, сына Ариадны Арендт и Меера Айзенштадта, палеонтолога, ученого, художника.\n«Сегодня день рождения Юрия Арендта, любимого нашего папы (12 сентября 1934 - 1 сентября 2022).\nЮрочка - не только хранитель нашей мастерской, сумевший сохранить всю сложную коллекцию скульптуры и графики. Он палеонтолог, ученый с мировым именем: всю жизнь посвятил изучению самого красивого животного в мире - Морской лилии, нашел и описал много новых видов, давал им имена, буквально как бог, углублялся в процессы эволюции.\nКак пишут в Википедии: «Юрий Арендт специализировался на морфологии, систематике, эволюции, онтогенезе и палеоэкологии ископаемых стебельчатых иглокожих, преимущественно морских лилий (криноидей). Внёс значительный вклад в изучение криноидей, бластоидей и других групп палеозойских иглокожих».\nОн был необыкновенно красивым и обаятельным человеком, молчаливым и скромным. Словами Р. Музеля, «принадлежал к людям, которые всегда кажутся хорошо освещенными». В какой бы тенистый и тихий уголок он ни садился, все почему-то начинали присматриваться, какое у него выражение лица, и прислушиваться, что он там пробурчал в свою бороду, и все застолье начинало крутиться во круг него. Конечно, он был не только ученым, но и знатоком, собирателем искусства, продолжателем дела прекрасных родителей, реставратором, интересным современным художником.\nНадеюсь, я пишу здесь о нем не в последний раз, иначе можно просто сойти с ума от сложности поставленной задачи».\nНаталия Арендт\n#МастерскаяВЛицах",
-        "related_urls": [
-          "https://t.me/?q=%23%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F%D0%92%D0%9B%D0%B8%D1%86%D0%B0%D1%85"
-        ]
+        "title": "Среда обитания XXVIII 6-28",
+        "event_type": "exhibition",
+        "primary_url": "https://ewert.ru/exhibition/sreda-obitaniya-xxviii-6-28/",
+        "start_date": "2026-10-01",
+        "end_date": "2026-10-22",
+        "start_time": null,
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Среда обитания XXVIII 6-28 1 октября — 22 октября 2026",
+        "title_basis": "event_heading",
+        "suggested_primary_urls": []
       },
-      "reason": "Дата начала не определена однозначно"
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_D2FC64C8098577",
+      "candidate": {
+        "title": "Открытие выставки «Среда обитания XXVIII 6-28»",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/otkrytie-vystavki-sreda-obitaniya-xxviii-6-28/",
+        "start_date": "2026-09-30",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "programme_card",
+        "date_basis": "explicit_date_block",
+        "date_evidence": "Открытие выставки «Среда обитания XXVIII 6-28» 30 сентября 2026, 19:00",
+        "title_basis": "event_heading",
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+    },
+    {
+      "source_id": "SRC_D2FC64C8098577",
+      "candidate": {
+        "title": "Среда обитания XXVIII 6-28",
+        "event_type": "opening",
+        "primary_url": "https://ewert.ru/exhibition/sreda-obitaniya-xxviii-6-28/",
+        "start_date": "2026-10-01",
+        "end_date": null,
+        "start_time": null,
+        "confidence": "inferred_opening",
+        "date_basis": "exhibition_start",
+        "date_evidence": "Среда обитания XXVIII 6-28 1 октября — 22 октября 2026",
+        "title_basis": "event_heading",
+        "end_time": null,
+        "review_status": "tentative",
+        "uncertainties": [
+          "Отмечен первый день работы выставки. Отдельное время вернисажа на сайте не указано."
+        ],
+        "suggested_primary_urls": []
+      },
+      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
     },
     {
       "source_id": "SRC_755B2DB5B47269",
@@ -372,6 +378,18 @@
         ]
       },
       "reason": "Нужен подтверждённый период выставки; дата посещения не является датой открытия"
+    },
+    {
+      "source_id": "SRC_755B2DB5B47269",
+      "candidate": {
+        "primary_url": "https://t.me/Arendt_and_Co/483",
+        "published_at": "2026-09-12T12:19:20+00:00",
+        "description": "12 сентября - день рождения\nЮрия Арендта\n, сына Ариадны Арендт и Меера Айзенштадта, палеонтолога, ученого, художника.\n«Сегодня день рождения Юрия Арендта, любимого нашего папы (12 сентября 1934 - 1 сентября 2022).\nЮрочка - не только хранитель нашей мастерской, сумевший сохранить всю сложную коллекцию скульптуры и графики. Он палеонтолог, ученый с мировым именем: всю жизнь посвятил изучению самого красивого животного в мире - Морской лилии, нашел и описал много новых видов, давал им имена, буквально как бог, углублялся в процессы эволюции.\nКак пишут в Википедии: «Юрий Арендт специализировался на морфологии, систематике, эволюции, онтогенезе и палеоэкологии ископаемых стебельчатых иглокожих, преимущественно морских лилий (криноидей). Внёс значительный вклад в изучение криноидей, бластоидей и других групп палеозойских иглокожих».\nОн был необыкновенно красивым и обаятельным человеком, молчаливым и скромным. Словами Р. Музеля, «принадлежал к людям, которые всегда кажутся хорошо освещенными». В какой бы тенистый и тихий уголок он ни садился, все почему-то начинали присматриваться, какое у него выражение лица, и прислушиваться, что он там пробурчал в свою бороду, и все застолье начинало крутиться во круг него. Конечно, он был не только ученым, но и знатоком, собирателем искусства, продолжателем дела прекрасных родителей, реставратором, интересным современным художником.\nНадеюсь, я пишу здесь о нем не в последний раз, иначе можно просто сойти с ума от сложности поставленной задачи».\nНаталия Арендт\n#МастерскаяВЛицах",
+        "related_urls": [
+          "https://t.me/?q=%23%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F%D0%92%D0%9B%D0%B8%D1%86%D0%B0%D1%85"
+        ]
+      },
+      "reason": "Дата начала не определена однозначно"
     },
     {
       "source_id": "SRC_16829580A5B7A6",
@@ -396,42 +414,31 @@
       "reason": "Событие за пределами Москвы и Подмосковья: Екатеринбург"
     },
     {
-      "source_id": "SRC_D2FC64C8098577",
+      "source_id": "SRC_126E4B4D46979F",
       "candidate": {
-        "title": "Среда обитания XXVIII 6-28",
-        "start_date": "2026-10-01",
-        "start_time": null,
-        "end_date": "2026-10-22",
-        "end_time": null,
-        "event_type": "other",
-        "description": "Терраформирование бывшего гаража: заселение как конфликтВыставка «Среда обитания XXVIII 6-28» идёт с 1 по 22 октября в ±space — новом самоорганизованном пространстве на 7-й Кожуховской. Куратор — Алексей Шиханцов, он […]\\n",
-        "primary_url": "https://ewert.ru/exhibition/sreda-obitaniya-xxviii-6-28/",
-        "address": "Москва, ул. 7-я Кожуховская, 15А",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "date",
-        "suggested_primary_urls": []
+        "primary_url": "https://t.me/pop_off_art/8996",
+        "published_at": "2026-10-14T08:25:01+00:00",
+        "description": "Вчера, 13 октября, был день рождения художника галереи pop/off/art Михаила Левиуса!\nВ начале этого года в Музейном центре «Площадь Мира»(Красноярск) состоялась первая музейная выставка Михаила «\nДальний план\n». Экспозиция объединила работы из персональных проектов художника, государственных и частных собраний, а также произведения, созданные специально для Красноярска. К выставке издательство «Попов Арт» выпустило\nкаталог\n, в который вошли ключевые работы Михаила, охватывающие его профессиональный путь от первых произведений до настоящего времени.\nА совсем недавно мы представляли\nработы художника\nна международной ярмарке современного искусства Kiaf в Сеуле. Специально для нее Михаил создал новую графическую серию, балансирующую на грани абстрактного и фигуративного.\nМы поздравляем Михаила с днём рождения, желаем вдохновения, новых художественных открытий и интересных проектов\n🤍",
+        "related_urls": [
+          "https://t.me/pop_off_art/7245",
+          "https://books.popoffart.com/tproduct/306883509-552311308932-mihail-levius-dalnii-plan",
+          "https://t.me/pop_off_art/8687"
+        ]
       },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+      "reason": "Не удалось выделить название события из текста публикации"
     },
     {
-      "source_id": "SRC_D2FC64C8098577",
+      "source_id": "SRC_4B5CC9999C32D2",
       "candidate": {
-        "title": "Открытие выставки «Среда обитания XXVIII 6-28»",
-        "start_date": "2026-09-30",
-        "start_time": "19:00",
-        "end_date": "2026-09-30",
-        "end_time": "19:00",
-        "event_type": "opening",
-        "description": "Вечер открытия проекта о заселении бывшего технического помещения: участники и куратор Алексей Шиханцов встречают первых зрителей накануне официального старта выставки. Точные координаты можно уточнить у куратора в соцсетях.\\n",
-        "primary_url": "https://ewert.ru/exhibition/otkrytie-vystavki-sreda-obitaniya-xxviii-6-28/",
-        "address": "Москва, ул. 7-я Кожуховская, 15А",
-        "published_at": null,
-        "confidence": "structured",
-        "date_precision": "minute",
-        "suggested_primary_urls": []
+        "primary_url": "https://t.me/solyankagallery/399",
+        "published_at": "2026-10-06T15:29:26+00:00",
+        "description": "В Галерее Солянка Объединения «Выставочные залы Москвы» пройдёт лекция Ильи Вевюрко «Не только \"Третий Рим\": идеи, которые связывали с именем старца Филофея».\nСтарец Филофей известен прежде всего как автор послания, в котором Москва названа «Третьим Римом». Но внимательное обращение к его наследию показывает, насколько эта знаменитая формула связана с другими вопросами, занимавшими автора.\nО чём ещё говорится в посланиях, приписываемых псковскому старцу Филофею?\nИлья Вевюрко предлагает посмотреть на старца Филофея не через ставшую знаменитой формулу  «Третьего Рим», а через круг вопросов, в которых эта формула обрела свой первоначальный смысл.\nНа лекции речь пойдёт не только о судьбе христианского царства и месте Москвы в истории, но и о том, как Филофей представлял устройство мира, человеческой души, какими видел границы человеческого знания, как относился к астрологии, а также — о вполне конкретных вопросах христианской жизни перед лицом бедствия.\nВстреча проходит в рамках интеллектуального клуба «Солянка».\nИлья Сергеевич Вевюрко — религиовед, кандидат философских наук, доцент МГУ и ПСТГУ. Автор монографий «Септуагинта: древнегреческий текст Ветхого Завета в истории религиозной мысли», «Третий Рим: 500 лет русской имперской идеи», «История православия в России» и «Первая Книга Еноха: перевод с геэз и толкование».\nУчастие бесплатное, по предварительной регистрации.\nКоличество мест ограничено: 30 человек.\n➡️\nРегистрация\n📍\nГалерея Солянка\nм. «Китай-город», ул. Солянка, 1/2, стр. 2 (вход с ул. Забелина)\n🕘\nежедневно с 12:00 до 22:00",
+        "related_urls": [
+          "https://solyanka.vzmoscow.ru/starets-filofey-tretiy-rim",
+          "https://solyanka.vzmoscow.ru/"
+        ]
       },
-      "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
+      "reason": "Не удалось выделить название события из текста публикации"
     },
     {
       "source_id": "SRC_C5C7178B3E28D8",
@@ -447,6 +454,21 @@
       "reason": "Дата начала не определена однозначно"
     },
     {
+      "source_id": "SRC_D9E6C50B8DD129",
+      "candidate": {
+        "primary_url": "https://t.me/ekaterinafoundation/635",
+        "published_at": "2026-03-09T11:55:15+00:00",
+        "description": "Розыгрыш четырёх билетов на выставку «Смотритель сада»\nГалерея К35 открыла в Фонде культуры «ЕКАТЕРИНА» новый цветущий проект, объединивший живопись Олега Маслова и скульптуру Вильгения Мельникова. Экспозиция превращена в концептуальный лабиринт, где сад предстает как архив человеческого мироощущения и поле вечной борьбы между упорядоченной культурой и стихийной природой. В центре внимания оказывается жест созерцания: посетителям предлагают не просто полюбоваться красотой, а вступить в диалог с жизненной силой, в которой мы одновременно являемся и хозяевами, и гостями.\nМаслов представляет свою новую яркую, чувственную живопись, фиксирующую ускользающие мгновения, полные жизненной энергии. Скульптор Вильгений Мельников дополняет это пространство работами из металла, где через грубую деформацию материала проступают изящные образы античности и барокко. Вместе они исследуют регулярный парк как утопическую попытку человека укротить природу разумом на стыке хрупкого и монументального.\nВыставка проходит в Москве по адресу Кузнецкий мост, 21/5 и открыта для посещения ежедневно, кроме понедельника.\nЧтобы принять участие в розыгрыше четырёх билетов, подписывайтесь на каналы:\nКультурные люди\nSi\nФонд Культуры «ЕКАТЕРИНА»\nГалерея К35\nА затем жмите кнопку «участвовать» и ожидайте результатов через неделю!\nУчастников:\n113\nПризовых мест:\n1\nДата розыгрыша:\n15:00, 15.03.2026 MSK (завершён)\nПобедители розыгрыша:\n1. Екатерина Исмаилова - 56470p",
+        "related_urls": [
+          "https://t.me/culturepeople",
+          "https://t.me/shlsi",
+          "https://t.me/ekaterinafoundation",
+          "https://t.me/k35space"
+        ]
+      },
+      "reason": "Розыгрыш билетов: нужно разделить упомянутые события и даты"
+    },
+    {
       "source_id": "SRC_853484DE6E46C1",
       "candidate": {
         "primary_url": "https://t.me/galleryfineart/1184",
@@ -455,6 +477,28 @@
         "related_urls": []
       },
       "reason": "Дата начала не определена однозначно"
+    },
+    {
+      "source_id": "SRC_494401737BD311",
+      "candidate": {
+        "primary_url": "https://t.me/Betoncvc/13818",
+        "published_at": "2026-10-15T06:03:00+00:00",
+        "description": "В парижской Bourse de Commerce открылась Remember Me — выставка, которая обещает рассказать историю фотографии длиной в два столетия.\nВ экспозиции около 700 работ более 70 авторов из коллекции миллиардера Франсуа Пино. Увидеть её можно до 18 января 2027 года.\nНо за внушительным масштабом скрывается неудобный вопрос: чью именно историю мы видим?\nКритик The Guardian обратил внимание, что почти 450 работ на выставке принадлежат одному фотографу — Ирвингу Пенну. Получается, история целого медиума во многом рассказана через оптику одного автора. Возникает вопрос: насколько полно такая экспозиция представляет историю фотографии, если значительная её часть сосредоточена вокруг одного автора?\nДругой повод для дискуссии — фотографии, созданные в колониальном контексте. Как показывать снимки, созданные в колониальную эпоху, если за их эстетической ценностью стоят неравные отношения между тем, кто держит камеру, и тем, кого снимают? Достаточно ли выставить фотографию в музейном пространстве, чтобы превратить её в произведение искусства, — или контекст тоже должен стать частью экспозиции?\nRemember Me ставит вопрос, выходящий за пределы конкретной выставки: может ли частная коллекция рассказать историю целого медиума? Ведь коллекционер не просто сохраняет произведения — отбирая их, он формирует собственную версию художественного канона.\nИ тогда фотография становится не только изображением прошлого, но и поводом поговорить о том, кто определяет, что именно мы будем помнить об истории искусства.\nСо статьей The Gardian можно ознакомиться здесь:\nhttps://www.theguardian.com/artanddesign/2026/oct/10/remember-me-review-photography-bourse-de-commerce-paris",
+        "related_urls": [
+          "https://www.theguardian.com/artanddesign/2026/oct/10/remember-me-review-photography-bourse-de-commerce-paris"
+        ]
+      },
+      "reason": "Событие за пределами Москвы и Подмосковья; требуется отдельная атрибуция"
+    },
+    {
+      "source_id": "SRC_494401737BD311",
+      "candidate": {
+        "primary_url": "https://t.me/Betoncvc/13798",
+        "published_at": "2026-10-10T06:29:26+00:00",
+        "description": "С 14 по 18 октября в лондонском Риджентс-парке пройдут Frieze London и Frieze Masters — две ярмарки, которые ежегодно собирают ведущие галереи, художников, коллекционеров и кураторов со всего  мира.\nВ 2026 году главные акценты — молодые галереи, новые прочтения истории искусства и расширение разговора о том, как массовая культура формирует наше представление о мире.\nЧего ждать от ярмарки — и на что смотреть\n:\nГлавная интрига Frieze в этом году — баланс между проверенными рыночными именами и художниками, которые только входят в международный оборот.\n❗️\nБольше новых имён. Раздел\nFocus\nобъединяет молодые международные галереи, а A\nrtist-to-Artist\nдаёт возможность увидеть авторов, которых поддерживают коллеги с уже сложившейся репутацией.\n❗️\nБольше внимания к идентичности и культурной памяти. В программе заметны художники коренных народов, авторы, работающие с миграцией, историей и социальными неравенствами.\n❗️\nТехнологии — уже не просто эффект. Отдельные проекты обращаются к искусственному интеллекту и цифровой культуре, исследуя, как технологии меняют производство изображений и наши отношения с ними.\n❗️\nЯрмарка выходит за пределы павильонов. Совместно с Institute of Contemporary Arts Frieze представляет программу фильмов и moving image, а Frieze Sculpture продолжает работу в садах Риджентс-парка до 1 ноября.\nВ этом году среди заметных тенденций — усиленное внимание к фотографии\n:\n❗️\nВ экспозиции\nMaureen Paley\nпокажут работу\nВольфганга Тильманса\nP\naul, nude, golf ball (1994)\n— пример того, как художник превращает повседневный сюжет в самостоятельное визуальное высказывание.\n❗️\nГалерея\nAlison Jacques\nпредставит работу\nАны Мендьеты\nUntitled (Facial Hair Transplants) (1972)\n, связанную с её исследованиями тела, идентичности и границ между личным и публичным.\n❗️\nСреди участников также —\nгалерея PM8 / Francisco Salas\nс работами литовского фотографа\nАлгирдаса Шешкуса.\nФотография вписывается и в более широкий разговор ярмарки о том, как изображения формируют наше восприятие реальности. К примеру, овый раздел\nThe Code Universe\nисследует влияние массовой культуры, медиа и потребительских образов на общество.\nПохоже, Frieze London стоит рассматривать не только как барометр арт-рынка, но и как возможность проследить, как меняется статус фотографии — от документа и художественного эксперимента до самостоятельного языка современного искусства.",
+        "related_urls": []
+      },
+      "reason": "Событие за пределами Москвы и Подмосковья; требуется отдельная атрибуция"
     }
   ]
 }
