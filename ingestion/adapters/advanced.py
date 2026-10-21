@@ -67,7 +67,7 @@ def publication_field(node):
     return any(re.search(r'datePublished|dateModified|published|modified|posted[-_ ]on|post[-_]date|entry[-_]date',str(n.attrs),re.I) for n in [node]+list(node.parents)[:2])
 
 
-def parse_advanced(html, url):
+def parse_advanced(html, url, context=None):
     metadata = extruct.extract(html, base_url=url, syntaxes=['microdata', 'rdfa'], uniform=True, errors='ignore') if re.search(r'\s(?:itemtype|typeof|vocab)\s*=|\sitemscope(?:\s|[=>])',html,re.I) else {}
     nodes = [_schema(n) for values in metadata.values() for n in values]
     encoded = json.dumps(nodes, ensure_ascii=False).replace('</', '<\\/')
@@ -101,7 +101,7 @@ def parse_advanced(html, url):
         if len(text) > 180: continue
         if publication_field(node):continue
         calendar_year=re.search(r'/exhibitions?/(20\d{2})/',urlsplit(url).path)
-        parsed = _dates(text,int(calendar_year[1]) if calendar_year else None)
+        parsed = _dates(text,int(calendar_year[1]) if calendar_year else (context or {}).get('reference_year'))
         if re.search(r'вернисаж|открыти[ея]|opening', text, re.I): opening_text.append(text); continue
         if parsed['start_date']: periods.append((parsed, text))
     ranges={(d['start_date'],d['end_date']) for d,_ in periods if d['end_date']}

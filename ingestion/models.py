@@ -59,7 +59,9 @@ def same_event(a,b):
     if any(a.get(k)!=b.get(k) for k in ('institution_id','event_type')) or not _same_day_or_period(a,b): return False
     if a.get('start_time') != b.get('start_time'):
         if a.get('start_time') and b.get('start_time'): return False
-        if a['event_type'] not in ('exhibition','opening'): return False
+        if a['event_type'] not in ('exhibition','opening') and not any(
+                event.get('origin_post_url') and canonical_url(event['origin_post_url']) in _urls(other)
+                for event,other in ((a,b),(b,a))): return False
     x,y=identity_title(a),identity_title(b)
     if x==y or (min(len(x),len(y))>18 and SequenceMatcher(None,x,y).ratio()>=.97): return True
     # A shared event URL can resolve a fallback/marketing heading, but two named
@@ -230,5 +232,10 @@ def complete_event(candidate,institution,source,timestamp):
     e['evidence']=[{'url':e['primary_url'],'source_id':source['source_id'],'checked_at':timestamp,'status':'available','verification_method':candidate.get('verification_method','http'),
         **{k:e[k] for k in ('title','start_date','end_date','start_time','date_evidence','title_basis') if e.get(k) is not None}}]
     if candidate.get('source_title'):e['evidence'][0]['title']=candidate['source_title']
+    evidence_urls={canonical_url(e['primary_url'])}
+    for item in candidate.get('evidence',[]):
+        if direct_url(item.get('url','')) and canonical_url(item['url']) not in evidence_urls:
+            e['evidence'].append(dict(item,source_id=item.get('source_id') or source['source_id']))
+            evidence_urls.add(canonical_url(item['url']))
     e['date_precision']='minute' if e.get('start_time') else 'date'
     return e

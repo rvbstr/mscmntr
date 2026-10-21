@@ -59,7 +59,7 @@ def parse_cards(html,url):
 def extract(html,url,context=None,rule=None):
     for name,parser in [('jsonld',lambda:parse_jsonld(html,url) if 'ld+json' in html else []),('institution',lambda:parse_institution(html,url,context)),
         ('scoped_html',lambda:parse_html(html,url,rule) if rule or re.search(r'<article\b',html,re.I) else []),('embedded_calendar',lambda:parse_embedded(html,url) if re.search(r'__NUXT__|__NEXT_DATA__|application/json|source-state-json',html) else []),
-        ('extruct_trafilatura',lambda:parse_advanced(html,url)),('programme_cards',lambda:parse_cards(html,url) if urlsplit(url).hostname not in {'ges-2.org','garagemca.org','ruarts.foundation','centrezotov.ru','art.hse.ru','mmoma.ru','11-12gallery.com'} else [])]:
+        ('extruct_trafilatura',lambda:parse_advanced(html,url,context)),('programme_cards',lambda:parse_cards(html,url) if urlsplit(url).hostname not in {'ges-2.org','garagemca.org','ruarts.foundation','centrezotov.ru','art.hse.ru','mmoma.ru','11-12gallery.com'} else [])]:
         events=parser()
         if events:return events,name
     return [],None

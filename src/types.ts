@@ -80,6 +80,7 @@ export interface ArtEvent {
   verification_method?: string;
   link_status: string;
   link_checked_at?: string;
+  registration_url?: string;
   parent_event_id?: string;
   evidence: {
     url: string;

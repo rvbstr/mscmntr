@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 from ingestion.import_catalog import ROOT
 from ingestion.http import Client, SourceError
 from ingestion.extraction import collect_website
+from ingestion.linked import LinkedResolver
 from ingestion.adapters import parse_jsonld
 from ingestion.adapters.social import parse_post
 from ingestion.adapters.telegram import collect_telegram
@@ -103,8 +104,13 @@ def refresh(catalog,overrides,previous,client,only=None,max_pages=3,social_optio
                 if collection.live:
                     social_verified={post.url for post in collection.posts}
                     refreshed_urls.update(social_verified)
+                resolver=LinkedResolver(client) if source['platform']=='telegram' and collection.live else None
+                report['linked_pages']=[];report['linked_page_issues']=[]
                 for post in collection.posts:
                     parsed,reason=parse_post(post)
+                    if resolver:
+                        parsed,reason,issues,pages=resolver.resolve(post,parsed,reason)
+                        report['linked_pages']+=pages;report['linked_page_issues']+=issues
                     if reason:review.append({'source_id':sid,'candidate':{'primary_url':post.url,'published_at':post.published_at,'description':post.text[:16000],'related_urls':list(post.related_urls)},'reason':reason})
                     if collection.live:extracted.extend(parsed)
                     else:

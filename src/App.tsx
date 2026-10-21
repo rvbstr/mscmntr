@@ -1885,7 +1885,7 @@ export default function App() {
               month: "long",
               year: "numeric",
             })}
-            {selectedEvent.start_time && ` / ${selectedEvent.start_time} МСК`}
+            {selectedEvent.start_time && ` / ${selectedEvent.start_time}${selectedEvent.end_time ? `–${selectedEvent.end_time}` : ""} МСК`}
             {selectedEvent.end_date &&
               ` — ${dayLabel(selectedEvent.end_date, { day: "numeric", month: "long", year: "numeric" })}`}
           </div>
@@ -1926,6 +1926,11 @@ export default function App() {
           <Ext className="solid-button" href={selectedEvent.primary_url}>
             Оригинальный анонс <ArrowUpRight size={17} />
           </Ext>
+          {selectedEvent.registration_url && selectedEvent.registration_url !== selectedEvent.primary_url && (
+            <Ext className="solid-button" href={selectedEvent.registration_url}>
+              Регистрация <ArrowUpRight size={17} />
+            </Ext>
+          )}
           <div className="detail-actions">
             <button
               className="outline-button"

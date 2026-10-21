@@ -112,11 +112,12 @@ def test_telegram_ingestion_integration_and_repeatability():
     class Client:
         def __init__(self):self.requests=[]
         def fetch(self,url):
-            self.requests.append(url);assert url=='https://t.me/s/ivanygallery'
+            self.requests.append(url)
+            if url!='https://t.me/s/ivanygallery':raise SourceError('Связанная страница недоступна в тестовом транспорте')
             return (FIX/'telegram-real.html').read_text(),url
     client=Client();first,review=refresh(catalog,overrides,{'events':[],'sources':[]},client)
     assert len(first['events'])==3;assert first['sources'][0]['posts_seen']==2;assert first['sources'][0]['status']=='working'
-    assert all(e['source_platform']=='telegram' for e in first['events']);assert len(client.requests)==1
+    assert all(e['source_platform']=='telegram' for e in first['events']);assert client.requests.count('https://t.me/s/ivanygallery')==1
     second,_=refresh(catalog,overrides,first,Client());assert len(second['events'])==3;assert second['sources'][0]['new_events']==0
     opening=next(e for e in second['events'] if e['event_type']=='opening');assert opening['parent_event_id'] in {e['event_id'] for e in second['events']}
 

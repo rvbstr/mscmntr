@@ -164,10 +164,10 @@ def publish_review(catalog, review, reports, timestamp):
             checked = row['link_checked_at'] if 'link_checked_at' in row else health.get(source['source_id'], {}).get('last_successful_check')
             if status != 'available': notes.append('Доступность ссылки на анонс не подтверждена; проверьте её перед посещением.')
             event.update(review_status='tentative', confidence='tentative', uncertainties=list(dict.fromkeys(notes)),
-                venue_is_tentative=inferred_owner or not item.get('address'),
-                venue_name=('Площадка уточняется' if inferred_owner else owner['name']),
+                venue_is_tentative=not (item.get('venue_name') and item.get('address')) and (inferred_owner or not item.get('address')),
+                venue_name=item.get('venue_name') or ('Площадка уточняется' if inferred_owner else owner['name']),
                 link_status=status, link_checked_at=checked,
-                evidence=[{**e,'status':status,'checked_at':checked} for e in event['evidence']],
+                evidence=[e if item.get('linked_verified_at') else {**e,'status':status,'checked_at':checked} for e in event['evidence']],
                 publication_basis='owner_authorized_tentative')
             events.append(event); published = True
         if not published: remaining.append(row)

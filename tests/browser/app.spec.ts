@@ -1,5 +1,16 @@
 import { test, expect } from "@playwright/test";
 
+test("Telegram links enrich the Alea card while keeping its shared URL", async ({ page }) => {
+  await page.goto("/?type=all&event=EV_760D944357DE58630F");
+  const dialog = page.getByRole("dialog");
+  await expect(dialog.getByRole("heading", { name: "Презентация альбома студентки ШД Софии Ивановой «алеа»", exact: true })).toBeVisible();
+  await expect(dialog.locator(".detail-kicker")).toContainText("20:00–23:00");
+  await expect(dialog.locator(".detail-venue")).toContainText("Склад №3");
+  await expect(dialog.getByRole("link", { name: /Оригинальный анонс/ })).toHaveAttribute("href", "https://art.hse.ru/news/7306");
+  await expect(dialog.getByRole("link", { name: /Регистрация/, exact: false })).toHaveAttribute("href", /^https:\/\/ticketscloud\.com\//);
+  await expect(dialog.locator('.evidence-block a[href="https://t.me/hsedesign/18565"]')).toHaveCount(1);
+});
+
 test("calendar paginates its list and resets it when filters change", async ({ page }) => {
   await page.goto("/?view=calendar&period=all&type=all");
   const rows = page.locator(".event-row");

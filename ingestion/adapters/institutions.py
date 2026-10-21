@@ -81,7 +81,7 @@ def parse_institution(html,url,context=None):
     if host=='garagemca.org':return parse_garage(html,url)
     if host=='ruarts.foundation':return parse_ruarts(html,url)
     if host=='centrezotov.ru':return parse_zotov(html,url)
-    if host=='art.hse.ru':return parse_hse(html,url)
+    if host=='art.hse.ru':return parse_hse(html,url,context)
     if host=='mmoma.ru':return parse_mmoma(html,url,context)
     if host=='11-12gallery.com':return parse_1112(html,url,context)
     return []

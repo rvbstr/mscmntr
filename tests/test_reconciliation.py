@@ -7,6 +7,7 @@ from ingestion.models import deduplicate, preserve_event_ids, complete_event, li
 from ingestion.provisional import tentative_post
 from ingestion.run import refresh
 from ingestion.audit import duplicate_pairs
+from ingestion.http import SourceError
 
 FIX=Path(__file__).parent/'fixtures'
 URL='https://art.hse.ru/gallery/what_have_you_done_for_hip-hop_at_your_age'
@@ -153,7 +154,7 @@ def test_actual_site_and_channel_refresh_merge_and_remain_repeatable():
             if url=='https://art.hse.ru/gallery':return f'<a href="{URL}">Выставка</a>',url
             if url=='https://t.me/s/hseartgallery':return (FIX/'hse-telegram-real.html').read_text(),url
             if url==URL:return (FIX/'hse-exhibition-real.html').read_text(),url
-            raise AssertionError(url)
+            raise SourceError('Связанная страница недоступна в тестовом транспорте')
     overrides=dict(manual_events=[],corrections={},suppress=[],duplicates={},priorities={},disabled_sources=[],parser_rules={},publication_policy='include_tentative')
     old=event(event_id='OLD',title='открывается выставка',primary_url='https://t.me/hseartgallery/4748',
         review_status='tentative',title_is_tentative=True,source_id='TG',first_detected_at='2026-10-17T00:00:00Z')
