@@ -2,15 +2,15 @@
   "metadata": {
     "schema_version": "1.0",
     "timezone": "Europe/Moscow",
-    "last_attempted_refresh": "2026-11-02T17:07:19+00:00",
-    "last_completed_refresh": "2026-11-02T17:39:42+00:00",
-    "last_successful_update": "2026-11-02T17:39:42+00:00",
-    "generated_at": "2026-11-02T17:39:42+00:00",
+    "last_attempted_refresh": "2026-11-06T15:05:16+00:00",
+    "last_completed_refresh": "2026-11-06T15:35:50+00:00",
+    "last_successful_update": "2026-11-06T15:35:50+00:00",
+    "generated_at": "2026-11-06T15:35:50+00:00",
     "catalog_updated_on": "2026-10-19",
     "source_count": 189,
-    "successful_sources_this_run": 148,
-    "event_count": 1108,
-    "review_count": 37,
+    "successful_sources_this_run": 157,
+    "event_count": 1227,
+    "review_count": 38,
     "partial": true,
     "run_status": "partial",
     "refresh_interval_hours": 72,
@@ -19,17 +19,17 @@
       "source_ids": null
     },
     "last_editorial_update": "2026-10-21T13:05:17+00:00",
-    "tentative_count": 448,
+    "tentative_count": 495,
     "publication_policy": "include_tentative",
     "last_parser_validation": "2026-10-20T18:27:10+00:00",
     "incorporated_scheduled_refresh": "2026-10-20T13:01:56+00:00"
   },
   "statuses": {
     "working": 9,
-    "partial": 140,
+    "manual": 7,
     "blocked": 1,
     "disabled": 18,
-    "unavailable": 14,
-    "manual": 7
+    "partial": 149,
+    "unavailable": 5
   }
 }
