@@ -1,19 +1,20 @@
 {
-  "generated_at": "2026-11-13T15:56:17+00:00",
+  "generated_at": "2026-11-16T17:36:15+00:00",
   "items": [
     {
-      "source_id": "SRC_4C493AEF5B1B5F",
+      "source_id": "SRC_0D538B01F0C28F",
       "candidate": {
-        "title": "Вечность пахнет супом",
+        "title": "Выставки в ЦТИ Фабрика в Москве",
         "event_type": "exhibition",
-        "primary_url": "https://ewert.ru/exhibition/vechnost-pahnet-supom/",
-        "start_date": "2026-08-10",
-        "end_date": "2026-08-15",
+        "primary_url": "https://ewert.ru/exhibitions/zti-fabrika/",
+        "description": "Выставки в ЦТИ Фабрика — актуальная афиша галерей арт-кластера. Параллельная программа, события, вернисажи, экскурсии.                         Список                         Выставки на Фабрике в Москве 1                         Карта                         Площадки ЦТИ Фабрика Загрузка",
+        "start_date": "2026-01-31",
+        "end_date": "2026-12-31",
         "start_time": null,
-        "confidence": "programme_card",
+        "confidence": "readable_html",
         "date_basis": "explicit_date_block",
-        "date_evidence": "Вечность пахнет супом 10 августа — 15 августа 2026",
-        "title_basis": "event_heading",
+        "verification_method": "trafilatura_scoped_dom",
+        "date_evidence": "31 января — 31 декабря 2026 / Москва",
         "suggested_primary_urls": []
       },
       "reason": "Нужен первоисточник институции; агрегатор используется только для поиска."
@@ -388,27 +389,6 @@
         ]
       },
       "reason": "Розыгрыш билетов: нужно разделить упомянутые события и даты"
-    },
-    {
-      "source_id": "SRC_915827597A61E8",
-      "candidate": {
-        "primary_url": "https://t.me/centrezotov/10315",
-        "published_at": "2026-11-11T11:16:12+00:00",
-        "description": "🎉\nОтмечаем день рождения вместе с вами и впервые проводим дни конструктивизма!\nСохраняйте полное расписание уикенда.\nОткрыли дополнительные регистрации\nна некоторые события. Регистрации на мастер-классы с художниками откроются на следующей неделе — следите за новостями\n🧡\n20 ноября\n19:30\nЗотов х musicAeterna х Batsqueak.\nФильм-концерт «Необычайные приключения мистера Веста в стране большевиков\n»\n21 ноября\n11:30\nЭкскурсия в дом-коммуну Ивана Николаева\n13:00\nBig Draw. Линия, вышедшая погулять\n14:00\n6х15. «Конструктивизм — это\n…»\n15:30\nВиталий Тюрлик. Мастер-класс по созданию тюрликов\n18:00\nСпецпоказ. Маленький факт\n18:30\nИлья Кутобой. Мастер-класс по росписи тарелок\n22 ноября\n12:00\nУтренняя зарядка с Александром Горчилиным\n13:00\nЭкскурсия в дом-коммуну Ивана Николаева\n14:00\nАлексей Лука. Макет будущего\n17:00\nСпецпоказ. Маленький факт\n18:00\nТотальный коллаж от мастерской «укралпорезал\n»",
-        "related_urls": [
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/film-konczert-musicaeterna-h-neobychajnye-priklyucheniya-mistera-vesta-v-strane-bolshevikov/",
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/ekskursiya-v-dom-kommunu-ivana-nikolaeva2/",
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/big-draw-liniya-vyshedshaya-pogulyat/",
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/6h15-konstruktivizm-eto/",
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/master-klass-po-sozdaniyu-tyurlikov/",
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/malenkij-fakt/",
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/ilya-kutoboj-tropicheskij-suprematizm/",
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/utrennyaya-zaryadka-s-aleksandrom-gorchilinym/",
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/aleksej-luka-maket-budushhego/",
-          "https://centrezotov.ru/events/uikend-dni-konstruktivizma/totalnyj-kollazh/"
-        ]
-      },
-      "reason": "В публикации несколько дат; нужна разбивка на события"
     },
     {
       "source_id": "SRC_28DF613953905C",
